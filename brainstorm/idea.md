@@ -1,9 +1,9 @@
-# Pitch Deck: PasarLokal - Fresh. Local. Sustainable.
+# Pitch Deck: Sayur Lokal - Fresh. Local. Sustainable.
 
 ---
 
 ## Slide 1: Cover
-**Title:** PasarLokal  
+**Title:** Sayur Lokal  
 **Subtitle:** Fresh. Local. Sustainable.  
 **Visual:** Logo (if available) + clean background of fresh produce and reusable packaging  
 **Presented by:** [Your Name or Team Name]
@@ -11,7 +11,7 @@
 ---
 
 ## Slide 2: Introduction
-**PasarLokal** is a digital platform that brings the warmth and goodness of local markets into modern homes. We make it easy for families to access fresh, locally sourced meal preps—delivered straight to their doorstep with minimal environmental impact. By combining the values of sustainability, convenience, and community support, PasarLokal reimagines everyday meals as a force for good.
+**Sayur Lokal** is a digital platform that brings the warmth and goodness of local markets into modern homes. We make it easy for families to access fresh, locally sourced meal preps—delivered straight to their doorstep with minimal environmental impact. By combining the values of sustainability, convenience, and community support, Sayur Lokal reimagines everyday meals as a force for good.
 
 ---
 
@@ -29,17 +29,17 @@ In today’s fast-paced households, especially those with busy families, prepari
 Our platform connects households with local farmers and food artisans to deliver ready-to-cook or ready-to-eat meal preps made from fresh, local ingredients. By using eco-friendly packaging and our own optimized delivery service, we offer a convenient, sustainable alternative to traditional food delivery.
 
 **Benefits:**
-- Saves time for busy families
-- Reduces plastic and food waste
+- Saves time for busy families  
+- Reduces plastic and food waste  
 - Supports local businesses and promotes healthier lifestyles
 
 ---
 
 ## Slide 5: Unique Value Proposition
 **What sets us apart:**
-- Eco-conscious: Compostable, reusable, and recyclable packaging only
-- Local-first: All products are sourced from verified local farms and artisans
-- Meal-prep focused: Curated weekly menus for various dietary needs (e.g., family packs, vegetarian, quick meals)
+- Eco-conscious: Compostable, reusable, and recyclable packaging only  
+- Local-first: All products are sourced from verified local farms and artisans  
+- Meal-prep focused: Curated weekly menus for various dietary needs (e.g., family packs, vegetarian, quick meals)  
 - Eco Impact Tracker: See the CO2 saved per order and earn green points
 
 ---
@@ -48,7 +48,7 @@ Our platform connects households with local farmers and food artisans to deliver
 1. **Browse**: Choose from curated meal-prep bundles or individual fresh products  
 2. **Order**: Place an order via mobile/desktop  
 3. **Package**: Items are sourced, packed with sustainable materials  
-4. **Deliver**: Delivered to your door via PasarLokal's private eco-friendly delivery network  
+4. **Deliver**: Delivered to your door via Sayur Lokal's private eco-friendly delivery network  
 5. **Review & Earn**: Leave a review, track your impact, and earn eco points
 
 ---
@@ -58,7 +58,7 @@ Our platform connects households with local farmers and food artisans to deliver
 - Urban families and working professionals in Greater Jakarta and surrounding cities
 
 **Secondary Audience:**
-- Eco-conscious individuals and young couples
+- Eco-conscious individuals and young couples  
 - Health enthusiasts and meal planners
 
 ---
@@ -81,11 +81,11 @@ Our platform connects households with local farmers and food artisans to deliver
 ## Slide 10: Roadmap / Next Steps
 **Phase 1: MVP Launch**  
 - Limited area delivery (e.g., South Jakarta)  
-- Manual fulfillment with selected farm partners
+- Manual fulfillment with selected farm partners  
 
 **Phase 2: Platform Expansion**  
 - Full online product management for sellers  
-- Smart inventory, route optimization
+- Smart inventory, route optimization  
 
 **Phase 3: Scaling Up**  
 - Expand to multiple cities  
