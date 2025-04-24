@@ -343,12 +343,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/asahi_sarden_saus_tomat_155gr_thumb_1.png",
+        "/images/products/asahi_sarden_saus_tomat_155gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/asahi_sarden_saus_tomat_155gr_preview_1.png",
+        "/images/products/asahi_sarden_saus_tomat_155gr_preview_2.png",
       ],
     },
   },
