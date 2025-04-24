@@ -288,12 +288,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/mangga_madu_fresh_1kg_thumb_1.png",
+        "/images/products/mangga_madu_fresh_1kg_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/mangga_madu_fresh_1kg_preview_1.png",
+        "/images/products/mangga_madu_fresh_1kg_preview_2.png",
       ],
     },
   },
