@@ -380,12 +380,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/paket_masak_sayur_sop_lengkap_thumb_1.png",
+        "/images/products/paket_masak_sayur_sop_lengkap_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/paket_masak_sayur_sop_lengkap_preview_1.png",
+        "/images/products/paket_masak_sayur_sop_lengkap_preview_2.png",
       ],
     },
   },
