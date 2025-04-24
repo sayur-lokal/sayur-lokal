@@ -270,12 +270,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/pepaya_fresh_1_2_kg_pcs_thumb_1.png",
+        "/images/products/pepaya_fresh_1_2_kg_pcs_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/pepaya_fresh_1_2_kg_pcs_preview_1.png",
+        "/images/products/pepaya_fresh_1_2_kg_pcs_preview_2.png",
       ],
     },
   },
