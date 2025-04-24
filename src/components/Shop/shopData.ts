@@ -306,12 +306,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/jeruk_santang_1kg_preview_1.png",
+        "/images/products/jeruk_santang_1kg_preview_1.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/jeruk_santang_1kg_preview_1.png",
+        "/images/products/jeruk_santang_1kg_preview_1.png",
       ],
     },
   },
