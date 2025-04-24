@@ -178,7 +178,7 @@ const shopData: Product[] = [
     imgs: {
       thumbnails: [
         "/images/products/jagung_acar_250gr_thumb_1.png",
-        "/images/products/jagung_acar_250gr_thumb_1.png",
+        "/images/products/jagung_acar_250gr_thumb_2.png",
       ],
       previews: [
         "/images/products/jagung_acar_250gr_preview_1.png",
@@ -197,12 +197,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/bawang_merah_250gr_thumb_1.png",
+        "/images/products/bawang_merah_250gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/bawang_merah_250gr_preview_1.png",
+        "/images/products/bawang_merah_250gr_preview_2.png",
       ],
     },
   },
