@@ -233,12 +233,12 @@ const shopData: Product[] = [
     id: 7,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/cabai_rawit_hijau_250gr_thumb_1.png",
+        "/images/products/cabai_rawit_hijau_250gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/cabai_rawit_hijau_250gr_preview_1.png",
+        "/images/products/cabai_rawit_hijau_250gr_preview_2.png",
       ],
     },
   },
