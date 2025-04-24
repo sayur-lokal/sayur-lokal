@@ -1,3 +1,4 @@
+import { NextURL } from "next/dist/server/web/next-url";
 import { NextResponse, NextRequest } from "next/server";
 
 export const isJSONContent = (request: NextRequest): boolean => {
@@ -40,12 +41,11 @@ export const internalServerError = (message?: string): NextResponse =>
     }
   );
 
+export const okJSON = (data: any): NextResponse =>
+  new NextResponse(JSON.stringify(data), {
+    status: 200,
+    headers: { "Content-Type": "application/json; charset=utf-8" },
+  });
 
-  export const okJSON = (data: any): NextResponse =>
-    new NextResponse(
-      JSON.stringify(data),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json; charset=utf-8" },
-      }
-    );
+export const redirect = (url: NextURL | URL) =>
+  NextResponse.redirect(url);

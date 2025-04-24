@@ -1,15 +1,14 @@
 import { z } from "zod";
 import { 
-    isJSONContent, 
-    unsupportedMediaType,
     badRequest, 
     internalServerError,
-    okJSON} from "@/lib/api-utils"
+    redirect} from "@/lib/api-utils"
 import { NextRequest, NextResponse } from "next/server";
 import { ERR_USER_NOT_FOUND, ERR_PASSWORD_NOT_MATCH } from './errors'
 
 import { mockAuth } from "./mock-users";
-import { generateAccessToken, generateRefreshToken } from "./token";
+import { generateAccessToken, generateRefreshToken,  ACCESS_TOKEN_EXPIRY,REFRSH_TOKEN_EXPIRY } from "./token";
+import { NextURL } from "next/dist/server/web/next-url";
 
 export const signInSchema = z.object({
     email: z.string().email(),
@@ -19,20 +18,18 @@ export const signInSchema = z.object({
 export type SignInRequest = z.infer<typeof signInSchema>
 
 export async function POST(request: NextRequest): Promise<NextResponse>{
-    if (!isJSONContent(request)) {
-        return unsupportedMediaType()
-    }
+    const formData = await request.formData()
 
-    const res = await request.json()
-    const parsed = signInSchema.safeParse(res)
+    const email = formData.get('email')
+    const password = formData.get('password')
+    const parsed = signInSchema.safeParse({email, password})
     if (!parsed.success) {
         console.warn(`validation error, invalid sign-in parameter, ${parsed.error}`)
         return badRequest()
     }
 
-    const {email, password} = parsed.data
     try {
-        const user = await mockAuth({email, password})
+        const user = await mockAuth({email: parsed.data.email, password:parsed.data.password})
         const payload = {
             sub: user.id,
             email: user.email,
@@ -42,9 +39,28 @@ export async function POST(request: NextRequest): Promise<NextResponse>{
 
         const [accessToken, refreshToken] = await Promise.all([generateAccessToken(payload), generateRefreshToken(payload)])
 
-        return okJSON({
-            accessToken, refreshToken
+        const response = redirect(new NextURL("/", request.url))
+        response.cookies.set({
+            name: 'accessToken',
+            value: accessToken,
+            httpOnly: true,
+            path: '/',
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict',
+            maxAge: parseInt(ACCESS_TOKEN_EXPIRY) * 60
         })
+
+        response.cookies.set({
+            name: 'refreshToken',
+            value: refreshToken,
+            httpOnly: true,
+            path: '/api/auth/refresh',
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict',
+            maxAge: parseInt(REFRSH_TOKEN_EXPIRY) * 60 * 60 * 24
+        })
+
+        return response
 
     } catch(e) {
         console.warn("authentication failed", {e})

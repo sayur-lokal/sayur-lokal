@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 
-const ACCESS_TOKEN_EXPIRY = '15m'
-const REFRSH_TOKEN_EXPIRY = '7d'
+export const ACCESS_TOKEN_EXPIRY = '15m'
+export const REFRSH_TOKEN_EXPIRY = '7d'
 
 export const generateAccessToken = (payload: object) => {
     // IMPORTANT! remove the default secret on production
