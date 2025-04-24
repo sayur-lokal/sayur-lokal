@@ -177,12 +177,12 @@ const shopData: Product[] = [
     id: 5,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/jagung_acar_250gr_thumb_1.png",
+        "/images/products/jagung_acar_250gr_thumb_1.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/jagung_acar_250gr_preview_1.png",
+        "/images/products/jagung_acar_250gr_preview_2.png",
       ],
     },
   },
