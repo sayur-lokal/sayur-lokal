@@ -1,138 +1,391 @@
 import { Product } from "@/types/product";
+import { categories } from "./Category/categoryData";
+
+
 const shopData: Product[] = [
+  
+ //staples,1
   {
-    title: "Havit HV-G69 USB Gamepad",
+    title: "Telur 1 kg",
     reviews: 15,
     price: 59.0,
     discountedPrice: 29.0,
-    id: 1,
-    imgs: {
-      thumbnails: [
-        "/images/products/product-1-sm-1.png",
-        "/images/products/product-1-sm-2.png",
-      ],
-      previews: [
-        "/images/products/product-1-bg-1.png",
-        "/images/products/product-1-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "iPhone 14 Plus , 6/128GB",
-    reviews: 5,
-    price: 899.0,
-    discountedPrice: 99.0,
-    id: 2,
-    imgs: {
-      thumbnails: [
-        "/images/products/product-2-sm-1.png",
-        "/images/products/product-2-sm-2.png",
-      ],
-      previews: [
-        "/images/products/product-2-bg-1.png",
-        "/images/products/product-2-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Apple iMac M1 24-inch 2021",
-    reviews: 5,
-    price: 59.0,
-    discountedPrice: 29.0,
-    id: 3,
-    imgs: {
-      thumbnails: [
-        "/images/products/product-3-sm-1.png",
-        "/images/products/product-3-sm-2.png",
-      ],
-      previews: [
-        "/images/products/product-3-bg-1.png",
-        "/images/products/product-3-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "MacBook Air M1 chip, 8/256GB",
-    reviews: 6,
-    price: 59.0,
-    discountedPrice: 29.0,
-    id: 4,
-    imgs: {
-      thumbnails: [
-        "/images/products/product-4-sm-1.png",
-        "/images/products/product-4-sm-2.png",
-      ],
-      previews: [
-        "/images/products/product-4-bg-1.png",
-        "/images/products/product-4-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Apple Watch Ultra",
-    reviews: 3,
-    price: 99.0,
-    discountedPrice: 29.0,
-    id: 5,
-    imgs: {
-      thumbnails: [
-        "/images/products/product-5-sm-1.png",
-        "/images/products/product-5-sm-2.png",
-      ],
-      previews: [
-        "/images/products/product-5-bg-1.png",
-        "/images/products/product-5-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Logitech MX Master 3 Mouse",
-    reviews: 15,
-    price: 59.0,
-    discountedPrice: 29.0,
-    id: 6,
-    imgs: {
-      thumbnails: [
-        "/images/products/product-6-sm-1.png",
-        "/images/products/product-6-sm-2.png",
-      ],
-      previews: [
-        "/images/products/product-6-bg-1.png",
-        "/images/products/product-6-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Apple iPad Air 5th Gen - 64GB",
-    reviews: 15,
-    price: 59.0,
-    discountedPrice: 29.0,
-    id: 7,
-    imgs: {
-      thumbnails: [
-        "/images/products/product-7-sm-1.png",
-        "/images/products/product-7-sm-2.png",
-      ],
-      previews: [
-        "/images/products/product-7-bg-1.png",
-        "/images/products/product-7-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Asus RT Dual Band Router",
-    reviews: 15,
-    price: 59.0,
-    discountedPrice: 29.0,
+    categoryId: 1,
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/product-8-sm-1.png",
-        "/images/products/product-8-sm-2.png",
+        "/images/products/.png",
+        "/images/products/.png",
       ],
       previews: [
-        "/images/products/product-8-bg-1.png",
-        "/images/products/product-8-bg-2.png",
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  {
+    title: "Beras 5 kg",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 1,
+    id: 8,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  {
+    title: "Ubi Ungu 1 kg",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 1,
+    id: 8,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  {
+    title: "Kentang Dieng 250 gr",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 1,
+    id: 8,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  {
+    title: "Tepung Kunci Biru 1 kg",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 1,
+    id: 8,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  //sayur,2
+  {
+    title: "Jamur Tiram 500 gr",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 2,
+    id: 1,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  {
+    title: "Terong Ungu 500 gr",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 2,
+    id: 1,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  {
+    title: "Labu Siam 1pcs, 250 gr",
+    reviews: 5,
+    price: 899.0,
+    discountedPrice: 99.0,
+    categoryId: 2,
+    id: 2,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  {
+    title: "Kecambah Kedelai 250 gr",
+    reviews: 5,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 2,
+    id: 3,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  {
+    title: "Jagung Acar 250 gr",
+    reviews: 3,
+    price: 99.0,
+    discountedPrice: 29.0,
+    categoryId: 2,
+    id: 5,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+ 
+  //seasonings,3
+  {
+    title: "Bawang Merah 250 gr",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 3,
+    id: 8,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  {
+    title: "Bawang Putih 250 gr",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 3,
+    id: 8,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  {
+    title: "Cabai Rawit Hijau 250 gr",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 3,
+    id: 7,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  {
+    title: "Daun Kemangi Segar 10 gr",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 3,
+    id: 8,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  //fruits,4
+  {
+    title: "Pepaya Fresh 1-2 kg/pcs",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 4,
+    id: 8,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  {
+    title: "Mangga Madu Fresh 1 kg",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 4,
+    id: 8,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  {
+    title: "Jeruk Santang 1 kg",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 4,
+    id: 8,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  //uncategorized,6
+  {
+    title: "Ikan Kembung Segar 1 kg",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 6,
+    id: 8,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  {
+    title: "Asahi Sarden Saus Tomat 155 gr",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 6,
+    id: 8,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  //meal kits,5
+  {
+    title: "Paket Masak Sayur Asem Lengkap",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 5,
+    id: 8,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+    },
+  },
+  {
+    title: "Paket Masak Sayur Sop Lengkap",
+    reviews: 15,
+    price: 59.0,
+    discountedPrice: 29.0,
+    categoryId: 5,
+    id: 8,
+    imgs: {
+      thumbnails: [
+        "/images/products/.png",
+        "/images/products/.png",
+      ],
+      previews: [
+        "/images/products/.png",
+        "/images/products/.png",
       ],
     },
   },
