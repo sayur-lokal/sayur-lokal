@@ -1,5 +1,5 @@
 import { z } from "zod";
-import bcrypt from "bcrypt";
+import argon2 from "argon2"
 
 export const userSchema = z.object({
 id: z.string(),
@@ -13,10 +13,9 @@ export type User = z.infer<typeof userSchema>;
 
 export const hashPassword = (
   password: string,
-  saltRounds: number = 10
 ): Promise<string> => {
-  return bcrypt.hash(password, saltRounds);
+  return argon2.hash(password);
 };
 
 export const compareHash = (hash: string, password: string): Promise<boolean> =>
-  bcrypt.compare(password, hash);
+  argon2.verify(hash, password);
