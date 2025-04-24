@@ -105,12 +105,12 @@ const shopData: Product[] = [
     id: 1,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/jamur_tiram_500gr_thumb_1.png",
+        "/images/products/jamur_tiram_500gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/jamur_tiram_500gr_preview_1.png",
+        "/images/products/jamur_tiram_500gr_preview_2.png",
       ],
     },
   },
@@ -123,12 +123,12 @@ const shopData: Product[] = [
     id: 1,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/terong_ungu_500gr_thumb_1.png",
+        "/images/products/terong_ungu_500gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/terong_ungu_500gr_preview_1.png",
+        "/images/products/terong_ungu_500gr_preview_2.png",
       ],
     },
   },
