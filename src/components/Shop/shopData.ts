@@ -25,19 +25,19 @@ const shopData: Product[] = [
   },
   {
     title: "Beras 5 kg",
-    reviews: 15,
+    reviews: 1,
     price: 59.0,
     discountedPrice: 29.0,
     categoryId: 1,
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/beras_5kg_thumb_1.png",
+        "/images/products/beras_5kg_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/beras_5kg_preview_1.png",
+        "/images/products/beras_5kg_preview_2.png",
       ],
     },
   },
