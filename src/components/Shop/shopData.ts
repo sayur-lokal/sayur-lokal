@@ -14,30 +14,30 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/telur_1kg_thumb_1.png",
+        "/images/products/telur_1kg_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/telur_1kg_preview_1.png",
+        "/images/products/telur_1kg_preview_2.png",
       ],
     },
   },
   {
     title: "Beras 5 kg",
-    reviews: 15,
+    reviews: 1,
     price: 59.0,
     discountedPrice: 29.0,
     categoryId: 1,
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/beras_5kg_thumb_1.png",
+        "/images/products/beras_5kg_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/beras_5kg_preview_1.png",
+        "/images/products/beras_5kg_preview_2.png",
       ],
     },
   },
@@ -50,12 +50,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/ubi_ungu_1kg_thumb_1.png",
+        "/images/products/ubi_ungu_1kg_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/ubi_ungu_1kg_preview_1.png",
+        "/images/products/ubi_ungu_1kg_preview_2.png",
       ],
     },
   },
@@ -68,12 +68,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/kentang_dieng_250gr_thumb_1.png",
+        "/images/products/kentang_dieng_250gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/kentang_dieng_250gr_preview_1.png",
+        "/images/products/kentang_dieng_250gr_preview_2.png",
       ],
     },
   },
@@ -86,12 +86,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/tepung_kunci_biru_1kg_thumb_1.png",
+        "/images/products/tepung_kunci_biru_1kg_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/tepung_kunci_biru_1kg_preview_1.png",
+        "/images/products/tepung_kunci_biru_1kg_preview_2.png",
       ],
     },
   },
@@ -105,12 +105,12 @@ const shopData: Product[] = [
     id: 1,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/jamur_tiram_500gr_thumb_1.png",
+        "/images/products/jamur_tiram_500gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/jamur_tiram_500gr_preview_1.png",
+        "/images/products/jamur_tiram_500gr_preview_2.png",
       ],
     },
   },
@@ -123,12 +123,12 @@ const shopData: Product[] = [
     id: 1,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/terong_ungu_500gr_thumb_1.png",
+        "/images/products/terong_ungu_500gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/terong_ungu_500gr_preview_1.png",
+        "/images/products/terong_ungu_500gr_preview_2.png",
       ],
     },
   },
@@ -141,12 +141,12 @@ const shopData: Product[] = [
     id: 2,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/labu_siam_1pcs_250gr_thumb_1.png",
+        "/images/products/labu_siam_1pcs_250gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/labu_siam_1pcs_250gr_preview_1.png",
+        "/images/products/labu_siam_1pcs_250gr_preview_2.png",
       ],
     },
   },
@@ -159,12 +159,12 @@ const shopData: Product[] = [
     id: 3,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/kecambah_kedelai_250gr_thumb_1.png",
+        "/images/products/kecambah_kedelai_250gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/kecambah_kedelai_250gr_preview_1.png",
+        "/images/products/kecambah_kedelai_250gr_preview_2.png",
       ],
     },
   },
@@ -177,12 +177,12 @@ const shopData: Product[] = [
     id: 5,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/jagung_acar_250gr_thumb_1.png",
+        "/images/products/jagung_acar_250gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/jagung_acar_250gr_preview_1.png",
+        "/images/products/jagung_acar_250gr_preview_2.png",
       ],
     },
   },
@@ -197,12 +197,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/bawang_merah_250gr_thumb_1.png",
+        "/images/products/bawang_merah_250gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/bawang_merah_250gr_preview_1.png",
+        "/images/products/bawang_merah_250gr_preview_2.png",
       ],
     },
   },
@@ -215,12 +215,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/bawang_putih_250gr_thumb_1.png",
+        "/images/products/bawang_putih_250gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/bawang_putih_250gr_preview_1.png",
+        "/images/products/bawang_putih_250gr_preview_2.png",
       ],
     },
   },
@@ -233,12 +233,12 @@ const shopData: Product[] = [
     id: 7,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/cabai_rawit_hijau_250gr_thumb_1.png",
+        "/images/products/cabai_rawit_hijau_250gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/cabai_rawit_hijau_250gr_preview_1.png",
+        "/images/products/cabai_rawit_hijau_250gr_preview_2.png",
       ],
     },
   },
@@ -251,12 +251,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/daung_kemangi_segar_10gr_thumb_1.png",
+        "/images/products/daung_kemangi_segar_10gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/daung_kemangi_segar_10gr_preview_1.png",
+        "/images/products/daung_kemangi_segar_10gr_preview_2.png",
       ],
     },
   },
@@ -270,12 +270,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/pepaya_fresh_1_2_kg_pcs_thumb_1.png",
+        "/images/products/pepaya_fresh_1_2_kg_pcs_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/pepaya_fresh_1_2_kg_pcs_preview_1.png",
+        "/images/products/pepaya_fresh_1_2_kg_pcs_preview_2.png",
       ],
     },
   },
@@ -288,12 +288,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/mangga_madu_fresh_1kg_thumb_1.png",
+        "/images/products/mangga_madu_fresh_1kg_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/mangga_madu_fresh_1kg_preview_1.png",
+        "/images/products/mangga_madu_fresh_1kg_preview_2.png",
       ],
     },
   },
@@ -306,12 +306,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/jeruk_santang_1kg_preview_1.png",
+        "/images/products/jeruk_santang_1kg_preview_1.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/jeruk_santang_1kg_preview_1.png",
+        "/images/products/jeruk_santang_1kg_preview_1.png",
       ],
     },
   },
@@ -325,12 +325,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/ikan_kembung_segar_1kg_thumb_1.png",
+        "/images/products/ikan_kembung_segar_1kg_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/ikan_kembung_segar_1kg_preview_1.png",
+        "/images/products/ikan_kembung_segar_1kg_preview_2.png",
       ],
     },
   },
@@ -343,12 +343,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/asahi_sarden_saus_tomat_155gr_thumb_1.png",
+        "/images/products/asahi_sarden_saus_tomat_155gr_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/asahi_sarden_saus_tomat_155gr_preview_1.png",
+        "/images/products/asahi_sarden_saus_tomat_155gr_preview_2.png",
       ],
     },
   },
@@ -362,12 +362,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/paket_masak_sayur_asem_lengkap_thumb_1.png",
+        "/images/products/paket_masak_sayur_asem_lengkap_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/paket_masak_sayur_asem_lengkap_preview_1.png",
+        "/images/products/paket_masak_sayur_asem_lengkap_preview_2.png",
       ],
     },
   },
@@ -380,12 +380,12 @@ const shopData: Product[] = [
     id: 8,
     imgs: {
       thumbnails: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/paket_masak_sayur_sop_lengkap_thumb_1.png",
+        "/images/products/paket_masak_sayur_sop_lengkap_thumb_2.png",
       ],
       previews: [
-        "/images/products/.png",
-        "/images/products/.png",
+        "/images/products/paket_masak_sayur_sop_lengkap_preview_1.png",
+        "/images/products/paket_masak_sayur_sop_lengkap_preview_2.png",
       ],
     },
   },
