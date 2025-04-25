@@ -13,6 +13,15 @@ export const generateAccessToken = (payload: object) => {
     return jwt.sign(payload, secret, {expiresIn: ACCESS_TOKEN_EXPIRY})
 }
 
+export const decodeAccessToken = (token: string): object | null => {
+    const payload = jwt.decode(token)
+    if (typeof payload ==  "string") {
+        return null
+    }
+    
+    return payload
+}
+
 export const generateRefreshToken = (payload: object): string => {
     // IMPORTANT! remove the default secret on production
     const secret = process.env.JWT_REFRESH_SECRET || "test refresh"

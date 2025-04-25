@@ -4,10 +4,10 @@ import {
     internalServerError,
     redirect} from "@/lib/api-utils"
 import { NextRequest, NextResponse } from "next/server";
-import { ERR_USER_NOT_FOUND, ERR_PASSWORD_NOT_MATCH } from './errors'
+import { ERR_USER_NOT_FOUND, ERR_PASSWORD_NOT_MATCH } from '@/lib/auth'
 
-import { mockAuth } from "./mock-users";
-import { generateAccessToken, generateRefreshToken,  ACCESS_TOKEN_EXPIRY,REFRSH_TOKEN_EXPIRY } from "./token";
+import { mockAuth } from "@/lib/mock-users";
+import { generateAccessToken, generateRefreshToken,  ACCESS_TOKEN_EXPIRY,REFRSH_TOKEN_EXPIRY } from "@/lib/jwt";
 import { NextURL } from "next/dist/server/web/next-url";
 
 export const signInSchema = z.object({

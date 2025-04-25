@@ -47,5 +47,15 @@ export const okJSON = (data: any): NextResponse =>
     headers: { "Content-Type": "application/json; charset=utf-8" },
   });
 
-export const redirect = (url: NextURL | URL) =>
-  NextResponse.redirect(url);
+export const redirect = (url: NextURL | URL) => NextResponse.redirect(url);
+
+export const unauthorized = (message?: string): NextResponse =>
+  new NextResponse(
+    JSON.stringify({
+      message: message || "Unauthorized",
+    }),
+    {
+      status: 401,
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+    }
+  );

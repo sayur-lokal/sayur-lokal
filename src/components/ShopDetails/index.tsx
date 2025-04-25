@@ -91,8 +91,6 @@ const ShopDetails = () => {
     openPreviewModal();
   };
 
-  console.log(product);
-
   return (
     <>
       <Breadcrumb title={"Shop Details"} pages={["shop details"]} />

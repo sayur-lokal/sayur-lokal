@@ -1,6 +1,6 @@
-import { User } from "./auth"
+import { User } from "@/lib/user"
 import { hashPassword, compareHash } from "./auth"
-import { ERR_USER_NOT_FOUND, ERR_PASSWORD_NOT_MATCH } from './errors'
+import { ERR_USER_NOT_FOUND, ERR_PASSWORD_NOT_MATCH } from './auth'
 
 const createMockUser = async ({name, role, email, password}: {name: string, role: "admin" | "seller" | "buyer", email: string, password: string}): Promise<User> => {
     const hashedPassword = await hashPassword(password)
@@ -14,6 +14,16 @@ const getMockedUsers = async (): Promise<User[]> => await Promise.all(["admin:ad
     const role = name as "admin" | "buyer" | "seller"
     return createMockUser({name, email, role, password})
 }))
+
+export const getMockedUser = async(userID: string): Promise<User | null> => {
+    const users = await getMockedUsers()
+    const index = users.findIndex(user => user.id == userID)
+    if (index == -1) {
+        return null
+    }
+
+    return {...users[index], hashed_password: undefined}
+}
 
 export const mockAuth = async ({email, password}: {email: string, password: string}): Promise<User> => {
     const users = await getMockedUsers()
