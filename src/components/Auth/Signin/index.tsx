@@ -17,7 +17,7 @@ const Signin = () => {
             </div>
 
             <div>
-              <form action="api/signin" method="POST">
+              <form action="api/auth/signin" method="POST">
                 <div className="mb-5">
                   <label htmlFor="email" className="block mb-2.5">
                     Email
