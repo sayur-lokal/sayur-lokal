@@ -12,7 +12,7 @@ const Orders = () => {
         setOrders(data.orders);
       })
       .catch((err) => {
-        console.log(err.message);
+        console.warn(err.message);
       });
   }, []);
 
