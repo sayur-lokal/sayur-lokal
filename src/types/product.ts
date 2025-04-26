@@ -6,9 +6,12 @@ export type Product = {
   categoryId: number; 
   id: number;
   description?: string;
-  ingredients?: string[]; // only for meal kits
   imgs?: {
     thumbnails: string[];
     previews: string[];
   };
+  productType?: "standard" | "premium"; // e.g. eco-friendly/organic
+  ingredients?: string[]; // only for meal kits
+  isEcoFriendly?: boolean;
+  isOrganic?: boolean,
 };

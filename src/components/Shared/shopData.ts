@@ -1,5 +1,5 @@
 import { Product } from "@/types/product";
-import { categories } from "./Category/categoryData";
+import { categories } from "./categoryData";
 
 
 const shopData: Product[] = [
