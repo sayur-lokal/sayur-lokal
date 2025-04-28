@@ -1,4 +1,4 @@
-import { z } from "zod";
+
 import { 
     badRequest, 
     internalServerError,
@@ -9,13 +9,7 @@ import { ERR_USER_NOT_FOUND, ERR_PASSWORD_NOT_MATCH } from '@/lib/auth'
 import { mockAuth } from "@/lib/mock-users";
 import { generateAccessToken, generateRefreshToken,  ACCESS_TOKEN_EXPIRY,REFRSH_TOKEN_EXPIRY } from "@/lib/jwt";
 import { NextURL } from "next/dist/server/web/next-url";
-
-export const signInSchema = z.object({
-    email: z.string().email(),
-    password: z.string().min(3),
-})
-
-export type SignInRequest = z.infer<typeof signInSchema>
+import { signInSchema } from "@/lib/sign-in";
 
 export async function POST(request: NextRequest): Promise<NextResponse>{
     const formData = await request.formData()

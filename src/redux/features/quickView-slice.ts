@@ -15,6 +15,8 @@ const initialState = {
     id: 0,
     images: [],
     imgs: { thumbnails: [], previews: [] },
+    productType: "standard",
+    categoryId: 1
   } as Product,
 } as InitialState;
 
