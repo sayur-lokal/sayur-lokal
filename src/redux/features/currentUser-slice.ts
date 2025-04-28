@@ -1,5 +1,5 @@
 
-import { User } from "@/app/api/signin/auth";
+import { User } from "@/lib/user";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 
