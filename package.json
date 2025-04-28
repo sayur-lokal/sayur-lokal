@@ -12,6 +12,7 @@
     "@reduxjs/toolkit": "^2.6.1",
     "argon2": "^0.43.0",
     "autoprefixer": "10.4.15",
+    "country-list-js": "^3.1.8",
     "jsonwebtoken": "^9.0.2",
     "next": "15.2.3",
     "postcss": "8.4.29",

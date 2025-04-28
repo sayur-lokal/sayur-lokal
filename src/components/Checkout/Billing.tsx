@@ -1,4 +1,5 @@
 import React from "react";
+import country from 'country-list-js';
 
 const Billing = () => {
   return (
@@ -53,15 +54,13 @@ const Billing = () => {
 
         <div className="mb-5">
           <label htmlFor="countryName" className="block mb-2.5">
-            Country/ Region
+            Country / Region
             <span className="text-red">*</span>
           </label>
 
           <div className="relative">
             <select className="w-full bg-gray-1 rounded-md border border-gray-3 text-dark-4 py-3 pl-5 pr-9 duration-200 appearance-none outline-none focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20">
-              <option value="0">Australia</option>
-              <option value="1">America</option>
-              <option value="2">England</option>
+            {country.names().filter((c,i,arr) => arr.indexOf(c) == i).map(c =><option key={c} value={c}>{c}</option>)}
             </select>
 
             <span className="absolute right-4 top-1/2 -translate-y-1/2 text-dark-4">
