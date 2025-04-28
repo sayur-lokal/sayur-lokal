@@ -1,11 +1,11 @@
-import { User } from "@/lib/user"
+import { User } from "@/types/user"
 import { hashPassword, compareHash } from "./auth"
 import { ERR_USER_NOT_FOUND, ERR_PASSWORD_NOT_MATCH } from './auth'
 
 const createMockUser = async ({name, role, email, password}: {name: string, role: "admin" | "seller" | "buyer", email: string, password: string}): Promise<User> => {
     const hashedPassword = await hashPassword(password)
     return {
-        id:name, name, role, email, hashed_password: hashedPassword
+        id:name, name, role, email, hashed_password: hashedPassword, address: "", createdAt: new Date().toISOString()
     }
 }
 
@@ -33,6 +33,10 @@ export const mockAuth = async ({email, password}: {email: string, password: stri
     }
 
     const user =  users[index]
+    if (!user.hashed_password) {
+        throw ERR_PASSWORD_NOT_MATCH
+    }
+    
     if (!compareHash(user.hashed_password, password)) {
         throw ERR_PASSWORD_NOT_MATCH
     }
