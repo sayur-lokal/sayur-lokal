@@ -7,20 +7,15 @@ import ShippingMethod from "./ShippingMethod";
 import PaymentMethod from "./PaymentMethod";
 import Coupon from "./Coupon";
 import Billing from "./Billing";
-import Product from "./Product";
 
 import { useAppSelector } from "@/redux/store";
 import { CartItem } from "@/redux/features/cart-slice";
-import Price from "@/components/Price";
 
+
+import OrderList from "./OrderList"
 const Checkout = () => {
 
     const cartItems: CartItem[] = useAppSelector((state) => state.cartReducer.items);
-    const total = cartItems.reduce((acc, cur) => {
-        return acc + cur.price;
-    }, 0);
-
-    const shippingFee = 15;
 
     if (cartItems.length == 0) {
         return (
@@ -79,68 +74,10 @@ const Checkout = () => {
 
                             {/* // <!-- checkout right --> */}
                             <div className="max-w-[455px] w-full">
-                                {/* <!-- order list box --> */}
-                                <div className="bg-white shadow-1 rounded-[10px]">
-                                    <div className="border-b border-gray-3 py-5 px-4 sm:px-8.5">
-                                        <h3 className="font-medium text-xl text-dark">
-                                            Your Order
-                                        </h3>
-                                    </div>
-
-
-
-                                    <div className="pt-2.5 pb-8.5 px-4 sm:px-8.5">
-                                        {/* <!-- title --> */}
-                                        <div className="flex items-center justify-between py-5 border-b border-gray-3">
-                                            <div>
-                                                <h4 className="font-medium text-dark">Product</h4>
-                                            </div>
-                                            <div>
-                                                <h4 className="font-medium text-dark text-right">
-                                                    Subtotal
-                                                </h4>
-                                            </div>
-                                        </div>
-
-                                        {cartItems.map((item: CartItem) => <Product key={item.id} name={item.title} price={item.price} />)}
-
-
-                                        {/* <!-- product item --> */}
-                                        <div className="flex items-center justify-between py-5 border-b border-gray-3">
-                                            <div>
-                                                <p className="text-dark">Shipping Fee</p>
-                                            </div>
-                                            <div>
-                                                <p className="text-dark text-right">
-                                                    <Price price={shippingFee} />
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        {/* <!-- total --> */}
-                                        <div className="flex items-center justify-between pt-5">
-                                            <div>
-                                                <p className="font-medium text-lg text-dark">Total</p>
-                                            </div>
-                                            <div>
-                                                <p className="font-medium text-lg text-dark text-right">
-                                                    <Price price={total + shippingFee} />
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* <!-- coupon box --> */}
+                                <OrderList />
                                 <Coupon />
-
-                                {/* <!-- shipping box --> */}
                                 <ShippingMethod />
-
-                                {/* <!-- payment box --> */}
                                 <PaymentMethod />
-
-                                {/* <!-- checkout button --> */}
                                 <button
                                     type="submit"
                                     className="w-full flex justify-center font-medium text-white bg-blue py-3 px-6 rounded-md ease-out duration-200 hover:bg-blue-dark mt-7.5"
