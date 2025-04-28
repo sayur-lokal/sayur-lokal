@@ -1,4 +1,5 @@
 import { z } from "zod"
+import { commaSeparatedStringArray } from "./utils";
 
 /**
  * Parses raw product data into a Product type.
@@ -27,7 +28,7 @@ export const productSchema = z.object({
     reviews: z.number().int("Reviews must be an integer").nonnegative("Reviews cannot be negative").describe("number of reviews for the product"),
     price: z.number().nonnegative("Price cannot be negative").describe("original price of the product"),
     discountedPrice: z.number().nonnegative("Discounted price cannot be negative").describe("discounted price of the product"),
-    categoryId: z.number().int("Category ID must be an integer").positive("Category ID must be positive").describe("ID of the product category"),
+    category: commaSeparatedStringArray.describe("the category list of the product"),
     shopId: z.number().int("Shop ID must be an integer").positive("Shop ID must be positive").describe("ID of the shop selling the product"),
     description: z.string().max(1000, "Description cannot exceed 1000 characters").optional().describe("description of the product"),
     ingredients: z.array(z.string().min(1, "Ingredient cannot be empty")).optional().describe("list of ingredients in the product"),

@@ -11,7 +11,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 59000.0,
     discountedPrice: 57000.0,
-    categoryId: 1,
+    category: ["staples"],
     id: "1",
     imgs: [{
       thumbnails: [
@@ -31,7 +31,7 @@ const shopData: Product[] = [
     reviews: 1,
     price: 76000.0,
     discountedPrice: 74000.0,
-    categoryId: 1,
+    category: ["staples"],
     id: "2",
     imgs: [{
       thumbnails: [
@@ -51,7 +51,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 28000.0,
     discountedPrice: 26000.0,
-    categoryId: 1,
+    category: ["staples"],
     id: "3",
     imgs: [{
       thumbnails: [
@@ -71,7 +71,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 25000.0,
     discountedPrice: 23000.0,
-    categoryId: 1,
+    category: ["staples"],
     id: "4",
     imgs: [{
       thumbnails: [
@@ -91,7 +91,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 25000.0,
     discountedPrice: 23000.0,
-    categoryId: 1,
+    category: ["staples"],
     id: "5",
     imgs: [{
       thumbnails: [
@@ -112,7 +112,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 25000.0,
     discountedPrice: 23000.0,
-    categoryId: 2,
+    category: ["sayur"],
     id: "6",
     imgs: [{
       thumbnails: [
@@ -132,7 +132,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 12000.0,
     discountedPrice: 10000.0,
-    categoryId: 2,
+    category: ["sayur"],
     id: "7",
     imgs: [{
       thumbnails: [
@@ -152,7 +152,7 @@ const shopData: Product[] = [
     reviews: 5,
     price: 5000.0,
     discountedPrice: 3000.0,
-    categoryId: 2,
+    category: ["sayur"],
     id: "8",
     imgs: [{
       thumbnails: [
@@ -172,7 +172,7 @@ const shopData: Product[] = [
     reviews: 5,
     price: 6000.0,
     discountedPrice: 4000.0,
-    categoryId: 2,
+    category: ["sayur"],
     id: "9",
     imgs: [{
       thumbnails: [
@@ -192,7 +192,7 @@ const shopData: Product[] = [
     reviews: 3,
     price: 13000.0,
     discountedPrice: 11000.0,
-    categoryId: 2,
+    category: ["sayur"],
     id: "10",
     imgs: [{
       thumbnails: [
@@ -214,7 +214,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 17000.0,
     discountedPrice: 15000.0,
-    categoryId: 3,
+    category: ["seasonings"],
     id: "11",
     imgs: [{
       thumbnails: [
@@ -234,7 +234,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 22000.0,
     discountedPrice: 20000.0,
-    categoryId: 3,
+    category: ["seasonings"],
     id: "12",
     imgs: [{
       thumbnails: [
@@ -254,7 +254,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 18000.0,
     discountedPrice: 16000.0,
-    categoryId: 3,
+    category: ["seasonings"],
     id: "13",
     imgs: [{
       thumbnails: [
@@ -274,7 +274,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 4000.0,
     discountedPrice: 2000.0,
-    categoryId: 3,
+    category: ["seasonings"],
     id: "14",
     imgs: [{
       thumbnails: [
@@ -295,7 +295,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 18000.0,
     discountedPrice: 16000.0,
-    categoryId: 4,
+    category: ["fruits"],
     id: "15",
     imgs: [{
       thumbnails: [
@@ -315,7 +315,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 44000.0,
     discountedPrice: 42000.0,
-    categoryId: 4,
+    category: ["fruits"],
     id: "16",
     imgs: [{
       thumbnails: [
@@ -335,7 +335,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 58000.0,
     discountedPrice: 56000.0,
-    categoryId: 4,
+    category: ["fruits"],
     id: "17",
     imgs: [{
       thumbnails: [
@@ -356,7 +356,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 34000.0,
     discountedPrice: 32000.0,
-    categoryId: 6,
+    category: ["uncategorized"],
     id: "18",
     imgs: [{
       thumbnails: [
@@ -376,7 +376,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 15000.0,
     discountedPrice: 13000.0,
-    categoryId: 6,
+    category: ["uncategorized"],
     id: "19",
     imgs: [{
       thumbnails: [
@@ -397,7 +397,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 30000.0,
     discountedPrice: 28000.0,
-    categoryId: 5,
+    category: ["meal kits"],
     id: "20",
     description: "Ready-to-cook ingredients for 5 portions",
     ingredients: sayurAsemIngredients,
@@ -419,7 +419,7 @@ const shopData: Product[] = [
     reviews: 15,
     price: 25000.0,
     discountedPrice: 23000.0,
-    categoryId: 5,
+    category: ["meal kits"],
     id: "21",
     description: "Ready-to-cook ingredients for 5 portions",
     ingredients: sayurSopIngredients,
