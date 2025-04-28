@@ -10,17 +10,36 @@ import Billing from "./Billing";
 import Product from "./Product";
 
 import { useAppSelector } from "@/redux/store";
-import { CartItem } from "@/redux/features/cart-slice"
+import { CartItem } from "@/redux/features/cart-slice";
 import Price from "@/components/Price";
 
 const Checkout = () => {
 
     const cartItems: CartItem[] = useAppSelector((state) => state.cartReducer.items);
-    const total =  cartItems.reduce((acc, cur) => {
-        return acc + cur.price
-    }, 0)
+    const total = cartItems.reduce((acc, cur) => {
+        return acc + cur.price;
+    }, 0);
 
-    const shippingFee = 15
+    const shippingFee = 15;
+
+    if (cartItems.length == 0) {
+        return (
+            <>
+                <Breadcrumb title={"Checkout"} pages={["checkout"]} />
+                <section className="overflow-hidden py-20 bg-gray-2">
+                    <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
+                        <div className="flex flex-col lg:flex-row gap-7.5 xl:gap-11">
+                            {/* TODO: improve this text and styling */}
+                            <div className="lg:max-w-[670px] w-full">
+                            Your cart is empty, add a product
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </>
+        );
+    }
 
     return (
         <>
