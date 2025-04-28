@@ -1,16 +1,20 @@
-export type Product = {
-  title: string;
-  reviews: number;
-  price: number;
-  discountedPrice: number;
-  categoryId: number; 
-  shopId: number;
-  id: number;
-  description?: string;
-  ingredients?: string[]; // only for meal kits
-  createdAt: string;
-  imgs?: {
-    thumbnails: string[];
-    previews: string[];
-  };
-};
+import { z } from "zod"
+
+export const productSchema = z.object({
+    id: z.string().describe("unique identifier of the product"),
+    title: z.string(),
+    reviews: z.number(),
+    price: z.number(),
+    discountedPrice: z.number(),
+    categoryId: z.number(),
+    shopId: z.number(),
+    description: z.string().optional(),
+    ingredients: z.array(z.string()).optional(),
+    createdAt: z.string(),
+    imgs: z.array(z.object({
+        thumbnails: z.array(z.string()),
+        previews: z.array(z.string())
+    })).optional()
+})
+
+export type Product = z.infer<typeof productSchema>;
