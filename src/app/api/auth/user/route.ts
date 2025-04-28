@@ -4,7 +4,7 @@ import { decodeAccessToken } from "@/lib/jwt"
 import { getMockedUser } from "@/lib/mock-users"
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
-    const accesToken = request.cookies.get('accessToken').value
+    const accesToken = request.cookies.get('accessToken')?.value
     if (!accesToken) {
         return unauthorized()
     }
