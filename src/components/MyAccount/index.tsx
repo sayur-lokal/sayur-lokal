@@ -6,8 +6,17 @@ import AddressModal from "./AddressModal";
 import Orders from "../Orders";
 
 const MyAccount = () => {
+  // const dispatch = useDispatch();
+  // const { user, loading } = useAppSelector((state) => state.currentUserReducer);
+
+  // const [currentRole, setCurrentRole] = useState<Role>("buyer");
+
   const [activeTab, setActiveTab] = useState("dashboard");
   const [addressModal, setAddressModal] = useState(false);
+
+  // useEffect(() => {
+  //   dispatch(fetchCurrentUser());
+  // }, [dispatch]);
 
   const openAddressModal = () => {
     setAddressModal(true);

@@ -1,7 +1,7 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useCallback, useRef, useEffect } from "react";
-import data from "./categoryData";
+import categoryData from "../../Shared/categoryData";
 import Image from "next/image";
 
 // Import Swiper styles
@@ -134,7 +134,7 @@ const Categories = () => {
               },
             }}
           >
-            {data.map((item, key) => (
+            {categoryData.map((item, key) => (
               <SwiperSlide key={key}>
                 <SingleItem item={item} />
               </SwiperSlide>

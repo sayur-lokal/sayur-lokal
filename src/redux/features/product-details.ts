@@ -16,6 +16,9 @@ const initialState = {
     categoryId: 0,
     id: 0,
     imgs: { thumbnails: [], previews: [] },
+    ingredients: [], // string[] by default
+    isEcoFriendly: false,
+    isOrganic: false, 
   },
 } as InitialState;
 
