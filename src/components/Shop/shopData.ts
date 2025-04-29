@@ -1,19 +1,19 @@
 import { Product } from "@/types/product";
 const shopData: Product[] = [
   {
-    title: "Havit HV-G69 USB Gamepad",
+    title: "Bawang Merah",
     reviews: 15,
     price: 59.0,
     discountedPrice: 29.0,
     id: 1,
     imgs: {
       thumbnails: [
-        "/images/products/product-1-sm-1.png",
-        "/images/products/product-1-sm-2.png",
+        "/images/vegetables/Bawang-merah.jpeg",
+        "/images/vegetables/Bawang-merah.jpeg",
       ],
       previews: [
-        "/images/products/product-1-bg-1.png",
-        "/images/products/product-1-bg-2.png",
+        "/images/vegetables/Bawang-merah.jpeg",
+        "/images/vegetables/Bawang-merah.jpeg",
       ],
     },
   },
