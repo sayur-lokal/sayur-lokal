@@ -4,13 +4,18 @@ export type Product = {
   price: number;
   discountedPrice: number;
   categoryId: number; 
-  shopId: number;
+  sellerId: number;
   id: number;
   description?: string;
-  ingredients?: string[]; // only for meal kits
   createdAt: string;
   imgs?: {
     thumbnails: string[];
     previews: string[];
-  };
+  },
+  productAttrb:{
+  productType?: "standard" | "premium"; // e.g. eco-friendly/organic
+  isEcoFriendly?: boolean;
+  isOrganic?: boolean;
+  },
+  ingredients?: string[]; // only for meal kits
 };
