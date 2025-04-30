@@ -5,6 +5,8 @@ import wishlistReducer from "./features/wishlist-slice";
 import productDetailsReducer from "./features/product-details";
 import currentUserSlice from "./features/currentUser-slice";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
+import reviewSlice from "./features/review-slice";
+import sellerInventory from "./features/sellerInventory-slice";
 
 
 export const store = configureStore({
@@ -14,6 +16,8 @@ export const store = configureStore({
     wishlistReducer,
     productDetailsReducer,
     currentUserSlice,
+    reviewSlice,
+    sellerInventory,
   },
 });
 
