@@ -8,30 +8,30 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     try {
         const params = request.nextUrl.searchParams
         const query = parseProductQuery({
-            page: params.get("page"),
-            limit: params.get("limit"),
-            category: params.get("category"),
-            name: params.get("name"),
-            price_min: params.get("price_min"),
-            price_max: params.get("price_max")
+            page: params.get("page") || 1,
+            limit: params.get("limit") || 10,
+            // category: params.get("category"),
+            // name: params.get("name"),
+            // price_min: params.get("price_min"),
+            // price_max: params.get("price_max")
         })
 
         let filtered = shopData
-        if (query.category && query.category.length > 0) {
-            filtered = filtered.filter(product => hasAtleastOne(query.category!, product.category))
-        }
+        // if (query.category && query.category.length > 0) {
+        //     filtered = filtered.filter(product => hasAtleastOne(query.category!, product.category))
+        // }
 
-        if (query.name) {
-            filtered = filtered.filter(product => product.title.includes(query.name!))
-        }
+        // if (query.name) {
+        //     filtered = filtered.filter(product => product.title.includes(query.name!))
+        // }
 
-        if (query.price_min) {
-            filtered = filtered.filter(product => product.price >= query.price_min!)
-        }
+        // if (query.price_min) {
+        //     filtered = filtered.filter(product => product.price >= query.price_min!)
+        // }
 
-        if (query.price_max) {
-            filtered = filtered.filter(product => product.price <= query.price_max!)
-        }
+        // if (query.price_max) {
+        //     filtered = filtered.filter(product => product.price <= query.price_max!)
+        // }
 
         const total = filtered.length
         const start = (query.page - 1) * query.limit
