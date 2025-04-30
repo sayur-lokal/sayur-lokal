@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Product } from "@/types/product";
 import { useModalContext } from "@/app/context/QuickViewModalContext";
 import { useDispatch } from "react-redux";
@@ -11,6 +11,10 @@ import Link from "next/link";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
 
 const SingleItem = ({ item }: { item: Product }) => {
+    const [ hasPreviews, setHasPreviews] = useState<boolean>(false)
+    useEffect(() => {
+      setHasPreviews(!!(item.imgs && item.imgs.length > 0 && item.imgs[0].previews && item.imgs[0].previews.length > 0))
+    }, [item])
   const { openModal } = useModalContext();
   const dispatch = useDispatch<AppDispatch>();
 
@@ -39,7 +43,7 @@ const SingleItem = ({ item }: { item: Product }) => {
     );
   };
 
-  const hasPreviews = item.imgs && item.imgs.previews && item.imgs.previews.length > 0
+  
 
   return (
     <div className="group">
@@ -93,7 +97,7 @@ const SingleItem = ({ item }: { item: Product }) => {
         </div>
 
         <div className="flex justify-center items-center">
-          {hasPreviews ? <Image src={item.imgs!.previews[0]} alt="" width={280} height={280} className="aspect-square object-contain" />: null }
+          {hasPreviews ? <Image src={item.imgs![0].previews[0]} alt="" width={280} height={280} className="aspect-square object-contain" />: null }
         </div>
 
         <div className="absolute right-0 bottom-0 translate-x-full u-w-full flex flex-col gap-2 p-5.5 ease-linear duration-300 group-hover:translate-x-0">
