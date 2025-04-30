@@ -75,7 +75,7 @@ export const productSchema = z
       .string()
       .datetime("Invalid date format for createdAt")
       .describe("date and time when the product was created"),
-    imgs: ProductImageSchema
+    imgs: z.array(ProductImageSchema)
       .optional()
       .describe("Array of product image objects"),
   })
