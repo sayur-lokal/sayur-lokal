@@ -24,7 +24,7 @@ const SingleGridItem = ({ item }: { item: Product }) => {
   const handleAddToCart = () => {
     dispatch(
       addItemToCart({
-        ...item,
+        product: item,
         quantity: 1,
       })
     );
@@ -33,17 +33,19 @@ const SingleGridItem = ({ item }: { item: Product }) => {
   const handleItemToWishList = () => {
     dispatch(
       addItemToWishlist({
-        ...item,
+        product: item,
         status: "available",
         quantity: 1,
       })
     );
   };
 
+  const hasPreviews = item.imgs && item.imgs.previews && item.imgs.previews.length > 0
+
   return (
     <div className="group">
       <div className="relative overflow-hidden flex items-center justify-center rounded-lg bg-white shadow-1 min-h-[270px] mb-4">
-        <Image src={item.imgs.previews[0]} alt="" width={250} height={250} />
+        { hasPreviews ? <Image src={item.imgs!.previews[0]} alt="" width={250} height={250} /> : null}
 
         <div className="absolute left-0 bottom-0 translate-y-full w-full flex items-center justify-center gap-2.5 pb-5 ease-linear duration-200 group-hover:translate-y-0">
           <button

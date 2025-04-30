@@ -25,7 +25,7 @@ const ProductItem = ({ item }: { item: Product }) => {
   const handleAddToCart = () => {
     dispatch(
       addItemToCart({
-        ...item,
+        product: item,
         quantity: 1,
       })
     );
@@ -34,7 +34,7 @@ const ProductItem = ({ item }: { item: Product }) => {
   const handleItemToWishList = () => {
     dispatch(
       addItemToWishlist({
-        ...item,
+        product: item,
         status: "available",
         quantity: 1,
       })
@@ -45,10 +45,12 @@ const ProductItem = ({ item }: { item: Product }) => {
     dispatch(updateproductDetails({ ...item }));
   };
 
+  const hasPreviews = item.imgs && item.imgs.previews && item.imgs.previews.length > 0
+
   return (
     <div className="group">
       <div className="relative overflow-hidden flex items-center justify-center rounded-lg bg-[#F6F7FB] min-h-[270px] mb-4">
-        <Image src={item.imgs.previews[0]} alt="" width={250} height={250} className="aspect-square object-contain" />
+        {hasPreviews ? <Image src={item.imgs!.previews[0]} alt="" width={250} height={250} className="aspect-square object-contain" /> : null}
 
         <div className="absolute left-0 bottom-0 translate-y-full w-full flex items-center justify-center gap-2.5 pb-5 ease-linear duration-200 group-hover:translate-y-0">
           <button

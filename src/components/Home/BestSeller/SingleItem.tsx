@@ -23,7 +23,7 @@ const SingleItem = ({ item }: { item: Product }) => {
   const handleAddToCart = () => {
     dispatch(
       addItemToCart({
-        ...item,
+        product: item,
         quantity: 1,
       })
     );
@@ -32,12 +32,14 @@ const SingleItem = ({ item }: { item: Product }) => {
   const handleItemToWishList = () => {
     dispatch(
       addItemToWishlist({
-        ...item,
+        product: item,
         status: "available",
         quantity: 1,
       })
     );
   };
+
+  const hasPreviews = item.imgs && item.imgs.previews && item.imgs.previews.length > 0
 
   return (
     <div className="group">
@@ -91,7 +93,7 @@ const SingleItem = ({ item }: { item: Product }) => {
         </div>
 
         <div className="flex justify-center items-center">
-          <Image src={item.imgs.previews[0]} alt="" width={280} height={280} className="aspect-square object-contain" />
+          {hasPreviews ? <Image src={item.imgs!.previews[0]} alt="" width={280} height={280} className="aspect-square object-contain" />: null }
         </div>
 
         <div className="absolute right-0 bottom-0 translate-x-full u-w-full flex flex-col gap-2 p-5.5 ease-linear duration-300 group-hover:translate-x-0">
