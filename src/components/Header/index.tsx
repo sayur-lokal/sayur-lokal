@@ -63,10 +63,10 @@ const Header = () => {
           <div className="xl:w-auto flex-col sm:flex-row w-full flex sm:justify-between sm:items-center gap-5 sm:gap-10">
             <Link className="flex-shrink-0" href="/">
               <Image
-                src="/images/logo/sayur-lokal.svg"
+                src="/images/logo/sayur-lokal-inline.svg"
                 alt="Logo"
-                width={219}
-                height={36}
+                width={150}
+                height={25}
               />
             </Link>
 
