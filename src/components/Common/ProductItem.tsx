@@ -10,6 +10,9 @@ import { updateproductDetails } from "@/redux/features/product-details";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
+import ProductTitle from "../Shared/InfoProps/ProductTitle";
+import ProductRating from "../Shared/InfoProps/ProductRating";
+import ProductPrice from "../Shared/InfoProps/ProductPrice";
 
 const ProductItem = ({ item }: { item: Product }) => {
   const { openModal } = useModalContext();
@@ -149,19 +152,18 @@ const ProductItem = ({ item }: { item: Product }) => {
           />
         </div>
 
-        <p className="text-custom-sm">({item.reviews})</p>
+        <ProductRating reviews={item.reviews} />
       </div>
 
       <h3
         className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5"
         onClick={() => handleProductDetails()}
       >
-        <Link href="/shop-details"> {item.title} </Link>
+         <ProductTitle title={item.title} link={`/shop-details/${item.id}`}/>
       </h3>
 
       <span className="flex items-center gap-2 font-medium text-lg">
-        <span className="text-dark">${item.discountedPrice}</span>
-        <span className="text-dark-4 line-through">${item.price}</span>
+      <ProductPrice price={item.price} discountedPrice={item.discountedPrice} />
       </span>
     </div>
   );

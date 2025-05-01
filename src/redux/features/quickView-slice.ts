@@ -11,7 +11,7 @@ const initialState = {
     price: 0,
     discountedPrice: 0,
     categoryId: 0,
-    sellerId: 0,
+    shopId: 0,
     id: 0,
     description: "",
     createdAt: "",
@@ -25,7 +25,7 @@ const initialState = {
     isOrganic: false,
     },
     ingredients: [],// only for meal kits
-    reviews: 0,
+    reviews: [],
   } as Product,
 } as InitialState;
 

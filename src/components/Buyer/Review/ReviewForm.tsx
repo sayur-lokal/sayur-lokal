@@ -1,15 +1,15 @@
 import type { Review } from "@/types/review";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addReview } from "../../redux/features/review-slice"
-import { StarRatingSelector } from "../../components/Buyer/StarRatingSelector";
+import { addReview } from "../../../redux/features/review-slice"
+import StarRatingSelector from "./StarRatingSelector";
 
 type Props = {
-  productId: string;
-  userId: number;
+  productId: number;
+  buyerId: number;
 };
 
-export const ReviewForm = ({ productId, userId }: Props) => {
+export const ReviewForm = ({ productId, buyerId }: Props) => {
   const dispatch = useDispatch();
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
@@ -22,7 +22,7 @@ export const ReviewForm = ({ productId, userId }: Props) => {
 
     const review: Review = {
       productId,
-      userId: userId.toString(),
+      buyerId,
       rating,
       comment,
       createdAt: new Date().toISOString(),

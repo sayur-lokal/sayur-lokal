@@ -1,10 +1,12 @@
+import { Review } from "./review";
+
 export type Product = {
   title: string;
-  reviews: number;
+  reviews: Review[];
   price: number;
   discountedPrice: number;
   categoryId: number; 
-  sellerId: number;
+  shopId: number;
   id: number;
   description?: string;
   createdAt: string;
