@@ -1,16 +1,20 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Breadcrumb from "../Common/Breadcrumb";
 import Image from "next/image";
 import Newsletter from "../Common/Newsletter";
 import RecentlyViewdItems from "./RecentlyViewd";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
-import { useAppSelector } from "@/redux/store";
-import { ProductReview } from "../Buyer/Review/ProductReview";
+import { useAppSelector, AppDispatch } from "@/redux/store";
+import { useDispatch } from "react-redux";
+import { ProductReview } from "../Review/ProductReview";
 import ProductAttributes from "../Shared/InfoProps/ProductAttrb";
 import ProductTitle from "../Shared/InfoProps/ProductTitle";
 import ProductPrice from "../Shared/InfoProps/ProductPrice";
 import ProductRating from "../Shared/InfoProps/ProductRating";
+// import { useParams } from "next/navigation";
+import { fetchProductById } from "@/redux/product/productThunks";
+
 
 const tabs = [
   { id: "description", title: "Description" },
@@ -19,7 +23,12 @@ const tabs = [
 ];
 
 
-const ShopDetails = () => {
+const ShopDetails = ({ productId }: { productId: string }) => {
+  // const { productId } = useParams(); // <- comes as string
+  const dispatch = useDispatch<AppDispatch>();
+
+  const { value: product } = useAppSelector((state) => state.detailprodslice);
+
   const { openPreviewModal } = usePreviewSlider();
   const [previewImg, setPreviewImg] = useState(0);
 
@@ -29,7 +38,7 @@ const ShopDetails = () => {
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("tabOne");
 
-  const { value: product } = useAppSelector((state) => state.productDetailsReducer);
+ 
   // const alreadyExist = localStorage.getItem("productDetails");
   // const productFromStorage = useAppSelector(
   //   (state) => state.productDetailsReducer.value
@@ -38,7 +47,11 @@ const ShopDetails = () => {
   // useEffect(() => {
   //   localStorage.setItem("productDetails", JSON.stringify(product));
   // }, [product]);
-
+  useEffect(() => {
+    if (productId) {
+      dispatch(fetchProductById(productId as string)); // assuming your thunk accepts a string ID
+    }
+  }, [dispatch, productId]);
   // pass the product here when you get the real data.
   const handlePreviewSlider = () => {
     openPreviewModal();
@@ -107,7 +120,8 @@ const ShopDetails = () => {
             <div className="flex-1 max-w-[539px] w-full">
               <div className="flex items-center justify-between mb-3">
                 <h2 className="font-semibold text-xl sm:text-2xl xl:text-custom-3 text-dark">
-                <ProductTitle title={product.title} link={""} />
+                <ProductTitle title={product.title}  />
+                {/* link={`/shop-details/${product.id}`} */}
                 </h2>
               </div>
 

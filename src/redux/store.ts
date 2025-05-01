@@ -1,23 +1,23 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { TypedUseSelectorHook, useSelector } from "react-redux";
 import quickViewReducer from "./features/quickView-slice";
 import cartReducer from "./features/cart-slice";
 import wishlistReducer from "./features/wishlist-slice";
-import productDetailsReducer from "./features/product-details";
-import currentUserSlice from "./features/currentUser-slice";
-import { TypedUseSelectorHook, useSelector } from "react-redux";
-import reviewSlice from "./features/review-slice";
-import sellerInventory from "./features/sellerInventory-slice";
+import productDetailReducer from "./features/product-details";
+import currentUserReducer from "./features/currentUser-slice";
+import reviewReducer from "./features/review-slice";
+import sellerInventoryReducer from "./features/sellerInventory-slice";
 
 
 export const store = configureStore({
   reducer: {
-    quickViewReducer,
-    cartReducer,
-    wishlistReducer,
-    productDetailsReducer,
-    currentUserSlice,
-    reviewSlice,
-    sellerInventory,
+    viewslice: quickViewReducer,
+    cartslice: cartReducer,
+    wishslice: wishlistReducer,
+    detailprodslice: productDetailReducer,
+    currentuser: currentUserReducer,
+    reviewslice: reviewReducer,
+    sellerslice: sellerInventoryReducer,
   },
 });
 

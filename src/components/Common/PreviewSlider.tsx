@@ -11,7 +11,7 @@ import { useAppSelector } from "@/redux/store";
 const PreviewSliderModal = () => {
   const { closePreviewModal, isModalPreviewOpen } = usePreviewSlider();
 
-  const data = useAppSelector((state) => state.productDetailsReducer.value);
+  const data = useAppSelector((state) => state.detailprodslice.value);
 
   const sliderRef = useRef(null);
 

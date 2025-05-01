@@ -2,7 +2,7 @@ import { Product } from "@/types/product";
 import { sayurSopIngredients, sayurAsemIngredients } from "./recipeIngredients";
 
 
-const shopData: Product[] = [
+export const shopData: Product[] = [
   
  //staples,1
   {

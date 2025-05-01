@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const ProductReview = ({ product }: Props) => {
-  const user = useAppSelector((state) => state.currentUserSlice.user); // or wherever your user comes from
+  const user = useAppSelector((state) => state.currentuser.user); // or wherever your user comes from
 
   const reviews = product.reviews || [];
 

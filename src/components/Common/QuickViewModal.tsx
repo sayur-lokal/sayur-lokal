@@ -18,7 +18,7 @@ const QuickViewModal = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   // get the product data
-  const product = useAppSelector((state) => state.quickViewReducer.value);
+  const product = useAppSelector((state) => state.viewslice.value);
 
   const [activePreview, setActivePreview] = useState(0);
 

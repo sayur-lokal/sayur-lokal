@@ -15,7 +15,7 @@ import { CartItem } from "@/redux/features/cart-slice";
 import OrderList from "./OrderList"
 const Checkout = () => {
 
-    const cartItems: CartItem[] = useAppSelector((state) => state.cartReducer.items);
+    const cartItems: CartItem[] = useAppSelector((state) => state.cartslice.items);
 
     if (cartItems.length == 0) {
         return (

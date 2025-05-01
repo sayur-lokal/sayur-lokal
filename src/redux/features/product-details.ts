@@ -1,8 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Product } from "@/types/product";
+// import { fetchProductById } from "../product/productThunks";
 
 type InitialState = {
   value: Product;
+  // loading: boolean;
+  // error: string | null;
 };
 
 const initialState = {
@@ -29,8 +32,8 @@ const initialState = {
   },
 } as InitialState;
 
-export const productDetails = createSlice({
-  name: "productDetails",
+export const productDetailSlice = createSlice({
+  name: "detailprodslice",
   initialState,
   reducers: {
     updateproductDetails: (_, action) => {
@@ -43,5 +46,5 @@ export const productDetails = createSlice({
   },
 });
 
-export const { updateproductDetails } = productDetails.actions;
-export default productDetails.reducer;
+export const { updateproductDetails } = productDetailSlice.actions;
+export default productDetailSlice.reducer;

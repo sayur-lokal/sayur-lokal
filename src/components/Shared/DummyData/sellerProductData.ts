@@ -2,7 +2,7 @@
 import { Product } from "@/types/product";
 
 // Dummy seller products for dashboard view
-const sellerProductData: Product[] = [
+export const sellerProductData: Product[] = [
   {
     title: "Telur Ayam Fresh 1 Krat isi 30pcs",
     reviews: [],
