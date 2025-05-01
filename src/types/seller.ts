@@ -1,8 +1,8 @@
-export type Shop = {
+export type Seller = {
     id: number;
     name: string;
     img: string;
     description: string;
-    userId: number;
+    sellerId: number;
     createdAt: string;
 };
