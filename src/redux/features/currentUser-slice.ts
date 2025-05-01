@@ -1,5 +1,5 @@
 
-import { User } from "@/lib/user";
+import { User } from "@/types/user";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 
