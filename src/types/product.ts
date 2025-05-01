@@ -14,7 +14,7 @@ export const parseProduct = (raw: any): Product => {
   }
 
   return parsed.data;
-};
+}
 
 // Schema for product images
 const ProductImageSchema = z
@@ -78,6 +78,11 @@ export const productSchema = z
     imgs: z.array(ProductImageSchema)
       .optional()
       .describe("Array of product image objects"),
+    productAttrb: z.object({
+      productType: z.enum(["standard", "premium"]).optional().describe("e.g. eco-friendly/organic"),
+      isEcoFriendly: z.boolean().optional(),
+      isOrganic: z.boolean().optional(),
+    }).optional(),
   })
   .refine((data) => data.discountedPrice <= data.price, {
     message: "Discounted price cannot be greater than the original price",

@@ -8,15 +8,24 @@ type InitialState = {
 const initialState = {
   value: {
     title: "",
-    reviews: 0,
     price: 0,
     discountedPrice: 0,
-    img: "",
+    categoryId: 0,
+    sellerId: 0,
     id: 0,
-    images: [],
-    imgs: { thumbnails: [], previews: [] },
-    productType: "standard",
-    categoryId: 1
+    description: "",
+    createdAt: "",
+    imgs: {
+      thumbnails: [],
+      previews: [],
+    },
+    productAttrb:{
+    productType: "standard", // e.g. eco-friendly/organic
+    isEcoFriendly: false,
+    isOrganic: false,
+    },
+    ingredients: [],// only for meal kits
+    reviews: 0,
   } as Product,
 } as InitialState;
 

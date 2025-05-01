@@ -8,11 +8,11 @@ const sellerProductData: Product[] = [
     reviews: 12,
     price: 59000.0,
     discountedPrice: 55000.0,
-    categoryId: 1, // Staples
+    categoryId: 1, 
+    sellerId: 1,
     id: 101,
-    productType: "standard",
-    isOrganic: true,
-    isEcoFriendly: false,
+    createdAt: "2025-04-01T08:00:00Z", 
+    description: "Telur ayam kampung segar, 1 krat isi 30 butir.",
     imgs: {
       thumbnails: [
         "/images/products/eggs-thumb.png",
@@ -23,69 +23,66 @@ const sellerProductData: Product[] = [
         "/images/products/eggs-preview-2.png",
       ],
     },
+    productAttrb: {
+    productType: "premium",
+    isOrganic: true,
+    isEcoFriendly: true,
+    },
+    ingredients:[],
   },
   {
-    title: "Ubi Ungu Organik 1 kg",
-    reviews: 8,
+    title: "Topi Koki Beras Setra Ramos 5 kg",
+    reviews: 3,
+    price: 76000.0,
+    discountedPrice: 74000.0,
+    categoryId: 1,
+    sellerId: 2, 
+    id: 102,
+    createdAt: "2025-04-01T08:00:00Z",
+    description: "",
+    imgs: {
+      thumbnails: [
+        "/images/products/beras_5kg_thumb_1.png",
+        "/images/products/beras_5kg_thumb_2.png",
+      ],
+      previews: [
+        "/images/products/beras_5kg_preview_1.png",
+        "/images/products/beras_5kg_preview_2.png",
+      ],
+    },
+    productAttrb: {
+      productType: "standard",
+      isOrganic: false,
+      isEcoFriendly: false,
+      },
+    ingredients:[],
+  },
+  {
+    title: "Ubi Ungu 1 kg",
+    reviews: 5,
     price: 28000.0,
     discountedPrice: 26000.0,
-    categoryId: 1, // Staples
-    id: 102,
-    productType: "premium",
-    isOrganic: true,
-    isEcoFriendly: true,
-    imgs: {
-      thumbnails: [
-        "/images/products/sweet-potato-thumb.png",
-        "/images/products/sweet-potato-thumb-2.png",
-      ],
-      previews: [
-        "/images/products/sweet-potato-preview.png",
-        "/images/products/sweet-potato-preview-2.png",
-      ],
-    },
-  },
-  {
-    title: "Jamur Tiram Segar 500 gr",
-    reviews: 5,
-    price: 25000.0,
-    discountedPrice: 23000.0,
-    categoryId: 2, // Vegetables
+    categoryId: 1,
+    sellerId: 3, 
     id: 103,
-    productType: "standard",
-    isOrganic: false,
-    isEcoFriendly: true,
+    createdAt: "2025-04-01T08:00:00Z",
+    description: "",
     imgs: {
       thumbnails: [
-        "/images/products/mushroom-thumb.png",
-        "/images/products/mushroom-thumb-2.png",
+        "/images/products/ubi_ungu_1kg_thumb_1.png",
+        "/images/products/ubi_ungu_1kg_thumb_2.png",
       ],
       previews: [
-        "/images/products/mushroom-preview.png",
-        "/images/products/mushroom-preview-2.png",
+        "/images/products/ubi_ungu_1kg_preview_1.png",
+        "/images/products/ubi_ungu_1kg_preview_2.png",
       ],
     },
-  },
-  {
-    title: "Bawang Putih 250 gr",
-    reviews: 10,
-    price: 22000.0,
-    discountedPrice: 21000.0,
-    categoryId: 3, // Seasonings
-    id: 104,
-    productType: "premium",
-    isOrganic: true,
-    isEcoFriendly: true,
-    imgs: {
-      thumbnails: [
-        "/images/products/garlic-thumb.png",
-        "/images/products/garlic-thumb-2.png",
-      ],
-      previews: [
-        "/images/products/garlic-preview.png",
-        "/images/products/garlic-preview-2.png",
-      ],
-    },
+    productAttrb: {
+      productType: "premium",
+      isOrganic: true,
+      isEcoFriendly: false,
+      },
+    ingredients:[],
   },
 ];
 

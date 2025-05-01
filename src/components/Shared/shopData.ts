@@ -1,5 +1,4 @@
 import { Product } from "@/types/product";
-import { categoryData } from "./categoryData";
 import { sayurSopIngredients, sayurAsemIngredients } from "./recipeIngredients";
 
 
@@ -8,7 +7,7 @@ const shopData: Product[] = [
  //staples,1
   {
     title: "Telur Ayam Fresh 1 Krat isi 30pcs",
-    reviews: 15,
+    reviews: 4,
     price: 59000.0,
     discountedPrice: 57000.0,
     category: ["staples"],
@@ -28,7 +27,7 @@ const shopData: Product[] = [
   },
   {
     title: "Topi Koki Beras Setra Ramos 5 kg",
-    reviews: 1,
+    reviews: 3,
     price: 76000.0,
     discountedPrice: 74000.0,
     category: ["staples"],
@@ -48,7 +47,7 @@ const shopData: Product[] = [
   },
   {
     title: "Ubi Ungu 1 kg",
-    reviews: 15,
+    reviews: 5,
     price: 28000.0,
     discountedPrice: 26000.0,
     category: ["staples"],
@@ -68,7 +67,7 @@ const shopData: Product[] = [
   },
   {
     title: "Kentang Dieng 250 gr",
-    reviews: 15,
+    reviews: 5,
     price: 25000.0,
     discountedPrice: 23000.0,
     category: ["staples"],
@@ -88,7 +87,7 @@ const shopData: Product[] = [
   },
   {
     title: "Tepung Kunci Biru 1 kg",
-    reviews: 15,
+    reviews: 5,
     price: 25000.0,
     discountedPrice: 23000.0,
     category: ["staples"],
@@ -109,7 +108,7 @@ const shopData: Product[] = [
   //sayur,2
   {
     title: "Jamur Tiram 500 gr",
-    reviews: 15,
+    reviews: 4,
     price: 25000.0,
     discountedPrice: 23000.0,
     category: ["sayur"],
@@ -129,7 +128,7 @@ const shopData: Product[] = [
   },
   {
     title: "Terong Ungu 500 gr",
-    reviews: 15,
+    reviews: 5,
     price: 12000.0,
     discountedPrice: 10000.0,
     category: ["sayur"],
@@ -169,7 +168,7 @@ const shopData: Product[] = [
   },
   {
     title: "Kecambah Kedelai 250 gr",
-    reviews: 5,
+    reviews: 4,
     price: 6000.0,
     discountedPrice: 4000.0,
     category: ["sayur"],
@@ -211,7 +210,7 @@ const shopData: Product[] = [
   //seasonings,3
   {
     title: "Bawang Merah 250 gr",
-    reviews: 15,
+    reviews: 4,
     price: 17000.0,
     discountedPrice: 15000.0,
     category: ["seasonings"],
@@ -231,7 +230,7 @@ const shopData: Product[] = [
   },
   {
     title: "Bawang Putih 250 gr",
-    reviews: 15,
+    reviews: 5,
     price: 22000.0,
     discountedPrice: 20000.0,
     category: ["seasonings"],
@@ -251,7 +250,7 @@ const shopData: Product[] = [
   },
   {
     title: "Cabai Rawit Hijau 250 gr",
-    reviews: 15,
+    reviews: 5,
     price: 18000.0,
     discountedPrice: 16000.0,
     category: ["seasonings"],
@@ -271,7 +270,7 @@ const shopData: Product[] = [
   },
   {
     title: "Daun Kemangi Segar 10 gr",
-    reviews: 15,
+    reviews: 4,
     price: 4000.0,
     discountedPrice: 2000.0,
     category: ["seasonings"],
@@ -292,7 +291,7 @@ const shopData: Product[] = [
   //fruits,4
   {
     title: "Pepaya Fresh 1-2 kg/pcs",
-    reviews: 15,
+    reviews: 5,
     price: 18000.0,
     discountedPrice: 16000.0,
     category: ["fruits"],
@@ -312,7 +311,7 @@ const shopData: Product[] = [
   },
   {
     title: "Mangga Madu Fresh 1 kg",
-    reviews: 15,
+    reviews: 5,
     price: 44000.0,
     discountedPrice: 42000.0,
     category: ["fruits"],
@@ -332,7 +331,7 @@ const shopData: Product[] = [
   },
   {
     title: "Jeruk Santang 1 kg",
-    reviews: 15,
+    reviews: 5,
     price: 58000.0,
     discountedPrice: 56000.0,
     category: ["fruits"],
@@ -353,7 +352,7 @@ const shopData: Product[] = [
   //uncategorized,6
   {
     title: "Ikan Kembung Segar 500 gr",
-    reviews: 15,
+    reviews: 5,
     price: 34000.0,
     discountedPrice: 32000.0,
     category: ["uncategorized"],
@@ -373,7 +372,7 @@ const shopData: Product[] = [
   },
   {
     title: "Asahi Sarden Saus Tomat 155 gr",
-    reviews: 15,
+    reviews: 5,
     price: 15000.0,
     discountedPrice: 13000.0,
     category: ["uncategorized"],
@@ -394,7 +393,7 @@ const shopData: Product[] = [
   //meal kits,5
   {
     title: "Paket Masak Sayur Asem Lengkap(Meal Kits)",
-    reviews: 15,
+    reviews: 5,
     price: 30000.0,
     discountedPrice: 28000.0,
     category: ["meal kits"],
@@ -416,7 +415,7 @@ const shopData: Product[] = [
   },
   {
     title: "Paket Masak Sayur Sop Lengkap(Meal Kits)",
-    reviews: 15,
+    reviews: 5,
     price: 25000.0,
     discountedPrice: 23000.0,
     category: ["meal kits"],
