@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { User, userSchema } from "@/lib/user";
+import { User, userSchema } from "@/types/user";
 
 type State = {
     user: User | null

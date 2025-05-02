@@ -5,9 +5,5 @@ export type Shop = {
     img: string;
     description: string;
     sellerId: number;
-    // locationDetails?: {
-    //     region: string;
-    //     postalCode: string;
-    //   };
     createdAt: string;
 };

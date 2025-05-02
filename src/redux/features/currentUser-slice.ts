@@ -1,6 +1,6 @@
-//for user info in more than one place
-import { User, userSchema } from "@/lib/user";
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { User, userSchema } from "@/types/user";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
 
 type CurrentUserState = {

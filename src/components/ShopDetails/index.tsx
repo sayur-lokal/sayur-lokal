@@ -79,17 +79,17 @@ const ShopDetails = () => {
                       />
                     </svg>
                   </button>
-                  <Image
+                  {/* <Image
                     src={product.imgs?.previews[previewImg]}
                     alt="product-details"
                     width={400}
                     height={400}
-                  />
+                  /> */}
                 </div>
               </div>
 
               <div className="flex flex-wrap sm:flex-nowrap gap-4.5 mt-6">
-                {product.imgs?.thumbnails.map((item, key) => (
+                {/* {product.imgs?.thumbnails.map((item, key) => (
                   <button
                     onClick={() => setPreviewImg(key)}
                     key={key}
@@ -99,7 +99,7 @@ const ShopDetails = () => {
                   >
                     <Image width={50} height={50} src={item} alt="thumbnail" />
                   </button>
-                ))}
+                ))} */}
               </div>
             </div>
            

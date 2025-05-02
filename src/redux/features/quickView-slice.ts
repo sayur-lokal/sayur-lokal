@@ -12,13 +12,13 @@ const initialState = {
     discountedPrice: 0,
     categoryId: 0,
     shopId: 0,
-    id: 0,
+    id: "0",
     description: "",
     createdAt: "",
-    imgs: {
+    imgs: [{
       thumbnails: [],
       previews: [],
-    },
+    }],
     productAttrb:{
     productType: "standard", // e.g. eco-friendly/organic
     isEcoFriendly: false,
@@ -26,6 +26,7 @@ const initialState = {
     },
     ingredients: [],// only for meal kits
     reviews: [],
+    category: []
   } as Product,
 } as InitialState;
 
