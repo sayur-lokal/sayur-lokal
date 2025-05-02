@@ -9,8 +9,8 @@ const initialState = {
   value: defaultProduct() as Product,
 } as InitialState;
 
-export const quickView = createSlice({
-  name: "quickView",
+export const quickViewSlice = createSlice({
+  name: "viewslice",
   initialState,
   reducers: {
     updateQuickView: (_, action) => {
@@ -29,5 +29,5 @@ export const quickView = createSlice({
   },
 });
 
-export const { updateQuickView, resetQuickView } = quickView.actions;
-export default quickView.reducer;
+export const { updateQuickView, resetQuickView } = quickViewSlice.actions;
+export default quickViewSlice.reducer;

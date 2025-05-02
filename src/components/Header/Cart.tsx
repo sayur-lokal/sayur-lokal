@@ -4,7 +4,7 @@ import { selectTotalPrice } from "@/redux/features/cart-slice";
 import Price from "../Price";
 
 const Cart = ({handleOpenCartModal} : {handleOpenCartModal: () => void}) => {
-    const product = useAppSelector((state) => state.cartReducer.items);
+    const product = useAppSelector((state) => state.cartslice.items);
     const totalPrice = useSelector(selectTotalPrice);
 
     return (<button

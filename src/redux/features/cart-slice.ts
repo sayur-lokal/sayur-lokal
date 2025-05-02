@@ -15,8 +15,8 @@ const initialState: InitialState = {
   items: [],
 };
 
-export const cart = createSlice({
-  name: "cart",
+export const cartSlice = createSlice({
+  name: "cartslice",
   initialState,
   reducers: {
     addItemToCart: (state, action: PayloadAction<CartItem>) => {
@@ -54,7 +54,7 @@ export const cart = createSlice({
   },
 });
 
-export const selectCartItems = (state: RootState) => state.cartReducer.items;
+export const selectCartItems = (state: RootState) => state.cartslice.items;
 
 export const selectTotalPrice = createSelector([selectCartItems], (items) => {
   return items.reduce((total, item) => {
@@ -67,5 +67,5 @@ export const {
   removeItemFromCart,
   updateCartItemQuantity,
   removeAllItemsFromCart,
-} = cart.actions;
-export default cart.reducer;
+} = cartSlice.actions;
+export default cartSlice.reducer;

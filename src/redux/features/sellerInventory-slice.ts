@@ -9,8 +9,8 @@ const initialState: InitialState = {
   products: [],
 };
 
-export const sellerInventory = createSlice({
-  name: "sellerInventory",
+export const sellerInventorySlice = createSlice({
+  name: "sellerslice",
   initialState,
   reducers: {
     setSellerProducts: (state, action: PayloadAction<Product[]>) => {
@@ -38,6 +38,6 @@ export const {
   updateProduct,
   deleteProduct,
   resetSellerInventory,
-} = sellerInventory.actions;
+} = sellerInventorySlice.actions;
 
-export default sellerInventory.reducer;
+export default sellerInventorySlice.reducer;

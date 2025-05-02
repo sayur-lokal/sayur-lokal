@@ -1,4 +1,4 @@
-import StarRatingDisplay from "@/components/Buyer/Review/StarRatingDisplay";
+import StarRatingDisplay from "@/components/Review/StarRatingDisplay";
 import type { Review } from "@/types/review";
 
 const ProductRating = ({ reviews }: { reviews: Review[] }) => {

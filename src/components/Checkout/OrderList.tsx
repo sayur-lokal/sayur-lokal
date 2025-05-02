@@ -7,7 +7,7 @@ import Product from "./Product";
 
 const OrderList = () => {
 
-    const cartItems: CartItem[] = useAppSelector((state) => state.cartReducer.items);
+    const cartItems: CartItem[] = useAppSelector((state) => state.cartslice.items);
     const total = useSelector(selectTotalPrice);
 
     const shippingFee = 15;

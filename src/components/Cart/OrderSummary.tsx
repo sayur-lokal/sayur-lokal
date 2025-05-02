@@ -4,7 +4,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const OrderSummary = () => {
-  const cartItems = useAppSelector((state) => state.cartReducer.items);
+  const cartItems = useAppSelector((state) => state.cartslice.items);
   const totalPrice = useSelector(selectTotalPrice);
 
   return (

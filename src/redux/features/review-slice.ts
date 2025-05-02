@@ -4,7 +4,7 @@ import type { Review } from "@/types/review";
 const initialState: Review[] = [];
 
 export const reviewSlice = createSlice({
-  name: "reviews",
+  name: "reviewslice",
   initialState,
   reducers: {
     addReview: (state, action: PayloadAction<Review>) => {

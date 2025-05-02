@@ -5,7 +5,7 @@ import { useAppSelector } from "@/redux/store";
 import SingleItem from "./SingleItem";
 
 export const Wishlist = () => {
-  const wishlistItems = useAppSelector((state) => state.wishlistReducer.items);
+  const wishlistItems = useAppSelector((state) => state.wishslice.items);
 
   return (
     <>

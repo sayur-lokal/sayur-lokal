@@ -7,7 +7,7 @@ import Orders from "../Orders";
 
 const MyAccount = () => {
   // const dispatch = useDispatch();
-  // const { user, loading } = useAppSelector((state) => state.currentUserReducer);
+  // const { user, loading } = useAppSelector((state) => state.currentuser);
 
   // const [currentRole, setCurrentRole] = useState<Role>("buyer");
 
