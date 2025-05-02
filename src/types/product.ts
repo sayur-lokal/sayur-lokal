@@ -89,3 +89,25 @@ export const productSchema = z
   .describe("Schema for validating product data");
 
 export type Product = z.infer<typeof productSchema>;
+
+export const defaultProduct = (): Product => ({
+    title: "",
+    price: 0,
+    discountedPrice: 0,
+    category: ["0"],
+    shopId: 0,
+    id: "",
+    description: "",
+    createdAt: "",
+    imgs: {
+      thumbnails: [],
+      previews: [],
+    },
+    productAttrb:{
+    productType: "standard", // e.g. eco-friendly/organic
+    isEcoFriendly: false,
+    isOrganic: false,
+    },
+    ingredients: [],// only for meal kits
+    reviews: [],
+  })

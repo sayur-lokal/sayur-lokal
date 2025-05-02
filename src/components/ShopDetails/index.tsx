@@ -79,12 +79,12 @@ const ShopDetails = () => {
                       />
                     </svg>
                   </button>
-                  {product.imgs? <Image
-                    src={product.imgs.previews[previewImg]}
+                  {product.imgs ? <Image
+                    src={product.imgs?.previews[previewImg]}
                     alt="product-details"
                     width={400}
                     height={400}
-                  />: null}
+                  /> : null}
                 </div>
               </div>
 
