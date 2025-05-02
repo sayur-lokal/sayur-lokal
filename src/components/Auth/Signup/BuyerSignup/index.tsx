@@ -21,6 +21,21 @@ const BuyerSignup = () => {
 
             <div className="mt-5.5">
               <form>
+              <div className="mb-5">
+                  <label htmlFor="username" className="block mb-2.5">
+                    Username <span className="text-red">*</span>
+                  </label>
+
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="Enter your username"
+                    className="rounded-lg border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
+                    required
+                  />
+                </div>
+
                 <div className="mb-5">
                   <label htmlFor="name" className="block mb-2.5">
                     Full Name <span className="text-red">*</span>
