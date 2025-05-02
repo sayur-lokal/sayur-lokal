@@ -69,7 +69,7 @@ const RegisterRoleSelection = () => {
 
           
             <button
-              className="w-full flex justify-center font-medium text-white bg-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-blue mt-7.5"
+              className="w-full flex justify-center font-medium text-white bg-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-blue mt-7.5 disabled:pointer-events-none disabled:opacity-50"
               onClick={handleContinue}
               disabled={!selectedRole}
             >
