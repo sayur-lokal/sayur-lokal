@@ -371,7 +371,7 @@ const ShopDetails = () => {
 
                   <form onSubmit={(e) => e.preventDefault()}>
                     <div className="flex flex-col gap-4.5 border-y border-gray-3 mt-7.5 mb-9 py-9">
-                      {/* <!-- details item --> */}
+                       {/* <!-- details item --> */}
                       <div className="flex items-center gap-4">
                         <div className="min-w-[65px]">
                           <h4 className="font-medium text-dark">Color:</h4>
@@ -612,7 +612,7 @@ const ShopDetails = () => {
                           ))}
                         </div>
                       </div>
-                    </div>
+                    </div> 
 
                     <div className="flex flex-wrap items-center gap-4.5">
                       <div className="flex items-center rounded-md border border-gray-3">
