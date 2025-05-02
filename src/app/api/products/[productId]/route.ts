@@ -12,19 +12,15 @@ export async function GET(
       return NextResponse.json({ error: "Missing productId" }, { status: 400 });
     }
   
-    const numericId = parseInt(productId, 10);
-    if (isNaN(numericId)) {
-        return NextResponse.json({ error: "Invalid productId" }, { status: 400 });
-    }
 
-    const product: Product | undefined = shopData.find((p) => p.id === numericId);
+    const product: Product | undefined = shopData.find((p) => p.id === productId);
   
     if (!product) {
       return NextResponse.json({ error: "Product not found" }, { status: 404 });
     }
   
     const relatedProducts = shopData.filter(
-        (p) => p.categoryId === product.categoryId && p.id !== product.id
+        (p) => p.category === product.category && p.id !== product.id
       );
 
     return NextResponse.json({
