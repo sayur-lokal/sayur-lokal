@@ -15,7 +15,7 @@ const SingleItem = ({ item, removeItemFromCart }) => {
     <div className="flex items-center justify-between gap-5">
       <div className="w-full flex items-center gap-6">
         <div className="flex items-center justify-center rounded-[10px] bg-gray-3 max-w-[90px] w-full h-22.5">
-          <Image src={item.imgs?.thumbnails[0]} alt="product" width={100} height={100} />
+          {item.imgs && item.imgs.thumbnails ? <Image src={item.imgs?.thumbnails[0]}  className="aspect-square object-contain" alt="product" width={100} height={100} /> : null}
         </div>
 
         <div>
