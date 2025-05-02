@@ -21,7 +21,7 @@ export const menuData: Menu[] = [
   },
   {
     id: 6,
-    title: "pages",
+    title: "Pages",
     newTab: false,
     path: "/",
     submenu: [

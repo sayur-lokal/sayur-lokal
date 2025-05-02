@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { commaSeparatedStringArray } from "./utils";
+import { reviewSchema } from "./review";
 
 /**
  * Parses raw product data into a Product type.
@@ -41,10 +42,7 @@ export const productSchema = z
       .min(1, "Title cannot be empty")
       .max(255, "Title cannot exceed 255 characters")
       .describe("title of the product"),
-    reviews: z
-      .number()
-      .int("Reviews must be an integer")
-      .nonnegative("Reviews cannot be negative")
+    reviews: z.array(reviewSchema)
       .describe("number of reviews for the product"),
     price: z
       .number()
@@ -75,7 +73,7 @@ export const productSchema = z
       .string()
       .datetime("Invalid date format for createdAt")
       .describe("date and time when the product was created"),
-    imgs: z.array(ProductImageSchema)
+    imgs: ProductImageSchema
       .optional()
       .describe("Array of product image objects"),
     productAttrb: z.object({

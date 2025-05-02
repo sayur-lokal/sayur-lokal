@@ -1,32 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Product } from "@/types/product";
+import { defaultProduct, Product } from "@/types/product";
 
 type InitialState = {
   value: Product;
 };
 
 const initialState = {
-  value: {
-    title: "",
-    price: 0,
-    discountedPrice: 0,
-    categoryId: 0,
-    sellerId: 0,
-    id: 0,
-    description: "",
-    createdAt: "",
-    imgs: {
-      thumbnails: [],
-      previews: [],
-    },
-    productAttrb:{
-    productType: "standard", // e.g. eco-friendly/organic
-    isEcoFriendly: false,
-    isOrganic: false,
-    },
-    ingredients: [],// only for meal kits
-    reviews: 0,
-  } as Product,
+  value: defaultProduct() as Product,
 } as InitialState;
 
 export const quickView = createSlice({
