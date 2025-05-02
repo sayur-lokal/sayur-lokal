@@ -17,7 +17,7 @@ import ProductPrice from "../Shared/InfoProps/ProductPrice";
 const ProductItem = ({ item }: { item: Product; }) => {
     const [hasPreviews, setHasPreviews] = useState<boolean>(false);
     useEffect(() => {
-        setHasPreviews(!!(item.imgs && item.imgs[0].previews && item.imgs[0].previews.length > 0));
+        setHasPreviews(!!(item.imgs && item.imgs.previews));
     }, [item]);
     const { openModal } = useModalContext();
 
@@ -57,7 +57,7 @@ const ProductItem = ({ item }: { item: Product; }) => {
     return (
         <div className="group">
             <div className="relative overflow-hidden flex items-center justify-center rounded-lg bg-[#F6F7FB] min-h-[270px] mb-4">
-                {hasPreviews ? <Image src={item.imgs![0].previews[0]} alt="" width={250} height={250} className="aspect-square object-contain" /> : null}
+                {hasPreviews ? <Image src={item.imgs!.previews[0]} alt="" width={250} height={250} className="aspect-square object-contain" /> : null}
 
                 <div className="absolute left-0 bottom-0 translate-y-full w-full flex items-center justify-center gap-2.5 pb-5 ease-linear duration-200 group-hover:translate-y-0">
                     <button
@@ -134,7 +134,7 @@ const ProductItem = ({ item }: { item: Product; }) => {
                 className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5"
                 onClick={() => handleProductDetails()}
             >
-                <ProductTitle title={item.title} />
+                {item.title}
             </h3>
 
             <span className="flex items-center gap-2 font-medium text-lg">
