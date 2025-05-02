@@ -1,7 +1,7 @@
 import type { Review } from "@/types/review";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addReview } from "../../../redux/features/review-slice"
+import { addReview } from "../../redux/features/review-slice"
 import StarRatingSelector from "./StarRatingSelector";
 
 type Props = {

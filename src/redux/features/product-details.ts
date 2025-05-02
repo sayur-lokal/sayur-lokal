@@ -3,14 +3,16 @@ import { defaultProduct, Product } from "@/types/product";
 
 type InitialState = {
   value: Product;
+  // loading: boolean;
+  // error: string | null;
 };
 
 const initialState = {
   value: defaultProduct(),
 } as InitialState;
 
-export const productDetails = createSlice({
-  name: "productDetails",
+export const productDetailSlice = createSlice({
+  name: "detailprodslice",
   initialState,
   reducers: {
     updateproductDetails: (_, action) => {
@@ -23,5 +25,5 @@ export const productDetails = createSlice({
   },
 });
 
-export const { updateproductDetails } = productDetails.actions;
-export default productDetails.reducer;
+export const { updateproductDetails } = productDetailSlice.actions;
+export default productDetailSlice.reducer;

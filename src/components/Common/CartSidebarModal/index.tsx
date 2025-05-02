@@ -15,7 +15,7 @@ import Price from "@/components/Price";
 
 const CartSidebarModal = () => {
   const { isCartModalOpen, closeCartModal } = useCartModalContext();
-  const cartItems = useAppSelector((state) => state.cartReducer.items);
+  const cartItems = useAppSelector((state) => state.cartslice.items);
 
   const totalPrice = useSelector(selectTotalPrice);
 
