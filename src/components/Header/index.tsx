@@ -37,13 +37,13 @@ const Header = () => {
 
   const options = [
     { label: "All Categories", value: "0" },
-    { label: "Desktop", value: "1" },
-    { label: "Laptop", value: "2" },
-    { label: "Monitor", value: "3" },
-    { label: "Phone", value: "4" },
-    { label: "Watch", value: "5" },
-    { label: "Mouse", value: "6" },
-    { label: "Tablet", value: "7" },
+    { label: "Staples", value: "1" },
+    { label: "Vegetables", value: "2" },
+    { label: "Seasonings", value: "3" },
+    { label: "Fruits", value: "4" },
+    { label: "Meal Kits", value: "5" },
+    { label: "Uncategorized", value: "6" },
+    
   ];
 
   return (
@@ -147,7 +147,7 @@ const Header = () => {
                   24/7 SUPPORT
                 </span>
                 <p className="font-medium text-custom-sm text-dark">
-                  (+965) 7492-3477
+                  (+62) 74123-456
                 </p>
               </div>
             </div>

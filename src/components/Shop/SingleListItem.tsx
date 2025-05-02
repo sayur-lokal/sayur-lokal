@@ -10,11 +10,14 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
 import Image from "next/image";
+import ProductRating from "../Shared/InfoProps/ProductRating";
+import ProductTitle from "../Shared/InfoProps/ProductTitle";
+import ProductPrice from "../Shared/InfoProps/ProductPrice";
 
 const SingleListItem = ({ item }: { item: Product }) => {
     const [ hasPreviews, setHasPreviews] = useState<boolean>(false)
     useEffect(() => {
-      setHasPreviews(!!(item.imgs && item.imgs.length > 0 && item.imgs[0].previews && item.imgs[0].previews.length > 0))
+      setHasPreviews(!!(item.imgs && item.imgs[0].previews && item.imgs[0].previews.length > 0))
     }, [item])
   const { openModal } = useModalContext();
   const dispatch = useDispatch<AppDispatch>();
@@ -117,12 +120,11 @@ const SingleListItem = ({ item }: { item: Product }) => {
         <div className="w-full flex flex-col gap-5 sm:flex-row sm:items-center justify-center sm:justify-between py-5 px-4 sm:px-7.5 lg:pl-11 lg:pr-12">
           <div>
             <h3 className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5">
-              <Link href="/shop-details"> {item.title} </Link>
+            <ProductTitle title={item.title} link={`/shop-details/${item.id}`} />
             </h3>
 
             <span className="flex items-center gap-2 font-medium text-lg">
-              <span className="text-dark">${item.discountedPrice}</span>
-              <span className="text-dark-4 line-through">${item.price}</span>
+            <ProductPrice price={item.price} discountedPrice={item.discountedPrice} />
             </span>
           </div>
 
@@ -160,7 +162,7 @@ const SingleListItem = ({ item }: { item: Product }) => {
               />
             </div>
 
-            <p className="text-custom-sm">({item.reviews})</p>
+            <ProductRating reviews={item.reviews} />
           </div>
         </div>
       </div>

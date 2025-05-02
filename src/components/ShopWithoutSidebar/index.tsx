@@ -7,6 +7,8 @@ import Pages from "./Pages";
 import { useSearchParams } from "next/navigation";
 import DataView from "./DataView";
 
+import shopData from "../Shared/DummyData/shopData";
+
 const ShopWithoutSidebar = () => {
     const { data, pagination, query, setQuery } = usePaginatedProducts()
     const searchParams = useSearchParams()

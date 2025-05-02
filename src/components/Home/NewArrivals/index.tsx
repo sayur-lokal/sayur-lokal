@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ProductItem from "@/components/Common/ProductItem";
-import shopData from "@/components/Shared/shopData";
+import shopData from "@/components/Shared/DummyData/shopData";
 
 const NewArrival = () => {
   return (

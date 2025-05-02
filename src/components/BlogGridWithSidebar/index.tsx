@@ -6,7 +6,7 @@ import SearchForm from "../Blog/SearchForm";
 import LatestPosts from "../Blog/LatestPosts";
 import LatestProducts from "../Blog/LatestProducts";
 import Categories from "../Blog/Categories";
-import shopData from "../Shared/shopData"; 
+import shopData from "../Shared/DummyData/shopData"; 
  
 const BlogGridWithSidebar = () => {
   const categories = [
