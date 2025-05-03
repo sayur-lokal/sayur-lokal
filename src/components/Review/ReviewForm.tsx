@@ -1,8 +1,9 @@
-import type { Review } from "@/types/review";
+import { reviewSchema, type Review } from "@/types/review";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addReview } from "../../redux/features/review-slice"
+import { addReviewThunk } from "../../redux/features/thunks/reviewThunks"
 import StarRatingSelector from "./StarRatingSelector";
+import { AppDispatch } from "@/redux/store";
 
 type Props = {
   productId: number;
@@ -10,28 +11,32 @@ type Props = {
 };
 
 export const ReviewForm = ({ productId, buyerId }: Props) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
 
   const handleSubmit = () => {
-    if (rating === 0) {
-      alert("Please select a rating.");
-      return;
-    }
-
-    const review: Review = {
+    const rawReview = {
       productId,
       buyerId,
       rating,
-      comment,
+      comment: comment.trim() || undefined,
       createdAt: new Date().toISOString(),
-    };
+    }
 
-    dispatch(addReview(review));
+    const result = reviewSchema.safeParse(rawReview);
+
+    if (!result.success) {
+      alert('Invalid review—please check your rating/comment.');
+      return;
+    }
+
+    
+    dispatch(addReviewThunk(result.data as Review));
+
     setRating(0);
     setComment("");
-    alert("Review submitted!");
+  
   };
 
   return (

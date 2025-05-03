@@ -26,7 +26,7 @@ export const sellerInventorySlice = createSlice({
       }
     },
     deleteProduct: (state, action: PayloadAction<number>) => {
-      state.products = state.products.filter(p => p.id !== action.payload);
+      state.products = state.products.filter(p => Number(p.id) !== action.payload);
     },
     resetSellerInventory: () => initialState,
   },

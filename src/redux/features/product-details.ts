@@ -1,17 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { defaultProduct, Product } from "@/types/product";
+import { Product, defaultProduct } from "@/types/product";
 
 type InitialState = {
   value: Product;
-  // loading: boolean;
-  // error: string | null;
 };
 
 const initialState = {
   value: defaultProduct(),
-} as InitialState;
+};
 
-export const productDetailSlice = createSlice({
+export const productDetails = createSlice({
   name: "detailprodslice",
   initialState,
   reducers: {
@@ -25,5 +23,5 @@ export const productDetailSlice = createSlice({
   },
 });
 
-export const { updateproductDetails } = productDetailSlice.actions;
-export default productDetailSlice.reducer;
+export const { updateproductDetails } = productDetails.actions;
+export default productDetails.reducer;

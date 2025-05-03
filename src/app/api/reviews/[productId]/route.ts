@@ -1,5 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
+//GET reviews
 
+import { NextRequest, NextResponse } from "next/server";
 
 const mockReviews = [
   {
@@ -20,12 +21,12 @@ const mockReviews = [
 
 export async function GET(
   req: NextRequest,
-  context: { params: { productId: string } }
+  { params }: { params: { productId: string } }
 ) {
-  const { productId } = context.params;
+  const productId = Number(params.productId);
 
   const reviews = mockReviews.filter(
-    (r) => r.productId === parseInt(productId)
+    (r) => r.productId === productId
   );
 
   return NextResponse.json(reviews);

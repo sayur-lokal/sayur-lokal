@@ -1,17 +1,25 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { Review } from "@/types/review";
+import { addReviewThunk } from "./thunks/reviewThunks";
 
-const initialState: Review[] = [];
-
-export const reviewSlice = createSlice({
-  name: "reviewslice",
-  initialState,
-  reducers: {
-    addReview: (state, action: PayloadAction<Review>) => {
-      state.push(action.payload);
+type ReviewState = {
+    reviews: Review[];
+  };
+  
+  const initialState: ReviewState = {
+    reviews: [],
+  };
+  
+  const reviewSlice = createSlice({
+    name: 'reviewslice',
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+      builder.addCase(addReviewThunk.fulfilled, (state, action) => {
+        state.reviews.push(action.payload);
+      });
     },
-  },
-});
+  });
 
-export const { addReview } = reviewSlice.actions;
+
 export default reviewSlice.reducer;

@@ -13,7 +13,7 @@ import ProductTitle from "../Shared/InfoProps/ProductTitle";
 import ProductPrice from "../Shared/InfoProps/ProductPrice";
 import ProductRating from "../Shared/InfoProps/ProductRating";
 // import { useParams } from "next/navigation";
-import { fetchProductById } from "@/redux/product/productThunks";
+import { fetchProductById } from "@/redux/features/thunks/productThunks";
 
 
 const tabs = [
