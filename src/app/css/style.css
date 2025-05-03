@@ -179,7 +179,7 @@ input[type='search']::-webkit-search-results-decoration {
 }
 
 .slider .thumb {
-  @apply w-6 h-6 bg-blue-dark rounded-full absolute -top-2 border-[5px] border-blue-light-4;
+  @apply w-6 h-6 bg-green-dark rounded-full absolute -top-2 border-[5px] border-blue-light-4;
 }
 
 .range-slider__thumb {
