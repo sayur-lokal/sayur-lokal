@@ -76,7 +76,7 @@ const ShopDetails = ({ productId }: { productId: string }) => {
                   <button
                     onClick={handlePreviewSlider}
                     aria-label="Zoom Preview"
-                    className="gallery__Image w-11 h-11 rounded-[5px] bg-gray-1 shadow-1 flex items-center justify-center ease-out duration-200 text-dark hover:text-blue absolute top-4 lg:top-6 right-4 lg:right-6 z-50"
+                    className="gallery__Image w-11 h-11 rounded-[5px] bg-gray-1 shadow-1 flex items-center justify-center ease-out duration-200 text-dark hover:text-[#6BAF92] absolute top-4 lg:top-6 right-4 lg:right-6 z-50"
                   >
                     <svg
                       className="fill-current"
@@ -134,17 +134,17 @@ const ShopDetails = ({ productId }: { productId: string }) => {
 
               <ul className="flex flex-col gap-2 mt-6">
                 <li className="flex items-center gap-2.5">
-                  <span className="text-blue font-semibold">✓</span> Free delivery available
+                  <span className="text-[#6BAF92] font-semibold">✓</span> Free delivery available
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <span className="text-blue font-semibold">✓</span> Sales 30% Off Use Code: PROMO30
+                  <span className="text-[#6BAF92] font-semibold">✓</span> Sales 30% Off Use Code: PROMO30
                 </li>
               </ul>
 
               <div className="flex items-center gap-4 mt-6">
                 <button
                   aria-label="Decrease quantity"
-                  className="flex items-center justify-center w-12 h-12 ease-out duration-200 hover:text-blue"
+                  className="flex items-center justify-center w-12 h-12 ease-out duration-200 hover:text-[#6BAF92]"
                   onClick={() => quantity > 1 && setQuantity(quantity - 1)}
                 >
                   -
@@ -153,13 +153,13 @@ const ShopDetails = ({ productId }: { productId: string }) => {
                 <button
                   onClick={() => setQuantity(quantity + 1)}
                   aria-label="Increase quantity"
-                  className="flex items-center justify-center w-12 h-12 ease-out duration-200 hover:text-blue"
+                  className="flex items-center justify-center w-12 h-12 ease-out duration-200 hover:text-[#6BAF92]"
                 >
                   +
                 </button>
                 <a
                   href="#"
-                  className="inline-flex font-medium text-white bg-blue py-3 px-7 rounded-md ease-out duration-200 hover:bg-blue-dark"
+                  className="inline-flex font-medium text-white bg-[#6BAF92] py-3 px-7 rounded-md ease-out duration-200 hover:bg-blue-dark"
                 >
                   Purchase Now
                 </a>
@@ -174,8 +174,8 @@ const ShopDetails = ({ productId }: { productId: string }) => {
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
-                  className={`font-medium lg:text-lg ease-out duration-200 hover:text-blue relative before:h-0.5 before:bg-blue before:absolute before:left-0 before:bottom-0 before:ease-out before:duration-200 hover:before:w-full ${
-                    activeTab === item.id ? "text-blue before:w-full" : "text-dark before:w-0"
+                  className={`font-medium lg:text-lg ease-out duration-200 hover:text-[#6BAF92] relative before:h-0.5 before:bg-[#6BAF92] before:absolute before:left-0 before:bottom-0 before:ease-out before:duration-200 hover:before:w-full ${
+                    activeTab === item.id ? "text-[#6BAF92] before:w-full" : "text-dark before:w-0"
                   }`}
                 >
                   {item.title}

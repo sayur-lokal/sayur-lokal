@@ -31,7 +31,7 @@ const CounDown = () => {
       <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
         <div className="relative overflow-hidden z-1 rounded-lg bg-[#D0E9F3] p-4 sm:p-7.5 lg:p-10 xl:p-15">
           <div className="max-w-[422px] w-full">
-            <span className="block font-medium text-custom-1 text-blue mb-2.5">
+            <span className="block font-medium text-custom-1 text-[#6BAF92] mb-2.5">
               Don’t Miss!!
             </span>
 
@@ -105,7 +105,7 @@ const CounDown = () => {
 
             <a
               href="#"
-              className="inline-flex font-medium text-custom-sm text-white bg-blue py-3 px-9.5 rounded-md ease-out duration-200 hover:bg-blue-dark mt-7.5"
+              className="inline-flex font-medium text-custom-sm text-white bg-[#6BAF92] py-3 px-9.5 rounded-md ease-out duration-200 hover:bg-blue-dark mt-7.5"
             >
               Check it Out!
             </a>

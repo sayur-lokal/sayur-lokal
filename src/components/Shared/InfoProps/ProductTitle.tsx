@@ -11,7 +11,7 @@ const ProductTitle = ({
 }) => {
   const titleElement = (
     <h3
-      className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5"
+      className="font-medium text-dark ease-out duration-200 hover:text-[#6BAF92] mb-1.5"
       onClick={onClick}
     >
       {title}
