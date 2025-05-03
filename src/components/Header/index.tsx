@@ -36,13 +36,13 @@ const Header = () => {
   });
 
   const options = [
-    { label: "All Categories", value: "0" },
-    { label: "Staples", value: "1" },
-    { label: "Vegetables", value: "2" },
-    { label: "Seasonings", value: "3" },
-    { label: "Fruits", value: "4" },
-    { label: "Meal Kits", value: "5" },
-    { label: "Uncategorized", value: "6" },
+    { label: "Semua Kategori", value: "0" },
+    { label: "Sembako", value: "1" },
+    { label: "Sayur", value: "2" },
+    { label: "Bumbu Dapur", value: "3" },
+    { label: "Buah", value: "4" },
+    { label: "Paket Masak", value: "5" },
+    { label: "Tanpa Kategori", value: "6" },
     
   ];
 
