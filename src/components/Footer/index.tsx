@@ -216,7 +216,7 @@ const Footer = () => {
             <ul className="flex flex-col lg:items-end gap-3">
               <li>
                 <a
-                  className="inline-flex items-center gap-3 py-[9px] pl-4 pr-7.5 text-white rounded-md bg-dark ease-out duration-200 hover:bg-opacity-95"
+                  className="inline-flex items-center gap-3 py-[9px] pl-4 pr-7.5 text-white rounded-md bg-green-dark ease-out duration-200 hover:bg-opacity-95"
                   href="#"
                 >
                   <svg

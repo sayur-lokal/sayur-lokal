@@ -20,7 +20,7 @@ const AddressModal = ({ isOpen, closeModal }) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 overflow-y-auto no-scrollbar w-full h-screen sm:py-20 xl:py-25 2xl:py-[230px] bg-dark/70 sm:px-8 px-4 py-5 ${
+      className={`fixed top-0 left-0 overflow-y-auto no-scrollbar w-full h-screen sm:py-20 xl:py-25 2xl:py-[230px] bg-green-dark/70 sm:px-8 px-4 py-5 ${
         isOpen ? "block z-99999" : "hidden"
       }`}
     >
