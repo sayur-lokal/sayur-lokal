@@ -18,7 +18,7 @@ const SwitchRoleTab: React.FC<SwitchRoleTabProps> = ({ currentRole, onSwitch }) 
           onClick={() => onSwitch(role as Role)}
           className={`py-2 px-5 rounded-md font-semibold ${
             currentRole === role
-              ? "bg-blue text-white"
+              ? "bg-[#6BAF92] text-white"
               : "bg-gray-100 text-gray-700 hover:bg-gray-200"
           }`}
         >

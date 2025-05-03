@@ -96,6 +96,7 @@ const config: Config = {
         DEFAULT: "#F27430",
         dark: "#E1580E",
       },
+      "fresh-green": "#6BAF92"
     },
     screens: {
       xsm: "375px",

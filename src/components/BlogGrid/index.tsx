@@ -47,7 +47,7 @@ const BlogGrid = () => {
                 <li>
                   <a
                     href="#"
-                    className="flex py-1.5 px-3.5 duration-200 rounded-[3px] bg-blue text-white hover:text-white hover:bg-blue"
+                    className="flex py-1.5 px-3.5 duration-200 rounded-[3px] bg-[#6BAF92] text-white hover:text-white hover:bg-[#6BAF92]"
                   >
                     1
                   </a>
@@ -56,7 +56,7 @@ const BlogGrid = () => {
                 <li>
                   <a
                     href="#"
-                    className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-blue"
+                    className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-[#6BAF92]"
                   >
                     2
                   </a>
@@ -65,7 +65,7 @@ const BlogGrid = () => {
                 <li>
                   <a
                     href="#"
-                    className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-blue"
+                    className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-[#6BAF92]"
                   >
                     3
                   </a>
@@ -74,7 +74,7 @@ const BlogGrid = () => {
                 <li>
                   <a
                     href="#"
-                    className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-blue"
+                    className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-[#6BAF92]"
                   >
                     4
                   </a>
@@ -83,7 +83,7 @@ const BlogGrid = () => {
                 <li>
                   <a
                     href="#"
-                    className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-blue"
+                    className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-[#6BAF92]"
                   >
                     5
                   </a>
@@ -92,7 +92,7 @@ const BlogGrid = () => {
                 <li>
                   <a
                     href="#"
-                    className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-blue"
+                    className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-[#6BAF92]"
                   >
                     ...
                   </a>
@@ -101,7 +101,7 @@ const BlogGrid = () => {
                 <li>
                   <a
                     href="#"
-                    className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-blue"
+                    className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-[#6BAF92]"
                   >
                     10
                   </a>
@@ -112,7 +112,7 @@ const BlogGrid = () => {
                     id="paginationLeft"
                     aria-label="button for pagination left"
                     type="button"
-                    className="flex items-center justify-center w-8 h-9 ease-out duration-200 rounded-[3px] hover:text-white hover:bg-blue disabled:text-gray-4"
+                    className="flex items-center justify-center w-8 h-9 ease-out duration-200 rounded-[3px] hover:text-white hover:bg-[#6BAF92] disabled:text-gray-4"
                   >
                     <svg
                       className="fill-current"

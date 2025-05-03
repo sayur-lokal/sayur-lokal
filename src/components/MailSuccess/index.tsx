@@ -10,7 +10,7 @@ const MailSuccess = () => {
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
           <div className="bg-white rounded-xl shadow-1 px-4 py-10 sm:py-15 lg:py-20 xl:py-25">
             <div className="text-center">
-              <h2 className="font-bold text-blue text-4xl lg:text-[45px] lg:leading-[57px] mb-5">
+              <h2 className="font-bold text-[#6BAF92] text-4xl lg:text-[45px] lg:leading-[57px] mb-5">
                 Successful!
               </h2>
 
@@ -25,7 +25,7 @@ const MailSuccess = () => {
 
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 font-medium text-white bg-blue py-3 px-6 rounded-md ease-out duration-200 hover:bg-blue-dark"
+                className="inline-flex items-center gap-2 font-medium text-white bg-[#6BAF92] py-3 px-6 rounded-md ease-out duration-200 hover:bg-green-dark"
               >
                 <svg
                   className="fill-current"

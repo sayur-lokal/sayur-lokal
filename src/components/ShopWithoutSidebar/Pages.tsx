@@ -80,7 +80,7 @@ const Pages = ({ maxPages, currentPage }: { maxPages: number, currentPage: numbe
 
                     <Link
                         href={createHref(1)}
-                        className={cn("flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-blue", currentPage == 1 ? "bg-blue text-white" : "")}
+                        className={cn("flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-[#6BAF92]", currentPage == 1 ? "bg-[#6BAF92] text-white" : "")}
                     >
                         1
                     </Link>
@@ -100,7 +100,7 @@ const Pages = ({ maxPages, currentPage }: { maxPages: number, currentPage: numbe
                     {pageConfig.pages.map(p => <li key={p}>
                         <Link
                             href={createHref(p)}
-                            className={cn("flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-blue", currentPage == p ? "bg-blue text-white" : "")}
+                            className={cn("flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-[#6BAF92]", currentPage == p ? "bg-[#6BAF92] text-white" : "")}
                         >
                             {p}
                         </Link>
@@ -117,7 +117,7 @@ const Pages = ({ maxPages, currentPage }: { maxPages: number, currentPage: numbe
 
                     <Link
                         href={createHref(maxPages)}
-                        className={cn("flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-blue", currentPage == maxPages ? "bg-blue text-white" : "")}
+                        className={cn("flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-[#6BAF92]", currentPage == maxPages ? "bg-[#6BAF92] text-white" : "")}
                     >
                         {maxPages}
                     </Link>
@@ -128,7 +128,7 @@ const Pages = ({ maxPages, currentPage }: { maxPages: number, currentPage: numbe
                             id="paginationLeft"
                             aria-label="button for pagination left"
                             type="button"
-                            className="flex items-center justify-center w-8 h-9 ease-out duration-200 rounded-[3px] hover:text-white hover:bg-blue disabled:text-gray-4"
+                            className="flex items-center justify-center w-8 h-9 ease-out duration-200 rounded-[3px] hover:text-white hover:bg-[#6BAF92] disabled:text-gray-4"
                         >
                             <svg
                                 className="fill-current"
