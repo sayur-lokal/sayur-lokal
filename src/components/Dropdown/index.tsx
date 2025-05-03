@@ -1,9 +1,9 @@
-"use client"
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-const Dropdown = ({ menuItem, stickyMenu }) => {
+import { Menu } from "@/types/Menu";
+const Dropdown = ({ menuItem, stickyMenu }: {menuItem: Menu; stickyMenu: boolean}) => {
   const [dropdownToggler, setDropdownToggler] = useState(false);
   const pathUrl = usePathname();
 
@@ -40,16 +40,16 @@ const Dropdown = ({ menuItem, stickyMenu }) => {
 
       {/* <!-- Dropdown Start --> */}
       <ul
-        className={`dropdown ${dropdownToggler && "flex"} ${
+        className={`dropdown z-999 ${dropdownToggler && "flex"} ${
           stickyMenu
             ? "xl:group-hover:translate-y-0"
             : "xl:group-hover:translate-y-0"
         }`}
       >
-        {menuItem.submenu.map((item, i) => (
+        {menuItem.submenu?.map((item, i) => (
           <li key={i}>
             <Link
-              href={item.path}
+              href={item.path || "#"}
               className={`flex text-custom-sm hover:text-blue hover:bg-gray-1 py-[7px] px-4.5 ${
                 pathUrl === item.path && "text-blue bg-gray-1"
               } `}
@@ -64,3 +64,4 @@ const Dropdown = ({ menuItem, stickyMenu }) => {
 };
 
 export default Dropdown;
+    

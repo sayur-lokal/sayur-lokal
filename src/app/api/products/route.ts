@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { parseProductQuery } from "@/types/productQuery";
 import { ValidationError } from "@/types/errors";
 import { badRequest, internalServerError } from "@/lib/api-utils";
-import shopData from "@/components/Shared/shopData";
+import shopData from "@/components/Shared/DummyData/shopData";
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
     try {
