@@ -1,7 +1,96 @@
+'use client'
+
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Signin = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const router = useRouter();
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+
+    setErrors({
+      ...errors,
+      [name]: "",
+    });
+  };
+
+  const validateForm = () => {
+    let valid = true;
+    const newErrors = { ...errors };
+
+    if (!formData.email) {
+      newErrors.email = "Email is required";
+      valid = false;
+    } else if (!validateEmail(formData.email)) {
+      newErrors.email = "Invalid email format";
+      valid = false;
+    }
+
+    if (!formData.password) {
+      newErrors.password = "Password is required";
+      valid = false;
+    } else if (formData.password.length < 3) {
+      newErrors.password = "Password at least 8 characters";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitError("");
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const formDataObj = new FormData();
+      formDataObj.append("email", formData.email);
+      formDataObj.append("password", formData.password);
+
+      const response = await fetch("/api/auth/signin", {
+        method: "POST",
+        body: formDataObj,
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Login failed");
+      }
+
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : "Something went wrong");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <>
       <section className="overflow-hidden py-20 mt-30 bg-gray-2">
@@ -15,7 +104,7 @@ const Signin = () => {
             </div>
 
             <div>
-              <form action="api/auth/signin" method="POST">
+              <form onSubmit={handleSubmit} noValidate>
                 <div className="mb-5">
                   <label htmlFor="email" className="block mb-2.5">
                     Email
@@ -26,9 +115,12 @@ const Signin = () => {
                     name="email"
                     id="email"
                     placeholder="Enter your email"
-                    className="rounded-lg border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
+                    className={`rounded-lg border ${errors.email ? "border-red" : "border-gray-3"} bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
                     required
+                    value={formData.email}
+                    onChange={handleChange}
                   />
+                  {errors.email && <p className="text-red text-sm mt-1">{errors.email}</p>}
                 </div>
 
                 <div className="mb-5">
@@ -42,16 +134,26 @@ const Signin = () => {
                     id="password"
                     placeholder="Enter your password"
                     autoComplete="on"
-                    className="rounded-lg border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
+                    className={`rounded-lg border ${errors.password ? "border-red" : "border-gray-3"} bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
                     required
+                    value={formData.password}
+                    onChange={handleChange}
                   />
+                  {errors.password && <p className="text-red text-sm mt-1">{errors.password}</p>}
                 </div>
+
+                {submitError && (
+                  <div className="mb-4 p-3 bg-red/10 text-red rounded-md text-sm">
+                    {submitError}
+                  </div>
+                )}
 
                 <button
                   type="submit"
                   className="w-full flex justify-center font-medium text-white bg-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-blue mt-7.5 disabled:pointer-events-none disabled:opacity-50"
+                  disabled={isSubmitting}
                 >
-                  Sign in to account
+                  {isSubmitting ? "Processing..." : "Sign in to account"}
                 </button>
 
                 <a
