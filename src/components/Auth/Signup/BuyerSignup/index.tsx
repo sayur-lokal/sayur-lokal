@@ -73,6 +73,9 @@ const BuyerSignup = () => {
     } else if (formData.password.length < 8) {
       newErrors.password = "Password at least 8 characters";
       valid = false;
+    } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/.test(formData.password)) {
+      newErrors.password = "Password must contain at least one uppercase letter, one lowercase letter, and one number";
+      valid = false;
     }
 
     if (!formData.confirmPassword) {
