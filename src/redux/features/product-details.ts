@@ -1,29 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Product } from "@/types/product";
+import { defaultProduct, Product } from "@/types/product";
 
 type InitialState = {
   value: Product;
+  // loading: boolean;
+  // error: string | null;
 };
 
 const initialState = {
-  value: {
-    title: "",
-    reviews: 0,
-    price: 0,
-    discountedPrice: 0,
-    img: "",
-    images: [],
-    categoryId: 0,
-    id: 0,
-    imgs: { thumbnails: [], previews: [] },
-    ingredients: [], // string[] by default
-    isEcoFriendly: false,
-    isOrganic: false, 
-  },
+  value: defaultProduct(),
 } as InitialState;
 
-export const productDetails = createSlice({
-  name: "productDetails",
+export const productDetailSlice = createSlice({
+  name: "detailprodslice",
   initialState,
   reducers: {
     updateproductDetails: (_, action) => {
@@ -36,5 +25,5 @@ export const productDetails = createSlice({
   },
 });
 
-export const { updateproductDetails } = productDetails.actions;
-export default productDetails.reducer;
+export const { updateproductDetails } = productDetailSlice.actions;
+export default productDetailSlice.reducer;

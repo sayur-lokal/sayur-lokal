@@ -145,7 +145,7 @@ const BuyerSignup = () => {
           <div className="max-w-[570px] w-full mx-auto rounded-xl bg-white shadow-1 p-4 sm:p-7.5 xl:p-11">
             <div className="text-center mb-11">
               <div className="text-center text-sm mb-5">
-                <Link href="/signup" className="text-blue-light hover:underline">
+                <Link href="/signup" className="text-[#D75A4A] hover:underline">
                   ← Back to role selection
                 </Link>
               </div>
@@ -231,7 +231,7 @@ const BuyerSignup = () => {
                     <button
                       type="button"
                       onClick={togglePasswordVisibility}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-6 hover:text-gray-7"
                     >
                       {showPassword ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
                     </button>
@@ -259,7 +259,7 @@ const BuyerSignup = () => {
                     <button
                       type="button"
                       onClick={toggleConfirmPasswordVisibility}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-6 hover:text-gray-7"
                     >
                       {showConfirmPassword ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
                     </button>
@@ -275,7 +275,7 @@ const BuyerSignup = () => {
 
                 <button
                   type="submit"
-                  className="w-full flex justify-center font-medium text-white bg-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-blue mt-7.5 disabled:pointer-events-none disabled:opacity-50"
+                  className="w-full flex justify-center font-medium text-white bg-green-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-[#1A693A] mt-7.5 disabled:pointer-events-none disabled:opacity-50"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Memproses..." : "Create Account"}
@@ -285,7 +285,7 @@ const BuyerSignup = () => {
                   Already have an account?
                   <Link
                     href="/signin"
-                    className="text-dark ease-out duration-200 hover:text-blue pl-2"
+                    className="text-dark ease-out duration-200 hover:text-[#D75A4A] pl-2"
                   >
                     Sign in Now
                   </Link>

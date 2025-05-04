@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Product } from "@/types/product";
 import { useModalContext } from "@/app/context/QuickViewModalContext";
 import { useDispatch } from "react-redux";
@@ -11,6 +11,10 @@ import Link from "next/link";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
 
 const SingleItem = ({ item }: { item: Product }) => {
+    const [ hasPreviews, setHasPreviews] = useState<boolean>(false)
+    useEffect(() => {
+      setHasPreviews(!!(item.imgs && item.imgs.length > 0 && item.imgs[0].previews && item.imgs[0].previews.length > 0))
+    }, [item])
   const { openModal } = useModalContext();
   const dispatch = useDispatch<AppDispatch>();
 
@@ -23,7 +27,7 @@ const SingleItem = ({ item }: { item: Product }) => {
   const handleAddToCart = () => {
     dispatch(
       addItemToCart({
-        ...item,
+        product: item,
         quantity: 1,
       })
     );
@@ -32,12 +36,14 @@ const SingleItem = ({ item }: { item: Product }) => {
   const handleItemToWishList = () => {
     dispatch(
       addItemToWishlist({
-        ...item,
+        product: item,
         status: "available",
         quantity: 1,
       })
     );
   };
+
+  
 
   return (
     <div className="group">
@@ -80,7 +86,7 @@ const SingleItem = ({ item }: { item: Product }) => {
             <p className="text-custom-sm">({item.reviews})</p>
           </div>
 
-          <h3 className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5">
+          <h3 className="font-medium text-dark ease-out duration-200 hover:text-[#6BAF92] mb-1.5">
             <Link href="/shop-details"> {item.title} </Link>
           </h3>
 
@@ -91,7 +97,7 @@ const SingleItem = ({ item }: { item: Product }) => {
         </div>
 
         <div className="flex justify-center items-center">
-          <Image src={item.imgs.previews[0]} alt="" width={280} height={280} className="aspect-square object-contain" />
+          {hasPreviews ? <Image src={item.imgs!.previews[0]} alt="" width={280} height={280} className="aspect-square object-contain" />: null }
         </div>
 
         <div className="absolute right-0 bottom-0 translate-x-full u-w-full flex flex-col gap-2 p-5.5 ease-linear duration-300 group-hover:translate-x-0">
@@ -102,7 +108,7 @@ const SingleItem = ({ item }: { item: Product }) => {
             }}
             aria-label="button for quick view"
             id="bestOne"
-            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-white hover:bg-blue"
+            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-white hover:bg-[#6BAF92]"
           >
             <svg
               className="fill-current"
@@ -131,7 +137,7 @@ const SingleItem = ({ item }: { item: Product }) => {
             onClick={() => handleAddToCart()}
             aria-label="button for add to cart"
             id="addCartOne"
-            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-white hover:bg-blue"
+            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-white hover:bg-[#6BAF92]"
           >
             <svg
               className="fill-current"
@@ -168,7 +174,7 @@ const SingleItem = ({ item }: { item: Product }) => {
             }}
             aria-label="button for add to fav"
             id="addFavOne"
-            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-white hover:bg-blue"
+            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-white hover:bg-[#6BAF92]"
           >
             <svg
               className="fill-current"

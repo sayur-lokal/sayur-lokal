@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   // other metadata
 };
 
-const ShopDetailsPage = () => {
+const ShopDetailsPage = ({ params }: { params: { productId: string } }) => {
   return (
     <main>
-      <ShopDetails />
+      <ShopDetails productId={params.productId}/>
     </main>
   );
 };

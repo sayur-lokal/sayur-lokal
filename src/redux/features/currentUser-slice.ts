@@ -1,6 +1,6 @@
 
-import { User } from "@/lib/user";
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { User, userSchema } from "@/types/user";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
 
 type CurrentUserState = {
@@ -18,8 +18,10 @@ export const fetchCurrentUser = createAsyncThunk(
       if (!res.ok) {
         throw new Error("Failed to fetch user");
       }
-      const data: User = await res.json();
-      return data;
+      const json = await res.json();
+      const validatedUser = userSchema.parse(json); // Zod validation
+
+      return validatedUser;
     } catch (error: any) {
       return rejectWithValue(error.message);
     }
@@ -33,12 +35,19 @@ const initialState: CurrentUserState = {
 };
 
 const currentUserSlice = createSlice({
-  name: "currentUser",
+  name: "currentuser",
   initialState,
-  reducers: {
-    clearUser(state) {
-      state.user = null;
-    },
+    reducers: {
+      setUser(state, action: PayloadAction<User>) {
+        state.user = action.payload;
+        state.loading = false;
+        state.error = null;
+      },
+      clearUser(state) {
+        state.user = null;
+        state.loading = false;
+        state.error = null;
+      },
   },
   extraReducers: (builder) => {
     builder
@@ -57,5 +66,5 @@ const currentUserSlice = createSlice({
   },
 });
 
-export const { clearUser } = currentUserSlice.actions;
+export const { setUser, clearUser } = currentUserSlice.actions;
 export default currentUserSlice.reducer;

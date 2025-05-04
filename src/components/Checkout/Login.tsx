@@ -73,7 +73,7 @@ const Login = () => {
 
         <button
           type="submit"
-          className="inline-flex font-medium text-white bg-blue py-3 px-10.5 rounded-md ease-out duration-200 hover:bg-blue-dark"
+          className="inline-flex font-medium text-white bg-[#6BAF92] py-3 px-10.5 rounded-md ease-out duration-200 hover:bg-green-dark"
         >
           Login
         </button>

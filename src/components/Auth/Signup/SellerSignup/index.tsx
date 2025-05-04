@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useAuth } from '@/app/context/AuthContext';
 
 const SellerSignup = () => {
   const [formData, setFormData] = useState({
@@ -21,6 +22,7 @@ const SellerSignup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const router = useRouter();
+  const { setSellerRegistrationData } = useAuth();
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -40,7 +42,13 @@ const SellerSignup = () => {
       [name]: "",
     });
   };
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
   const validateForm = () => {
     let valid = true;
     const newErrors = { ...errors };
@@ -83,12 +91,14 @@ const SellerSignup = () => {
     if (!validateForm()) {
       return;
     }
+    
+    setIsSubmitting(true);
 
-    // Simpan data ke localStorage untuk digunakan di halaman shop
-    localStorage.setItem('sellerData', JSON.stringify({
+    // Simpan data ke context untuk digunakan di halaman shop
+    setSellerRegistrationData({
       email: formData.email,
       password: formData.password,
-    }));
+    });
 
     // Redirect ke halaman shop signup
     router.push('/signup/seller/shop');
@@ -101,7 +111,7 @@ const SellerSignup = () => {
           <div className="max-w-[570px] w-full mx-auto rounded-xl bg-white shadow-1 p-4 sm:p-7.5 xl:p-11">
             <div className="text-center mb-11">
               <div className="text-center text-sm mb-5">
-                <Link href="/signup" className="text-blue-light hover:underline">
+                <Link href="/signup" className="text-[#D75A4A] hover:underline">
                   ← Back to role selection
                 </Link>
               </div>
@@ -150,10 +160,10 @@ const SellerSignup = () => {
                     />
                     <button
                       type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-4 top-1/2 -translate-y-1/2"
+                      onClick={togglePasswordVisibility}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-6 hover:text-gray-7"
                     >
-                      {showPassword ? <FaEye className="text-gray-500" /> : <FaEyeSlash className="text-gray-500" />}
+                      {showPassword ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
                     </button>
                   </div>
                   {errors.password && <p className="text-red text-sm mt-1">{errors.password}</p>}
@@ -178,10 +188,10 @@ const SellerSignup = () => {
                     />
                     <button
                       type="button"
-                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      className="absolute right-4 top-1/2 -translate-y-1/2"
+                      onClick={toggleConfirmPasswordVisibility}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-6 hover:text-gray-7"
                     >
-                      {showConfirmPassword ? <FaEye className="text-gray-500" /> : <FaEyeSlash className="text-gray-500" />}
+                      {showConfirmPassword ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
                     </button>
                   </div>
                   {errors.confirmPassword && <p className="text-red text-sm mt-1">{errors.confirmPassword}</p>}
@@ -195,7 +205,7 @@ const SellerSignup = () => {
 
                 <button
                   type="submit"
-                  className="w-full flex justify-center font-medium text-white bg-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-blue mt-7.5 disabled:pointer-events-none disabled:opacity-50"
+                  className="w-full flex justify-center font-medium text-white bg-green-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-[#1A693A] mt-7.5 disabled:pointer-events-none disabled:opacity-50"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Processing..." : "Next"}
@@ -203,7 +213,7 @@ const SellerSignup = () => {
 
                 <p className="text-center mt-6">
                   Already have an account?
-                  <Link href="/signin" className="text-dark ease-out duration-200 hover:text-blue pl-2">
+                  <Link href="/signin" className="text-dark ease-out duration-200 hover:text-[#D75A4A] pl-2">
                     Sign in Now
                   </Link>
                 </p>

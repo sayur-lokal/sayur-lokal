@@ -15,7 +15,7 @@ import { CartItem } from "@/redux/features/cart-slice";
 import OrderList from "./OrderList"
 const Checkout = () => {
 
-    const cartItems: CartItem[] = useAppSelector((state) => state.cartReducer.items);
+    const cartItems: CartItem[] = useAppSelector((state) => state.cartslice.items);
 
     if (cartItems.length == 0) {
         return (
@@ -80,7 +80,7 @@ const Checkout = () => {
                                 <PaymentMethod />
                                 <button
                                     type="submit"
-                                    className="w-full flex justify-center font-medium text-white bg-blue py-3 px-6 rounded-md ease-out duration-200 hover:bg-blue-dark mt-7.5"
+                                    className="w-full flex justify-center font-medium text-white bg-[#6BAF92] py-3 px-6 rounded-md ease-out duration-200 hover:bg-green-dark mt-7.5"
                                 >
                                     Process to Checkout
                                 </button>

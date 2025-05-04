@@ -1,27 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Product } from "@/types/product";
+import { defaultProduct, Product } from "@/types/product";
 
 type InitialState = {
   value: Product;
 };
 
 const initialState = {
-  value: {
-    title: "",
-    reviews: 0,
-    price: 0,
-    discountedPrice: 0,
-    img: "",
-    id: 0,
-    images: [],
-    imgs: { thumbnails: [], previews: [] },
-    productType: "standard",
-    categoryId: 1
-  } as Product,
+  value: defaultProduct() as Product,
 } as InitialState;
 
-export const quickView = createSlice({
-  name: "quickView",
+export const quickViewSlice = createSlice({
+  name: "viewslice",
   initialState,
   reducers: {
     updateQuickView: (_, action) => {
@@ -40,5 +29,5 @@ export const quickView = createSlice({
   },
 });
 
-export const { updateQuickView, resetQuickView } = quickView.actions;
-export default quickView.reducer;
+export const { updateQuickView, resetQuickView } = quickViewSlice.actions;
+export default quickViewSlice.reducer;

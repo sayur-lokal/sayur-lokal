@@ -4,7 +4,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const OrderSummary = () => {
-  const cartItems = useAppSelector((state) => state.cartReducer.items);
+  const cartItems = useAppSelector((state) => state.cartslice.items);
   const totalPrice = useSelector(selectTotalPrice);
 
   return (
@@ -55,7 +55,7 @@ const OrderSummary = () => {
           {/* <!-- checkout button --> */}
           <button
             type="submit"
-            className="w-full flex justify-center font-medium text-white bg-blue py-3 px-6 rounded-md ease-out duration-200 hover:bg-blue-dark mt-7.5"
+            className="w-full flex justify-center font-medium text-white bg-[#6BAF92] py-3 px-6 rounded-md ease-out duration-200 hover:bg-green-dark mt-7.5"
           >
             Process to Checkout
           </button>

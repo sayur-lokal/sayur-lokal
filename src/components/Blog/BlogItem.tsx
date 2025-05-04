@@ -20,7 +20,7 @@ const BlogItem = ({ blog }: { blog: BlogItem }) => {
         <span className="flex items-center gap-3 mb-2.5">
           <a
             href="#"
-            className="text-custom-sm ease-out duration-200 hover:text-blue"
+            className="text-custom-sm ease-out duration-200 hover:text-[#6BAF92]"
           >
             {blog.date}
           </a>
@@ -30,19 +30,19 @@ const BlogItem = ({ blog }: { blog: BlogItem }) => {
 
           <a
             href="#"
-            className="text-custom-sm ease-out duration-200 hover:text-blue"
+            className="text-custom-sm ease-out duration-200 hover:text-[#6BAF92]"
           >
             {blog.views} Views
           </a>
         </span>
 
-        <h2 className="font-medium text-dark text-lg sm:text-xl ease-out duration-200 mb-4 hover:text-blue">
+        <h2 className="font-medium text-dark text-lg sm:text-xl ease-out duration-200 mb-4 hover:text-[#6BAF92]">
           <Link href="/blogs/blog-details">{blog.title}</Link>
         </h2>
 
         <Link
           href="/blogs/blog-details"
-          className="text-custom-sm inline-flex items-center gap-2 py-2 ease-out duration-200 hover:text-blue"
+          className="text-custom-sm inline-flex items-center gap-2 py-2 ease-out duration-200 hover:text-[#6BAF92]"
         >
           Read More
           <svg

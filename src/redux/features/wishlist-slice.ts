@@ -1,52 +1,42 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Product } from "@/types/product"
 
 type InitialState = {
   items: WishListItem[];
 };
 
 type WishListItem = {
-  id: number;
-  title: string;
-  price: number;
-  discountedPrice: number;
-  quantity: number;
-  status?: string;
-  imgs?: {
-    thumbnails: string[];
-    previews: string[];
-  };
+    product: Product;
+    status?: string;
+    quantity: number;
 };
 
 const initialState: InitialState = {
   items: [],
 };
 
-export const wishlist = createSlice({
-  name: "wishlist",
+export const wishlistSlice = createSlice({
+  name: "wishslice",
   initialState,
   reducers: {
     addItemToWishlist: (state, action: PayloadAction<WishListItem>) => {
-      const { id, title, price, quantity, imgs, discountedPrice, status } =
+      const { product, status, quantity } =
         action.payload;
-      const existingItem = state.items.find((item) => item.id === id);
+      const existingItem = state.items.find((item) => item.product.id === product.id);
 
       if (existingItem) {
         existingItem.quantity += quantity;
       } else {
         state.items.push({
-          id,
-          title,
-          price,
+          product,
           quantity,
-          imgs,
-          discountedPrice,
           status,
         });
       }
     },
-    removeItemFromWishlist: (state, action: PayloadAction<number>) => {
+    removeItemFromWishlist: (state, action: PayloadAction<string>) => {
       const itemId = action.payload;
-      state.items = state.items.filter((item) => item.id !== itemId);
+      state.items = state.items.filter((item) => item.product.id !== itemId);
     },
 
     removeAllItemsFromWishlist: (state) => {
@@ -59,5 +49,5 @@ export const {
   addItemToWishlist,
   removeItemFromWishlist,
   removeAllItemsFromWishlist,
-} = wishlist.actions;
-export default wishlist.reducer;
+} = wishlistSlice.actions;
+export default wishlistSlice.reducer;

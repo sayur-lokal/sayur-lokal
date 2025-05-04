@@ -7,7 +7,7 @@ import Orders from "../Orders";
 
 const MyAccount = () => {
   // const dispatch = useDispatch();
-  // const { user, loading } = useAppSelector((state) => state.currentUserReducer);
+  // const { user, loading } = useAppSelector((state) => state.currentuser);
 
   // const [currentRole, setCurrentRole] = useState<Role>("buyer");
 
@@ -58,9 +58,9 @@ const MyAccount = () => {
                   <div className="flex flex-wrap xl:flex-nowrap xl:flex-col gap-4">
                     <button
                       onClick={() => setActiveTab("dashboard")}
-                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-blue hover:text-white ${
+                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#6BAF92] hover:text-white ${
                         activeTab === "dashboard"
-                          ? "text-white bg-blue"
+                          ? "text-white bg-[#6BAF92]"
                           : "text-dark-2 bg-gray-1"
                       }`}
                     >
@@ -101,9 +101,9 @@ const MyAccount = () => {
                     </button>
                     <button
                       onClick={() => setActiveTab("orders")}
-                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-blue hover:text-white ${
+                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#6BAF92] hover:text-white ${
                         activeTab === "orders"
-                          ? "text-white bg-blue"
+                          ? "text-white bg-[#6BAF92]"
                           : "text-dark-2 bg-gray-1"
                       }`}
                     >
@@ -139,9 +139,9 @@ const MyAccount = () => {
 
                     <button
                       onClick={() => setActiveTab("downloads")}
-                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-blue hover:text-white ${
+                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#6BAF92] hover:text-white ${
                         activeTab === "downloads"
-                          ? "text-white bg-blue"
+                          ? "text-white bg-[#6BAF92]"
                           : "text-dark-2 bg-gray-1"
                       }`}
                     >
@@ -167,9 +167,9 @@ const MyAccount = () => {
 
                     <button
                       onClick={() => setActiveTab("addresses")}
-                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-blue hover:text-white ${
+                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#6BAF92] hover:text-white ${
                         activeTab === "addresses"
-                          ? "text-white bg-blue"
+                          ? "text-white bg-[#6BAF92]"
                           : "text-dark-2 bg-gray-1"
                       }`}
                     >
@@ -197,9 +197,9 @@ const MyAccount = () => {
 
                     <button
                       onClick={() => setActiveTab("account-details")}
-                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-blue hover:text-white ${
+                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#6BAF92] hover:text-white ${
                         activeTab === "account-details"
-                          ? "text-white bg-blue"
+                          ? "text-white bg-[#6BAF92]"
                           : "text-dark-2 bg-gray-1"
                       }`}
                     >
@@ -229,9 +229,9 @@ const MyAccount = () => {
 
                     <button
                       onClick={() => setActiveTab("logout")}
-                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-blue hover:text-white ${
+                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#6BAF92] hover:text-white ${
                         activeTab === "logout"
-                          ? "text-white bg-blue"
+                          ? "text-white bg-[#6BAF92]"
                           : "text-dark-2 bg-gray-1"
                       }`}
                     >
@@ -321,7 +321,7 @@ const MyAccount = () => {
                   </p>
 
                   <button
-                    className="text-dark ease-out duration-200 hover:text-blue"
+                    className="text-dark ease-out duration-200 hover:text-[#6BAF92]"
                     onClick={openAddressModal}
                   >
                     <svg
@@ -453,7 +453,7 @@ const MyAccount = () => {
                   </p>
 
                   <button
-                    className="text-dark ease-out duration-200 hover:text-blue"
+                    className="text-dark ease-out duration-200 hover:text-[#6BAF92]"
                     onClick={openAddressModal}
                   >
                     <svg
@@ -654,7 +654,7 @@ const MyAccount = () => {
 
                   <button
                     type="submit"
-                    className="inline-flex font-medium text-white bg-blue py-3 px-7 rounded-md ease-out duration-200 hover:bg-blue-dark"
+                    className="inline-flex font-medium text-white bg-[#6BAF92] py-3 px-7 rounded-md ease-out duration-200 hover:bg-green-dark"
                   >
                     Save Changes
                   </button>
@@ -717,7 +717,7 @@ const MyAccount = () => {
 
                   <button
                     type="submit"
-                    className="inline-flex font-medium text-white bg-blue py-3 px-7 rounded-md ease-out duration-200 hover:bg-blue-dark"
+                    className="inline-flex font-medium text-white bg-[#6BAF92] py-3 px-7 rounded-md ease-out duration-200 hover:bg-green-dark"
                   >
                     Change Password
                   </button>

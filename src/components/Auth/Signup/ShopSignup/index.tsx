@@ -3,9 +3,11 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/app/context/AuthContext';
 
 const ShopSignup = () => {
   const [sellerData, setSellerData] = useState<{ email: string; password: string } | null>(null);
+  const { sellerRegistrationData, clearSellerRegistrationData } = useAuth();
   const [formData, setFormData] = useState({
     shopName: "",
     shopDescription: "",
@@ -31,21 +33,12 @@ const ShopSignup = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // Ambil data seller dari localStorage
-    const storedData = localStorage.getItem('sellerData');
-    if (storedData) {
-      try {
-        const parsedData = JSON.parse(storedData);
-        setSellerData(parsedData);
-      } catch (error) {
-        console.error('Error parsing seller data:', error);
-        router.push('/signup/seller');
-      }
-    } else {
+    // Cek data seller dari context
+    if (!sellerRegistrationData) {
       // Redirect jika tidak ada data seller
       router.push('/signup/seller');
     }
-  }, [router]);
+  }, [sellerRegistrationData, router]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target as HTMLInputElement;
@@ -144,8 +137,7 @@ const ShopSignup = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError("");
-
-    if (!validateForm() || !sellerData) {
+    if (!validateForm() || !sellerRegistrationData) {
       return;
     }
 
@@ -155,8 +147,8 @@ const ShopSignup = () => {
       const formDataObj = new FormData();
       
       // Seller data
-      formDataObj.append("email", sellerData.email);
-      formDataObj.append("password", sellerData.password);
+      formDataObj.append("email", sellerRegistrationData.email);
+      formDataObj.append("password", sellerRegistrationData.password);
       formDataObj.append("role", "seller");
       
       // Shop data
@@ -179,9 +171,8 @@ const ShopSignup = () => {
         const errorData = await response.json();
         throw new Error(errorData.message || "Failed to sign up");
       }
-
-      // Hapus data dari localStorage
-      localStorage.removeItem('sellerData');
+      // Hapus data dari context
+      clearSellerRegistrationData();
       
       // Redirect ke halaman login setelah berhasil
       router.push("/signin?registered=true");
@@ -199,7 +190,7 @@ const ShopSignup = () => {
           <div className="max-w-[670px] w-full mx-auto rounded-xl bg-white shadow-1 p-4 sm:p-7.5 xl:p-11">
             <div className="text-center mb-11">
               <div className="text-center text-sm mb-5">
-                <Link href="/signup/seller" className="text-blue-light hover:underline">
+                <Link href="/signup/seller" className="text-[#D75A4A] hover:underline">
                   ← Back to personal information form
                 </Link>
               </div>
@@ -364,7 +355,7 @@ const ShopSignup = () => {
                     />
                     <label htmlFor="termsAndConditions" className="text-sm text-gray-5">
                       I agree to the{' '}
-                      <Link href="/terms-and-conditions" className="text-blue-light hover:underline">
+                      <Link href="/terms-and-conditions" className="text-[#D75A4A] hover:underline">
                         Terms and Conditions
                       </Link>
                     </label>
@@ -386,7 +377,7 @@ const ShopSignup = () => {
                     />
                     <label htmlFor="privacyPolicy" className="text-sm text-gray-5">
                       I agree to the{' '}
-                      <Link href="/privacy-policy" className="text-blue-light hover:underline">
+                      <Link href="/privacy-policy" className="text-[#D75A4A] hover:underline">
                         Privacy Policy
                       </Link>
                     </label>
@@ -399,7 +390,7 @@ const ShopSignup = () => {
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full flex justify-center font-medium text-white bg-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-blue mt-7.5 disabled:pointer-events-none disabled:opacity-50"
+                  className="w-full flex justify-center font-medium text-white bg-green-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-[#1A693A] mt-7.5 disabled:pointer-events-none disabled:opacity-50"
                 >
                   {isSubmitting ? 'Creating Shop...' : 'Create Shop'}
                 </button>

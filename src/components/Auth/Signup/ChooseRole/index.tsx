@@ -36,7 +36,7 @@ const RegisterRoleSelection = () => {
           <div className="space-y-4">
             <div 
               className={`border rounded-lg p-4 cursor-pointer ${
-                selectedRole === 'buyer' ? 'border-green-light bg-green-light-6' : 'border-gray-4'
+                selectedRole === 'buyer' ? 'border-green-dark bg-green-light-6' : 'border-gray-4'
               }`}
               onClick={() => handleRoleSelect('buyer')}
             >
@@ -52,7 +52,7 @@ const RegisterRoleSelection = () => {
 
             <div 
               className={`border rounded-lg p-4 cursor-pointer ${
-                selectedRole === 'seller' ? 'border-green-light bg-green-light-6' : 'border-gray-4'
+                selectedRole === 'seller' ? 'border-green-dark bg-green-light-6' : 'border-gray-4'
               }`}
               onClick={() => handleRoleSelect('seller')}
             >
@@ -69,7 +69,7 @@ const RegisterRoleSelection = () => {
 
           
             <button
-              className="w-full flex justify-center font-medium text-white bg-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-blue mt-7.5 disabled:pointer-events-none disabled:opacity-50"
+              className="w-full flex justify-center font-medium text-white bg-green-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-[#1A693A] mt-7.5 disabled:pointer-events-none disabled:opacity-50"
               onClick={handleContinue}
               disabled={!selectedRole}
             >
@@ -81,7 +81,7 @@ const RegisterRoleSelection = () => {
               Already have an account?
               <Link
                 href="/signin"
-                className="text-dark ease-out duration-200 hover:text-blue pl-2"
+                className="text-dark ease-out duration-200 hover:text-[#D75A4A] pl-2"
               >
                 Sign in Now
               </Link>

@@ -4,6 +4,9 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useAppDispatch } from "@/redux/store";
+import { setUser } from "@/redux/features/auth-slice";
+
 
 const Signin = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +20,7 @@ const Signin = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useAppDispatch();
   const router = useRouter();
 
   const validateEmail = (email: string) => {
@@ -89,7 +93,19 @@ const Signin = () => {
         const errorData = await response.json();
         throw new Error(errorData.message || "Login failed");
       }
+      // Ambil data user dari response
+      const userData = await response.json();
+      
+      // Simpan user ke Redux store
+      dispatch(setUser({
+        email: userData.email,
+        role: userData.role,
+        username: userData.username,
+        name: userData.name,
+      }));
 
+      // Redirect ke halaman utama
+      router.push("/");
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : "Something went wrong");
     } finally {
@@ -149,7 +165,7 @@ const Signin = () => {
                     <button
                       type="button"
                       onClick={togglePasswordVisibility}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-6 hover:text-gray-7"
                     >
                       {showPassword ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
                     </button>
@@ -165,7 +181,7 @@ const Signin = () => {
 
                 <button
                   type="submit"
-                  className="w-full flex justify-center font-medium text-white bg-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-blue mt-7.5 disabled:pointer-events-none disabled:opacity-50"
+                  className="w-full flex justify-center font-medium text-white bg-green-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-[#1A693A] mt-7.5 disabled:pointer-events-none disabled:opacity-50"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Processing..." : "Sign in to account"}
@@ -173,7 +189,7 @@ const Signin = () => {
 
                 <a
                   href="#"
-                  className="block text-center text-dark-4 mt-4.5 ease-out duration-200 hover:text-dark"
+                  className="block text-center text-dark-4 mt-4.5 ease-out duration-200 hover:text-[#D75A4A]"
                 >
                   Forget your password?
                 </a>
@@ -182,7 +198,7 @@ const Signin = () => {
                   Don&apos;t have an account?
                   <Link
                     href="/signup"
-                    className="text-dark ease-out duration-200 hover:text-blue pl-2"
+                    className="text-dark ease-out duration-200 hover:text-[#D75A4A] pl-2"
                   >
                     Sign Up Now!
                   </Link>

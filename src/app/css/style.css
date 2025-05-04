@@ -123,7 +123,7 @@ input[type='search']::-webkit-search-results-decoration {
 }
 
 .hero-carousel .swiper-pagination-bullet-active {
-  @apply w-5.5 bg-blue;
+  @apply w-5.5 bg-[#6BAF92];
 }
 
 .hero-carousel .swiper-pagination {
@@ -137,7 +137,7 @@ input[type='search']::-webkit-search-results-decoration {
 
 .common-carousel .swiper-button-next,
 .common-carousel .swiper-button-prev {
-  @apply !static h-9 w-9 rounded-lg bg-white text-dark border border-gray-3 m-0 ease-out duration-200 hover:bg-blue hover:text-white hover:border-blue;
+  @apply !static h-9 w-9 rounded-lg bg-white text-dark border border-gray-3 m-0 ease-out duration-200 hover:bg-[#6BAF92] hover:text-white hover:border-blue;
 }
 
 .common-carousel .swiper-button-next svg,
@@ -160,10 +160,10 @@ input[type='search']::-webkit-search-results-decoration {
   @apply h-1 rounded-full bg-gray-3;
 }
 .priceSlide .noUi-connect {
-  @apply h-1 rounded-full bg-blue;
+  @apply h-1 rounded-full bg-[#6BAF92];
 }
 .priceSlide .noUi-horizontal .noUi-handle {
-  @apply -top-3 h-7 w-7 rounded-full border border-gray-4 bg-white shadow-range before:block before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:w-4 before:h-4 before:rounded-full before:bg-blue;
+  @apply -top-3 h-7 w-7 rounded-full border border-gray-4 bg-white shadow-range before:block before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:w-4 before:h-4 before:rounded-full before:bg-[#6BAF92];
 }
 .priceSlide .noUi-tooltip {
   @apply border-none p-0 bg-transparent text-custom-sm text-dark-4;
@@ -175,11 +175,11 @@ input[type='search']::-webkit-search-results-decoration {
 
 
 .range-slider {
- @apply w-full !h-[4px] rounded-md bg-blue relative mb-3;
+ @apply w-full !h-[4px] rounded-md bg-[#6BAF92] relative mb-3;
 }
 
 .slider .thumb {
-  @apply w-6 h-6 bg-blue-dark rounded-full absolute -top-2 border-[5px] border-blue-light-4;
+  @apply w-6 h-6 bg-green-dark rounded-full absolute -top-2 border-[5px] border-blue-light-4;
 }
 
 .range-slider__thumb {
@@ -193,9 +193,9 @@ input[type='search']::-webkit-search-results-decoration {
   display: block;
   border-radius: 100%;
   position: absolute;
-  @apply bg-blue;
+  @apply bg-[#6BAF92];
 }
 
 .range-slider__range {
-  @apply !bg-blue;
+  @apply !bg-[#6BAF92];
 }
