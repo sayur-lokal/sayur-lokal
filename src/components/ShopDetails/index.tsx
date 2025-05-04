@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useEffect, useState } from "react";
 import Breadcrumb from "../Common/Breadcrumb";
 import Image from "next/image";
@@ -12,31 +12,39 @@ import ProductAttributes from "../Shared/InfoProps/ProductAttrb";
 import ProductTitle from "../Shared/InfoProps/ProductTitle";
 import ProductPrice from "../Shared/InfoProps/ProductPrice";
 import ProductRating from "../Shared/InfoProps/ProductRating";
-// import { useParams } from "next/navigation";
-import { fetchProductById } from "@/redux/product/productThunks";
+// import { getDummyProductById } from "../Shared/DummyData/shopData";
+import { fetchProductById } from "@/redux/features/product-slice";
+// import { updateproductDetails } from "@/redux/features/product-details";
 
+interface ShopDetailsProps {
+  productId: string; 
+}
 
 const tabs = [
   { id: "description", title: "Description" },
   { id: "attributes", title: "Product Attributes" },
   { id: "reviews", title: "Reviews" },
+   // { id: "related", title: "Cocok Dibeli Barengan" },
+  // { id: "similar", title: "Produk Serupa Lainnya" },
+  // { id: "description", title: "Informasi Produk" },
 ];
 
 
-const ShopDetails = ({ productId }: { productId: string }) => {
-  // const { productId } = useParams(); // <- comes as string
+const ShopDetails: React.FC<ShopDetailsProps> = ({ productId }) => {
+  
+  
+  
   const dispatch = useDispatch<AppDispatch>();
-
-  const { value: product } = useAppSelector((state) => state.detailprodslice);
+  const currentProduct = useAppSelector(state => 
+    state.productslice.items.find(p => p.id === productId)
+  );
+  
+  // const product = useAppSelector((state) => state.productslice.product);
 
   const { openPreviewModal } = usePreviewSlider();
   const [previewImg, setPreviewImg] = useState(0);
-
-  // const [storage, setStorage] = useState("gb128");
-  // const [type, setType] = useState("active");
-  // const [sim, setSim] = useState("dual");
   const [quantity, setQuantity] = useState(1);
-  const [activeTab, setActiveTab] = useState("tabOne");
+  const [activeTab, setActiveTab] = useState("description");
 
  
   // const alreadyExist = localStorage.getItem("productDetails");
@@ -47,18 +55,18 @@ const ShopDetails = ({ productId }: { productId: string }) => {
   // useEffect(() => {
   //   localStorage.setItem("productDetails", JSON.stringify(product));
   // }, [product]);
+
   useEffect(() => {
-    if (productId) {
-      dispatch(fetchProductById(productId as string)); // assuming your thunk accepts a string ID
-    }
+    dispatch(fetchProductById(productId)); 
   }, [dispatch, productId]);
+
   // pass the product here when you get the real data.
   const handlePreviewSlider = () => {
     openPreviewModal();
   }
 
-  if (!product.title) {
-    return <p>Please add product</p>;
+  if (!currentProduct || !currentProduct.title) {
+    return <p>Loading product details..</p>;
   }
 
  
@@ -92,17 +100,21 @@ const ShopDetails = ({ productId }: { productId: string }) => {
                       />
                     </svg>
                   </button>
-                  {product.imgs ? <Image
-                    src={product.imgs?.previews[previewImg]}
+                  {currentProduct.imgs ? (
+                    <Image
+                    src={currentProduct.imgs?.previews[previewImg]}
                     alt="product-details"
                     width={400}
                     height={400}
-                  /> : null}
+                  /> 
+                ) : (
+                  <div className="text-gray-500">No preview image</div>
+                )}
                 </div>
               </div>
 
               <div className="flex flex-wrap sm:flex-nowrap gap-4.5 mt-6">
-                {product.imgs?.thumbnails.map((item, key) => (
+                {currentProduct.imgs?.thumbnails?.map((item, key) => (
                   <button
                     onClick={() => setPreviewImg(key)}
                     key={key}
@@ -120,17 +132,17 @@ const ShopDetails = ({ productId }: { productId: string }) => {
             <div className="flex-1 max-w-[539px] w-full">
               <div className="flex items-center justify-between mb-3">
                 <h2 className="font-semibold text-xl sm:text-2xl xl:text-custom-3 text-dark">
-                <ProductTitle title={product.title}  />
+                <ProductTitle title={currentProduct.title}  />
                 {/* link={`/shop-details/${product.id}`} */}
                 </h2>
               </div>
 
               <div className="mb-4">
-              <ProductRating reviews={product.reviews || []} />
-
+              <ProductRating reviews={currentProduct.reviews || []} />
+              {/* <ProductAttributes product={product} /> */}
               </div>
 
-              <ProductPrice price={product.price} discountedPrice={product.discountedPrice}/>
+              <ProductPrice price={currentProduct.price} discountedPrice={currentProduct.discountedPrice}/>
 
               <ul className="flex flex-col gap-2 mt-6">
                 <li className="flex items-center gap-2.5">
@@ -157,12 +169,14 @@ const ShopDetails = ({ productId }: { productId: string }) => {
                 >
                   +
                 </button>
-                <a
-                  href="#"
+                <button
+                  type="button"
+                  // href="#"
                   className="inline-flex font-medium text-white bg-[#6BAF92] py-3 px-7 rounded-md ease-out duration-200 hover:bg-green-dark"
+                  onClick={()=> console.log("TODO: Implement purchase logic")}
                 >
                   Purchase Now
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -185,14 +199,14 @@ const ShopDetails = ({ productId }: { productId: string }) => {
 
             <div className="bg-white rounded-[10px] shadow-1 p-6 mt-6">
               {activeTab === "description" && 
-              <p>{product.description}</p>}
+              <p>{currentProduct.description}</p>}
 
               {activeTab === "attributes" && 
-              <ProductAttributes product={product} />} 
+              <ProductAttributes product={currentProduct} />} 
                 {/* add productingredients later */}
 
               {activeTab === "reviews" && 
-              <ProductReview product={product} />}
+              <ProductReview product={currentProduct} />}
 
             </div>
           </section>

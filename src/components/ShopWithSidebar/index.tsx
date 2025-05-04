@@ -8,6 +8,7 @@ import SizeDropdown from "./SizeDropdown";
 import ColorsDropdwon from "./ColorsDropdwon";
 import PriceDropdown from "./PriceDropdown";
 import shopData from "../Shared/DummyData/shopData";
+import categoryData from "../Shared/DummyData/categoryData";
 import SingleGridItem from "../Shop/SingleGridItem";
 import SingleListItem from "../Shop/SingleListItem";
 
@@ -25,43 +26,18 @@ const ShopWithSidebar = () => {
   };
 
   const options = [
-    { label: "Latest Products", value: "0" },
-    { label: "Best Selling", value: "1" },
-    { label: "Old Products", value: "2" },
+    { label: "Terbaru di sayurlokal", value: "0" },
+    { label: "Terlaris di sayurlokal", value: "1" },
+    { label: "Beli Ini Juga", value: "2" },
+ 
+    
   ];
 
-  const categories = [
-    {
-      name: "Desktop",
-      products: 10,
-      isRefined: true,
-    },
-    {
-      name: "Laptop",
-      products: 12,
-      isRefined: false,
-    },
-    {
-      name: "Monitor",
-      products: 30,
-      isRefined: false,
-    },
-    {
-      name: "UPS",
-      products: 23,
-      isRefined: false,
-    },
-    {
-      name: "Phone",
-      products: 10,
-      isRefined: false,
-    },
-    {
-      name: "Watch",
-      products: 13,
-      isRefined: false,
-    },
-  ];
+  const mappedCategories = categoryData.map((cat) => ({
+    name: cat.title,
+    products: Math.floor(Math.random() * 100),
+    img: cat.img,
+  }));
 
   const genders = [
     {
@@ -157,7 +133,7 @@ const ShopWithSidebar = () => {
                   </div>
 
                   {/* <!-- category box --> */}
-                  <CategoryDropdown categories={categories} />
+                  <CategoryDropdown categories={mappedCategories} />
 
                   {/* <!-- gender box --> */}
                   <GenderDropdown genders={genders} />
