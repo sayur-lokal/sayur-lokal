@@ -42,7 +42,6 @@ const SellerSignup = () => {
       [name]: "",
     });
   };
-
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -50,7 +49,6 @@ const SellerSignup = () => {
   const toggleConfirmPasswordVisibility = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
-
   const validateForm = () => {
     let valid = true;
     const newErrors = { ...errors };
@@ -93,7 +91,7 @@ const SellerSignup = () => {
     if (!validateForm()) {
       return;
     }
-
+    
     setIsSubmitting(true);
 
     // Simpan data ke context untuk digunakan di halaman shop

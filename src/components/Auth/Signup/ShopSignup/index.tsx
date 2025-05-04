@@ -137,7 +137,6 @@ const ShopSignup = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError("");
-
     if (!validateForm() || !sellerRegistrationData) {
       return;
     }
@@ -172,7 +171,6 @@ const ShopSignup = () => {
         const errorData = await response.json();
         throw new Error(errorData.message || "Failed to sign up");
       }
-
       // Hapus data dari context
       clearSellerRegistrationData();
       
