@@ -45,7 +45,7 @@ const Header = () => {
     { label: "Tanpa Kategori", value: "6" },
     { label: "Siap Saji", value: "7" },
     { label: "Protein", value: "8" },
-    { label: "sarapan", value: "9" },
+    { label: "Sarapan", value: "9" },
     { label: "Harga Grosir", value: "10" },
   ];
 

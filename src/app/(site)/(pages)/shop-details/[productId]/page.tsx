@@ -10,16 +10,18 @@ export const metadata: Metadata = {
 };
 
 
-export default async function ShopDetailsPage({ 
-  params,
- }: { 
-  params: { productId: string };
- }) {
-  const { productId } = await Promise.resolve(params);
-  
+// interface Props {
+//   params: {
+//     productId: string; 
+//   };
+// };
+
+export default function ShopDetailsPage() {
+  // const { productId } = await Promise.resolve(params);
+
   return (
     <main>
-      <ShopDetails productId={params.productId}/>
+      <ShopDetails />
     </main>
   );
 };

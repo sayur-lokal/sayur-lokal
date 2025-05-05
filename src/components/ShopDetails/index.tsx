@@ -6,19 +6,19 @@ import Newsletter from "../Common/Newsletter";
 import RecentlyViewdItems from "./RecentlyViewd";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { useAppSelector, AppDispatch } from "@/redux/store";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ProductReview } from "../Review/ProductReview";
 import ProductAttributes from "../Shared/InfoProps/ProductAttrb";
 import ProductTitle from "../Shared/InfoProps/ProductTitle";
 import ProductPrice from "../Shared/InfoProps/ProductPrice";
 import ProductRating from "../Shared/InfoProps/ProductRating";
 // import { getDummyProductById } from "../Shared/DummyData/shopData";
-import { fetchProductById } from "@/redux/features/product-slice";
-// import { updateproductDetails } from "@/redux/features/product-details";
+import { fetchProductById } from "@/redux/features/product-details";
+import { useParams } from "next/navigation";
 
-interface ShopDetailsProps {
-  productId: string; 
-}
+// interface ShopDetailsProps {
+//   productId: string; 
+// }
 
 const tabs = [
   { id: "description", title: "Description" },
@@ -30,16 +30,12 @@ const tabs = [
 ];
 
 
-const ShopDetails: React.FC<ShopDetailsProps> = ({ productId }) => {
-  
-  
-  
+const ShopDetails = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const currentProduct = useAppSelector(state => 
-    state.productslice.items.find(p => p.id === productId)
+  const { productId } = useParams(); // Fetch productId from the dynamic route
+  const { currentProduct, loading, error } = useAppSelector(
+    (state) => state.detailprodslice
   );
-  
-  // const product = useAppSelector((state) => state.productslice.product);
 
   const { openPreviewModal } = usePreviewSlider();
   const [previewImg, setPreviewImg] = useState(0);
@@ -57,7 +53,9 @@ const ShopDetails: React.FC<ShopDetailsProps> = ({ productId }) => {
   // }, [product]);
 
   useEffect(() => {
-    dispatch(fetchProductById(productId)); 
+    if (productId && typeof productId === "string") {
+      dispatch(fetchProductById(productId));
+    }
   }, [dispatch, productId]);
 
   // pass the product here when you get the real data.
@@ -65,9 +63,9 @@ const ShopDetails: React.FC<ShopDetailsProps> = ({ productId }) => {
     openPreviewModal();
   }
 
-  if (!currentProduct || !currentProduct.title) {
-    return <p>Loading product details..</p>;
-  }
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (!currentProduct) return <div>No product found.</div>;
 
  
   return (

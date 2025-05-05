@@ -1,8 +1,8 @@
 "use client";
-
+import categoryData from "../Shared/DummyData/categoryData";
 import { useState } from "react";
 
-const CategoryItem = ({ category }) => {
+const CategoryItem = ({ category  }) => {
   const [selected, setSelected] = useState(false);
   return (
     <button
@@ -49,7 +49,7 @@ const CategoryItem = ({ category }) => {
   );
 };
 
-const CategoryDropdown = ({ categories }) => {
+const CategoryDropdown = ({ categoryData = [] }) => {
   const [toggleDropdown, setToggleDropdown] = useState(true);
 
   return (
@@ -95,8 +95,8 @@ const CategoryDropdown = ({ categories }) => {
           toggleDropdown ? "flex" : "hidden"
         }`}
       >
-        {categories.map((category, key) => (
-          <CategoryItem key={key} category={category} />
+        {categoryData.map((category, key) => (
+          <CategoryItem key={category} category={category} />
         ))}
       </div>
     </div>

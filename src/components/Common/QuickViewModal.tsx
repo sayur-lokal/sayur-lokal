@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import Image from "next/image";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { resetQuickView } from "@/redux/features/quickView-slice";
-import { updateproductDetails } from "@/redux/features/product-details";
+import { updateProductDetails } from "@/redux/features/product-details";
 
 const QuickViewModal = () => {
   const { isModalOpen, closeModal } = useModalContext();
@@ -24,7 +24,7 @@ const QuickViewModal = () => {
 
   // preview modal
   const handlePreviewSlider = () => {
-    dispatch(updateproductDetails(product));
+    dispatch(updateProductDetails(product));
 
     openPreviewModal();
   };
