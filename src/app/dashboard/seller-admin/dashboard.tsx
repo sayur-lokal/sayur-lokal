@@ -43,7 +43,7 @@ export default function SellerDashboard() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white p-4 rounded-md border border-gray-3">
           <p className="text-sm text-gray-500">Total Sales (This Month)</p>
-          <p className="text-xl font-semibold text-[#D75A4A]">Rp 15.200.000</p>
+          <p className="text-xl font-semibold text-[#D75A4A]">Rp15.200.000</p>
         </div>
         <div className="bg-white p-4 rounded-md border border-gray-3">
           <p className="text-sm text-gray-500">Pending Orders</p>
