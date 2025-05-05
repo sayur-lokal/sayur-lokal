@@ -5,9 +5,9 @@ import { useState } from 'react';
 const CategoryItem = ({ category }) => {
   const [selected, setSelected] = useState(false);
   return (
-    <button className={`${selected && 'text-[#D75A4A]'} group flex items-center justify-between ease-out duration-200 hover:text-[#D75A4A] `} onClick={() => setSelected(!selected)}>
+    <button className={`${selected && 'text-[#1A693A]'} group flex items-center justify-between ease-out duration-200 hover:text-[#1A693A] `} onClick={() => setSelected(!selected)}>
       <div className="flex items-center gap-2">
-        <div className={`cursor-pointer flex items-center justify-center rounded w-4 h-4 border ${selected ? 'border-[#D75A4A] bg-[#D75A4A]' : 'bg-white border-gray-3'}`}>
+        <div className={`cursor-pointer flex items-center justify-center rounded w-4 h-4 border ${selected ? 'border-[#1A693A] bg-[#1A693A]' : 'bg-white border-gray-3'}`}>
           <svg className={selected ? 'block' : 'hidden'} width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8.33317 2.5L3.74984 7.08333L1.6665 5" stroke="white" strokeWidth="1.94437" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -16,7 +16,7 @@ const CategoryItem = ({ category }) => {
         <span>{category.name}</span>
       </div>
 
-      <span className={`${selected ? 'text-white bg-green-dark' : 'bg-gray-5'} inline-flex rounded-[30px] text-custom-xs px-2 ease-out duration-200 text-white  group-hover:bg-[#1A693A] bg-[#D75A4A]`}>{category.products}</span>
+      <span className={`${selected ? 'text-white bg-[#1A693A]' : 'bg-gray-5'} inline-flex rounded-[30px] text-custom-xs px-2 ease-out duration-200 text-white  group-hover:bg-[#1A693A]`}>{category.products}</span>
     </button>
   );
 };

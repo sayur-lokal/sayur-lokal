@@ -136,7 +136,7 @@ const ShopWithSidebar = () => {
                   <div className="bg-white shadow-1 rounded-lg py-4 px-5">
                     <div className="flex items-center justify-between">
                       <p>Filters:</p>
-                      <button className="text-[#D75A4A]">Clean All</button>
+                      <button className="text-[#1A693A] hover:text-[#D75A4A] disabled:text-gray-4">Clean All</button>
                     </div>
                   </div>
 
@@ -172,8 +172,8 @@ const ShopWithSidebar = () => {
                       onClick={() => setProductStyle('grid')}
                       aria-label="button for product grid tab"
                       className={`${
-                        productStyle === 'grid' ? 'border-[#D75A4A] text-white' : 'text-[#D75A4A] bg-gray-1 border-gray-3'
-                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-[#D75A4A] hover:border-[#D75A4A] bg-[#D75A4A] hover:text-white`}
+                        productStyle === 'grid' ? 'border-[#1A693A] text-white bg-[#1A693A]' : 'text-[#1A693A] bg-gray-1 border-gray-3'
+                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-[#1A693A] hover:border-[#1A693A] bg-white hover:text-white`}
                     >
                       <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -207,8 +207,8 @@ const ShopWithSidebar = () => {
                       onClick={() => setProductStyle('list')}
                       aria-label="button for product list tab"
                       className={`${
-                        productStyle === 'list' ? 'border-[#D75A4A] text-white' : 'text-[#D75A4A] bg-gray-1 border-gray-3'
-                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-[#D75A4A] hover:border-[#D75A4A] bg-[#D75A4A] hover:text-white`}
+                        productStyle === 'list' ? 'border-[#1A693A] text-white bg-[#1A693A]' : 'text-[#1A693A] bg-gray-1 border-gray-3'
+                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-[#1A693A] hover:border-[#1A693A] bg-white hover:text-white`}
                     >
                       <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
