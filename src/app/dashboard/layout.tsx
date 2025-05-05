@@ -26,8 +26,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <>
             <ReduxProvider>
               <AuthProvider>
-              <AdminHeader />
-              {children}</AuthProvider>
+                <AdminHeader />
+                {children}
+              </AuthProvider>
             </ReduxProvider>
             <ScrollToTop />
           </>
