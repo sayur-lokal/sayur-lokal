@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import { type Menu } from '@/types/Menu';
-import AdminHeader from '@/components/Admin/AdminHeader';
 import Dropdown from '@/components/Header/Dropdown';
 import Link from 'next/link';
 
@@ -36,7 +35,7 @@ const menuData: Menu[] = [
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
-      <AdminHeader />
+      
       <main>
         <section className="overflow-hidden relative pb-20 lg:pt-10 xl:pt-14">
           <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0 flex flex-col gap-4  ">
