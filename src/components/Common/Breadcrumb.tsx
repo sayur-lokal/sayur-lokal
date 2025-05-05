@@ -10,13 +10,13 @@ const Breadcrumb = ({ title, pages }: {title: string | ReactNode, pages: string[
             <TitleComponent title={title} />
 
             <ul className="flex items-center gap-2">
-              <li className="text-custom-sm hover:text-blue">
+              <li className="text-custom-sm hover:text-[#6BAF92]">
                 <Link href="/">Home /</Link>
               </li>
 
               {pages.length > 0 &&
                 pages.map((page, key) => (
-                  <li className="text-custom-sm last:text-blue capitalize" key={key}>
+                  <li className="text-custom-sm last:text-[#6BAF92] capitalize" key={key}>
                     {page} 
                   </li>
                 ))}

@@ -42,7 +42,7 @@ const COLORS = ["#6BAF92", "#A8C686", "#F39C4F", "#DDF4C7"];
 
 export default function SellerDashboard() {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-2">
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

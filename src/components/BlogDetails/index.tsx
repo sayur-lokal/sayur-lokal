@@ -21,14 +21,14 @@ const BlogDetails = () => {
 
           <div>
             <span className="flex items-center gap-3 mb-4">
-              <a href="#" className="ease-out duration-200 hover:text-blue">
+              <a href="#" className="ease-out duration-200 hover:text-[#6BAF92]">
                 Mar 27, 2022
               </a>
 
               {/* <!-- divider --> */}
               <span className="block w-px h-4 bg-gray-4"></span>
 
-              <a href="#" className="ease-out duration-200 hover:text-blue">
+              <a href="#" className="ease-out duration-200 hover:text-[#6BAF92]">
                 300k Views
               </a>
             </span>
@@ -136,7 +136,7 @@ const BlogDetails = () => {
                 <ul className="flex flex-wrap items-center gap-3.5">
                   <li>
                     <a
-                      className="inline-flex hover:text-white border border-gray-3 bg-white py-2 px-4 rounded-md ease-out duration-200 hover:bg-blue hover:border-blue"
+                      className="inline-flex hover:text-white border border-gray-3 bg-white py-2 px-4 rounded-md ease-out duration-200 hover:bg-[#6BAF92] hover:border-blue"
                       href="#"
                     >
                       Desktop
@@ -145,7 +145,7 @@ const BlogDetails = () => {
 
                   <li>
                     <a
-                      className="inline-flex hover:text-white border border-gray-3 bg-white py-2 px-4 rounded-md ease-out duration-200 hover:bg-blue hover:border-blue"
+                      className="inline-flex hover:text-white border border-gray-3 bg-white py-2 px-4 rounded-md ease-out duration-200 hover:bg-[#6BAF92] hover:border-blue"
                       href="#"
                     >
                       Macbook
@@ -154,7 +154,7 @@ const BlogDetails = () => {
 
                   <li>
                     <a
-                      className="inline-flex hover:text-white border border-gray-3 bg-white py-2 px-4 rounded-md ease-out duration-200 hover:bg-blue hover:border-blue"
+                      className="inline-flex hover:text-white border border-gray-3 bg-white py-2 px-4 rounded-md ease-out duration-200 hover:bg-[#6BAF92] hover:border-blue"
                       href="#"
                     >
                       PC

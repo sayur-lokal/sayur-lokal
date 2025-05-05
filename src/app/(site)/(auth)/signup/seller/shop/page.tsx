@@ -1,17 +1,17 @@
-import Signup from "@/components/Auth/Signup";
+import ShopSignup from "@/components/Auth/Signup/ShopSignup";
 import React from "react";
 
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Signup Page | NextCommerce Nextjs E-commerce template",
-  description: "This is Signup Page for NextCommerce Template",
+  title: "Signup Page | Sayur Lokal",
+  description: "This is Signup Page for Sayur Lokal",
   // other metadata
 };
 
 const SignupPage = () => {
   return (
     <main>
-      <Signup />
+      <ShopSignup />
     </main>
   );
 };
