@@ -1,7 +1,7 @@
 import React from 'react';
 import AdminPanel from '@/components/Admin/AdminPanel';
 
-const DashboardAdminPage = () => {
+const AdminDashboard = () => {
   return (
     <>
       <div>Dashboard Admin Page</div>
@@ -10,4 +10,4 @@ const DashboardAdminPage = () => {
   );
 };
 
-export default DashboardAdminPage;
+export default AdminDashboard;
