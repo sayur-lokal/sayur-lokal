@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const SearchForm = () => {
   return (
@@ -15,15 +15,8 @@ const SearchForm = () => {
               placeholder="Search here..."
               className="w-full rounded-md border border-gray-3 py-3 pl-5 pr-13 outline-none ease-out duration-200 placeholder:text-dark-5 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
             />
-            <button className="text-dark-2 absolute right-0 top-0 px-4 py-3.5 ease-out duration-200 hover:text-[#6BAF92]">
-              <svg
-                className="fill-current"
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+            <button className="text-dark-2 absolute right-0 top-0 px-4 py-3.5 ease-out duration-200 hover:text-[#D75A4A]">
+              <svg className="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_112_7367)">
                   <path
                     fillRule="evenodd"

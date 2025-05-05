@@ -1,38 +1,35 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import Breadcrumb from "../Common/Breadcrumb";
-import CustomSelect from "../ShopWithSidebar/CustomSelect";
-import usePaginatedProducts from "@/hooks/UsePaginatedProducts";
-import Pages from "./Pages";
-import { useSearchParams } from "next/navigation";
-import DataView from "./DataView";
+'use client';
+import React, { useEffect, useState } from 'react';
+import Breadcrumb from '../Common/Breadcrumb';
+import CustomSelect from '../ShopWithSidebar/CustomSelect';
+import usePaginatedProducts from '@/hooks/UsePaginatedProducts';
+import Pages from './Pages';
+import { useSearchParams } from 'next/navigation';
+import DataView from './DataView';
 
-import shopData from "../Shared/DummyData/shopData";
+import shopData from '../Shared/DummyData/shopData';
 
 const ShopWithoutSidebar = () => {
-    const { data, pagination, query, setQuery } = usePaginatedProducts()
-    const searchParams = useSearchParams()
-    useEffect(() => {
-        const page = Number(searchParams.get("page")) || 1
-        const limit = Number(searchParams.get("limit")) || 10
+  const { data, pagination, query, setQuery } = usePaginatedProducts();
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    const page = Number(searchParams.get('page')) || 1;
+    const limit = Number(searchParams.get('limit')) || 10;
 
-        setQuery({...query, page, limit})
-    }, [searchParams])
+    setQuery({ ...query, page, limit });
+  }, [searchParams]);
 
-  const [productStyle, setProductStyle] = useState("grid");
+  const [productStyle, setProductStyle] = useState('grid');
 
   const options = [
-    { label: "Latest Products", value: "latest" },
-    { label: "Best Selling", value: "best-selling" },
-    { label: "Old Products", value: "oldest" },
+    { label: 'Latest Products', value: 'latest' },
+    { label: 'Best Selling', value: 'best-selling' },
+    { label: 'Old Products', value: 'oldest' },
   ];
 
   return (
     <>
-      <Breadcrumb
-        title={"Explore All Products"}
-        pages={["shop", "/", "shop without sidebar"]}
-      />
+      <Breadcrumb title={'Explore All Products'} pages={['shop', '/', 'shop without sidebar']} />
       <section className="overflow-hidden relative pb-20 pt-5 lg:pt-20 xl:pt-28 bg-[#f3f4f6]">
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
           <div className="flex gap-7.5">
@@ -45,30 +42,20 @@ const ShopWithoutSidebar = () => {
                     <CustomSelect options={options} />
 
                     <p className="flex flex-row gap-2">
-                      Showing <span className="text-dark">{pagination.offset + 1}</span> of <span className="text-dark">{pagination.total} </span>{" "}
-                      Products
+                      Showing <span className="text-dark">{pagination.offset + 1}</span> of <span className="text-dark">{pagination.total} </span> Products
                     </p>
                   </div>
 
                   {/* <!-- top bar right --> */}
                   <div className="flex items-center gap-2.5">
                     <button
-                      onClick={() => setProductStyle("grid")}
+                      onClick={() => setProductStyle('grid')}
                       aria-label="button for product grid tab"
                       className={`${
-                        productStyle === "grid"
-                          ? "bg-[#6BAF92] border-blue text-white"
-                          : "text-dark bg-gray-1 border-gray-3"
-                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-[#6BAF92] hover:border-blue hover:text-white`}
+                        productStyle === 'grid' ? 'bg-[#1A8245] border-blue text-white' : 'text-dark bg-gray-1 border-gray-3'
+                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-[#1A693A] bg-green-dark  hover:text-white`}
                     >
-                      <svg
-                        className="fill-current"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 18 18"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           fillRule="evenodd"
                           clipRule="evenodd"
@@ -97,22 +84,13 @@ const ShopWithoutSidebar = () => {
                     </button>
 
                     <button
-                      onClick={() => setProductStyle("list")}
+                      onClick={() => setProductStyle('list')}
                       aria-label="button for product list tab"
                       className={`${
-                        productStyle === "list"
-                          ? "bg-[#6BAF92] border-blue text-white"
-                          : "text-dark bg-gray-1 border-gray-3"
-                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-[#6BAF92] hover:border-blue hover:text-white`}
+                        productStyle === 'list' ? 'bg-[#1A8245] border-blue text-white' : 'text-dark bg-gray-1 border-gray-3'
+                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-[#1A693A] bg-green-dark  hover:text-white`}
                     >
-                      <svg
-                        className="fill-current"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 18 18"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           fillRule="evenodd"
                           clipRule="evenodd"
@@ -132,7 +110,7 @@ const ShopWithoutSidebar = () => {
               </div>
 
               {/* <!-- Products Grid Tab Content Start --> */}
-              <DataView state={data} productStyle={productStyle as "grid" | "list" | undefined} />
+              <DataView state={data} productStyle={productStyle as 'grid' | 'list' | undefined} />
               {/* <!-- Products Grid Tab Content End --> */}
 
               {/* <!-- Products Pagination Start --> */}

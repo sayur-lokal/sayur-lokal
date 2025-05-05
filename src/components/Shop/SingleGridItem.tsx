@@ -1,25 +1,25 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { Product } from "@/types/product";
-import { useModalContext } from "@/app/context/QuickViewModalContext";
-import { updateQuickView } from "@/redux/features/quickView-slice";
-import { addItemToCart } from "@/redux/features/cart-slice";
-import { addItemToWishlist } from "@/redux/features/wishlist-slice";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
-import Link from "next/link";
-import Image from "next/image";
-import ProductRating from "../Shared/InfoProps/ProductRating";
-import ProductPrice from "../Shared/InfoProps/ProductPrice";
-import ProductTitle from "../Shared/InfoProps/ProductTitle";
+'use client';
+import React, { useEffect, useState } from 'react';
+import { Product } from '@/types/product';
+import { useModalContext } from '@/app/context/QuickViewModalContext';
+import { updateQuickView } from '@/redux/features/quickView-slice';
+import { addItemToCart } from '@/redux/features/cart-slice';
+import { addItemToWishlist } from '@/redux/features/wishlist-slice';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@/redux/store';
+import Link from 'next/link';
+import Image from 'next/image';
+import ProductRating from '../Shared/InfoProps/ProductRating';
+import ProductPrice from '../Shared/InfoProps/ProductPrice';
+import ProductTitle from '../Shared/InfoProps/ProductTitle';
 
 const SingleGridItem = ({ item }: { item: Product }) => {
   const { openModal } = useModalContext();
-  
-  const [ hasPreviews, setHasPreviews] = useState<boolean>(false)
+
+  const [hasPreviews, setHasPreviews] = useState<boolean>(false);
   useEffect(() => {
-    setHasPreviews(!!(item.imgs && item.imgs.length > 0 && item.imgs[0].previews && item.imgs[0].previews.length > 0))
-  }, [item])
+    setHasPreviews(!!(item.imgs && item.imgs.length > 0 && item.imgs[0].previews && item.imgs[0].previews.length > 0));
+  }, [item]);
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -42,7 +42,7 @@ const SingleGridItem = ({ item }: { item: Product }) => {
     dispatch(
       addItemToWishlist({
         product: item,
-        status: "available",
+        status: 'available',
         quantity: 1,
       })
     );
@@ -51,7 +51,7 @@ const SingleGridItem = ({ item }: { item: Product }) => {
   return (
     <div className="group">
       <div className="relative overflow-hidden flex items-center justify-center rounded-lg bg-white shadow-1 min-h-[270px] mb-4">
-        { hasPreviews ? <Image src={item.imgs!.previews[0]} alt="" width={250} height={250} className="aspect-square object-contain" /> : null}
+        {hasPreviews ? <Image src={item.imgs!.previews[0]} alt="" width={250} height={250} className="aspect-square object-contain" /> : null}
 
         <div className="absolute left-0 bottom-0 translate-y-full w-full flex items-center justify-center gap-2.5 pb-5 ease-linear duration-200 group-hover:translate-y-0">
           <button
@@ -61,16 +61,9 @@ const SingleGridItem = ({ item }: { item: Product }) => {
             }}
             id="newOne"
             aria-label="button for quick view"
-            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-[#6BAF92]"
+            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-[#D75A4A]"
           >
-            <svg
-              className="fill-current"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg className="fill-current" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -86,10 +79,7 @@ const SingleGridItem = ({ item }: { item: Product }) => {
             </svg>
           </button>
 
-          <button
-            onClick={() => handleAddToCart()}
-            className="inline-flex font-medium text-custom-sm py-[7px] px-5 rounded-[5px] bg-[#6BAF92] text-white ease-out duration-200 hover:bg-green-dark"
-          >
+          <button onClick={() => handleAddToCart()} className="inline-flex font-medium text-custom-sm py-[7px] px-5 rounded-[5px] bg-green-dark text-white ease-out duration-200 hover:bg-[#1A693A]">
             Add to cart
           </button>
 
@@ -97,16 +87,9 @@ const SingleGridItem = ({ item }: { item: Product }) => {
             onClick={() => handleItemToWishList()}
             aria-label="button for favorite select"
             id="favOne"
-            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-[#6BAF92]"
+            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-[#D75A4A]"
           >
-            <svg
-              className="fill-current"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg className="fill-current" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -122,14 +105,14 @@ const SingleGridItem = ({ item }: { item: Product }) => {
         <div className="flex items-center gap-1">
           <ProductRating reviews={item.reviews} />
         </div>
-        </div>
+      </div>
 
-      <h3 className="font-medium text-dark ease-out duration-200 hover:text-[#6BAF92] mb-1.5">
-      <ProductTitle title={item.title} />
+      <h3 className="font-medium text-dark ease-out duration-200 hover:text-[#D75A4A] mb-1.5">
+        <ProductTitle title={item.title} />
       </h3>
 
       <span className="flex items-center gap-2 font-medium text-lg">
-      <ProductPrice price={item.price} discountedPrice={item.discountedPrice} />
+        <ProductPrice price={item.price} discountedPrice={item.discountedPrice} />
       </span>
     </div>
   );

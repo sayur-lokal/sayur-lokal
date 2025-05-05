@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Coupon = () => {
   return (
@@ -17,10 +17,7 @@ const Coupon = () => {
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
 
-          <button
-            type="submit"
-            className="inline-flex font-medium text-white bg-[#6BAF92] py-3 px-6 rounded-md ease-out duration-200 hover:bg-green-dark"
-          >
+          <button type="submit" className="inline-flex font-medium text-white bg-green-dark py-3 px-6 rounded-md ease-out duration-200 hover:bg-[#1A693A]">
             Apply
           </button>
         </div>

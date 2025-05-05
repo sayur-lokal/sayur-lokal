@@ -1,54 +1,49 @@
-"use client"
-import React from "react";
-import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  PieChart, Pie, Cell,
-  BarChart, Bar,
-} from "recharts";
+'use client';
+import React from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar } from 'recharts';
 
 const salesData = [
-  { name: "Mon", sales: 320000 },
-  { name: "Tue", sales: 450000 },
-  { name: "Wed", sales: 300000 },
-  { name: "Thu", sales: 500000 },
-  { name: "Fri", sales: 400000 },
-  { name: "Sat", sales: 600000 },
-  { name: "Sun", sales: 380000 },
+  { name: 'Mon', sales: 320000 },
+  { name: 'Tue', sales: 450000 },
+  { name: 'Wed', sales: 300000 },
+  { name: 'Thu', sales: 500000 },
+  { name: 'Fri', sales: 400000 },
+  { name: 'Sat', sales: 600000 },
+  { name: 'Sun', sales: 380000 },
 ];
 
 const orderStatusData = [
-  { name: "New", value: 12 },
-  { name: "Packed", value: 8 },
-  { name: "Out for Delivery", value: 5 },
-  { name: "Completed", value: 30 },
+  { name: 'New', value: 12 },
+  { name: 'Packed', value: 8 },
+  { name: 'Out for Delivery', value: 5 },
+  { name: 'Completed', value: 30 },
 ];
 
 const topProducts = [
-  { name: "Organic Spinach", units: 120 },
-  { name: "Eco Rice Pack", units: 100 },
-  { name: "Fresh Chili", units: 95 },
-  { name: "Local Tomatoes", units: 90 },
-  { name: "Cassava Chips", units: 85 },
+  { name: 'Organic Spinach', units: 120 },
+  { name: 'Eco Rice Pack', units: 100 },
+  { name: 'Fresh Chili', units: 95 },
+  { name: 'Local Tomatoes', units: 90 },
+  { name: 'Cassava Chips', units: 85 },
 ];
 
 const recentActivity = [
-  { time: "2 hrs ago", activity: "New order placed for Eco Rice Pack." },
-  { time: "4 hrs ago", activity: "Promotion campaign 'Green Week' started." },
-  { time: "Yesterday", activity: "Stock updated for Local Tomatoes." },
-  { time: "2 days ago", activity: "Review received for Organic Spinach." },
+  { time: '2 hrs ago', activity: 'New order placed for Eco Rice Pack.' },
+  { time: '4 hrs ago', activity: "Promotion campaign 'Green Week' started." },
+  { time: 'Yesterday', activity: 'Stock updated for Local Tomatoes.' },
+  { time: '2 days ago', activity: 'Review received for Organic Spinach.' },
 ];
 
-const COLORS = ["#6BAF92", "#A8C686", "#F39C4F", "#DDF4C7"];
+const COLORS = ['#6BAF92', '#A8C686', '#F39C4F', '#DDF4C7'];
 
 export default function SellerDashboard() {
   return (
     <div className="flex flex-col gap-2">
-
       {/* Summary Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white p-4 rounded-md border border-gray-3">
           <p className="text-sm text-gray-500">Total Sales (This Month)</p>
-          <p className="text-xl font-semibold text-[#6BAF92]">Rp 15.200.000</p>
+          <p className="text-xl font-semibold text-[#D75A4A]">Rp 15.200.000</p>
         </div>
         <div className="bg-white p-4 rounded-md border border-gray-3">
           <p className="text-sm text-gray-500">Pending Orders</p>
@@ -84,13 +79,7 @@ export default function SellerDashboard() {
           <h2 className="text-lg font-semibold mb-4">Order Status Breakdown</h2>
           <ResponsiveContainer width="100%" height={250}>
             <PieChart>
-              <Pie
-                data={orderStatusData}
-                dataKey="value"
-                nameKey="name"
-                outerRadius={80}
-                label
-              >
+              <Pie data={orderStatusData} dataKey="value" nameKey="name" outerRadius={80} label>
                 {orderStatusData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
@@ -119,7 +108,7 @@ export default function SellerDashboard() {
         <ul className="space-y-2">
           {recentActivity.map((item, index) => (
             <li key={index} className="text-sm text-gray-700">
-              <span className="font-semibold text-[#6BAF92]">{item.time}:</span> {item.activity}
+              <span className="font-semibold text-[#D75A4A]">{item.time}:</span> {item.activity}
             </li>
           ))}
         </ul>

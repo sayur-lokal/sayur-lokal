@@ -1,5 +1,5 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -10,20 +10,12 @@ const Footer = () => {
         {/* <!-- footer menu start --> */}
         <div className="flex flex-wrap xl:flex-nowrap gap-10 xl:gap-19 xl:justify-between pt-17.5 xl:pt-22.5 pb-10 xl:pb-15">
           <div className="max-w-[330px] w-full">
-            <h2 className="mb-7.5 text-custom-1 font-medium text-dark">
-              Help & Support
-            </h2>
+            <h2 className="mb-7.5 text-custom-1 font-medium text-dark">Help & Support</h2>
 
             <ul className="flex flex-col gap-3">
               <li className="flex gap-4.5">
                 <span className="flex-shrink-0">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fillRule="evenodd"
                       clipRule="evenodd"
@@ -37,13 +29,7 @@ const Footer = () => {
 
               <li>
                 <a href="#" className="flex items-center gap-4.5">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fillRule="evenodd"
                       clipRule="evenodd"
@@ -67,13 +53,7 @@ const Footer = () => {
 
               <li>
                 <a href="#" className="flex items-center gap-4.5">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fillRule="evenodd"
                       clipRule="evenodd"
@@ -88,19 +68,8 @@ const Footer = () => {
 
             {/* <!-- Social Links start --> */}
             <div className="flex items-center gap-4 mt-7.5">
-              <a
-                href="#"
-                aria-label="Shopee-Link"
-                className="flex ease-out duration-200 hover:text-[#6BAF92]"
-              >
-                <svg
-                  className="fill-current"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+              <a href="#" aria-label="Shopee-Link" className="flex ease-out duration-200 hover:text-[#D75A4A]">
+                <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M8.99984 0.666504C7.48706 0.666504 6.09165 1.04648 4.81361 1.80644C3.53557 2.54019 2.51836 3.5491 1.76197 4.83317C1.03166 6.11724 0.666504 7.51923 0.666504 9.03915C0.666504 10.428 0.966452 11.7252 1.56635 12.9307C2.19233 14.1099 3.04 15.0926 4.10938 15.8788C5.17876 16.6649 6.37855 17.1497 7.70876 17.3332V11.4763H5.59608V9.03915H7.70876V7.19166C7.70876 6.16965 7.98262 5.37038 8.53035 4.79386C9.10417 4.21734 9.8736 3.92908 10.8386 3.92908C11.4646 3.92908 12.0906 3.98149 12.7166 4.08632V6.16965H11.6602C11.1908 6.16965 10.8386 6.30068 10.6039 6.56273C10.3952 6.79858 10.2909 7.09994 10.2909 7.46682V9.03915H12.6383L12.2471 11.4763H10.2909V17.3332C11.6472 17.1235 12.86 16.6256 13.9294 15.8395C14.9988 15.0533 15.8334 14.0706 16.4333 12.8913C17.0332 11.6859 17.3332 10.4018 17.3332 9.03915C17.3332 7.51923 16.955 6.11724 16.1986 4.83317C15.4683 3.5491 14.4641 2.54019 13.1861 1.80644C11.908 1.04648 10.5126 0.666504 8.99984 0.666504Z"
                     fill=""
@@ -113,19 +82,8 @@ const Footer = () => {
                 </svg>
               </a>
 
-              <a
-                href="#"
-                aria-label="Tokopedia-Link"
-                className="flex ease-out duration-200 hover:text-[#6BAF92]"
-              >
-                <svg
-                  className="fill-current"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+              <a href="#" aria-label="Tokopedia-Link" className="flex ease-out duration-200 hover:text-[#D75A4A]">
+                <svg className="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M18.3332 4.91293C17.7353 5.18229 17.0875 5.36594 16.39 5.46389C17.1124 5.02312 17.6107 4.39869 17.8847 3.59061C17.2121 3.98241 16.4896 4.25177 15.7173 4.39869C15.0447 3.68856 14.1976 3.3335 13.1762 3.3335C12.2544 3.3335 11.4572 3.66407 10.7846 4.32523C10.1119 4.98639 9.77562 5.78223 9.77562 6.71274C9.77562 6.95762 9.81299 7.21473 9.88773 7.48409C8.49261 7.41063 7.17223 7.06781 5.92659 6.45563C4.70587 5.81896 3.67198 4.98639 2.82495 3.95792C2.526 4.47216 2.37652 5.03536 2.37652 5.64755C2.37652 6.23524 2.51354 6.77396 2.78758 7.26371C3.06162 7.75345 3.42286 8.14525 3.87129 8.4391C3.34812 8.4391 2.83741 8.30442 2.33915 8.03506V8.07179C2.33915 8.87987 2.60073 9.59 3.1239 10.2022C3.64707 10.8144 4.29481 11.2062 5.0671 11.3776C4.79306 11.451 4.49411 11.4878 4.17024 11.4878C3.97094 11.4878 3.75918 11.4633 3.53496 11.4143C3.75918 12.0999 4.15778 12.6632 4.73078 13.1039C5.32869 13.5202 5.98888 13.7406 6.71135 13.7651C5.49062 14.7201 4.08305 15.1976 2.48863 15.1976C2.21459 15.1976 1.94054 15.1853 1.6665 15.1609C3.26092 16.1648 5.00482 16.6668 6.89819 16.6668C8.89122 16.6668 10.66 16.1648 12.2046 15.1609C13.6247 14.2793 14.7333 13.0794 15.5305 11.5612C16.2779 10.1165 16.6516 8.635 16.6516 7.11678L16.6142 6.67601C17.2868 6.21075 17.8598 5.62306 18.3332 4.91293Z"
                     fill=""
@@ -137,33 +95,31 @@ const Footer = () => {
           </div>
 
           <div className="w-full sm:w-auto">
-            <h2 className="mb-7.5 text-custom-1 font-medium text-dark">
-              Account
-            </h2>
+            <h2 className="mb-7.5 text-custom-1 font-medium text-dark">Account</h2>
 
             <ul className="flex flex-col gap-3.5">
               <li>
-                <a className="ease-out duration-200 hover:text-[#6BAF92]" href="#">
+                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="#">
                   My Account
                 </a>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#6BAF92]" href="#">
+                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="#">
                   Login / Register
                 </a>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#6BAF92]" href="#">
+                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="#">
                   Cart
                 </a>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#6BAF92]" href="#">
+                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="#">
                   Wishlist
                 </a>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#6BAF92]" href="#">
+                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="#">
                   Shop
                 </a>
               </li>
@@ -171,33 +127,31 @@ const Footer = () => {
           </div>
 
           <div className="w-full sm:w-auto">
-            <h2 className="mb-7.5 text-custom-1 font-medium text-dark">
-              Quick Link
-            </h2>
+            <h2 className="mb-7.5 text-custom-1 font-medium text-dark">Quick Link</h2>
 
             <ul className="flex flex-col gap-3">
               <li>
-                <a className="ease-out duration-200 hover:text-[#6BAF92]" href="#">
+                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="#">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#6BAF92]" href="#">
+                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="#">
                   Refund Policy
                 </a>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#6BAF92]" href="#">
+                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="#">
                   Terms of Use
                 </a>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#6BAF92]" href="#">
+                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="#">
                   FAQ’s
                 </a>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#6BAF92]" href="#">
+                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="#">
                   Contact
                 </a>
               </li>
@@ -205,28 +159,14 @@ const Footer = () => {
           </div>
 
           <div className="w-full sm:w-auto">
-            <h2 className="mb-7.5 text-custom-1 font-medium text-dark lg:text-right">
-              Download App
-            </h2>
+            <h2 className="mb-7.5 text-custom-1 font-medium text-dark lg:text-right">Download App</h2>
 
-            <p className="lg:text-right text-custom-sm mb-4">
-              Save $3 With App & New User only
-            </p>
+            <p className="lg:text-right text-custom-sm mb-4">Save $3 With App & New User only</p>
 
             <ul className="flex flex-col lg:items-end gap-3">
               <li>
-                <a
-                  className="inline-flex items-center gap-3 py-[9px] pl-4 pr-7.5 text-white rounded-md bg-green-dark ease-out duration-200 hover:bg-opacity-95"
-                  href="#"
-                >
-                  <svg
-                    className="fill-current"
-                    width="34"
-                    height="35"
-                    viewBox="0 0 34 35"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                <a className="inline-flex items-center gap-3 py-[9px] pl-4 pr-7.5 text-white rounded-md bg-green-dark ease-out duration-200 hover:bg-[#1A693A]" href="#">
+                  <svg className="fill-current" width="34" height="35" viewBox="0 0 34 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M29.5529 12.3412C29.3618 12.4871 25.9887 14.3586 25.9887 18.5198C25.9887 23.3331 30.2809 25.0358 30.4093 25.078C30.3896 25.1818 29.7275 27.41 28.1463 29.6804C26.7364 31.6783 25.264 33.6731 23.024 33.6731C20.7841 33.6731 20.2076 32.3918 17.6217 32.3918C15.1018 32.3918 14.2058 33.7152 12.1569 33.7152C10.1079 33.7152 8.6783 31.8664 7.03456 29.5961C5.13062 26.93 3.59229 22.7882 3.59229 18.8572C3.59229 12.552 7.756 9.20804 11.8538 9.20804C14.0312 9.20804 15.8462 10.6157 17.2133 10.6157C18.5144 10.6157 20.5436 9.12373 23.0207 9.12373C23.9595 9.12373 27.3327 9.20804 29.5529 12.3412ZM21.8447 6.45441C22.8692 5.25759 23.5939 3.59697 23.5939 1.93635C23.5939 1.70607 23.5741 1.47254 23.5313 1.28442C21.8645 1.34605 19.8815 2.37745 18.6857 3.74292C17.7469 4.79379 16.8707 6.45441 16.8707 8.13773C16.8707 8.39076 16.9135 8.64369 16.9333 8.72476C17.0387 8.74426 17.21 8.76694 17.3813 8.76694C18.8768 8.76694 20.7577 7.78094 21.8447 6.45441Z"
                       fill=""
@@ -234,27 +174,15 @@ const Footer = () => {
                   </svg>
 
                   <div>
-                    <span className="block text-custom-xs">
-                      Download on the
-                    </span>
+                    <span className="block text-custom-xs">Download on the</span>
                     <p className="font-medium">App Store</p>
                   </div>
                 </a>
               </li>
 
               <li>
-                <a
-                  className="inline-flex items-center gap-3 py-[9px] pl-4 pr-8.5 text-white rounded-md bg-[#6BAF92] ease-out duration-200 hover:bg-opacity-95"
-                  href="#"
-                >
-                  <svg
-                    className="fill-current"
-                    width="34"
-                    height="35"
-                    viewBox="0 0 34 35"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                <a className="inline-flex items-center gap-3 py-[9px] pl-4 pr-8.5 text-white rounded-md bg-green-dark ease-out duration-200 hover:bg-[#1A693A]" href="#">
+                  <svg className="fill-current" width="34" height="35" viewBox="0 0 34 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M5.45764 1.03125L19.9718 15.5427L23.7171 11.7973C18.5993 8.69224 11.7448 4.52679 8.66206 2.65395L6.59681 1.40278C6.23175 1.18039 5.84088 1.06062 5.45764 1.03125ZM3.24214 2.76868C3.21276 2.92814 3.1875 3.08837 3.1875 3.26041V31.939C3.1875 32.0593 3.21169 32.1713 3.22848 32.2859L17.9939 17.5205L3.24214 2.76868ZM26.1785 13.2916L21.9496 17.5205L26.1047 21.6756C28.3062 20.3412 29.831 19.4147 30.0003 19.3126C30.7486 18.8552 31.1712 18.1651 31.1586 17.4112C31.1474 16.6713 30.7247 16.0098 30.0057 15.6028C29.8449 15.5104 28.3408 14.6022 26.1785 13.2916ZM19.9718 19.4983L5.50135 33.9688C5.78248 33.9198 6.06327 33.836 6.33182 33.6737C6.70387 33.4471 16.7548 27.3492 23.6433 23.1699L19.9718 19.4983Z"
                       fill=""
@@ -277,53 +205,26 @@ const Footer = () => {
       <div className="py-5 xl:py-7.5 bg-gray-1">
         <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
           <div className="flex gap-5 flex-wrap items-center justify-between">
-            <p className="text-dark font-medium">
-              &copy; {year}. All rights reserved by sayurlokal.
-            </p>
+            <p className="text-dark font-medium">&copy; {year}. All rights reserved by sayurlokal.</p>
 
             <div className="flex flex-wrap items-center gap-4">
               <p className="font-medium">We Accept:</p>
 
               <div className="flex flex-wrap items-center gap-6">
                 <a href="#" aria-label="payment system with e-wallet">
-                  <Image
-                    src="/images/payment/payment-01.svg"
-                    alt="e-wallet"
-                    width={66}
-                    height={22}
-                  />
+                  <Image src="/images/payment/payment-01.svg" alt="e-wallet" width={66} height={22} />
                 </a>
                 <a href="#" aria-label="payment system with transfer bank">
-                  <Image
-                    src="/images/payment/payment-02.svg"
-                    alt="tfbank"
-                    width={18}
-                    height={21}
-                  />
+                  <Image src="/images/payment/payment-02.svg" alt="tfbank" width={18} height={21} />
                 </a>
                 <a href="#" aria-label="payment system with qris">
-                  <Image
-                    src="/images/payment/payment-03.svg"
-                    alt="qris"
-                    width={33}
-                    height={24}
-                  />
+                  <Image src="/images/payment/payment-03.svg" alt="qris" width={33} height={24} />
                 </a>
                 <a href="#" aria-label="payment system with virtual account">
-                  <Image
-                    src="/images/payment/payment-04.svg"
-                    alt="v-account"
-                    width={52.94}
-                    height={22}
-                  />
+                  <Image src="/images/payment/payment-04.svg" alt="v-account" width={52.94} height={22} />
                 </a>
                 <a href="#" aria-label="payment system with google pay">
-                  <Image
-                    src="/images/payment/payment-05.svg"
-                    alt="google pay"
-                    width={56}
-                    height={22}
-                  />
+                  <Image src="/images/payment/payment-05.svg" alt="google pay" width={56} height={22} />
                 </a>
               </div>
             </div>

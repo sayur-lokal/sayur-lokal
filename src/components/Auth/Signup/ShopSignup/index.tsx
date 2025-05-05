@@ -9,27 +9,27 @@ const ShopSignup = () => {
   const [sellerData, setSellerData] = useState<{ email: string; password: string } | null>(null);
   const { sellerRegistrationData, clearSellerRegistrationData } = useAuth();
   const [formData, setFormData] = useState({
-    shopName: "",
-    shopDescription: "",
-    phone: "",
-    shopAddress: "",
-    isEcoFriendly: "",
+    shopName: '',
+    shopDescription: '',
+    phone: '',
+    shopAddress: '',
+    isEcoFriendly: '',
     termsAndConditions: false,
     privacyPolicy: false,
   });
   const [shopLogo, setShopLogo] = useState<File | null>(null);
   const [errors, setErrors] = useState({
-    shopName: "",
-    shopDescription: "",
-    phone: "",
-    shopAddress: "",
-    isEcoFriendly: "",
-    shopLogo: "",
-    termsAndConditions: "",
-    privacyPolicy: "",
+    shopName: '',
+    shopDescription: '',
+    phone: '',
+    shopAddress: '',
+    isEcoFriendly: '',
+    shopLogo: '',
+    termsAndConditions: '',
+    privacyPolicy: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState("");
+  const [submitError, setSubmitError] = useState('');
   const router = useRouter();
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const ShopSignup = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target as HTMLInputElement;
-    
+
     if (type === 'checkbox') {
       const checked = (e.target as HTMLInputElement).checked;
       setFormData({
@@ -59,7 +59,7 @@ const ShopSignup = () => {
     // Reset error when user types
     setErrors({
       ...errors,
-      [name]: "",
+      [name]: '',
     });
   };
 
@@ -68,7 +68,7 @@ const ShopSignup = () => {
       setShopLogo(e.target.files[0]);
       setErrors({
         ...errors,
-        shopLogo: "",
+        shopLogo: '',
       });
     }
   };
@@ -78,55 +78,55 @@ const ShopSignup = () => {
     const newErrors = { ...errors };
 
     if (!formData.shopName.trim()) {
-      newErrors.shopName = "Shop Name is required";
+      newErrors.shopName = 'Shop Name is required';
       valid = false;
     } else if (formData.shopName.trim().length < 5) {
-      newErrors.shopName = "Shop Name must be at least 5 characters long";
+      newErrors.shopName = 'Shop Name must be at least 5 characters long';
       valid = false;
     } else if (!/^[a-zA-Z0-9\s_]+$/.test(formData.shopName)) {
-      newErrors.shopName = "Shop Name can only contain letters, numbers, spaces and underscores";
+      newErrors.shopName = 'Shop Name can only contain letters, numbers, spaces and underscores';
       valid = false;
     }
 
     if (!formData.shopDescription.trim()) {
-      newErrors.shopDescription = "Shop Description is required";
+      newErrors.shopDescription = 'Shop Description is required';
       valid = false;
     } else if (formData.shopDescription.trim().length < 10) {
-      newErrors.shopDescription = "Shop Description must be at least 10 characters long";
+      newErrors.shopDescription = 'Shop Description must be at least 10 characters long';
       valid = false;
     }
 
     if (!formData.phone.trim()) {
-      newErrors.phone = "Phone Number is required";
+      newErrors.phone = 'Phone Number is required';
       valid = false;
     } else if (!/^\d+$/.test(formData.phone.replace(/[\s]/g, ''))) {
-      newErrors.phone = "Phone Number must contain only numbers";
+      newErrors.phone = 'Phone Number must contain only numbers';
       valid = false;
     } else if (formData.phone.replace(/[\s]/g, '').length < 9) {
-      newErrors.phone = "Phone Number must be at least 9 digits long";
+      newErrors.phone = 'Phone Number must be at least 9 digits long';
       valid = false;
     }
 
     if (!formData.shopAddress.trim()) {
-      newErrors.shopAddress = "Shop Address is required";
+      newErrors.shopAddress = 'Shop Address is required';
       valid = false;
     } else if (formData.shopAddress.trim().length < 10) {
-      newErrors.shopAddress = "Shop Address must be at least 10 characters long";
+      newErrors.shopAddress = 'Shop Address must be at least 10 characters long';
       valid = false;
     }
 
     if (!formData.isEcoFriendly) {
-      newErrors.isEcoFriendly = "Please select an option";
+      newErrors.isEcoFriendly = 'Please select an option';
       valid = false;
     }
 
     if (!formData.termsAndConditions) {
-      newErrors.termsAndConditions = "You must agree to the Terms and Conditions";
+      newErrors.termsAndConditions = 'You must agree to the Terms and Conditions';
       valid = false;
     }
 
     if (!formData.privacyPolicy) {
-      newErrors.privacyPolicy = "You must agree to the Privacy Policy";
+      newErrors.privacyPolicy = 'You must agree to the Privacy Policy';
       valid = false;
     }
 
@@ -136,7 +136,7 @@ const ShopSignup = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitError("");
+    setSubmitError('');
     if (!validateForm() || !sellerRegistrationData) {
       return;
     }
@@ -145,39 +145,39 @@ const ShopSignup = () => {
 
     try {
       const formDataObj = new FormData();
-      
+
       // Seller data
-      formDataObj.append("email", sellerRegistrationData.email);
-      formDataObj.append("password", sellerRegistrationData.password);
-      formDataObj.append("role", "seller");
-      
+      formDataObj.append('email', sellerRegistrationData.email);
+      formDataObj.append('password', sellerRegistrationData.password);
+      formDataObj.append('role', 'seller');
+
       // Shop data
-      formDataObj.append("shopName", formData.shopName);
-      formDataObj.append("shopDescription", formData.shopDescription);
-      formDataObj.append("phone", formData.phone);
-      formDataObj.append("shopAddress", formData.shopAddress);
-      formDataObj.append("isEcoFriendly", formData.isEcoFriendly);
-      
+      formDataObj.append('shopName', formData.shopName);
+      formDataObj.append('shopDescription', formData.shopDescription);
+      formDataObj.append('phone', formData.phone);
+      formDataObj.append('shopAddress', formData.shopAddress);
+      formDataObj.append('isEcoFriendly', formData.isEcoFriendly);
+
       if (shopLogo) {
-        formDataObj.append("shopLogo", shopLogo);
+        formDataObj.append('shopLogo', shopLogo);
       }
 
-      const response = await fetch("/api/auth/signup/seller", {
-        method: "POST",
+      const response = await fetch('/api/auth/signup/seller', {
+        method: 'POST',
         body: formDataObj,
       });
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to sign up");
+        throw new Error(errorData.message || 'Failed to sign up');
       }
       // Hapus data dari context
       clearSellerRegistrationData();
-      
+
       // Redirect ke halaman login setelah berhasil
-      router.push("/signin?registered=true");
+      router.push('/signin?registered=true');
     } catch (error) {
-      setSubmitError(error instanceof Error ? error.message : "Something went wrong, please try again later");
+      setSubmitError(error instanceof Error ? error.message : 'Something went wrong, please try again later');
     } finally {
       setIsSubmitting(false);
     }
@@ -198,11 +198,7 @@ const ShopSignup = () => {
               <p>Enter your shop&apos;s detail below</p>
             </div>
 
-            {submitError && (
-              <div className="mb-5 p-3 text-sm text-red bg-red/10 rounded-lg">
-                {submitError}
-              </div>
-            )}
+            {submitError && <div className="mb-5 p-3 text-sm text-red bg-red/10 rounded-lg">{submitError}</div>}
 
             <div className="mt-5.5">
               <form onSubmit={handleSubmit}>
@@ -220,11 +216,11 @@ const ShopSignup = () => {
                     value={formData.shopName}
                     onChange={handleChange}
                     placeholder="Enter your shop name"
-                    className={`rounded-lg border ${errors.shopName ? 'border-red' : 'border-gray-3'} bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
+                    className={`rounded-lg border ${
+                      errors.shopName ? 'border-red' : 'border-gray-3'
+                    } bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
                   />
-                  {errors.shopName && (
-                    <p className="mt-1 text-sm text-red">{errors.shopName}</p>
-                  )}
+                  {errors.shopName && <p className="mt-1 text-sm text-red">{errors.shopName}</p>}
                 </div>
 
                 <div className="mb-5">
@@ -239,11 +235,11 @@ const ShopSignup = () => {
                     value={formData.shopDescription}
                     onChange={handleChange}
                     placeholder="The shop is the best shop around the city..."
-                    className={`rounded-lg border ${errors.shopDescription ? 'border-red' : 'border-gray-3'} bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
+                    className={`rounded-lg border ${
+                      errors.shopDescription ? 'border-red' : 'border-gray-3'
+                    } bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
                   />
-                  {errors.shopDescription && (
-                    <p className="mt-1 text-sm text-red">{errors.shopDescription}</p>
-                  )}
+                  {errors.shopDescription && <p className="mt-1 text-sm text-red">{errors.shopDescription}</p>}
                 </div>
 
                 <div className="mb-5">
@@ -258,11 +254,11 @@ const ShopSignup = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="Enter your phone number"
-                    className={`rounded-lg border ${errors.phone ? 'border-red' : 'border-gray-3'} bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
+                    className={`rounded-lg border ${
+                      errors.phone ? 'border-red' : 'border-gray-3'
+                    } bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
                   />
-                  {errors.phone && (
-                    <p className="mt-1 text-sm text-red">{errors.phone}</p>
-                  )}
+                  {errors.phone && <p className="mt-1 text-sm text-red">{errors.phone}</p>}
                 </div>
 
                 <div className="mb-5">
@@ -277,11 +273,11 @@ const ShopSignup = () => {
                     value={formData.shopAddress}
                     onChange={handleChange}
                     placeholder="Enter your shop address"
-                    className={`rounded-lg border ${errors.shopAddress ? 'border-red' : 'border-gray-3'} bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
+                    className={`rounded-lg border ${
+                      errors.shopAddress ? 'border-red' : 'border-gray-3'
+                    } bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
                   />
-                  {errors.shopAddress && (
-                    <p className="mt-1 text-sm text-red">{errors.shopAddress}</p>
-                  )}
+                  {errors.shopAddress && <p className="mt-1 text-sm text-red">{errors.shopAddress}</p>}
                 </div>
 
                 <div className="mb-5">
@@ -294,11 +290,11 @@ const ShopSignup = () => {
                     name="shopLogo"
                     id="shopLogo"
                     onChange={handleFileChange}
-                    className={`rounded-lg border ${errors.shopLogo ? 'border-red' : 'border-gray-3'} bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
+                    className={`rounded-lg border ${
+                      errors.shopLogo ? 'border-red' : 'border-gray-3'
+                    } bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
                   />
-                  {errors.shopLogo && (
-                    <p className="mt-1 text-sm text-red">{errors.shopLogo}</p>
-                  )}
+                  {errors.shopLogo && <p className="mt-1 text-sm text-red">{errors.shopLogo}</p>}
                 </div>
 
                 <div className="mb-5">
@@ -309,50 +305,25 @@ const ShopSignup = () => {
 
                   <div className="flex gap-6">
                     <div className="flex items-center">
-                      <input 
-                        type="radio" 
-                        name="isEcoFriendly" 
-                        id="eco-friendly-yes" 
-                        value="yes"
-                        checked={formData.isEcoFriendly === "yes"}
-                        onChange={handleChange}
-                        className="mr-2"
-                      />
+                      <input type="radio" name="isEcoFriendly" id="eco-friendly-yes" value="yes" checked={formData.isEcoFriendly === 'yes'} onChange={handleChange} className="mr-2" />
                       <label htmlFor="eco-friendly-yes" className="text-dark">
                         Yes
                       </label>
                     </div>
 
                     <div className="flex items-center">
-                      <input 
-                        type="radio" 
-                        name="isEcoFriendly" 
-                        id="eco-friendly-no" 
-                        value="no"
-                        checked={formData.isEcoFriendly === "no"}
-                        onChange={handleChange}
-                        className="mr-2"
-                      />
+                      <input type="radio" name="isEcoFriendly" id="eco-friendly-no" value="no" checked={formData.isEcoFriendly === 'no'} onChange={handleChange} className="mr-2" />
                       <label htmlFor="eco-friendly-no" className="text-dark">
                         No
                       </label>
                     </div>
                   </div>
-                  {errors.isEcoFriendly && (
-                    <p className="mt-1 text-sm text-red">{errors.isEcoFriendly}</p>
-                  )}
+                  {errors.isEcoFriendly && <p className="mt-1 text-sm text-red">{errors.isEcoFriendly}</p>}
                 </div>
 
                 <div className="flex justify-between items-center mt-10">
                   <div className="flex items-center">
-                    <input 
-                      type="checkbox" 
-                      id="termsAndConditions" 
-                      name="termsAndConditions"
-                      checked={formData.termsAndConditions}
-                      onChange={handleChange}
-                      className="mr-2"
-                    />
+                    <input type="checkbox" id="termsAndConditions" name="termsAndConditions" checked={formData.termsAndConditions} onChange={handleChange} className="mr-2" />
                     <label htmlFor="termsAndConditions" className="text-sm text-gray-5">
                       I agree to the{' '}
                       <Link href="/terms-and-conditions" className="text-[#D75A4A] hover:underline">
@@ -361,20 +332,11 @@ const ShopSignup = () => {
                     </label>
                   </div>
                 </div>
-                {errors.termsAndConditions && (
-                  <p className="mt-1 text-sm text-red">{errors.termsAndConditions}</p>
-                )}
+                {errors.termsAndConditions && <p className="mt-1 text-sm text-red">{errors.termsAndConditions}</p>}
 
                 <div className="flex justify-between items-center">
                   <div className="flex items-center">
-                    <input 
-                      type="checkbox" 
-                      id="privacyPolicy" 
-                      name="privacyPolicy"
-                      checked={formData.privacyPolicy}
-                      onChange={handleChange}
-                      className="mr-2"
-                    />
+                    <input type="checkbox" id="privacyPolicy" name="privacyPolicy" checked={formData.privacyPolicy} onChange={handleChange} className="mr-2" />
                     <label htmlFor="privacyPolicy" className="text-sm text-gray-5">
                       I agree to the{' '}
                       <Link href="/privacy-policy" className="text-[#D75A4A] hover:underline">
@@ -383,12 +345,10 @@ const ShopSignup = () => {
                     </label>
                   </div>
                 </div>
-                {errors.privacyPolicy && (
-                  <p className="mt-1 text-sm text-red">{errors.privacyPolicy}</p>
-                )}
+                {errors.privacyPolicy && <p className="mt-1 text-sm text-red">{errors.privacyPolicy}</p>}
 
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   disabled={isSubmitting}
                   className="w-full flex justify-center font-medium text-white bg-green-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-[#1A693A] mt-7.5 disabled:pointer-events-none disabled:opacity-50"
                 >

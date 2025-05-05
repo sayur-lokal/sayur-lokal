@@ -1,27 +1,27 @@
 'use client';
 
-import Link from "next/link";
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import Link from 'next/link';
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const BuyerSignup = () => {
   const [formData, setFormData] = useState({
-    username: "",
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    username: '',
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
   });
   const [errors, setErrors] = useState({
-    username: "",
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    username: '',
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState("");
+  const [submitError, setSubmitError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const router = useRouter();
@@ -41,7 +41,7 @@ const BuyerSignup = () => {
     // Reset error when user types
     setErrors({
       ...errors,
-      [name]: "",
+      [name]: '',
     });
   };
 
@@ -58,42 +58,42 @@ const BuyerSignup = () => {
     const newErrors = { ...errors };
 
     if (!formData.username.trim()) {
-      newErrors.username = "Username is required";
+      newErrors.username = 'Username is required';
       valid = false;
     } else if (!/^[a-zA-Z0-9_]+$/.test(formData.username)) {
-      newErrors.username = "Fill username with a combination of letters, numbers, and underscore";
+      newErrors.username = 'Fill username with a combination of letters, numbers, and underscore';
       valid = false;
     }
 
     if (!formData.name.trim()) {
-      newErrors.name = "Full name is required";
+      newErrors.name = 'Full name is required';
       valid = false;
     }
 
     if (!formData.email) {
-      newErrors.email = "Email is required";
+      newErrors.email = 'Email is required';
       valid = false;
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = "Invalid email format";
+      newErrors.email = 'Invalid email format';
       valid = false;
     }
 
     if (!formData.password) {
-      newErrors.password = "Password is required";
+      newErrors.password = 'Password is required';
       valid = false;
     } else if (formData.password.length < 8) {
-      newErrors.password = "Password at least 8 characters";
+      newErrors.password = 'Password at least 8 characters';
       valid = false;
     } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/.test(formData.password)) {
-      newErrors.password = "Password must contain at least one uppercase letter, one lowercase letter, and one number";
+      newErrors.password = 'Password must contain at least one uppercase letter, one lowercase letter, and one number';
       valid = false;
     }
 
     if (!formData.confirmPassword) {
-      newErrors.confirmPassword = "Confirm password is required";
+      newErrors.confirmPassword = 'Confirm password is required';
       valid = false;
     } else if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = "Passwords do not match";
+      newErrors.confirmPassword = 'Passwords do not match';
       valid = false;
     }
 
@@ -103,7 +103,7 @@ const BuyerSignup = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitError("");
+    setSubmitError('');
 
     if (!validateForm()) {
       return;
@@ -113,26 +113,26 @@ const BuyerSignup = () => {
 
     try {
       const formDataObj = new FormData();
-      formDataObj.append("username", formData.username);
-      formDataObj.append("name", formData.name);
-      formDataObj.append("email", formData.email);
-      formDataObj.append("password", formData.password);
-      formDataObj.append("role", "buyer");
+      formDataObj.append('username', formData.username);
+      formDataObj.append('name', formData.name);
+      formDataObj.append('email', formData.email);
+      formDataObj.append('password', formData.password);
+      formDataObj.append('role', 'buyer');
 
-      const response = await fetch("/api/auth/signup", {
-        method: "POST",
+      const response = await fetch('/api/auth/signup', {
+        method: 'POST',
         body: formDataObj,
       });
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || "Signup failed");
+        throw new Error(errorData.message || 'Signup failed');
       }
 
       // Redirect ke halaman login setelah berhasil
-      router.push("/signin?registered=true");
+      router.push('/signin?registered=true');
     } catch (error) {
-      setSubmitError(error instanceof Error ? error.message : "Something went wrong");
+      setSubmitError(error instanceof Error ? error.message : 'Something went wrong');
     } finally {
       setIsSubmitting(false);
     }
@@ -149,9 +149,7 @@ const BuyerSignup = () => {
                   ← Back to role selection
                 </Link>
               </div>
-              <h2 className="font-semibold text-xl sm:text-2xl xl:text-heading-5 text-dark mb-1.5">
-                Create an Account
-              </h2>
+              <h2 className="font-semibold text-xl sm:text-2xl xl:text-heading-5 text-dark mb-1.5">Create an Account</h2>
               <p>Enter your detail below</p>
             </div>
 
@@ -167,13 +165,15 @@ const BuyerSignup = () => {
                     name="username"
                     id="username"
                     placeholder="Enter your username"
-                    className={`rounded-lg border ${errors.username? "border-red" : "border-gray-3"} bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
+                    className={`rounded-lg border ${
+                      errors.username ? 'border-red' : 'border-gray-3'
+                    } bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
                     required
                     value={formData.username}
                     onChange={handleChange}
                   />
                   {errors.username && <p className="text-red text-sm mt-1">{errors.username}</p>}
-                </div> 
+                </div>
 
                 <div className="mb-5">
                   <label htmlFor="name" className="block mb-2.5">
@@ -185,7 +185,9 @@ const BuyerSignup = () => {
                     name="name"
                     id="name"
                     placeholder="Enter your full name"
-                    className={`rounded-lg border ${errors.name ? "border-red" : "border-gray-3"} bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
+                    className={`rounded-lg border ${
+                      errors.name ? 'border-red' : 'border-gray-3'
+                    } bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
                     required
                     value={formData.name}
                     onChange={handleChange}
@@ -203,7 +205,9 @@ const BuyerSignup = () => {
                     name="email"
                     id="email"
                     placeholder="Enter your email"
-                    className={`rounded-lg border ${errors.email ? "border-red" : "border-gray-3"} bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
+                    className={`rounded-lg border ${
+                      errors.email ? 'border-red' : 'border-gray-3'
+                    } bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
                     required
                     value={formData.email}
                     onChange={handleChange}
@@ -218,21 +222,19 @@ const BuyerSignup = () => {
 
                   <div className="relative">
                     <input
-                      type={showPassword ? "text" : "password"}
+                      type={showPassword ? 'text' : 'password'}
                       name="password"
                       id="password"
                       placeholder="Enter your password"
                       autoComplete="on"
-                      className={`rounded-lg border ${errors.password ? "border-red" : "border-gray-3"} bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
+                      className={`rounded-lg border ${
+                        errors.password ? 'border-red' : 'border-gray-3'
+                      } bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
                       required
                       value={formData.password}
                       onChange={handleChange}
                     />
-                    <button
-                      type="button"
-                      onClick={togglePasswordVisibility}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-6 hover:text-gray-7"
-                    >
+                    <button type="button" onClick={togglePasswordVisibility} className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-6 hover:text-gray-7">
                       {showPassword ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
                     </button>
                   </div>
@@ -246,47 +248,38 @@ const BuyerSignup = () => {
 
                   <div className="relative">
                     <input
-                      type={showConfirmPassword ? "text" : "password"}
+                      type={showConfirmPassword ? 'text' : 'password'}
                       name="confirmPassword"
                       id="confirmPassword"
                       placeholder="Re-type your password"
                       autoComplete="new-password"
-                      className={`rounded-lg border ${errors.confirmPassword ? "border-red" : "border-gray-3"} bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
+                      className={`rounded-lg border ${
+                        errors.confirmPassword ? 'border-red' : 'border-gray-3'
+                      } bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
                       required
                       value={formData.confirmPassword}
                       onChange={handleChange}
                     />
-                    <button
-                      type="button"
-                      onClick={toggleConfirmPasswordVisibility}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-6 hover:text-gray-7"
-                    >
+                    <button type="button" onClick={toggleConfirmPasswordVisibility} className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-6 hover:text-gray-7">
                       {showConfirmPassword ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
                     </button>
                   </div>
                   {errors.confirmPassword && <p className="text-red text-sm mt-1">{errors.confirmPassword}</p>}
                 </div>
 
-                {submitError && (
-                  <div className="mb-4 p-3 bg-red/10 text-red rounded-md text-sm">
-                    {submitError}
-                  </div>
-                )}
+                {submitError && <div className="mb-4 p-3 bg-red/10 text-red rounded-md text-sm">{submitError}</div>}
 
                 <button
                   type="submit"
                   className="w-full flex justify-center font-medium text-white bg-green-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-[#1A693A] mt-7.5 disabled:pointer-events-none disabled:opacity-50"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Memproses..." : "Create Account"}
+                  {isSubmitting ? 'Memproses...' : 'Create Account'}
                 </button>
 
                 <p className="text-center mt-6">
                   Already have an account?
-                  <Link
-                    href="/signin"
-                    className="text-dark ease-out duration-200 hover:text-[#D75A4A] pl-2"
-                  >
+                  <Link href="/signin" className="text-dark ease-out duration-200 hover:text-[#D75A4A] pl-2">
                     Sign in Now
                   </Link>
                 </p>

@@ -1,7 +1,7 @@
-import Link from "next/link";
-import React, { ReactNode } from "react";
+import Link from 'next/link';
+import React, { ReactNode } from 'react';
 
-const Breadcrumb = ({ title, pages }: {title: string | ReactNode, pages: string[]}) => {
+const Breadcrumb = ({ title, pages }: { title: string | ReactNode; pages: string[] }) => {
   return (
     <div className="overflow-hidden shadow-breadcrumb pt-[209px] sm:pt-[155px] lg:pt-[95px] xl:pt-[165px]">
       <div className="border-t border-gray-3">
@@ -10,14 +10,14 @@ const Breadcrumb = ({ title, pages }: {title: string | ReactNode, pages: string[
             <TitleComponent title={title} />
 
             <ul className="flex items-center gap-2">
-              <li className="text-custom-sm hover:text-[#6BAF92]">
+              <li className="text-custom-sm hover:text-[#D75A4A]">
                 <Link href="/">Home /</Link>
               </li>
 
               {pages.length > 0 &&
                 pages.map((page, key) => (
-                  <li className="text-custom-sm last:text-[#6BAF92] capitalize" key={key}>
-                    {page} 
+                  <li className="text-custom-sm last:text-[#D75A4A] capitalize" key={key}>
+                    {page}
                   </li>
                 ))}
             </ul>
@@ -30,16 +30,10 @@ const Breadcrumb = ({ title, pages }: {title: string | ReactNode, pages: string[
 
 export default Breadcrumb;
 
-const TitleComponent = ({title}: {title: string | ReactNode}) => {
-    if (typeof title == "string") {
-        return (
-            <h1 className="font-semibold text-dark text-xl sm:text-2xl xl:text-custom-2">
-              {title}
-            </h1>
-        )
-    }
+const TitleComponent = ({ title }: { title: string | ReactNode }) => {
+  if (typeof title == 'string') {
+    return <h1 className="font-semibold text-dark text-xl sm:text-2xl xl:text-custom-2">{title}</h1>;
+  }
 
-    return (
-        <>{title}</>
-    )
-}
+  return <>{title}</>;
+};
