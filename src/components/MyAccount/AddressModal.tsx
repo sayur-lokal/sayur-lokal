@@ -1,47 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
 const AddressModal = ({ isOpen, closeModal }) => {
   useEffect(() => {
     // closing modal while clicking outside
     function handleClickOutside(event) {
-      if (!event.target.closest(".modal-content")) {
+      if (!event.target.closest('.modal-content')) {
         closeModal();
       }
     }
 
     if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen, closeModal]);
 
   return (
-    <div
-      className={`fixed top-0 left-0 overflow-y-auto no-scrollbar w-full h-screen sm:py-20 xl:py-25 2xl:py-[230px] bg-green-dark/70 sm:px-8 px-4 py-5 ${
-        isOpen ? "block z-99999" : "hidden"
-      }`}
-    >
+    <div className={`fixed top-0 left-0 overflow-y-auto no-scrollbar w-full h-screen sm:py-20 xl:py-25 2xl:py-[230px] bg-[#000000]/70 sm:px-8 px-4 py-5 ${isOpen ? 'block z-99999' : 'hidden'}`}>
       <div className="flex items-center justify-center ">
-        <div
-          x-show="addressModal"
-          className="w-full max-w-[1100px] rounded-xl shadow-3 bg-white p-7.5 relative modal-content"
-        >
+        <div x-show="addressModal" className="w-full max-w-[1100px] rounded-xl shadow-3 bg-white p-7.5 relative modal-content">
           <button
             onClick={closeModal}
             aria-label="button for close modal"
             className="absolute top-0 right-0 sm:top-3 sm:right-3 flex items-center justify-center w-10 h-10 rounded-full ease-in duration-150 bg-meta text-body hover:text-dark"
           >
-            <svg
-              className="fill-current"
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg className="fill-current" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -109,10 +95,7 @@ const AddressModal = ({ isOpen, closeModal }) => {
                 </div>
               </div>
 
-              <button
-                type="submit"
-                className="inline-flex font-medium text-white bg-[#6BAF92] py-3 px-7 rounded-md ease-out duration-200 hover:bg-green-dark"
-              >
+              <button type="submit" className="inline-flex font-medium text-white bg-green-dark py-3 px-7 rounded-md ease-out duration-200 hover:bg-[#1A693A]">
                 Save Changes
               </button>
             </form>

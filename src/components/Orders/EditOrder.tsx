@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import toast from "react-hot-toast";
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const EditOrder = ({ order, toggleModal }: any) => {
   const [currentStatus, setCurrentStatus] = useState(order?.status);
@@ -11,7 +11,7 @@ const EditOrder = ({ order, toggleModal }: any) => {
     e.preventDefault();
 
     if (!currentStatus) {
-      toast.error("Please select a status");
+      toast.error('Please select a status');
       return;
     }
 
@@ -22,23 +22,14 @@ const EditOrder = ({ order, toggleModal }: any) => {
     <div className="w-full px-10">
       <p className="pb-2 font-medium text-dark">Order Status</p>
       <div className="w-full">
-        <select
-          className="w-full rounded-[10px] border border-gray-3 bg-gray-1 text-dark py-3.5 px-5 text-custom-sm"
-          name="status"
-          id="status"
-          required
-          onChange={handleChanege}
-        >
+        <select className="w-full rounded-[10px] border border-gray-3 bg-gray-1 text-dark py-3.5 px-5 text-custom-sm" name="status" id="status" required onChange={handleChanege}>
           <option value="processing">Processing</option>
           <option value="on-hold">On Hold</option>
           <option value="delivered">Delivered</option>
           <option value="cancelled">Cancelled</option>
         </select>
 
-        <button
-          className="mt-5 w-full rounded-[10px] border border-blue-1 bg-blue-1 text-white py-3.5 px-5 text-custom-sm bg-[#6BAF92]"
-          onClick={handleSubmit}
-        >
+        <button className="mt-5 w-full rounded-[10px] border border-blue-1 bg-blue-1 text-white py-3.5 px-5 text-custom-sm bg-[#1A8245]" onClick={handleSubmit}>
           Save Changes
         </button>
       </div>

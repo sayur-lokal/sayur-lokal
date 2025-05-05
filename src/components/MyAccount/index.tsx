@@ -1,9 +1,9 @@
-"use client";
-import React, { useState } from "react";
-import Breadcrumb from "../Common/Breadcrumb";
-import Image from "next/image";
-import AddressModal from "./AddressModal";
-import Orders from "../Orders";
+'use client';
+import React, { useState } from 'react';
+import Breadcrumb from '../Common/Breadcrumb';
+import Image from 'next/image';
+import AddressModal from './AddressModal';
+import Orders from '../Orders';
 
 const MyAccount = () => {
   // const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const MyAccount = () => {
 
   // const [currentRole, setCurrentRole] = useState<Role>("buyer");
 
-  const [activeTab, setActiveTab] = useState("dashboard");
+  const [activeTab, setActiveTab] = useState('dashboard');
   const [addressModal, setAddressModal] = useState(false);
 
   // useEffect(() => {
@@ -28,7 +28,7 @@ const MyAccount = () => {
 
   return (
     <>
-      <Breadcrumb title={"My Account"} pages={["my account"]} />
+      <Breadcrumb title={'My Account'} pages={['my account']} />
 
       <section className="overflow-hidden py-20 bg-gray-2">
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
@@ -38,18 +38,11 @@ const MyAccount = () => {
               <div className="flex xl:flex-col">
                 <div className="hidden lg:flex flex-wrap items-center gap-5 py-6 px-4 sm:px-7.5 xl:px-9 border-r xl:border-r-0 xl:border-b border-gray-3">
                   <div className="max-w-[64px] w-full h-16 rounded-full overflow-hidden">
-                    <Image
-                      src="/images/users/user-04.jpg"
-                      alt="user"
-                      width={64}
-                      height={64}
-                    />
+                    <Image src="/images/users/user-04.jpg" alt="user" width={64} height={64} />
                   </div>
 
                   <div>
-                    <p className="font-medium text-dark mb-0.5">
-                      James Septimus
-                    </p>
+                    <p className="font-medium text-dark mb-0.5">James Septimus</p>
                     <p className="text-custom-xs">Member Since Sep 2020</p>
                   </div>
                 </div>
@@ -57,21 +50,10 @@ const MyAccount = () => {
                 <div className="p-4 sm:p-7.5 xl:p-9">
                   <div className="flex flex-wrap xl:flex-nowrap xl:flex-col gap-4">
                     <button
-                      onClick={() => setActiveTab("dashboard")}
-                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#6BAF92] hover:text-white ${
-                        activeTab === "dashboard"
-                          ? "text-white bg-[#6BAF92]"
-                          : "text-dark-2 bg-gray-1"
-                      }`}
+                      onClick={() => setActiveTab('dashboard')}
+                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#1A693A] hover:text-white ${activeTab === 'dashboard' ? 'text-white bg-green-dark' : 'text-dark-2 bg-gray-1'}`}
                     >
-                      <svg
-                        className="fill-current"
-                        width="22"
-                        height="22"
-                        viewBox="0 0 22 22"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           fillRule="evenodd"
                           clipRule="evenodd"
@@ -100,21 +82,10 @@ const MyAccount = () => {
                       Dashboard
                     </button>
                     <button
-                      onClick={() => setActiveTab("orders")}
-                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#6BAF92] hover:text-white ${
-                        activeTab === "orders"
-                          ? "text-white bg-[#6BAF92]"
-                          : "text-dark-2 bg-gray-1"
-                      }`}
+                      onClick={() => setActiveTab('orders')}
+                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#1A693A] hover:text-white ${activeTab === 'orders' ? 'text-white bg-green-dark' : 'text-dark-2 bg-gray-1'}`}
                     >
-                      <svg
-                        className="fill-current"
-                        width="22"
-                        height="22"
-                        viewBox="0 0 22 22"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M8.0203 11.9167C8.0203 11.537 7.71249 11.2292 7.3328 11.2292C6.9531 11.2292 6.6453 11.537 6.6453 11.9167V15.5833C6.6453 15.963 6.9531 16.2708 7.3328 16.2708C7.71249 16.2708 8.0203 15.963 8.0203 15.5833V11.9167Z"
                           fill=""
@@ -138,21 +109,10 @@ const MyAccount = () => {
                     </button>
 
                     <button
-                      onClick={() => setActiveTab("downloads")}
-                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#6BAF92] hover:text-white ${
-                        activeTab === "downloads"
-                          ? "text-white bg-[#6BAF92]"
-                          : "text-dark-2 bg-gray-1"
-                      }`}
+                      onClick={() => setActiveTab('downloads')}
+                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#1A693A]  hover:text-white ${activeTab === 'downloads' ? 'text-white bg-green-dark' : 'text-dark-2 bg-gray-1'}`}
                     >
-                      <svg
-                        className="fill-current"
-                        width="22"
-                        height="22"
-                        viewBox="0 0 22 22"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M11.5074 15.1306C11.3772 15.273 11.193 15.3542 11 15.3542C10.807 15.3542 10.6229 15.273 10.4926 15.1306L6.82594 11.1202C6.56973 10.8399 6.5892 10.4051 6.86943 10.1489C7.14966 9.89265 7.58452 9.91212 7.84073 10.1923L10.3125 12.8958V2.75C10.3125 2.3703 10.6203 2.0625 11 2.0625C11.3797 2.0625 11.6875 2.3703 11.6875 2.75V12.8958L14.1593 10.1923C14.4155 9.91212 14.8503 9.89265 15.1306 10.1489C15.4108 10.4051 15.4303 10.8399 15.1741 11.1202L11.5074 15.1306Z"
                           fill=""
@@ -166,21 +126,10 @@ const MyAccount = () => {
                     </button>
 
                     <button
-                      onClick={() => setActiveTab("addresses")}
-                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#6BAF92] hover:text-white ${
-                        activeTab === "addresses"
-                          ? "text-white bg-[#6BAF92]"
-                          : "text-dark-2 bg-gray-1"
-                      }`}
+                      onClick={() => setActiveTab('addresses')}
+                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#1A693A]  hover:text-white ${activeTab === 'addresses' ? 'text-white bg-green-dark' : 'text-dark-2 bg-gray-1'}`}
                     >
-                      <svg
-                        className="fill-current"
-                        width="22"
-                        height="22"
-                        viewBox="0 0 22 22"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M8.25065 15.8125C7.87096 15.8125 7.56315 16.1203 7.56315 16.5C7.56315 16.8797 7.87096 17.1875 8.25065 17.1875H13.7507C14.1303 17.1875 14.4382 16.8797 14.4382 16.5C14.4382 16.1203 14.1303 15.8125 13.7507 15.8125H8.25065Z"
                           fill=""
@@ -196,21 +145,10 @@ const MyAccount = () => {
                     </button>
 
                     <button
-                      onClick={() => setActiveTab("account-details")}
-                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#6BAF92] hover:text-white ${
-                        activeTab === "account-details"
-                          ? "text-white bg-[#6BAF92]"
-                          : "text-dark-2 bg-gray-1"
-                      }`}
+                      onClick={() => setActiveTab('account-details')}
+                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#1A693A]  hover:text-white ${activeTab === 'account-details' ? 'text-white bg-green-dark' : 'text-dark-2 bg-gray-1'}`}
                     >
-                      <svg
-                        className="fill-current"
-                        width="22"
-                        height="22"
-                        viewBox="0 0 22 22"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           fillRule="evenodd"
                           clipRule="evenodd"
@@ -228,21 +166,10 @@ const MyAccount = () => {
                     </button>
 
                     <button
-                      onClick={() => setActiveTab("logout")}
-                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#6BAF92] hover:text-white ${
-                        activeTab === "logout"
-                          ? "text-white bg-[#6BAF92]"
-                          : "text-dark-2 bg-gray-1"
-                      }`}
+                      onClick={() => setActiveTab('logout')}
+                      className={`flex items-center rounded-md gap-2.5 py-3 px-4.5 ease-out duration-200 hover:bg-[#1A693A]  hover:text-white ${activeTab === 'logout' ? 'text-white bg-green-dark' : 'text-dark-2 bg-gray-1'}`}
                     >
-                      <svg
-                        className="fill-current"
-                        width="22"
-                        height="22"
-                        viewBox="0 0 22 22"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M13.7005 1.14581C12.4469 1.14579 11.4365 1.14578 10.6417 1.25263C9.81664 1.36356 9.12193 1.60088 8.57017 2.15263C8.08898 2.63382 7.84585 3.22514 7.71822 3.91997C7.59419 4.59515 7.57047 5.42142 7.56495 6.41282C7.56284 6.79251 7.86892 7.10202 8.24861 7.10414C8.6283 7.10625 8.93782 6.80016 8.93993 6.42047C8.94551 5.4181 8.97154 4.70761 9.07059 4.16838C9.16603 3.64881 9.31927 3.34807 9.54244 3.12491C9.79614 2.87121 10.1523 2.7058 10.825 2.61537C11.5174 2.52227 12.435 2.52081 13.7508 2.52081H14.6675C15.9833 2.52081 16.901 2.52227 17.5934 2.61537C18.266 2.7058 18.6222 2.87121 18.8759 3.12491C19.1296 3.37861 19.295 3.7348 19.3855 4.40742C19.4786 5.09983 19.48 6.01752 19.48 7.33331V14.6666C19.48 15.9824 19.4786 16.9001 19.3855 17.5925C19.295 18.2652 19.1296 18.6214 18.8759 18.8751C18.6222 19.1288 18.266 19.2942 17.5934 19.3846C16.901 19.4777 15.9833 19.4791 14.6675 19.4791H13.7508C12.435 19.4791 11.5174 19.4777 10.825 19.3846C10.1523 19.2942 9.79614 19.1288 9.54244 18.8751C9.31927 18.6519 9.16603 18.3512 9.07059 17.8316C8.97154 17.2924 8.94551 16.5819 8.93993 15.5795C8.93782 15.1998 8.6283 14.8937 8.24861 14.8958C7.86892 14.8979 7.56284 15.2075 7.56495 15.5871C7.57047 16.5785 7.59419 17.4048 7.71822 18.08C7.84585 18.7748 8.08898 19.3661 8.57017 19.8473C9.12193 20.3991 9.81664 20.6364 10.6417 20.7473C11.4365 20.8542 12.4469 20.8542 13.7006 20.8541H14.7178C15.9714 20.8542 16.9819 20.8542 17.7766 20.7473C18.6017 20.6364 19.2964 20.3991 19.8482 19.8473C20.4 19.2956 20.6373 18.6009 20.7482 17.7758C20.855 16.981 20.855 15.9706 20.855 14.7169V7.28302C20.855 6.02939 20.855 5.01893 20.7482 4.22421C20.6373 3.39911 20.4 2.70439 19.8482 2.15263C19.2964 1.60088 18.6017 1.36356 17.7766 1.25263C16.9819 1.14578 15.9714 1.14579 14.7178 1.14581H13.7005Z"
                           fill=""
@@ -264,74 +191,39 @@ const MyAccount = () => {
           <!--== user dashboard content start ==--> */}
             {/* <!-- dashboard tab content start --> */}
 
-            <div
-              className={`xl:max-w-[770px] w-full bg-white rounded-xl shadow-1 py-9.5 px-4 sm:px-7.5 xl:px-10 ${
-                activeTab === "dashboard" ? "block" : "hidden"
-              }`}
-            >
+            <div className={`xl:max-w-[770px] w-full bg-white rounded-xl shadow-1 py-9.5 px-4 sm:px-7.5 xl:px-10 ${activeTab === 'dashboard' ? 'block' : 'hidden'}`}>
               <p className="text-dark">
                 Hello Annie (not Annie?
-                <a
-                  href="#"
-                  className="text-red ease-out duration-200 hover:underline"
-                >
+                <a href="#" className="text-red ease-out duration-200 hover:underline">
                   Log Out
                 </a>
                 )
               </p>
 
-              <p className="text-custom-sm mt-4">
-                From your account dashboard you can view your recent orders,
-                manage your shipping and billing addresses, and edit your
-                password and account details.
-              </p>
+              <p className="text-custom-sm mt-4">From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
             </div>
             {/* <!-- dashboard tab content end -->
 
           <!-- orders tab content start --> */}
-            <div
-              className={`xl:max-w-[770px] w-full bg-white rounded-xl shadow-1 ${
-                activeTab === "orders" ? "block" : "hidden"
-              }`}
-            >
+            <div className={`xl:max-w-[770px] w-full bg-white rounded-xl shadow-1 ${activeTab === 'orders' ? 'block' : 'hidden'}`}>
               <Orders />
             </div>
             {/* <!-- orders tab content end -->
 
           <!-- downloads tab content start --> */}
-            <div
-              className={`xl:max-w-[770px] w-full bg-white rounded-xl shadow-1 py-9.5 px-4 sm:px-7.5 xl:px-10 ${
-                activeTab === "downloads" ? "block" : "hidden"
-              }`}
-            >
+            <div className={`xl:max-w-[770px] w-full bg-white rounded-xl shadow-1 py-9.5 px-4 sm:px-7.5 xl:px-10 ${activeTab === 'downloads' ? 'block' : 'hidden'}`}>
               <p>You don&apos;t have any download</p>
             </div>
             {/* <!-- downloads tab content end -->
 
           <!-- addresses tab content start --> */}
-            <div
-              className={`flex-col sm:flex-row gap-7.5 ${
-                activeTab === "addresses" ? "flex" : "hidden"
-              }`}
-            >
+            <div className={`flex-col sm:flex-row gap-7.5 ${activeTab === 'addresses' ? 'flex' : 'hidden'}`}>
               <div className="xl:max-w-[370px] w-full bg-white shadow-1 rounded-xl">
                 <div className="flex items-center justify-between py-5 px-4 sm:pl-7.5 sm:pr-6 border-b border-gray-3">
-                  <p className="font-medium text-xl text-dark">
-                    Shipping Address
-                  </p>
+                  <p className="font-medium text-xl text-dark">Shipping Address</p>
 
-                  <button
-                    className="text-dark ease-out duration-200 hover:text-[#6BAF92]"
-                    onClick={openAddressModal}
-                  >
-                    <svg
-                      className="fill-current"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                  <button className="text-dark ease-out duration-200 hover:text-[#D75A4A]" onClick={openAddressModal}>
+                    <svg className="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         fillRule="evenodd"
                         clipRule="evenodd"
@@ -345,14 +237,7 @@ const MyAccount = () => {
                 <div className="p-4 sm:p-7.5">
                   <div className="flex flex-col gap-4">
                     <p className="flex items-center gap-2.5 text-custom-sm">
-                      <svg
-                        className="fill-current"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 18 18"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           fillRule="evenodd"
                           clipRule="evenodd"
@@ -370,14 +255,7 @@ const MyAccount = () => {
                     </p>
 
                     <p className="flex items-center gap-2.5 text-custom-sm">
-                      <svg
-                        className="fill-current"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 18 18"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           fillRule="evenodd"
                           clipRule="evenodd"
@@ -389,14 +267,7 @@ const MyAccount = () => {
                     </p>
 
                     <p className="flex items-center gap-2.5 text-custom-sm">
-                      <svg
-                        className="fill-current"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 18 18"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M9.94471 1.41012C9.99436 1.10345 10.2843 0.895419 10.5909 0.945068C10.6099 0.948701 10.671 0.960116 10.703 0.967243C10.767 0.981496 10.8563 1.00344 10.9676 1.03586C11.1901 1.10069 11.5011 1.20749 11.8743 1.3786C12.6215 1.72116 13.6159 2.32042 14.6477 3.35227C15.6796 4.38412 16.2788 5.37848 16.6214 6.12568C16.7925 6.4989 16.8993 6.80985 16.9641 7.03243C16.9966 7.14374 17.0185 7.23301 17.0328 7.297C17.0399 7.32901 17.0451 7.3547 17.0487 7.37368L17.053 7.39708C17.1027 7.70375 16.8965 8.00564 16.5899 8.05528C16.2841 8.10479 15.996 7.89776 15.9451 7.59254C15.9436 7.58434 15.9393 7.56232 15.9347 7.54156C15.9254 7.50002 15.9094 7.43415 15.884 7.34704C15.8333 7.17279 15.7451 6.91379 15.5987 6.59453C15.3064 5.9568 14.7806 5.07616 13.8522 4.14776C12.9238 3.21936 12.0432 2.69362 11.4055 2.40125C11.0862 2.25488 10.8272 2.16673 10.653 2.11597C10.5658 2.0906 10.4563 2.06547 10.4148 2.05622C10.1096 2.00535 9.89521 1.71591 9.94471 1.41012Z"
                           fill=""
@@ -418,14 +289,7 @@ const MyAccount = () => {
                     </p>
 
                     <p className="flex gap-2.5 text-custom-sm">
-                      <svg
-                        className="fill-current mt-0.5"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 18 18"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current mt-0.5" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_100_6003)">
                           <path
                             fillRule="evenodd"
@@ -448,22 +312,10 @@ const MyAccount = () => {
 
               <div className="xl:max-w-[370px] w-full bg-white shadow-1 rounded-xl">
                 <div className="flex items-center justify-between py-5 px-4 sm:pl-7.5 sm:pr-6 border-b border-gray-3">
-                  <p className="font-medium text-xl text-dark">
-                    Billing Address
-                  </p>
+                  <p className="font-medium text-xl text-dark">Billing Address</p>
 
-                  <button
-                    className="text-dark ease-out duration-200 hover:text-[#6BAF92]"
-                    onClick={openAddressModal}
-                  >
-                    <svg
-                      className="fill-current"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                  <button className="text-dark ease-out duration-200 hover:text-[#D75A4A]" onClick={openAddressModal}>
+                    <svg className="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         fillRule="evenodd"
                         clipRule="evenodd"
@@ -477,14 +329,7 @@ const MyAccount = () => {
                 <div className="p-4 sm:p-7.5">
                   <div className="flex flex-col gap-4">
                     <p className="flex items-center gap-2.5 text-custom-sm">
-                      <svg
-                        className="fill-current"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 18 18"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           fillRule="evenodd"
                           clipRule="evenodd"
@@ -502,14 +347,7 @@ const MyAccount = () => {
                     </p>
 
                     <p className="flex items-center gap-2.5 text-custom-sm">
-                      <svg
-                        className="fill-current"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 18 18"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           fillRule="evenodd"
                           clipRule="evenodd"
@@ -521,14 +359,7 @@ const MyAccount = () => {
                     </p>
 
                     <p className="flex items-center gap-2.5 text-custom-sm">
-                      <svg
-                        className="fill-current"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 18 18"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M9.94471 1.41012C9.99436 1.10345 10.2843 0.895419 10.5909 0.945068C10.6099 0.948701 10.671 0.960116 10.703 0.967243C10.767 0.981496 10.8563 1.00344 10.9676 1.03586C11.1901 1.10069 11.5011 1.20749 11.8743 1.3786C12.6215 1.72116 13.6159 2.32042 14.6477 3.35227C15.6796 4.38412 16.2788 5.37848 16.6214 6.12568C16.7925 6.4989 16.8993 6.80985 16.9641 7.03243C16.9966 7.14374 17.0185 7.23301 17.0328 7.297C17.0399 7.32901 17.0451 7.3547 17.0487 7.37368L17.053 7.39708C17.1027 7.70375 16.8965 8.00564 16.5899 8.05528C16.2841 8.10479 15.996 7.89776 15.9451 7.59254C15.9436 7.58434 15.9393 7.56232 15.9347 7.54156C15.9254 7.50002 15.9094 7.43415 15.884 7.34704C15.8333 7.17279 15.7451 6.91379 15.5987 6.59453C15.3064 5.9568 14.7806 5.07616 13.8522 4.14776C12.9238 3.21936 12.0432 2.69362 11.4055 2.40125C11.0862 2.25488 10.8272 2.16673 10.653 2.11597C10.5658 2.0906 10.4563 2.06547 10.4148 2.05622C10.1096 2.00535 9.89521 1.71591 9.94471 1.41012Z"
                           fill=""
@@ -550,14 +381,7 @@ const MyAccount = () => {
                     </p>
 
                     <p className="flex gap-2.5 text-custom-sm">
-                      <svg
-                        className="fill-current mt-0.5"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 18 18"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg className="fill-current mt-0.5" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_100_6003)">
                           <path
                             fillRule="evenodd"
@@ -581,11 +405,7 @@ const MyAccount = () => {
             {/* <!-- addresses tab content end -->
 
           <!-- details tab content start --> */}
-            <div
-              className={`xl:max-w-[770px] w-full ${
-                activeTab === "account-details" ? "block" : "hidden"
-              }`}
-            >
+            <div className={`xl:max-w-[770px] w-full ${activeTab === 'account-details' ? 'block' : 'hidden'}`}>
               <form>
                 <div className="bg-white shadow-1 rounded-xl p-4 sm:p-8.5">
                   <div className="flex flex-col lg:flex-row gap-5 sm:gap-8 mb-5">
@@ -633,14 +453,7 @@ const MyAccount = () => {
                       </select>
 
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-dark-4">
-                        <svg
-                          className="fill-current"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
+                        <svg className="fill-current" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
                             d="M2.41469 5.03569L2.41467 5.03571L2.41749 5.03846L7.76749 10.2635L8.0015 10.492L8.23442 10.2623L13.5844 4.98735L13.5844 4.98735L13.5861 4.98569C13.6809 4.89086 13.8199 4.89087 13.9147 4.98569C14.0092 5.08024 14.0095 5.21864 13.9155 5.31345C13.9152 5.31373 13.915 5.31401 13.9147 5.31429L8.16676 10.9622L8.16676 10.9622L8.16469 10.9643C8.06838 11.0606 8.02352 11.0667 8.00039 11.0667C7.94147 11.0667 7.89042 11.0522 7.82064 10.9991L2.08526 5.36345C1.99127 5.26865 1.99154 5.13024 2.08609 5.03569C2.18092 4.94086 2.31986 4.94086 2.41469 5.03569Z"
                             fill=""
@@ -652,22 +465,14 @@ const MyAccount = () => {
                     </div>
                   </div>
 
-                  <button
-                    type="submit"
-                    className="inline-flex font-medium text-white bg-[#6BAF92] py-3 px-7 rounded-md ease-out duration-200 hover:bg-green-dark"
-                  >
+                  <button type="submit" className="inline-flex font-medium text-white bg-green-dark py-3 px-7 rounded-md ease-out duration-200 hover:bg-[#1A693A]">
                     Save Changes
                   </button>
                 </div>
 
-                <p className="text-custom-sm mt-5 mb-9">
-                  This will be how your name will be displayed in the account
-                  section and in reviews
-                </p>
+                <p className="text-custom-sm mt-5 mb-9">This will be how your name will be displayed in the account section and in reviews</p>
 
-                <p className="font-medium text-xl sm:text-2xl text-dark mb-7">
-                  Password Change
-                </p>
+                <p className="font-medium text-xl sm:text-2xl text-dark mb-7">Password Change</p>
 
                 <div className="bg-white shadow-1 rounded-xl p-4 sm:p-8.5">
                   <div className="mb-5">
@@ -699,10 +504,7 @@ const MyAccount = () => {
                   </div>
 
                   <div className="mb-5">
-                    <label
-                      htmlFor="confirmNewPassword"
-                      className="block mb-2.5"
-                    >
+                    <label htmlFor="confirmNewPassword" className="block mb-2.5">
                       Confirm New Password
                     </label>
 
@@ -715,10 +517,7 @@ const MyAccount = () => {
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="inline-flex font-medium text-white bg-[#6BAF92] py-3 px-7 rounded-md ease-out duration-200 hover:bg-green-dark"
-                  >
+                  <button type="submit" className="inline-flex font-medium text-white bg-green-dark py-3 px-7 rounded-md ease-out duration-200 hover:bg-[#1A693A]">
                     Change Password
                   </button>
                 </div>

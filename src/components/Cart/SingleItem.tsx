@@ -1,12 +1,9 @@
-import React, { useState } from "react";
-import { AppDispatch } from "@/redux/store";
-import { useDispatch } from "react-redux";
-import {
-  removeItemFromCart,
-  updateCartItemQuantity,
-} from "@/redux/features/cart-slice";
+import React, { useState } from 'react';
+import { AppDispatch } from '@/redux/store';
+import { useDispatch } from 'react-redux';
+import { removeItemFromCart, updateCartItemQuantity } from '@/redux/features/cart-slice';
 
-import Image from "next/image";
+import Image from 'next/image';
 
 const SingleItem = ({ item }) => {
   const [quantity, setQuantity] = useState(item.quantity);
@@ -41,7 +38,7 @@ const SingleItem = ({ item }) => {
             </div>
 
             <div>
-              <h3 className="text-dark ease-out duration-200 hover:text-[#6BAF92]">
+              <h3 className="text-dark ease-out duration-200 hover:text-[#D75A4A]">
                 <a href="#"> {item.title} </a>
               </h3>
             </div>
@@ -55,19 +52,8 @@ const SingleItem = ({ item }) => {
 
       <div className="min-w-[275px]">
         <div className="w-max flex items-center rounded-md border border-gray-3">
-          <button
-            onClick={() => handleDecreaseQuantity()}
-            aria-label="button for remove product"
-            className="flex items-center justify-center w-11.5 h-11.5 ease-out duration-200 hover:text-[#6BAF92]"
-          >
-            <svg
-              className="fill-current"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+          <button onClick={() => handleDecreaseQuantity()} aria-label="button for remove product" className="flex items-center justify-center w-11.5 h-11.5 ease-out duration-200 hover:text-[#D75A4A]">
+            <svg className="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M3.33301 10.0001C3.33301 9.53984 3.7061 9.16675 4.16634 9.16675H15.833C16.2932 9.16675 16.6663 9.53984 16.6663 10.0001C16.6663 10.4603 16.2932 10.8334 15.833 10.8334H4.16634C3.7061 10.8334 3.33301 10.4603 3.33301 10.0001Z"
                 fill=""
@@ -75,27 +61,11 @@ const SingleItem = ({ item }) => {
             </svg>
           </button>
 
-          <span className="flex items-center justify-center w-16 h-11.5 border-x border-gray-4">
-            {quantity}
-          </span>
+          <span className="flex items-center justify-center w-16 h-11.5 border-x border-gray-4">{quantity}</span>
 
-          <button
-            onClick={() => handleIncreaseQuantity()}
-            aria-label="button for add product"
-            className="flex items-center justify-center w-11.5 h-11.5 ease-out duration-200 hover:text-[#6BAF92]"
-          >
-            <svg
-              className="fill-current"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3.33301 10C3.33301 9.5398 3.7061 9.16671 4.16634 9.16671H15.833C16.2932 9.16671 16.6663 9.5398 16.6663 10C16.6663 10.4603 16.2932 10.8334 15.833 10.8334H4.16634C3.7061 10.8334 3.33301 10.4603 3.33301 10Z"
-                fill=""
-              />
+          <button onClick={() => handleIncreaseQuantity()} aria-label="button for add product" className="flex items-center justify-center w-11.5 h-11.5 ease-out duration-200 hover:text-[#D75A4A]">
+            <svg className="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.33301 10C3.33301 9.5398 3.7061 9.16671 4.16634 9.16671H15.833C16.2932 9.16671 16.6663 9.5398 16.6663 10C16.6663 10.4603 16.2932 10.8334 15.833 10.8334H4.16634C3.7061 10.8334 3.33301 10.4603 3.33301 10Z" fill="" />
               <path
                 d="M9.99967 16.6667C9.53944 16.6667 9.16634 16.2936 9.16634 15.8334L9.16634 4.16671C9.16634 3.70647 9.53944 3.33337 9.99967 3.33337C10.4599 3.33337 10.833 3.70647 10.833 4.16671L10.833 15.8334C10.833 16.2936 10.4599 16.6667 9.99967 16.6667Z"
                 fill=""
@@ -115,14 +85,7 @@ const SingleItem = ({ item }) => {
           aria-label="button for remove product from cart"
           className="flex items-center justify-center rounded-lg max-w-[38px] w-full h-9.5 bg-gray-2 border border-gray-3 text-dark ease-out duration-200 hover:bg-red-light-6 hover:border-red-light-4 hover:text-red"
         >
-          <svg
-            className="fill-current"
-            width="22"
-            height="22"
-            viewBox="0 0 22 22"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg className="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               fillRule="evenodd"
               clipRule="evenodd"

@@ -1,7 +1,7 @@
-import { selectTotalPrice } from "@/redux/features/cart-slice";
-import { useAppSelector } from "@/redux/store";
-import React from "react";
-import { useSelector } from "react-redux";
+import { selectTotalPrice } from '@/redux/features/cart-slice';
+import { useAppSelector } from '@/redux/store';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 const OrderSummary = () => {
   const cartItems = useAppSelector((state) => state.cartslice.items);
@@ -33,9 +33,7 @@ const OrderSummary = () => {
                 <p className="text-dark">{item.title}</p>
               </div>
               <div>
-                <p className="text-dark text-right">
-                  ${item.discountedPrice * item.quantity}
-                </p>
+                <p className="text-dark text-right">${item.discountedPrice * item.quantity}</p>
               </div>
             </div>
           ))}
@@ -46,17 +44,12 @@ const OrderSummary = () => {
               <p className="font-medium text-lg text-dark">Total</p>
             </div>
             <div>
-              <p className="font-medium text-lg text-dark text-right">
-                ${totalPrice}
-              </p>
+              <p className="font-medium text-lg text-dark text-right">${totalPrice}</p>
             </div>
           </div>
 
           {/* <!-- checkout button --> */}
-          <button
-            type="submit"
-            className="w-full flex justify-center font-medium text-white bg-[#6BAF92] py-3 px-6 rounded-md ease-out duration-200 hover:bg-green-dark mt-7.5"
-          >
+          <button type="submit" className="w-full flex justify-center font-medium text-white bg-green-dark py-3 px-6 rounded-md ease-out duration-200 hover:bg-[#1A693A] mt-7.5">
             Process to Checkout
           </button>
         </div>

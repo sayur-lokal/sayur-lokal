@@ -1,31 +1,23 @@
-import React from "react";
-import Breadcrumb from "../Common/Breadcrumb";
+import React from 'react';
+import Breadcrumb from '../Common/Breadcrumb';
 
 const Contact = () => {
   return (
     <>
-      <Breadcrumb title={"Contact"} pages={["contact"]} />
+      <Breadcrumb title={'Contact'} pages={['contact']} />
 
       <section className="overflow-hidden py-20 bg-gray-2">
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
           <div className="flex flex-col xl:flex-row gap-7.5">
             <div className="xl:max-w-[370px] w-full bg-white rounded-xl shadow-1">
               <div className="py-5 px-4 sm:px-7.5 border-b border-gray-3">
-                <p className="font-medium text-xl text-dark">
-                  Contact Information
-                </p>
+                <p className="font-medium text-xl text-dark">Contact Information</p>
               </div>
 
               <div className="p-4 sm:p-7.5">
                 <div className="flex flex-col gap-4">
                   <p className="flex items-center gap-4">
-                    <svg
-                      width="22"
-                      height="22"
-                      viewBox="0 0 22 22"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         fillRule="evenodd"
                         clipRule="evenodd"
@@ -37,13 +29,7 @@ const Contact = () => {
                   </p>
 
                   <p className="flex items-center gap-4">
-                    <svg
-                      width="22"
-                      height="22"
-                      viewBox="0 0 22 22"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M12.1559 1.72346C12.2166 1.34865 12.571 1.09439 12.9458 1.15507C12.969 1.15951 13.0436 1.17346 13.0827 1.18217C13.161 1.19959 13.2701 1.22641 13.4061 1.26604C13.6781 1.34528 14.0582 1.47581 14.5143 1.68494C15.4276 2.10363 16.6429 2.83605 17.9041 4.0972C19.1652 5.35835 19.8977 6.57368 20.3163 7.48693C20.5255 7.94308 20.656 8.32314 20.7352 8.59518C20.7749 8.73122 20.8017 8.84033 20.8191 8.91855C20.8278 8.95766 20.8342 8.98907 20.8386 9.01227L20.8439 9.04086C20.9046 9.41568 20.6526 9.78465 20.2778 9.84533C19.9041 9.90584 19.552 9.65281 19.4898 9.27975C19.4879 9.26974 19.4826 9.24283 19.477 9.21745C19.4657 9.16668 19.4461 9.08617 19.4151 8.9797C19.3531 8.76672 19.2453 8.45017 19.0664 8.05997C18.7091 7.28052 18.0665 6.20418 16.9318 5.06947C15.7971 3.93477 14.7208 3.29219 13.9413 2.93484C13.5511 2.75595 13.2346 2.64821 13.0216 2.58618C12.9151 2.55516 12.7813 2.52445 12.7305 2.51314C12.3575 2.45097 12.0954 2.09721 12.1559 1.72346Z"
                         fill="#D75A4A"
@@ -65,14 +51,7 @@ const Contact = () => {
                   </p>
 
                   <p className="flex gap-4">
-                    <svg
-                      className="mt-0.5 shrink-0"
-                      width="22"
-                      height="22"
-                      viewBox="0 0 22 22"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                    <svg className="mt-0.5 shrink-0" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         fillRule="evenodd"
                         clipRule="evenodd"
@@ -162,10 +141,7 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
-                <button
-                  type="submit"
-                  className="inline-flex font-medium text-white bg-[#6BAF92] py-3 px-7 rounded-md ease-out duration-200 hover:bg-green-dark"
-                >
+                <button type="submit" className="inline-flex font-medium text-white bg-green-dark py-3 px-7 rounded-md ease-out duration-200 hover:bg-[#1A693A]">
                   Send Message
                 </button>
               </form>
