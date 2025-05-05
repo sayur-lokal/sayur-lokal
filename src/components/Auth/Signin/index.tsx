@@ -1,24 +1,23 @@
-'use client'
+'use client';
 
-import Link from "next/link";
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import Link from 'next/link';
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { useAppDispatch } from "@/redux/store";
-import { setUser } from "@/redux/features/auth-slice";
-
+import { useAppDispatch } from '@/redux/store';
+import { setUser } from '@/redux/features/auth-slice';
 
 const Signin = () => {
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
   const [errors, setErrors] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState("");
+  const [submitError, setSubmitError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useAppDispatch();
   const router = useRouter();
@@ -37,7 +36,7 @@ const Signin = () => {
 
     setErrors({
       ...errors,
-      [name]: "",
+      [name]: '',
     });
   };
 
@@ -50,18 +49,18 @@ const Signin = () => {
     const newErrors = { ...errors };
 
     if (!formData.email) {
-      newErrors.email = "Email is required";
+      newErrors.email = 'Email is required';
       valid = false;
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = "Invalid email format";
+      newErrors.email = 'Invalid email format';
       valid = false;
     }
 
     if (!formData.password) {
-      newErrors.password = "Password is required";
+      newErrors.password = 'Password is required';
       valid = false;
     } else if (formData.password.length < 3) {
-      newErrors.password = "Password at least 8 characters";
+      newErrors.password = 'Password at least 8 characters';
       valid = false;
     }
 
@@ -71,7 +70,7 @@ const Signin = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitError("");
+    setSubmitError('');
 
     if (!validateForm()) {
       return;
@@ -81,33 +80,35 @@ const Signin = () => {
 
     try {
       const formDataObj = new FormData();
-      formDataObj.append("email", formData.email);
-      formDataObj.append("password", formData.password);
+      formDataObj.append('email', formData.email);
+      formDataObj.append('password', formData.password);
 
-      const response = await fetch("/api/auth/signin", {
-        method: "POST",
+      const response = await fetch('/api/auth/signin', {
+        method: 'POST',
         body: formDataObj,
       });
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || "Login failed");
+        throw new Error(errorData.message || 'Login failed');
       }
       // Ambil data user dari response
       const userData = await response.json();
-      
+
       // Simpan user ke Redux store
-      dispatch(setUser({
-        email: userData.email,
-        role: userData.role,
-        username: userData.username,
-        name: userData.name,
-      }));
+      dispatch(
+        setUser({
+          email: userData.email,
+          role: userData.role,
+          username: userData.username,
+          name: userData.name,
+        })
+      );
 
       // Redirect ke halaman utama
-      router.push("/");
+      router.push('/');
     } catch (error) {
-      setSubmitError(error instanceof Error ? error.message : "Something went wrong");
+      setSubmitError(error instanceof Error ? error.message : 'Something went wrong');
     } finally {
       setIsSubmitting(false);
     }
@@ -119,9 +120,7 @@ const Signin = () => {
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
           <div className="max-w-[570px] w-full mx-auto rounded-xl bg-white shadow-1 p-4 sm:p-7.5 xl:p-11">
             <div className="text-center mb-11">
-              <h2 className="font-semibold text-xl sm:text-2xl xl:text-heading-5 text-dark mb-1.5">
-                Sign In to Your Account
-              </h2>
+              <h2 className="font-semibold text-xl sm:text-2xl xl:text-heading-5 text-dark mb-1.5">Sign In to Your Account</h2>
               <p>Enter your detail below</p>
             </div>
 
@@ -137,7 +136,9 @@ const Signin = () => {
                     name="email"
                     id="email"
                     placeholder="Enter your email"
-                    className={`rounded-lg border ${errors.email ? "border-red" : "border-gray-3"} bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
+                    className={`rounded-lg border ${
+                      errors.email ? 'border-red' : 'border-gray-3'
+                    } bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
                     required
                     value={formData.email}
                     onChange={handleChange}
@@ -152,54 +153,42 @@ const Signin = () => {
 
                   <div className="relative">
                     <input
-                      type={showPassword ? "text" : "password"}
+                      type={showPassword ? 'text' : 'password'}
                       name="password"
                       id="password"
                       placeholder="Enter your password"
                       autoComplete="on"
-                      className={`rounded-lg border ${errors.password ? "border-red" : "border-gray-3"} bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
+                      className={`rounded-lg border ${
+                        errors.password ? 'border-red' : 'border-gray-3'
+                      } bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20`}
                       required
                       value={formData.password}
                       onChange={handleChange}
                     />
-                    <button
-                      type="button"
-                      onClick={togglePasswordVisibility}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-6 hover:text-gray-7"
-                    >
+                    <button type="button" onClick={togglePasswordVisibility} className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-6 hover:text-gray-7">
                       {showPassword ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
                     </button>
                   </div>
                   {errors.password && <p className="text-red text-sm mt-1">{errors.password}</p>}
                 </div>
 
-                {submitError && (
-                  <div className="mb-4 p-3 bg-red/10 text-red rounded-md text-sm">
-                    {submitError}
-                  </div>
-                )}
+                {submitError && <div className="mb-4 p-3 bg-red/10 text-red rounded-md text-sm">{submitError}</div>}
 
                 <button
                   type="submit"
                   className="w-full flex justify-center font-medium text-white bg-green-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-[#1A693A] mt-7.5 disabled:pointer-events-none disabled:opacity-50"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Processing..." : "Sign in to account"}
+                  {isSubmitting ? 'Processing...' : 'Sign in to account'}
                 </button>
 
-                <a
-                  href="#"
-                  className="block text-center text-dark-4 mt-4.5 ease-out duration-200 hover:text-[#D75A4A]"
-                >
+                <a href="#" className="block text-center text-dark-4 mt-4.5 ease-out duration-200 hover:text-[#D75A4A]">
                   Forget your password?
                 </a>
 
                 <p className="text-center mt-6">
                   Don&apos;t have an account?
-                  <Link
-                    href="/signup"
-                    className="text-dark ease-out duration-200 hover:text-[#D75A4A] pl-2"
-                  >
+                  <Link href="/signup" className="text-dark ease-out duration-200 hover:text-[#D75A4A] pl-2">
                     Sign Up Now!
                   </Link>
                 </p>

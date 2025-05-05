@@ -1,50 +1,22 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 const CategoryItem = ({ category }) => {
   const [selected, setSelected] = useState(false);
   return (
-    <button
-      className={`${
-        selected && "text-[#6BAF92]"
-      } group flex items-center justify-between ease-out duration-200 hover:text-[#6BAF92] `}
-      onClick={() => setSelected(!selected)}
-    >
+    <button className={`${selected && 'text-[#1A693A]'} group flex items-center justify-between ease-out duration-200 hover:text-[#1A693A] `} onClick={() => setSelected(!selected)}>
       <div className="flex items-center gap-2">
-        <div
-          className={`cursor-pointer flex items-center justify-center rounded w-4 h-4 border ${
-            selected ? "border-blue bg-[#6BAF92]" : "bg-white border-gray-3"
-          }`}
-        >
-          <svg
-            className={selected ? "block" : "hidden"}
-            width="10"
-            height="10"
-            viewBox="0 0 10 10"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.33317 2.5L3.74984 7.08333L1.6665 5"
-              stroke="white"
-              strokeWidth="1.94437"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+        <div className={`cursor-pointer flex items-center justify-center rounded w-4 h-4 border ${selected ? 'border-[#1A693A] bg-[#1A693A]' : 'bg-white border-gray-3'}`}>
+          <svg className={selected ? 'block' : 'hidden'} width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.33317 2.5L3.74984 7.08333L1.6665 5" stroke="white" strokeWidth="1.94437" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
 
         <span>{category.name}</span>
       </div>
 
-      <span
-        className={`${
-          selected ? "text-white bg-[#6BAF92]" : "bg-gray-2"
-        } inline-flex rounded-[30px] text-custom-xs px-2 ease-out duration-200 group-hover:text-white group-hover:bg-[#6BAF92]`}
-      >
-        {category.products}
-      </span>
+      <span className={`${selected ? 'text-white bg-[#1A693A]' : 'bg-gray-5'} inline-flex rounded-[30px] text-custom-xs px-2 ease-out duration-200 text-white  group-hover:bg-[#1A693A]`}>{category.products}</span>
     </button>
   );
 };
@@ -59,25 +31,11 @@ const CategoryDropdown = ({ categories }) => {
           e.preventDefault();
           setToggleDropdown(!toggleDropdown);
         }}
-        className={`cursor-pointer flex items-center justify-between py-3 pl-6 pr-5.5 ${
-          toggleDropdown && "shadow-filter"
-        }`}
+        className={`cursor-pointer flex items-center justify-between py-3 pl-6 pr-5.5 ${toggleDropdown && 'shadow-filter'}`}
       >
         <p className="text-dark">Category</p>
-        <button
-          aria-label="button for category dropdown"
-          className={`text-dark ease-out duration-200 ${
-            toggleDropdown && "rotate-180"
-          }`}
-        >
-          <svg
-            className="fill-current"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+        <button aria-label="button for category dropdown" className={`text-dark ease-out duration-200 ${toggleDropdown && 'rotate-180'}`}>
+          <svg className="fill-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               fillRule="evenodd"
               clipRule="evenodd"
@@ -90,11 +48,7 @@ const CategoryDropdown = ({ categories }) => {
 
       {/* dropdown && 'shadow-filter */}
       {/* <!-- dropdown menu --> */}
-      <div
-        className={`flex-col gap-3 py-6 pl-6 pr-5.5 ${
-          toggleDropdown ? "flex" : "hidden"
-        }`}
-      >
+      <div className={`flex-col gap-3 py-6 pl-6 pr-5.5 ${toggleDropdown ? 'flex' : 'hidden'}`}>
         {categories.map((category, key) => (
           <CategoryItem key={key} category={category} />
         ))}

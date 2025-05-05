@@ -1,24 +1,24 @@
-"use client";
-import React, { useEffect, useState } from "react";
+'use client';
+import React, { useEffect, useState } from 'react';
 
-import { Product } from "@/types/product";
-import { useModalContext } from "@/app/context/QuickViewModalContext";
-import { updateQuickView } from "@/redux/features/quickView-slice";
-import { addItemToCart } from "@/redux/features/cart-slice";
-import { addItemToWishlist } from "@/redux/features/wishlist-slice";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
-import Link from "next/link";
-import Image from "next/image";
-import ProductRating from "../Shared/InfoProps/ProductRating";
-import ProductTitle from "../Shared/InfoProps/ProductTitle";
-import ProductPrice from "../Shared/InfoProps/ProductPrice";
+import { Product } from '@/types/product';
+import { useModalContext } from '@/app/context/QuickViewModalContext';
+import { updateQuickView } from '@/redux/features/quickView-slice';
+import { addItemToCart } from '@/redux/features/cart-slice';
+import { addItemToWishlist } from '@/redux/features/wishlist-slice';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@/redux/store';
+import Link from 'next/link';
+import Image from 'next/image';
+import ProductRating from '../Shared/InfoProps/ProductRating';
+import ProductTitle from '../Shared/InfoProps/ProductTitle';
+import ProductPrice from '../Shared/InfoProps/ProductPrice';
 
 const SingleListItem = ({ item }: { item: Product }) => {
-    const [ hasPreviews, setHasPreviews] = useState<boolean>(false)
-    useEffect(() => {
-      setHasPreviews(!!(item.imgs && item.imgs.previews))
-    }, [item])
+  const [hasPreviews, setHasPreviews] = useState<boolean>(false);
+  useEffect(() => {
+    setHasPreviews(!!(item.imgs && item.imgs.previews));
+  }, [item]);
   const { openModal } = useModalContext();
   const dispatch = useDispatch<AppDispatch>();
 
@@ -41,18 +41,17 @@ const SingleListItem = ({ item }: { item: Product }) => {
     dispatch(
       addItemToWishlist({
         product: item,
-        status: "available",
+        status: 'available',
         quantity: 1,
       })
     );
   };
 
-
   return (
     <div className="group rounded-lg bg-white shadow-1">
       <div className="flex">
         <div className="shadow-list relative overflow-hidden flex items-center justify-center max-w-[270px] w-full sm:min-h-[270px] p-4">
-          { hasPreviews? <Image src={item.imgs!.previews[0]} alt="" width={250} height={250} /> : null }
+          {hasPreviews ? <Image src={item.imgs!.previews[0]} alt="" width={250} height={250} /> : null}
 
           <div className="absolute left-0 bottom-0 translate-y-full w-full flex items-center justify-center gap-2.5 pb-5 ease-linear duration-200 group-hover:translate-y-0">
             <button
@@ -61,16 +60,9 @@ const SingleListItem = ({ item }: { item: Product }) => {
                 handleQuickViewUpdate();
               }}
               aria-label="button for quick view"
-              className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-[#6BAF92]"
+              className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-[#D75A4A]"
             >
-              <svg
-                className="fill-current"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg className="fill-current" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   fillRule="evenodd"
                   clipRule="evenodd"
@@ -86,26 +78,12 @@ const SingleListItem = ({ item }: { item: Product }) => {
               </svg>
             </button>
 
-            <button
-              onClick={() => handleAddToCart()}
-              className="inline-flex font-medium text-custom-sm py-[7px] px-5 rounded-[5px] bg-[#6BAF92] text-white ease-out duration-200 hover:bg-green-dark"
-            >
+            <button onClick={() => handleAddToCart()} className="inline-flex font-medium text-custom-sm py-[7px] px-5 rounded-[5px] bg-green-dark text-white ease-out duration-200 hover:bg-[#1A693A]">
               Add to cart
             </button>
 
-            <button
-              onClick={() => handleItemToWishList()}
-              aria-label="button for favorite select"
-              className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-[#6BAF92]"
-            >
-              <svg
-                className="fill-current"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+            <button onClick={() => handleItemToWishList()} aria-label="button for favorite select" className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-[#D75A4A]">
+              <svg className="fill-current" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   fillRule="evenodd"
                   clipRule="evenodd"
@@ -119,19 +97,12 @@ const SingleListItem = ({ item }: { item: Product }) => {
 
         <div className="w-full flex flex-col gap-5 sm:flex-row sm:items-center justify-center sm:justify-between py-5 px-4 sm:px-7.5 lg:pl-11 lg:pr-12">
           <div>
-            <h3 className="font-medium text-dark ease-out duration-200 hover:text-[#6BAF92] mb-1.5">
             <ProductTitle title={item.title} />
-            </h3>
-
-            <span className="flex items-center gap-2 font-medium text-lg">
             <ProductPrice price={item.price} discountedPrice={item.discountedPrice} />
-            </span>
           </div>
 
-          <div className="flex items-center gap-2.5 mb-2">
-            <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1">
             <ProductRating reviews={item.reviews} />
-            </div>
           </div>
         </div>
       </div>

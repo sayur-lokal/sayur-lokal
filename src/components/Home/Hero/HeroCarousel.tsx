@@ -1,12 +1,12 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+'use client';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 // Import Swiper styles
-import "swiper/css/pagination";
-import "swiper/css";
+import 'swiper/css/pagination';
+import 'swiper/css';
 
-import Image from "next/image";
+import Image from 'next/image';
 
 const HeroCarousal = () => {
   return (
@@ -27,9 +27,7 @@ const HeroCarousal = () => {
         <div className="flex items-center pt-6 sm:pt-0 flex-col-reverse sm:flex-row">
           <div className="max-w-[394px] py-10 sm:py-15 lg:py-24.5 pl-4 sm:pl-7.5 lg:pl-12.5">
             <div className="flex items-center gap-4 mb-7.5 sm:mb-10">
-              <span className="block font-semibold text-heading-3 sm:text-heading-1 text-[#6BAF92]">
-                30%
-              </span>
+              <span className="block font-semibold text-heading-3 sm:text-heading-1 text-[#D75A4A]">30%</span>
               <span className="block text-dark text-sm sm:text-custom-1 sm:leading-[24px]">
                 Sale
                 <br />
@@ -41,36 +39,24 @@ const HeroCarousal = () => {
               <a href="#">Sayur Asem Meal Kit</a>
             </h1>
 
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at ipsum at risus euismod lobortis in
-            </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at ipsum at risus euismod lobortis in</p>
 
-            <a
-              href="#"
-              className="inline-flex font-medium text-white text-custom-sm rounded-md bg-green-dark py-3 px-9 ease-out duration-200 hover:bg-[#6BAF92] mt-10"
-            >
+            <a href="#" className="inline-flex font-medium text-white text-custom-sm rounded-md bg-green-dark py-3 px-9 ease-out duration-200 hover:bg-[#1A693A] mt-10">
               Shop Now
             </a>
           </div>
 
           <div>
-            <Image
-              src="/images/hero/sayur_asem_hero_01.png"
-              alt="headphone"
-              width={351}
-              height={358}
-            />
+            <Image src="/images/hero/sayur_asem_hero_01.png" alt="headphone" width={351} height={358} />
           </div>
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        {" "}
+        {' '}
         <div className="flex items-center pt-6 sm:pt-0 flex-col-reverse sm:flex-row">
           <div className="max-w-[394px] py-10 sm:py-15 lg:py-26 pl-4 sm:pl-7.5 lg:pl-12.5">
             <div className="flex items-center gap-4 mb-7.5 sm:mb-10">
-              <span className="block font-semibold text-heading-3 sm:text-heading-1 text-[#6BAF92]">
-                30%
-              </span>
+              <span className="block font-semibold text-heading-3 sm:text-heading-1 text-[#D75A4A]">30%</span>
               <span className="block text-dark text-sm sm:text-custom-1 sm:leading-[24px]">
                 Sale
                 <br />
@@ -82,26 +68,15 @@ const HeroCarousal = () => {
               <a href="#">Sayur Sop Meal Kits</a>
             </h1>
 
-            <p>
-              Lorem ipsum dolor sit, consectetur elit nunc suscipit non ipsum
-              nec suscipit.
-            </p>
+            <p>Lorem ipsum dolor sit, consectetur elit nunc suscipit non ipsum nec suscipit.</p>
 
-            <a
-              href="#"
-              className="inline-flex font-medium text-white text-custom-sm rounded-md bg-green-dark py-3 px-9 ease-out duration-200 hover:bg-[#6BAF92] mt-10"
-            >
+            <a href="#" className="inline-flex font-medium text-white text-custom-sm rounded-md bg-green-dark py-3 px-9 ease-out duration-200 hover:bg-[#1A693A] mt-10">
               Shop Now
             </a>
           </div>
 
           <div>
-            <Image
-              src="/images/hero/sayur_sop_hero_01.png"
-              alt="headphone"
-              width={351}
-              height={358}
-            />
+            <Image src="/images/hero/sayur_sop_hero_01.png" alt="headphone" width={351} height={358} />
           </div>
         </div>
       </SwiperSlide>

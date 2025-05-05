@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Discount = () => {
   return (
@@ -22,10 +22,7 @@ const Discount = () => {
                 />
               </div>
 
-              <button
-                type="submit"
-                className="inline-flex font-medium text-white bg-[#6BAF92] py-3 px-8 rounded-md ease-out duration-200 hover:bg-green-dark"
-              >
+              <button type="submit" className="inline-flex font-medium text-white py-3 px-8 rounded-md ease-out duration-200 hover:bg-green-dark">
                 Apply Code
               </button>
             </div>
