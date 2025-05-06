@@ -1,6 +1,6 @@
-import { Category } from "@/types/category";
-import React from "react";
-import Image from "next/image";
+import { Category } from '@/types/category';
+import React from 'react';
+import Image from 'next/image';
 
 const SingleItem = ({ item }: { item: Category }) => {
   return (
@@ -10,7 +10,7 @@ const SingleItem = ({ item }: { item: Category }) => {
       </div>
 
       <div className="flex justify-center">
-        <h3 className="inline-block font-medium text-center text-dark bg-gradient-to-r from-[#A8C686] to-[#A8C686] bg-[length:0px_1px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_1px] group-hover:text-[#6BAF92]">
+        <h3 className="inline-block font-medium text-center text-dark bg-gradient-to-r from-[#A8C686] to-[#A8C686] bg-[length:0px_1px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_1px] group-hover:text-[#D75A4A]">
           {item.title}
         </h3>
       </div>

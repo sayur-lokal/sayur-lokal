@@ -1,32 +1,14 @@
-"use client";
-import React, { useState } from "react";
+'use client';
+import React, { useState } from 'react';
 
 const SizeDropdown = () => {
   const [toggleDropdown, setToggleDropdown] = useState(true);
   return (
     <div className="bg-white shadow-1 rounded-lg">
-      <div
-        onClick={() => setToggleDropdown(!toggleDropdown)}
-        className={`cursor-pointer flex items-center justify-between py-3 pl-6 pr-5.5 ${
-          toggleDropdown && "shadow-filter"
-        }`}
-      >
+      <div onClick={() => setToggleDropdown(!toggleDropdown)} className={`cursor-pointer flex items-center justify-between py-3 pl-6 pr-5.5 ${toggleDropdown && 'shadow-filter'}`}>
         <p className="text-dark">Size</p>
-        <button
-          onClick={() => setToggleDropdown(!toggleDropdown)}
-          aria-label="button for size dropdown"
-          className={`text-dark ease-out duration-200 ${
-            toggleDropdown && "rotate-180"
-          }`}
-        >
-          <svg
-            className="fill-current"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+        <button onClick={() => setToggleDropdown(!toggleDropdown)} aria-label="button for size dropdown" className={`text-dark ease-out duration-200 ${toggleDropdown && 'rotate-180'}`}>
+          <svg className="fill-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               fillRule="evenodd"
               clipRule="evenodd"
@@ -38,56 +20,32 @@ const SizeDropdown = () => {
       </div>
 
       {/* // <!-- dropdown menu --> */}
-      <div
-        className={`flex-wrap gap-2.5 p-6 ${
-          toggleDropdown ? "flex" : "hidden"
-        }`}
-      >
-        <label
-          htmlFor="sizeM"
-          className="cursor-pointer select-none flex items-center rounded-md bg-[#6BAF92] text-white hover:bg-[#6BAF92] hover:text-white"
-        >
+      <div className={`flex-wrap gap-2.5 p-6 ${toggleDropdown ? 'flex' : 'hidden'}`}>
+        <label htmlFor="sizeM" className="cursor-pointer select-none flex items-center rounded-md bg-green-dark text-white hover:bg-[#1A693A] hover:text-white">
           <div className="relative">
             <input type="radio" name="size" id="sizeM" className="sr-only" />
-            <div className="text-custom-sm py-[5px] px-3.5 rounded-[5px]">
-              M
-            </div>
+            <div className="text-custom-sm py-[5px] px-3.5 rounded-[5px]">M</div>
           </div>
         </label>
 
-        <label
-          htmlFor="sizeL"
-          className="cursor-pointer select-none flex items-center rounded-md hover:bg-[#6BAF92] hover:text-white"
-        >
+        <label htmlFor="sizeL" className="cursor-pointer select-none flex items-center rounded-md hover:bg-[#1A693A] bg-green-dark hover:text-white">
           <div className="relative">
             <input type="radio" name="size" id="sizeL" className="sr-only" />
-            <div className="text-custom-sm py-[5px] px-3.5 rounded-[5px]">
-              L
-            </div>
+            <div className="text-custom-sm py-[5px] px-3.5 rounded-[5px]">L</div>
           </div>
         </label>
 
-        <label
-          htmlFor="sizeXL"
-          className="cursor-pointer select-none flex items-center rounded-md hover:bg-[#6BAF92] hover:text-white"
-        >
+        <label htmlFor="sizeXL" className="cursor-pointer select-none flex items-center rounded-md hover:bg-[#1A693A] bg-green-dark hover:text-white">
           <div className="relative">
             <input type="radio" name="size" id="sizeXL" className="sr-only" />
-            <div className="text-custom-sm py-[5px] px-3.5 rounded-[5px]">
-              XL
-            </div>
+            <div className="text-custom-sm py-[5px] px-3.5 rounded-[5px]">XL</div>
           </div>
         </label>
 
-        <label
-          htmlFor="sizeXXL"
-          className="cursor-pointer select-none flex items-center rounded-md hover:bg-[#6BAF92] hover:text-white"
-        >
+        <label htmlFor="sizeXXL" className="cursor-pointer select-none flex items-center rounded-md hover:bg-[#1A693A] bg-green-dark hover:text-white">
           <div className="relative">
             <input type="radio" name="size" id="sizeXXL" className="sr-only" />
-            <div className="text-custom-sm py-[5px] px-3.5 rounded-[5px]">
-              XXL
-            </div>
+            <div className="text-custom-sm py-[5px] px-3.5 rounded-[5px]">XXL</div>
           </div>
         </label>
       </div>

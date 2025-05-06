@@ -1,7 +1,7 @@
-"use client"
-import { useState } from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+'use client';
+import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 const Dropdown = ({ menuItem, stickyMenu }) => {
   const [dropdownToggler, setDropdownToggler] = useState(false);
@@ -10,25 +10,13 @@ const Dropdown = ({ menuItem, stickyMenu }) => {
   return (
     <li
       onClick={() => setDropdownToggler(!dropdownToggler)}
-      className={`group relative before:w-0 before:h-[3px] before:bg-[#6BAF92] before:absolute before:left-0 before:top-0 before:rounded-b-[3px] before:ease-out before:duration-200 hover:before:w-full ${
-        pathUrl.includes(menuItem.title) && "before:!w-full"
+      className={`group relative before:w-0 before:h-[3px] before:bg-[#1A8245] before:absolute before:left-0 before:top-0 before:rounded-b-[3px] before:ease-out before:duration-200 hover:before:w-full ${
+        pathUrl.includes(menuItem.title) && 'before:!w-full'
       }`}
     >
-      <a
-        href="#"
-        className={`hover:text-[#6BAF92] text-custom-sm font-medium text-dark flex items-center gap-1.5 capitalize ${
-          stickyMenu ? "xl:py-4" : "xl:py-6"
-        } ${pathUrl.includes(menuItem.title) && "!text-[#6BAF92]"}`}
-      >
+      <a href="#" className={`hover:text-[#D75A4A] text-custom-sm font-medium text-dark flex items-center gap-1.5 capitalize ${stickyMenu ? 'xl:py-4' : 'xl:py-6'} ${pathUrl.includes(menuItem.title) && '!text-[#D75A4A]'}`}>
         {menuItem.title}
-        <svg
-          className="fill-current cursor-pointer"
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg className="fill-current cursor-pointer" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -39,21 +27,10 @@ const Dropdown = ({ menuItem, stickyMenu }) => {
       </a>
 
       {/* <!-- Dropdown Start --> */}
-      <ul
-        className={`dropdown ${dropdownToggler && "flex"} ${
-          stickyMenu
-            ? "xl:group-hover:translate-y-0"
-            : "xl:group-hover:translate-y-0"
-        }`}
-      >
+      <ul className={`dropdown ${dropdownToggler && 'flex'} ${stickyMenu ? 'xl:group-hover:translate-y-0' : 'xl:group-hover:translate-y-0'}`}>
         {menuItem.submenu.map((item, i) => (
           <li key={i}>
-            <Link
-              href={item.path}
-              className={`flex text-custom-sm hover:text-[#6BAF92] hover:bg-gray-1 py-[7px] px-4.5 ${
-                pathUrl === item.path && "text-[#6BAF92] bg-gray-1"
-              } `}
-            >
+            <Link href={item.path} className={`flex text-custom-sm hover:text-[#D75A4A] hover:bg-gray-1 py-[7px] px-4.5 ${pathUrl === item.path && 'text-[#D75A4A] bg-gray-1'} `}>
               {item.title}
             </Link>
           </li>

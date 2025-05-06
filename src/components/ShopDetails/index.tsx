@@ -1,4 +1,5 @@
-"use client"
+
+'use client';
 import React, { useEffect, useState } from "react";
 import Breadcrumb from "../Common/Breadcrumb";
 import Image from "next/image";
@@ -12,13 +13,9 @@ import ProductAttributes from "../Shared/InfoProps/ProductAttrb";
 import ProductTitle from "../Shared/InfoProps/ProductTitle";
 import ProductPrice from "../Shared/InfoProps/ProductPrice";
 import ProductRating from "../Shared/InfoProps/ProductRating";
-// import { getDummyProductById } from "../Shared/DummyData/shopData";
 import { fetchProductById } from "@/redux/features/product-details";
 import { useParams } from "next/navigation";
 
-// interface ShopDetailsProps {
-//   productId: string; 
-// }
 
 const tabs = [
   { id: "description", title: "Description" },
@@ -34,23 +31,13 @@ const ShopDetails = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { productId } = useParams(); // Fetch productId from the dynamic route
   const { currentProduct, loading, error } = useAppSelector(
-    (state) => state.detailprodslice
+    (state) => state.detailprodslice.currentProduct
   );
 
   const { openPreviewModal } = usePreviewSlider();
   const [previewImg, setPreviewImg] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
-
- 
-  // const alreadyExist = localStorage.getItem("productDetails");
-  // const productFromStorage = useAppSelector(
-  //   (state) => state.productDetailsReducer.value
-  // );
-  // const product = alreadyExist ? JSON.parse(alreadyExist) : productFromStorage;
-  // useEffect(() => {
-  //   localStorage.setItem("productDetails", JSON.stringify(product));
-  // }, [product]);
 
   useEffect(() => {
     if (productId && typeof productId === "string") {
@@ -61,16 +48,15 @@ const ShopDetails = () => {
   // pass the product here when you get the real data.
   const handlePreviewSlider = () => {
     openPreviewModal();
-  }
+  };
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   if (!currentProduct) return <div>No product found.</div>;
 
- 
   return (
     <>
-      <Breadcrumb title={"Shop Details"} pages={["shop details"]} />
+      <Breadcrumb title={'Shop Details'} pages={['shop details']} />
 
       <section className="overflow-hidden relative pb-20 pt-5 lg:pt-20 xl:pt-28">
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
@@ -82,15 +68,9 @@ const ShopDetails = () => {
                   <button
                     onClick={handlePreviewSlider}
                     aria-label="Zoom Preview"
-                    className="gallery__Image w-11 h-11 rounded-[5px] bg-gray-1 shadow-1 flex items-center justify-center ease-out duration-200 text-dark hover:text-[#6BAF92] absolute top-4 lg:top-6 right-4 lg:right-6 z-50"
+                    className="gallery__Image w-11 h-11 rounded-[5px] bg-gray-1 shadow-1 flex items-center justify-center ease-out duration-200 text-dark hover:text-[#D75A4A] absolute top-4 lg:top-6 right-4 lg:right-6 z-50"
                   >
-                    <svg
-                      className="fill-current"
-                      width="22"
-                      height="22"
-                      viewBox="0 0 22 22"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                    <svg className="fill-current" width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
                       <path
                         fillRule="evenodd"
                         clipRule="evenodd"
@@ -98,6 +78,7 @@ const ShopDetails = () => {
                       />
                     </svg>
                   </button>
+
                   {currentProduct.imgs ? (
                     <Image
                     src={currentProduct.imgs?.previews[previewImg]}
@@ -108,6 +89,8 @@ const ShopDetails = () => {
                 ) : (
                   <div className="text-gray-500">No preview image</div>
                 )}
+
+                  {currentProduct.imgs ? <Image src={currentProduct.imgs?.previews[previewImg]} alt="product-details" width={400} height={400} /> : null}
                 </div>
               </div>
 
@@ -116,63 +99,57 @@ const ShopDetails = () => {
                   <button
                     onClick={() => setPreviewImg(key)}
                     key={key}
-                    className={`flex items-center justify-center w-15 sm:w-25 h-15 sm:h-25 overflow-hidden rounded-lg bg-gray-2 shadow-1 ease-out duration-200 border-2 hover:border-blue ${
-                      key === previewImg ? "border-blue" : "border-transparent"
-                    }`}
+                    className={`flex items-center justify-center w-15 sm:w-25 h-15 sm:h-25 overflow-hidden rounded-lg bg-gray-2 shadow-1 ease-out duration-200 border-2  ${key === previewImg ? 'border-blue' : 'border-transparent'}`}
                   >
                     <Image width={50} height={50} src={item} alt="thumbnail" />
                   </button>
                 ))}
               </div>
             </div>
-           
-                  {/* Right Detail Section */}
+
+            {/* Right Detail Section */}
             <div className="flex-1 max-w-[539px] w-full">
               <div className="flex items-center justify-between mb-3">
                 <h2 className="font-semibold text-xl sm:text-2xl xl:text-custom-3 text-dark">
                 <ProductTitle title={currentProduct.title}  />
-                {/* link={`/shop-details/${product.id}`} */}
                 </h2>
               </div>
 
               <div className="mb-4">
-              <ProductRating reviews={currentProduct.reviews || []} />
-              {/* <ProductAttributes product={product} /> */}
+<!--               <ProductRating reviews={currentProduct.reviews || []} />
+              </div> -->
+              <ProductPrice price={currentProduct.price} discountedPrice={currentProduct.discountedPrice}/>
+                <ProductRating reviews={currentProduct.reviews || []} />
               </div>
 
-              <ProductPrice price={currentProduct.price} discountedPrice={currentProduct.discountedPrice}/>
-
+             
               <ul className="flex flex-col gap-2 mt-6">
                 <li className="flex items-center gap-2.5">
-                  <span className="text-[#6BAF92] font-semibold">✓</span> Free delivery available
+                  <span className="text-[#D75A4A] font-semibold">✓</span> Free delivery available
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <span className="text-[#6BAF92] font-semibold">✓</span> Sales 30% Off Use Code: PROMO30
+                  <span className="text-[#D75A4A] font-semibold">✓</span> Sales 30% Off Use Code: PROMO30
                 </li>
               </ul>
 
               <div className="flex items-center gap-4 mt-6">
-                <button
-                  aria-label="Decrease quantity"
-                  className="flex items-center justify-center w-12 h-12 ease-out duration-200 hover:text-[#6BAF92]"
-                  onClick={() => quantity > 1 && setQuantity(quantity - 1)}
-                >
+                <button aria-label="Decrease quantity" className="flex items-center justify-center w-12 h-12 ease-out duration-200 hover:text-[#D75A4A]" onClick={() => quantity > 1 && setQuantity(quantity - 1)}>
                   -
                 </button>
                 <span className="text-lg font-semibold">{quantity}</span>
-                <button
-                  onClick={() => setQuantity(quantity + 1)}
-                  aria-label="Increase quantity"
-                  className="flex items-center justify-center w-12 h-12 ease-out duration-200 hover:text-[#6BAF92]"
-                >
+                <button onClick={() => setQuantity(quantity + 1)} aria-label="Increase quantity" className="flex items-center justify-center w-12 h-12 ease-out duration-200 hover:text-[#D75A4A]">
                   +
                 </button>
+
                 <button
                   type="button"
                   // href="#"
                   className="inline-flex font-medium text-white bg-[#6BAF92] py-3 px-7 rounded-md ease-out duration-200 hover:bg-green-dark"
                   onClick={()=> console.log("TODO: Implement purchase logic")}
                 >
+
+                <a href="#" className="inline-flex font-medium text-white bg-green-dark py-3 px-7 rounded-md ease-out duration-200 hover:bg-[#1A693A]">
+
                   Purchase Now
                 </button>
               </div>
@@ -186,8 +163,8 @@ const ShopDetails = () => {
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
-                  className={`font-medium lg:text-lg ease-out duration-200 hover:text-[#6BAF92] relative before:h-0.5 before:bg-[#6BAF92] before:absolute before:left-0 before:bottom-0 before:ease-out before:duration-200 hover:before:w-full ${
-                    activeTab === item.id ? "text-[#6BAF92] before:w-full" : "text-dark before:w-0"
+                  className={`font-medium lg:text-lg ease-out duration-200 hover:text-[#D75A4A] relative before:h-0.5 before:bg-green-dark before:absolute before:left-0 before:bottom-0 before:ease-out before:duration-200 hover:before:w-full ${
+                    activeTab === item.id ? 'text-[#D75A4A] before:w-full' : 'text-dark before:w-0'
                   }`}
                 >
                   {item.title}
@@ -196,6 +173,7 @@ const ShopDetails = () => {
             </div>
 
             <div className="bg-white rounded-[10px] shadow-1 p-6 mt-6">
+
               {activeTab === "description" && 
               <p>{currentProduct.description}</p>}
 
@@ -205,6 +183,7 @@ const ShopDetails = () => {
 
               {activeTab === "reviews" && 
               <ProductReview product={currentProduct} />}
+
 
             </div>
           </section>
@@ -217,6 +196,5 @@ const ShopDetails = () => {
     </>
   );
 };
-
 
 export default ShopDetails;
