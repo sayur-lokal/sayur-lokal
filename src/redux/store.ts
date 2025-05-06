@@ -7,11 +7,11 @@ import productDetailReducer from "./features/product-details";
 import currentUserReducer from "./features/currentUser-slice";
 import reviewReducer from "./features/review-slice";
 import sellerInventoryReducer from "./features/sellerInventory-slice";
-// import productReducer from "./features/product-slice";
+import searchReducer from "./features/search-slice";
 
 export const store = configureStore({
   reducer: {
-    // productslice: productReducer,
+    searchslice: searchReducer,
     viewslice: quickViewReducer,
     cartslice: cartReducer,
     wishslice: wishlistReducer,
