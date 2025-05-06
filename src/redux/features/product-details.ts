@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Product, productSchema } from "@/types/product";
+import { defaultProduct, Product, productSchema } from "@/types/product";
 import { getDummyProductById } from "@/components/Shared/DummyData/shopData";
 
 type ProdDetailState ={
@@ -9,7 +9,7 @@ type ProdDetailState ={
 };
 
 const initialState: ProdDetailState = {
-  currentProduct: null,
+  currentProduct: defaultProduct(),
   loading: false,
   error: null,
 };

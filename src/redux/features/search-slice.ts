@@ -9,8 +9,10 @@ interface SearchState {
 }
 
 const initialState: SearchState = {
-  recentSearches: [],
-  currentQuery: "",
+    recentSearches: [],
+    currentQuery: "",
+    products: [],
+    length: 0
 };
 
 const MAX_RECENTS = 5;
