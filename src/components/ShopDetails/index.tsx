@@ -1,62 +1,58 @@
+
 'use client';
-import React, { useEffect, useState } from 'react';
-import Breadcrumb from '../Common/Breadcrumb';
-import Image from 'next/image';
-import Newsletter from '../Common/Newsletter';
-import RecentlyViewdItems from './RecentlyViewd';
-import { usePreviewSlider } from '@/app/context/PreviewSliderContext';
-import { useAppSelector, AppDispatch } from '@/redux/store';
-import { useDispatch } from 'react-redux';
-import { ProductReview } from '../Review/ProductReview';
-import ProductAttributes from '../Shared/InfoProps/ProductAttrb';
-import ProductTitle from '../Shared/InfoProps/ProductTitle';
-import ProductPrice from '../Shared/InfoProps/ProductPrice';
-import ProductRating from '../Shared/InfoProps/ProductRating';
-// import { useParams } from "next/navigation";
-import { fetchProductById } from '@/redux/product/productThunks';
+import React, { useEffect, useState } from "react";
+import Breadcrumb from "../Common/Breadcrumb";
+import Image from "next/image";
+import Newsletter from "../Common/Newsletter";
+import RecentlyViewdItems from "./RecentlyViewd";
+import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
+import { useAppSelector, AppDispatch } from "@/redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { ProductReview } from "../Review/ProductReview";
+import ProductAttributes from "../Shared/InfoProps/ProductAttrb";
+import ProductTitle from "../Shared/InfoProps/ProductTitle";
+import ProductPrice from "../Shared/InfoProps/ProductPrice";
+import ProductRating from "../Shared/InfoProps/ProductRating";
+import { fetchProductById } from "@/redux/features/product-details";
+import { useParams } from "next/navigation";
+
 
 const tabs = [
-  { id: 'description', title: 'Description' },
-  { id: 'attributes', title: 'Product Attributes' },
-  { id: 'reviews', title: 'Reviews' },
+  { id: "description", title: "Description" },
+  { id: "attributes", title: "Product Attributes" },
+  { id: "reviews", title: "Reviews" },
+   // { id: "related", title: "Cocok Dibeli Barengan" },
+  // { id: "similar", title: "Produk Serupa Lainnya" },
+  // { id: "description", title: "Informasi Produk" },
 ];
 
-const ShopDetails = ({ productId }: { productId: string }) => {
-  // const { productId } = useParams(); // <- comes as string
-  const dispatch = useDispatch<AppDispatch>();
 
-  const { value: product } = useAppSelector((state) => state.detailprodslice);
+const ShopDetails = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { productId } = useParams(); // Fetch productId from the dynamic route
+  const { currentProduct, loading, error } = useAppSelector(
+    (state) => state.detailprodslice.currentProduct
+  );
 
   const { openPreviewModal } = usePreviewSlider();
   const [previewImg, setPreviewImg] = useState(0);
-
-  // const [storage, setStorage] = useState("gb128");
-  // const [type, setType] = useState("active");
-  // const [sim, setSim] = useState("dual");
   const [quantity, setQuantity] = useState(1);
-  const [activeTab, setActiveTab] = useState('tabOne');
+  const [activeTab, setActiveTab] = useState("description");
 
-  // const alreadyExist = localStorage.getItem("productDetails");
-  // const productFromStorage = useAppSelector(
-  //   (state) => state.productDetailsReducer.value
-  // );
-  // const product = alreadyExist ? JSON.parse(alreadyExist) : productFromStorage;
-  // useEffect(() => {
-  //   localStorage.setItem("productDetails", JSON.stringify(product));
-  // }, [product]);
   useEffect(() => {
-    if (productId) {
-      dispatch(fetchProductById(productId as string)); // assuming your thunk accepts a string ID
+    if (productId && typeof productId === "string") {
+      dispatch(fetchProductById(productId));
     }
   }, [dispatch, productId]);
+
   // pass the product here when you get the real data.
   const handlePreviewSlider = () => {
     openPreviewModal();
   };
 
-  if (!product.title) {
-    return <p>Please add product</p>;
-  }
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (!currentProduct) return <div>No product found.</div>;
 
   return (
     <>
@@ -82,12 +78,24 @@ const ShopDetails = ({ productId }: { productId: string }) => {
                       />
                     </svg>
                   </button>
-                  {product.imgs ? <Image src={product.imgs?.previews[previewImg]} alt="product-details" width={400} height={400} /> : null}
+
+                  {currentProduct.imgs ? (
+                    <Image
+                    src={currentProduct.imgs?.previews[previewImg]}
+                    alt="product-details"
+                    width={400}
+                    height={400}
+                  /> 
+                ) : (
+                  <div className="text-gray-500">No preview image</div>
+                )}
+
+                  {currentProduct.imgs ? <Image src={currentProduct.imgs?.previews[previewImg]} alt="product-details" width={400} height={400} /> : null}
                 </div>
               </div>
 
               <div className="flex flex-wrap sm:flex-nowrap gap-4.5 mt-6">
-                {product.imgs?.thumbnails.map((item, key) => (
+                {currentProduct.imgs?.thumbnails?.map((item, key) => (
                   <button
                     onClick={() => setPreviewImg(key)}
                     key={key}
@@ -103,17 +111,18 @@ const ShopDetails = ({ productId }: { productId: string }) => {
             <div className="flex-1 max-w-[539px] w-full">
               <div className="flex items-center justify-between mb-3">
                 <h2 className="font-semibold text-xl sm:text-2xl xl:text-custom-3 text-dark">
-                  <ProductTitle title={product.title} />
-                  {/* link={`/shop-details/${product.id}`} */}
+                <ProductTitle title={currentProduct.title}  />
                 </h2>
               </div>
 
               <div className="mb-4">
-                <ProductRating reviews={product.reviews || []} />
+<!--               <ProductRating reviews={currentProduct.reviews || []} />
+              </div> -->
+              <ProductPrice price={currentProduct.price} discountedPrice={currentProduct.discountedPrice}/>
+                <ProductRating reviews={currentProduct.reviews || []} />
               </div>
 
-              <ProductPrice price={product.price} discountedPrice={product.discountedPrice} />
-
+             
               <ul className="flex flex-col gap-2 mt-6">
                 <li className="flex items-center gap-2.5">
                   <span className="text-[#D75A4A] font-semibold">✓</span> Free delivery available
@@ -131,9 +140,18 @@ const ShopDetails = ({ productId }: { productId: string }) => {
                 <button onClick={() => setQuantity(quantity + 1)} aria-label="Increase quantity" className="flex items-center justify-center w-12 h-12 ease-out duration-200 hover:text-[#D75A4A]">
                   +
                 </button>
+
+                <button
+                  type="button"
+                  // href="#"
+                  className="inline-flex font-medium text-white bg-[#6BAF92] py-3 px-7 rounded-md ease-out duration-200 hover:bg-green-dark"
+                  onClick={()=> console.log("TODO: Implement purchase logic")}
+                >
+
                 <a href="#" className="inline-flex font-medium text-white bg-green-dark py-3 px-7 rounded-md ease-out duration-200 hover:bg-[#1A693A]">
+
                   Purchase Now
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -155,12 +173,18 @@ const ShopDetails = ({ productId }: { productId: string }) => {
             </div>
 
             <div className="bg-white rounded-[10px] shadow-1 p-6 mt-6">
-              {activeTab === 'description' && <p>{product.description}</p>}
 
-              {activeTab === 'attributes' && <ProductAttributes product={product} />}
-              {/* add productingredients later */}
+              {activeTab === "description" && 
+              <p>{currentProduct.description}</p>}
 
-              {activeTab === 'reviews' && <ProductReview product={product} />}
+              {activeTab === "attributes" && 
+              <ProductAttributes product={currentProduct} />} 
+                {/* add productingredients later */}
+
+              {activeTab === "reviews" && 
+              <ProductReview product={currentProduct} />}
+
+
             </div>
           </section>
 

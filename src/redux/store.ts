@@ -8,10 +8,11 @@ import productDetailReducer from "./features/product-details";
 import currentUserReducer from "./features/currentUser-slice";
 import reviewReducer from "./features/review-slice";
 import sellerInventoryReducer from "./features/sellerInventory-slice";
-
+import searchReducer from "./features/search-slice";
 
 export const store = configureStore({
   reducer: {
+    searchslice: searchReducer,
     viewslice: quickViewReducer,
     cartslice: cartReducer,
     wishslice: wishlistReducer,
@@ -28,3 +29,4 @@ export type AppDispatch = typeof store.dispatch;
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+// export const useAppDispatch = () => useDispatch<AppDispatch>();

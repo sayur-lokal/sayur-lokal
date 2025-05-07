@@ -1,8 +1,10 @@
+
 'use client';
+import categoryData from "../Shared/DummyData/categoryData";
+import { useState } from "react";
 
-import { useState } from 'react';
 
-const CategoryItem = ({ category }) => {
+const CategoryItem = ({ category  }) => {
   const [selected, setSelected] = useState(false);
   return (
     <button className={`${selected && 'text-[#1A693A]'} group flex items-center justify-between ease-out duration-200 hover:text-[#1A693A] `} onClick={() => setSelected(!selected)}>
@@ -21,7 +23,7 @@ const CategoryItem = ({ category }) => {
   );
 };
 
-const CategoryDropdown = ({ categories }) => {
+const CategoryDropdown = ({ categoryData = [] }) => {
   const [toggleDropdown, setToggleDropdown] = useState(true);
 
   return (
@@ -48,9 +50,13 @@ const CategoryDropdown = ({ categories }) => {
 
       {/* dropdown && 'shadow-filter */}
       {/* <!-- dropdown menu --> */}
-      <div className={`flex-col gap-3 py-6 pl-6 pr-5.5 ${toggleDropdown ? 'flex' : 'hidden'}`}>
-        {categories.map((category, key) => (
-          <CategoryItem key={key} category={category} />
+       <div
+        className={`flex-col gap-3 py-6 pl-6 pr-5.5 ${
+          toggleDropdown ? "flex" : "hidden"
+        }`}
+      >
+        {categoryData.map((category, key) => (
+          <CategoryItem key={category} category={category} />
         ))}
       </div>
     </div>

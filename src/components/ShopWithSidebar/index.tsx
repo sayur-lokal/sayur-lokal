@@ -1,16 +1,19 @@
+
 'use client';
-import React, { useState, useEffect } from 'react';
-import Breadcrumb from '../Common/Breadcrumb';
-import CustomSelect from './CustomSelect';
-import CategoryDropdown from './CategoryDropdown';
-import GenderDropdown from './GenderDropdown';
-import SizeDropdown from './SizeDropdown';
-import ColorsDropdwon from './ColorsDropdwon';
-import PriceDropdown from './PriceDropdown';
-import shopData from '../Shared/DummyData/shopData';
-import SingleGridItem from '../Shop/SingleGridItem';
-import SingleListItem from '../Shop/SingleListItem';
+import React, { useState, useEffect } from "react";
+import Breadcrumb from "../Common/Breadcrumb";
+import CustomSelect from "./CustomSelect";
+import CategoryDropdown from "./CategoryDropdown";
+import GenderDropdown from "./GenderDropdown";
+import SizeDropdown from "./SizeDropdown";
+import ColorsDropdwon from "./ColorsDropdwon";
+import PriceDropdown from "./PriceDropdown";
+import shopData from "../Shared/DummyData/shopData";
+import categoryData from "../Shared/DummyData/categoryData";
+import SingleGridItem from "../Shop/SingleGridItem";
+import SingleListItem from "../Shop/SingleListItem";
 import Pagination from './Pagination';
+
 
 const ShopWithSidebar = () => {
   const [productStyle, setProductStyle] = useState('grid');
@@ -26,10 +29,20 @@ const ShopWithSidebar = () => {
   };
 
   const options = [
-    { label: 'Latest Products', value: '0' },
-    { label: 'Best Selling', value: '1' },
-    { label: 'Old Products', value: '2' },
+
+    { label: "Terbaru di sayurlokal", value: "0" },
+    { label: "Terlaris di sayurlokal", value: "1" },
+    { label: "Beli Ini Juga", value: "2" },
+ 
+    
   ];
+
+  const mappedCategories = categoryData.map((cat) => ({
+    name: cat.title,
+    products: Math.floor(Math.random() * 100),
+    img: cat.img,
+  }));
+
 
   const categories = [
     {
@@ -63,6 +76,7 @@ const ShopWithSidebar = () => {
       isRefined: false,
     },
   ];
+
 
   const genders = [
     {
@@ -142,7 +156,7 @@ const ShopWithSidebar = () => {
                   </div>
 
                   {/* <!-- category box --> */}
-                  <CategoryDropdown categories={categories} />
+                  <CategoryDropdown categories={mappedCategories} />
 
                   {/* // <!-- color box --> */}
                   <ColorsDropdwon />

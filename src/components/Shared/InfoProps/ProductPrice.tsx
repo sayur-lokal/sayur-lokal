@@ -10,12 +10,18 @@ const ProductPrice = ({ price, discountedPrice }: ProductPriceProps) => {
   const hasDiscount = discountedPrice && discountedPrice < price;
 
   return (
-    <div className="flex items-center gap-2 font-medium text-lg">
-      <span className="text-dark">
-        <Price price={hasDiscount ? discountedPrice : price} />
-      </span>
-      {hasDiscount && (
-        <span className="text-dark-4 line-through">
+    <div className="flex flex-col">
+      {hasDiscount ? (
+        <>
+          <span className="text-dark font-semibold text-xl">
+            <Price price={discountedPrice} />
+          </span>
+          <span className="text-dark-4 line-through text-base">
+            <Price price={price} />
+          </span>
+        </>
+      ) : (
+        <span className="text-dark font-semibold text-xl">
           <Price price={price} />
         </span>
       )}

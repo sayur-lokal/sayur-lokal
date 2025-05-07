@@ -1,3 +1,4 @@
+
 'use client';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
@@ -104,6 +105,7 @@ const ProductItem = ({ item }: { item: Product }) => {
           </button>
         </div>
       </div>
+
 
       <div className="flex items-center gap-2.5 mb-2">
         <div className="flex items-center gap-1">
