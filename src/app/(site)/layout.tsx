@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import "../css/euclid-circular-a-font.css";
 import "../css/style.css";
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 
 import { ModalProvider } from "../context/QuickViewModalContext";
 import { CartModalProvider } from "../context/CartSidebarModalContext";
@@ -53,7 +52,6 @@ export default function RootLayout({
               </AuthProvider>
             </ReduxProvider>
             <ScrollToTop />
-            <Footer />
           </>
         )}
       </body>
