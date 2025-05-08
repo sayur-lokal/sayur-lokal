@@ -158,7 +158,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="w-full sm:w-auto">
+          {/* <div className="w-full sm:w-auto">
             <h2 className="mb-7.5 text-custom-1 font-medium text-dark lg:text-right">Download App</h2>
 
             <p className="lg:text-right text-custom-sm mb-4">Save $3 With App & New User only</p>
@@ -196,7 +196,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
         {/* <!-- footer menu end --> */}
       </div>
@@ -207,7 +207,7 @@ const Footer = () => {
           <div className="flex gap-5 flex-wrap items-center justify-between">
             <p className="text-dark font-medium">&copy; {year}. All rights reserved by sayurlokal.</p>
 
-            <div className="flex flex-wrap items-center gap-4">
+            {/* <div className="flex flex-wrap items-center gap-4">
               <p className="font-medium">We Accept:</p>
 
               <div className="flex flex-wrap items-center gap-6">
@@ -227,7 +227,7 @@ const Footer = () => {
                   <Image src="/images/payment/payment-05.svg" alt="google pay" width={56} height={22} />
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
