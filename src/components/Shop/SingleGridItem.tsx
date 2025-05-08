@@ -110,14 +110,15 @@ const SingleGridItem = ({ item }: { item: Product }) => {
                   </span> */}
         </div>
       </div>
-
+      
       <h3 className="font-medium text-dark ease-out duration-200 hover:text-[#D75A4A] mb-1.5">
-        <ProductTitle title={item.title} />
+      <ProductTitle title={item.title} link={`/shop-details/${item.id}`}/>>
       </h3>
 
       <span className="flex items-center gap-2 font-medium text-lg">
         <ProductPrice price={item.price} discountedPrice={item.discountedPrice} />
       </span>
+
     </div>
   );
 };

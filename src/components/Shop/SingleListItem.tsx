@@ -99,7 +99,7 @@ const SingleListItem = ({ item }: { item: Product }) => {
 
         <div className="w-full flex flex-col gap-5 sm:flex-row sm:items-center justify-center sm:justify-between py-5 px-4 sm:px-7.5 lg:pl-11 lg:pr-12">
           <div>
-            <ProductTitle title={item.title} />
+          <ProductTitle title={item.title} link={`/shop-details/${item.id}`}/>
             <ProductPrice price={item.price} discountedPrice={item.discountedPrice} />
           </div>
 
