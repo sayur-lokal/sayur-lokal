@@ -1,3 +1,4 @@
+
 'use client';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
@@ -6,22 +7,25 @@ import { useModalContext } from '@/app/context/QuickViewModalContext';
 import { updateQuickView } from '@/redux/features/quickView-slice';
 import { addItemToCart } from '@/redux/features/cart-slice';
 import { addItemToWishlist } from '@/redux/features/wishlist-slice';
-import { updateproductDetails } from '@/redux/features/product-details';
+import { updateProductDetails } from '@/redux/features/product-details';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
 import Link from 'next/link';
-import ProductTitle from '../Shared/InfoProps/ProductTitle';
-import ProductRating from '../Shared/InfoProps/ProductRating';
+import { calculateRating } from '../../lib/rating';
 import ProductPrice from '../Shared/InfoProps/ProductPrice';
+import StarRatingDisplay from '../Review/StarRatingDisplay';
+import ProductTitle from '../Shared/InfoProps/ProductTitle';
 
 const ProductItem = ({ item }: { item: Product }) => {
+  const dispatch = useDispatch<AppDispatch>();
   const [hasPreviews, setHasPreviews] = useState<boolean>(false);
+  const { openModal } = useModalContext();
+  
+
   useEffect(() => {
     setHasPreviews(!!(item.imgs && item.imgs.previews));
   }, [item]);
-  const { openModal } = useModalContext();
-
-  const dispatch = useDispatch<AppDispatch>();
+  
 
   // update the QuickView state
   const handleQuickViewUpdate = () => {
@@ -49,7 +53,7 @@ const ProductItem = ({ item }: { item: Product }) => {
   };
 
   const handleProductDetails = () => {
-    dispatch(updateproductDetails({ ...item }));
+    dispatch(updateProductDetails({ ...item }));
   };
 
   return (
@@ -105,14 +109,18 @@ const ProductItem = ({ item }: { item: Product }) => {
         </div>
       </div>
 
+
       <div className="flex items-center gap-2.5 mb-2">
         <div className="flex items-center gap-1">
-          <ProductRating reviews={item.reviews} />
+        <StarRatingDisplay rating={calculateRating(item.reviews)} />
+        {/* <span className="text-sm text-gray-500">
+          ({item.reviews?.length || 0} reviews)
+        </span> */}
         </div>
       </div>
 
       <h3 className="font-medium text-dark ease-out duration-200 hover:text-[#D75A4A] mb-1.5" onClick={() => handleProductDetails()}>
-        {item.title}
+      <ProductTitle title={item.title} link={`/shop-details/${item.id}`}/>
       </h3>
 
       <span className="flex items-center gap-2 font-medium text-lg">

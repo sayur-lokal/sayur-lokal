@@ -1,37 +1,52 @@
-import type { Review } from "@/types/review";
+import { reviewSchema, type Review } from "@/types/review";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addReview } from "../../redux/features/review-slice"
+import { addReviewThunk } from "../../redux/features/review-slice"
 import StarRatingSelector from "./StarRatingSelector";
+import { AppDispatch } from "@/redux/store";
 
 type Props = {
-  productId: number;
-  buyerId: number;
+  productId: string;
+  buyerId: string;
 };
 
 export const ReviewForm = ({ productId, buyerId }: Props) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
 
   const handleSubmit = () => {
     if (rating === 0) {
-      alert("Please select a rating.");
+      alert("Please select a rating between 1-5 stars.");
       return;
     }
 
-    const review: Review = {
-      productId,
-      buyerId,
-      rating,
-      comment,
-      createdAt: new Date().toISOString(),
-    };
+      const rawReview = {
+        productId,
+        buyerId,
+        rating,
+        comment: comment.trim() || undefined,
+        createdAt: new Date().toISOString(),
 
-    dispatch(addReview(review));
-    setRating(0);
-    setComment("");
-    alert("Review submitted!");
+      };
+  
+      const result = reviewSchema.safeParse(rawReview);
+  
+      if (!result.success) {
+        alert('Invalid review—please check your rating/comment.');
+        return;
+      }
+
+    dispatch(addReviewThunk(result.data))
+    .unwrap()
+    .then(() => {
+      setRating(0);
+      setComment("");
+    })
+    .catch((error) => {
+      console.error("Review submission failed:", error);
+      alert("Failed to submit review. Please try again.");
+    });
   };
 
   return (
@@ -58,3 +73,7 @@ export const ReviewForm = ({ productId, buyerId }: Props) => {
     </div>
   );
 };
+function unwrap() {
+  throw new Error("Function not implemented.");
+}
+

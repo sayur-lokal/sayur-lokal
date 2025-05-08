@@ -9,7 +9,13 @@ const Footer = () => {
       <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
         {/* <!-- footer menu start --> */}
         <div className="flex flex-wrap xl:flex-nowrap gap-10 xl:gap-19 xl:justify-between pt-17.5 xl:pt-22.5 pb-10 xl:pb-15">
-          <div className="max-w-[330px] w-full">
+          <div className="w-full sm:w-auto">
+            <h2 className="mb-7.5 text-custom-1 font-medium text-dark">Siapa Sayur Lokal?</h2>
+
+            <p className="leading-8"><strong>Sayur Lokal</strong> adalah platform belanja makanan sehat yang menghubungkan Anda dengan petani lokal dan produsen rumahan. Kami menghadirkan bahan segar, kemasan ramah lingkungan, dan pengiriman langsung ke rumah Anda — demi gaya hidup yang lebih praktis, sehat, dan berkelanjutan.</p>
+          </div>
+          
+          <div className="max-w-[350px] w-full">
             <h2 className="mb-7.5 text-custom-1 font-medium text-dark">Help & Support</h2>
 
             <ul className="flex flex-col gap-3">
@@ -92,65 +98,6 @@ const Footer = () => {
               </a>
             </div>
             {/* <!-- Social Links end --> */}
-          </div>
-
-          <div className="w-full sm:w-auto">
-            <h2 className="mb-7.5 text-custom-1 font-medium text-dark">Account</h2>
-
-            <ul className="flex flex-col gap-3.5">
-              <li>
-                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="/my-account">
-                  My Account
-                </a>
-              </li>
-              <li>
-                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="/cart">
-                  Cart
-                </a>
-              </li>
-              <li>
-                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="/wishlist">
-                  Wishlist
-                </a>
-              </li>
-              <li>
-                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="/shop-with-sidebar">
-                  Shop
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="w-full sm:w-auto">
-            <h2 className="mb-7.5 text-custom-1 font-medium text-dark">Quick Link</h2>
-
-            <ul className="flex flex-col gap-3">
-              <li>
-                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="#">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="#">
-                  Refund Policy
-                </a>
-              </li>
-              <li>
-                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="#">
-                  Terms of Use
-                </a>
-              </li>
-              <li>
-                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="#">
-                  FAQ’s
-                </a>
-              </li>
-              <li>
-                <a className="ease-out duration-200 hover:text-[#D75A4A]" href="/contact">
-                  Contact
-                </a>
-              </li>
-            </ul>
           </div>
 
           <div className="w-full sm:w-auto">

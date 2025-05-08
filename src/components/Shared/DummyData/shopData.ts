@@ -7,10 +7,10 @@ export const shopData: Product[] = [
  //staples,1
   {
     title: "Telur Ayam Fresh 1 Krat isi 30pcs",
-    reviews: [],
+    reviews: [{productId: "1", buyerId: "user2", rating: 5, createdAt: new Date().toISOString()},],
     price: 59000.0,
     discountedPrice: 57000.0,
-    category: ["staples"],
+    category: ["sembako", "protein", "harga grosir"],
     id: "1",
     imgs: {
       thumbnails: [
@@ -32,10 +32,10 @@ export const shopData: Product[] = [
   },
   {
     title: "Topi Koki Beras Setra Ramos 5 kg",
-    reviews: [],
+    reviews: [{productId: "2", buyerId: "user5", rating: 4.5, createdAt: new Date().toISOString()},],
     price: 76000.0,
     discountedPrice: 74000.0,
-    category: ["staples"],
+    category: ["sembako"],
     id: "2",
     imgs: {
       thumbnails: [
@@ -57,10 +57,11 @@ export const shopData: Product[] = [
   },
   {
     title: "Ubi Ungu 1 kg",
-    reviews: [],
+    reviews: [{productId: "3", buyerId: "user1", rating: 4, createdAt: new Date().toISOString()},
+      {productId: "3", buyerId: "user2", rating: 5, createdAt: new Date().toISOString()}],
     price: 28000.0,
     discountedPrice: 26000.0,
-    category: ["staples"],
+    category: ["tanpa kategori"],
     id: "3",
     imgs: {
       thumbnails: [
@@ -82,10 +83,10 @@ export const shopData: Product[] = [
   },
   {
     title: "Kentang Dieng 250 gr",
-    reviews: [],
+    reviews: [{productId: "4", buyerId: "user2", rating: 4.5, createdAt: new Date().toISOString()},],
     price: 25000.0,
     discountedPrice: 23000.0,
-    category: ["staples"],
+    category: ["sayur", "tanpa kategori"],
     id: "4",
     imgs: {
       thumbnails: [
@@ -110,7 +111,7 @@ export const shopData: Product[] = [
     reviews: [],
     price: 25000.0,
     discountedPrice: 23000.0,
-    category: ["staples"],
+    category: ["siap saji", "sembako"],
     id: "5",
     imgs: {
       thumbnails: [
@@ -136,7 +137,7 @@ export const shopData: Product[] = [
     reviews: [],
     price: 25000.0,
     discountedPrice: 23000.0,
-    category: ["sayur"],
+    category: ["sayur", "tanpa kategori"],
     id: "6",
     imgs: {
       thumbnails: [
@@ -208,7 +209,7 @@ export const shopData: Product[] = [
   },
   {
     title: "Kecambah Kedelai 250 gr",
-    reviews: [],
+    reviews: [{productId: "9", buyerId: "user6", rating: 3.5, createdAt: new Date().toISOString()},],
     price: 6000.0,
     discountedPrice: 4000.0,
     category: ["sayur"],
@@ -263,7 +264,7 @@ export const shopData: Product[] = [
     reviews: [],
     price: 17000.0,
     discountedPrice: 15000.0,
-    category: ["seasonings"],
+    category: ["bumbu dapur"],
     id: "11",
     imgs: {
       thumbnails: [
@@ -288,7 +289,7 @@ export const shopData: Product[] = [
     reviews: [],
     price: 22000.0,
     discountedPrice: 20000.0,
-    category: ["seasonings"],
+    category: ["bumbu dapur"],
     id: "12",
     imgs: {
       thumbnails: [
@@ -313,7 +314,7 @@ export const shopData: Product[] = [
     reviews: [],
     price: 18000.0,
     discountedPrice: 16000.0,
-    category: ["seasonings"],
+    category: ["bumbu dapur"],
     id: "13",
     imgs: {
       thumbnails: [
@@ -338,7 +339,7 @@ export const shopData: Product[] = [
     reviews: [],
     price: 4000.0,
     discountedPrice: 2000.0,
-    category: ["seasonings"],
+    category: ["bumbu dapur", "sayur"],
     id: "14",
     imgs: {
       thumbnails: [
@@ -364,7 +365,7 @@ export const shopData: Product[] = [
     reviews: [],
     price: 18000.0,
     discountedPrice: 16000.0,
-    category: ["fruits"],
+    category: ["buah", "harga grosir"],
     id: "15",
     imgs: {
       thumbnails: [
@@ -389,7 +390,7 @@ export const shopData: Product[] = [
     reviews: [],
     price: 44000.0,
     discountedPrice: 42000.0,
-    category: ["fruits"],
+    category: ["buah"],
     id: "16",
     imgs: {
       thumbnails: [
@@ -414,7 +415,7 @@ export const shopData: Product[] = [
     reviews: [],
     price: 58000.0,
     discountedPrice: 56000.0,
-    category: ["fruits"],
+    category: ["buah", "harga grosir"],
     id: "17",
     imgs: {
       thumbnails: [
@@ -437,10 +438,10 @@ export const shopData: Product[] = [
   //uncategorized,6
   {
     title: "Ikan Kembung Segar 500 gr",
-    reviews: [],
+    reviews: [{productId: "18", buyerId: "user5", rating: 4.5, createdAt: new Date().toISOString()}],
     price: 34000.0,
     discountedPrice: 32000.0,
-    category: ["uncategorized"],
+    category: ["tanpa kategori", "protein", "harga grosir"],
     id: "18",
     imgs: {
       thumbnails: [
@@ -465,7 +466,7 @@ export const shopData: Product[] = [
     reviews: [],
     price: 15000.0,
     discountedPrice: 13000.0,
-    category: ["uncategorized"],
+    category: ["siap saji", "protein"],
     id: "19",
     imgs: {
       thumbnails: [
@@ -485,14 +486,41 @@ export const shopData: Product[] = [
     shopId: 1, // Placeholder shopId
     createdAt: "2023-10-26T10:00:00Z", // Placeholder createdAt
   },
+  //sarapan, 9
+  {
+    title: "Roti Tawar Bakery Bunda",
+    reviews: [],
+    price: 18000.0,
+    discountedPrice: 16000.0,
+    category: ["sarapan"],
+    id: "20",
+    imgs: {
+      thumbnails: [
+        "/images/products/pepaya_fresh_1_2_kg_pcs_thumb_1.png",
+        "/images/products/pepaya_fresh_1_2_kg_pcs_thumb_2.png",
+      ],
+      previews: [
+        "/images/products/pepaya_fresh_1_2_kg_pcs_preview_1.png",
+        "/images/products/pepaya_fresh_1_2_kg_pcs_preview_2.png",
+      ],
+    },
+    productAttrb: {
+      productType: "standard",
+      isEcoFriendly: false,
+      isOrganic: false,
+    },
+    shopId: 1, // Placeholder shopId
+    createdAt: "2023-10-26T10:00:00Z", // Placeholder createdAt
+  },
   //meal kits,5
   {
     title: "Paket Masak Sayur Asem Lengkap(Meal Kits)",
-    reviews: [],
+    reviews: [{productId: "21", buyerId: "user1", rating: 3.5, createdAt: new Date().toISOString()},
+      {productId: "21", buyerId: "user2", rating: 4.5, createdAt: new Date().toISOString()}],
     price: 30000.0,
     discountedPrice: 28000.0,
-    category: ["meal kits"],
-    id: "20",
+    category: ["paket masak", "siap saji"],
+    id: "21",
     description: "Ready-to-cook ingredients for 5 portions",
     ingredients: sayurAsemIngredients,
     imgs: {
@@ -515,11 +543,11 @@ export const shopData: Product[] = [
   },
   {
     title: "Paket Masak Sayur Sop Lengkap(Meal Kits)",
-    reviews: [],
+    reviews: [{productId: "22", buyerId: "user6", rating: 3.5, createdAt: new Date().toISOString()}],
     price: 25000.0,
     discountedPrice: 23000.0,
-    category: ["meal kits"],
-    id: "21",
+    category: ["paket masak", "siap saji"],
+    id: "22",
     description: "Ready-to-cook ingredients for 5 portions",
     ingredients: sayurSopIngredients,
     imgs: {
@@ -541,5 +569,9 @@ export const shopData: Product[] = [
     createdAt: "2023-10-26T10:00:00Z", // Placeholder createdAt
   },
 ];
+
+export function getDummyProductById(id: string) {
+  return shopData.find(p => p.id === id);
+}
 
 export default shopData;

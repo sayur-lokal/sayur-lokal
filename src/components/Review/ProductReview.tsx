@@ -9,6 +9,7 @@ type Props = {
 
 export const ProductReview = ({ product }: Props) => {
   const user = useAppSelector((state) => state.currentuser.user); // or wherever your user comes from
+  const productId = product.id;
 
   const reviews = product.reviews || [];
 
@@ -24,7 +25,7 @@ export const ProductReview = ({ product }: Props) => {
               <li key={index} className="border-b pb-4">
                 <StarRatingDisplay rating={review.rating} />
                 <p className="text-sm text-gray-700 mt-1">{review.comment}</p>
-                <p className="text-xs text-gray-400 mt-1">{new Date(review.createdAt).toLocaleString()}</p>
+                <p className="text-xs text-gray-400 mt-1">{review.createdAt ? new Date(review.createdAt).toLocaleString(): 'N/A'}</p>
               </li>
             ))}
           </ul>
@@ -32,7 +33,7 @@ export const ProductReview = ({ product }: Props) => {
       </div>
 
       {user?.id ? (
-        <ReviewForm productId={product.id} buyerId={Number(user.id)} />
+        <ReviewForm productId={product.id} buyerId={user.id} />
       ) : (
         <p className="text-sm text-gray-500 italic">Please log in to leave a review.</p>
       )}

@@ -1,5 +1,5 @@
-import StarIcon from "@/components/Icons/StarIcon";
-import { starBaseClass } from "@/lib/constants/classNames";
+import StarIcons from "@/components/Icons/StarIcons";
+import { starFilledClass, starEmptyClass } from "@/lib/constants/classNames";
 
 
 interface Props {
@@ -7,23 +7,23 @@ interface Props {
   total?: number;
 }
 
-const StarRatingDisplay = ({ rating, total }: Props) => {
+const StarRatingDisplay = ({ rating }: Props) => {
   const rounded = Math.round(rating);
 
   return (
     <div className="flex items-center gap-2">
-      <div className="flex">
+      <div className="flex gap-[2px] ${starBaseClass}">
         {[...Array(5)].map((_, i) => (
-          <StarIcon
+          <StarIcons
           key={i}
           filled={i < rounded}
-          className={starBaseClass}
+          className={i < rounded ? starFilledClass : starEmptyClass}
         />
         ))}
       </div>
-      {typeof total === "number" && (
+      {/* {typeof total === "number" && (
         <span className="text-sm text-gray-600">({total})</span>
-      )}
+      )} */}
     </div>
   );
 };

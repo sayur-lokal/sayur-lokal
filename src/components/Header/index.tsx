@@ -11,6 +11,7 @@ import { useCartModalContext } from '@/app/context/CartSidebarModalContext';
 import Image from 'next/image';
 import CurrentUserButton from '@/components/Auth/CurrentUser';
 import Cart from './Cart';
+import CurrentLocation from '../Map/current-location';
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -36,13 +37,18 @@ const Header = () => {
   });
 
   const options = [
-    { label: 'All Categories', value: '0' },
-    { label: 'Staples', value: '1' },
-    { label: 'Vegetables', value: '2' },
-    { label: 'Seasonings', value: '3' },
-    { label: 'Fruits', value: '4' },
-    { label: 'Meal Kits', value: '5' },
-    { label: 'Uncategorized', value: '6' },
+    { label: "Semua Kategori", value: "0" },
+    { label: "Sembako", value: "1" },
+    { label: "Sayur", value: "2" },
+    { label: "Bumbu Dapur", value: "3" },
+    { label: "Buah", value: "4" },
+    { label: "Paket Masak", value: "5" },
+    { label: "Tanpa Kategori", value: "6" },
+    { label: "Siap Saji", value: "7" },
+    { label: "Protein", value: "8" },
+    { label: "Sarapan", value: "9" },
+    { label: "Harga Grosir", value: "10" },
+
   ];
 
   return (
@@ -70,7 +76,7 @@ const Header = () => {
                       type="search"
                       name="search"
                       id="search"
-                      placeholder="I am shopping for..."
+                      placeholder="Saya ingin belanja ..."
                       autoComplete="off"
                       className="custom-search w-full rounded-r-[5px] bg-gray-1 !border-l-0 border border-gray-3 py-2.5 pl-4 pr-10 outline-none ease-in duration-200"
                     />
@@ -132,8 +138,9 @@ const Header = () => {
                 navigationOpen && `!visible bg-white shadow-lg border border-gray-3 !h-auto max-h-[400px] overflow-y-scroll rounded-md p-5`
               }`}
             >
+                <CurrentLocation />
               {/* <!-- Main Nav Start --> */}
-              <nav>
+              {/* <nav>
                 <ul className="flex xl:items-center flex-col xl:flex-row gap-5 xl:gap-6">
                   {menuData.map((menuItem, i) =>
                     menuItem.submenu ? (
@@ -147,7 +154,7 @@ const Header = () => {
                     )
                   )}
                 </ul>
-              </nav>
+              </nav> */}
               {/* //   <!-- Main Nav End --> */}
             </div>
             {/* // <!--=== Main Nav End ===--> */}

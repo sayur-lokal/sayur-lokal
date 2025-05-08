@@ -1,8 +1,13 @@
 'use client';
+import { Category } from "@/types/category";
+import { useState } from "react";
 
-import { useState } from 'react';
 
-const CategoryItem = ({ category }) => {
+type Props = {
+  categories: Category[];
+};
+
+const CategoryItem = ({ category }: { category: Category }) => {
   const [selected, setSelected] = useState(false);
   return (
     <button className={`${selected && 'text-[#1A693A]'} group flex items-center justify-between ease-out duration-200 hover:text-[#1A693A] `} onClick={() => setSelected(!selected)}>
@@ -13,15 +18,17 @@ const CategoryItem = ({ category }) => {
           </svg>
         </div>
 
-        <span>{category.name}</span>
+        <span>{category.title}</span>
       </div>
 
-      <span className={`${selected ? 'text-white bg-[#1A693A]' : 'bg-gray-5'} inline-flex rounded-[30px] text-custom-xs px-2 ease-out duration-200 text-white  group-hover:bg-[#1A693A]`}>{category.products}</span>
+      {/* <span className={`${selected ? 'text-white bg-[#1A693A]' : 'bg-gray-5'
+      } inline-flex rounded-[30px] text-custom-xs px-2 ease-out duration-200
+       text-white  group-hover:bg-[#1A693A]`}>{category.img}</span> */}
     </button>
   );
 };
 
-const CategoryDropdown = ({ categories }) => {
+const CategoryDropdown = ({ categories }:Props) => {
   const [toggleDropdown, setToggleDropdown] = useState(true);
 
   return (
@@ -48,9 +55,13 @@ const CategoryDropdown = ({ categories }) => {
 
       {/* dropdown && 'shadow-filter */}
       {/* <!-- dropdown menu --> */}
-      <div className={`flex-col gap-3 py-6 pl-6 pr-5.5 ${toggleDropdown ? 'flex' : 'hidden'}`}>
-        {categories.map((category, key) => (
-          <CategoryItem key={key} category={category} />
+       <div
+        className={`flex-col gap-3 py-6 pl-6 pr-5.5 ${
+          toggleDropdown ? "flex" : "hidden"
+        }`}
+      >
+        {categories.map((cat) => (
+          <CategoryItem key={cat.title} category={cat} />
         ))}
       </div>
     </div>

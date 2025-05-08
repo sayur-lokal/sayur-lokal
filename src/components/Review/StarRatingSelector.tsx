@@ -1,5 +1,8 @@
-import StarIcon from "@/components/Icons/StarIcon";
-import { starBaseClass } from "@/lib/constants/classNames";
+"use client"
+import StarIcons from "@/components/Icons/StarIcons";
+import { starBaseClass, starEmptyClass, starFilledClass } from "@/lib/constants/classNames";
+import { useState } from "react";
+// import { starBaseClass } from "@/lib/constants/classNames";
 
 interface Props {
   rating: number;
@@ -8,24 +11,36 @@ interface Props {
 
 
 const StarRatingSelector = ({ rating, onChange }: Props) => {
+  const [hovered, setHovered] = useState<number | null>(null);
+
     return (
-      <div className="flex">
-        {[...Array(5)].map((_, i) => (
-          <button
-            type="button"
-            key={i}
-            onClick={() => onChange(i + 1)}
-            className="focus:outline-none"
-            aria-label={`Rate ${i + 1} star${i > 0 ? "s" : ""}`}
-          >
-            <StarIcon
-               filled={i < rating}
-               className={starBaseClass}
-            />
-          </button>
-        ))}
-      </div>
-    );
-  };
+      <div className="flex gap-[2px]">
+        {[...Array(5)].map((_, i) => {
+            const starIndex = i + 1;
+            const isFilled = hovered !== null ? starIndex <= hovered : starIndex <= rating;
+    
+            return (
+              <button
+                key={i}
+                type="button"
+                onClick={() => onChange(starIndex)}
+                onMouseEnter={() => setHovered(starIndex)}
+                onMouseLeave={() => setHovered(null)}
+                className="p-1 hover:scale-110 transition-transform focus:outline-none"
+                aria-label={`Rate ${starIndex} star${starIndex > 1 ? "s" : ""}`}
+                aria-pressed={rating === starIndex}
+              >
+                <StarIcons
+                 filled={isFilled} 
+                 className={`${starBaseClass} ${
+                  isFilled ? starFilledClass : starEmptyClass
+                }`}
+                 />
+              </button>
+            );
+          })}
+        </div>
+      );
+    };
 
 export default StarRatingSelector;
