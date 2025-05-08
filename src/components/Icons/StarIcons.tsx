@@ -1,18 +1,20 @@
 
-import React from "react";
 import clsx from "clsx";
+import React from "react";
+
 
 interface Props {
   filled?: boolean;
   className?: string;
+  size?: number;
 }
 
-const StarIcons = ({ filled = false, className = "" }: Props) => {
+const StarIcons = ({ filled = false, className = "", size=18 }: Props) => {
   return (
     <svg
       className={clsx(className, filled ? "fill-[#FFA645]" : "fill-gray-300")}
-      width="18"
-      height="18"
+      width={size}
+      height={size}
       viewBox="0 0 18 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -8,6 +8,7 @@ import type { Review } from "@/types/review";
 
       const initialState: ReviewState = {
         reviews: [],
+        
       };
     
       //to add a review

@@ -81,6 +81,12 @@ export const productSchema = z
       isEcoFriendly: z.boolean().optional(),
       isOrganic: z.boolean().optional(),
     }).optional(),
+    // rating: z
+    // .number()
+    // .min(0, "Rating cannot be negative")
+    // .max(5, "Rating cannot exceed 5")
+    // .optional()
+    // .describe("average product rating (0-5)"),
   })
   .refine((data) => data.discountedPrice <= data.price, {
     message: "Discounted price cannot be greater than the original price",
@@ -109,5 +115,10 @@ export const defaultProduct = (): Product => ({
     isOrganic: false,
     },
     ingredients: [],// only for meal kits
-    reviews: [],
+    reviews: [{
+      productId: "", 
+      buyerId: "",   
+      rating: 0,
+      createdAt: new Date().toISOString()
+    }],
   })

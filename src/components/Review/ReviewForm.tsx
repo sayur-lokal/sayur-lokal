@@ -17,7 +17,7 @@ export const ReviewForm = ({ productId, buyerId }: Props) => {
 
   const handleSubmit = () => {
     if (rating === 0) {
-      alert("Please select a rating.");
+      alert("Please select a rating between 1-5 stars.");
       return;
     }
 
@@ -37,9 +37,16 @@ export const ReviewForm = ({ productId, buyerId }: Props) => {
         return;
       }
 
-    dispatch(addReviewThunk(result.data));
-    setRating(0);
-    setComment("");
+    dispatch(addReviewThunk(result.data))
+    .unwrap()
+    .then(() => {
+      setRating(0);
+      setComment("");
+    })
+    .catch((error) => {
+      console.error("Review submission failed:", error);
+      alert("Failed to submit review. Please try again.");
+    });
   };
 
   return (
@@ -66,3 +73,7 @@ export const ReviewForm = ({ productId, buyerId }: Props) => {
     </div>
   );
 };
+function unwrap() {
+  throw new Error("Function not implemented.");
+}
+

@@ -9,9 +9,10 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
 import Link from 'next/link';
 import Image from 'next/image';
-import ProductRating from '../Shared/InfoProps/ProductRating';
+import { calculateRating } from '../../lib/rating';
 import ProductPrice from '../Shared/InfoProps/ProductPrice';
 import ProductTitle from '../Shared/InfoProps/ProductTitle';
+import StarRatingDisplay from '../Review/StarRatingDisplay';
 
 const SingleGridItem = ({ item }: { item: Product }) => {
   const { openModal } = useModalContext();
@@ -103,7 +104,10 @@ const SingleGridItem = ({ item }: { item: Product }) => {
 
       <div className="flex items-center gap-2.5 mb-2">
         <div className="flex items-center gap-1">
-          <ProductRating reviews={item.reviews} />
+          <StarRatingDisplay rating={calculateRating(item.reviews)} />
+                  {/* <span className="text-sm text-gray-500">
+                    ({item.reviews?.length || 0} reviews)
+                  </span> */}
         </div>
       </div>
 

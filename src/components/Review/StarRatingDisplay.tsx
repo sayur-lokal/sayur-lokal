@@ -1,5 +1,5 @@
 import StarIcons from "@/components/Icons/StarIcons";
-// import { starBaseClass } from "@/lib/constants/classNames";
+import { starFilledClass, starEmptyClass } from "@/lib/constants/classNames";
 
 
 interface Props {
@@ -12,12 +12,12 @@ const StarRatingDisplay = ({ rating }: Props) => {
 
   return (
     <div className="flex items-center gap-2">
-      <div className="flex gap-[2px]">
+      <div className="flex gap-[2px] ${starBaseClass}">
         {[...Array(5)].map((_, i) => (
           <StarIcons
           key={i}
           filled={i < rounded}
-          // className={starBaseClass}
+          className={i < rounded ? starFilledClass : starEmptyClass}
         />
         ))}
       </div>
