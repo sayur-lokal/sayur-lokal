@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   // other metadata
 };
 
+interface Props {
+  params: {
+    productId: string;
+  };
+}
 
 export default function ShopDetailsPage({ params }: Props) {
   const { productId } = params;
@@ -21,6 +26,4 @@ export default function ShopDetailsPage({ params }: Props) {
       <ShopDetails productId={productId} />
     </main>
   );
-};
-
-// export default ShopDetailsPage;
+}

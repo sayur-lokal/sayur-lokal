@@ -21,11 +21,11 @@ export const parseProduct = (raw: any): Product => {
 const ProductImageSchema = z
   .object({
     thumbnails: z
-      .array(z.string().url("Invalid thumbnail URL"))
+      .array(z.string())
       .min(1, "At least one thumbnail URL is required")
       .describe("list of thumbnail image URLs"),
     previews: z
-      .array(z.string().url("Invalid preview URL"))
+      .array(z.string())
       .min(1, "At least one preview URL is required")
       .describe("list of preview image URLs"),
   })
@@ -52,7 +52,10 @@ export const productSchema = z
       .number()
       .nonnegative("Discounted price cannot be negative")
       .describe("discounted price of the product"),
-    category: commaSeparatedStringArray.describe(
+    category: z.union([
+      commaSeparatedStringArray,
+      z.array(z.string())
+    ]).describe(
       "the category list of the product"
     ),
     shopId: z
