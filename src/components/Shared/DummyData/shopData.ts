@@ -32,7 +32,7 @@ export const shopData: Product[] = [
   },
   {
     title: "Topi Koki Beras Setra Ramos 5 kg",
-    reviews: [],
+    reviews: [{productId: "2", buyerId: "user5", rating: 4.5, createdAt: new Date().toISOString()},],
     price: 76000.0,
     discountedPrice: 74000.0,
     category: ["sembako"],
@@ -83,7 +83,7 @@ export const shopData: Product[] = [
   },
   {
     title: "Kentang Dieng 250 gr",
-    reviews: [],
+    reviews: [{productId: "4", buyerId: "user2", rating: 4.5, createdAt: new Date().toISOString()},],
     price: 25000.0,
     discountedPrice: 23000.0,
     category: ["sayur", "tanpa kategori"],
@@ -209,7 +209,7 @@ export const shopData: Product[] = [
   },
   {
     title: "Kecambah Kedelai 250 gr",
-    reviews: [],
+    reviews: [{productId: "9", buyerId: "user6", rating: 3.5, createdAt: new Date().toISOString()},],
     price: 6000.0,
     discountedPrice: 4000.0,
     category: ["sayur"],
@@ -438,7 +438,7 @@ export const shopData: Product[] = [
   //uncategorized,6
   {
     title: "Ikan Kembung Segar 500 gr",
-    reviews: [],
+    reviews: [{productId: "18", buyerId: "user5", rating: 4.5, createdAt: new Date().toISOString()}],
     price: 34000.0,
     discountedPrice: 32000.0,
     category: ["tanpa kategori", "protein", "harga grosir"],
@@ -515,7 +515,8 @@ export const shopData: Product[] = [
   //meal kits,5
   {
     title: "Paket Masak Sayur Asem Lengkap(Meal Kits)",
-    reviews: [],
+    reviews: [{productId: "21", buyerId: "user1", rating: 3.5, createdAt: new Date().toISOString()},
+      {productId: "21", buyerId: "user2", rating: 4.5, createdAt: new Date().toISOString()}],
     price: 30000.0,
     discountedPrice: 28000.0,
     category: ["paket masak", "siap saji"],
@@ -542,7 +543,7 @@ export const shopData: Product[] = [
   },
   {
     title: "Paket Masak Sayur Sop Lengkap(Meal Kits)",
-    reviews: [],
+    reviews: [{productId: "22", buyerId: "user6", rating: 3.5, createdAt: new Date().toISOString()}],
     price: 25000.0,
     discountedPrice: 23000.0,
     category: ["paket masak", "siap saji"],
