@@ -14,6 +14,7 @@ import Link from 'next/link';
 import { calculateRating } from '../../lib/rating';
 import ProductPrice from '../Shared/InfoProps/ProductPrice';
 import StarRatingDisplay from '../Review/StarRatingDisplay';
+import ProductTitle from '../Shared/InfoProps/ProductTitle';
 
 const ProductItem = ({ item }: { item: Product }) => {
   const dispatch = useDispatch<AppDispatch>();
@@ -119,7 +120,7 @@ const ProductItem = ({ item }: { item: Product }) => {
       </div>
 
       <h3 className="font-medium text-dark ease-out duration-200 hover:text-[#D75A4A] mb-1.5" onClick={() => handleProductDetails()}>
-        {item.title}
+      <ProductTitle title={item.title} link={`/shop-details/${item.id}`}/>
       </h3>
 
       <span className="flex items-center gap-2 font-medium text-lg">

@@ -12,12 +12,14 @@ import ProductAttributes from "../Shared/InfoProps/ProductAttrb";
 import ProductTitle from "../Shared/InfoProps/ProductTitle";
 import ProductPrice from "../Shared/InfoProps/ProductPrice";
 import { ProductRating } from "../../lib/rating";
-import { useParams } from "next/navigation";
+// import { useParams } from "next/navigation";
 import { fetchProductById } from "@/redux/features/product-details";
 import { StarRatingDisplay } from "../Review";
 
 
-
+interface ShopDetailsProps {
+  productId: string;
+}
 
 const tabs = [
   { id: "description", title: "Description" },
@@ -29,8 +31,8 @@ const tabs = [
 ];
 
 
-const ShopDetails = () => {
-  const { productId } = useParams(); // Fetch productId from the dynamic route
+const ShopDetails: React.FC<ShopDetailsProps> = ({ productId }) => {
+  // const { productId } = UseParams(); // Fetch productId from the dynamic route
   const dispatch = useDispatch<AppDispatch>();
 
   const { currentProduct, loading, error  } = useAppSelector(
