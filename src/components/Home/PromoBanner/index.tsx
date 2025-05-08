@@ -6,7 +6,7 @@ const PromoBanner = () => {
     <section className="overflow-hidden py-20">
       <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
         {/* <!-- promo banner big --> */}
-        <div className="relative z-1 overflow-hidden rounded-lg bg-[#F5F5F7] py-12.5 lg:py-17.5 xl:py-22.5 px-4 sm:px-7.5 lg:px-14 xl:px-19 mb-7.5">
+        {/* <div className="relative z-1 overflow-hidden rounded-lg bg-[#F5F5F7] py-12.5 lg:py-17.5 xl:py-22.5 px-4 sm:px-7.5 lg:px-14 xl:px-19 mb-7.5">
           <div className="max-w-[550px] w-full">
             <span className="block font-medium text-xl text-dark mb-3">Apple iPhone 14 Plus</span>
 
@@ -20,11 +20,11 @@ const PromoBanner = () => {
           </div>
 
           <Image src="/images/promo/promo-01.png" alt="promo img" className="absolute bottom-0 right-4 lg:right-26 -z-1" width={274} height={350} />
-        </div>
+        </div> */}
 
-        <div className="grid gap-7.5 grid-cols-1 lg:grid-cols-2">
+        {/* <div className="grid gap-7.5 grid-cols-1 lg:grid-cols-2"> */}
           {/* <!-- promo banner small --> */}
-          <div className="relative z-1 overflow-hidden rounded-lg bg-[#DBF4F3] py-10 xl:py-16 px-4 sm:px-7.5 xl:px-10">
+          {/* <div className="relative z-1 overflow-hidden rounded-lg bg-[#DBF4F3] py-10 xl:py-16 px-4 sm:px-7.5 xl:px-10">
             <Image src="/images/promo/promo-02.png" alt="promo img" className="absolute top-1/2 -translate-y-1/2 left-3 sm:left-10 -z-1" width={241} height={241} />
 
             <div className="text-right">
@@ -38,10 +38,10 @@ const PromoBanner = () => {
                 Grab Now
               </a>
             </div>
-          </div>
+          </div> */}
 
           {/* <!-- promo banner small --> */}
-          <div className="relative z-1 overflow-hidden rounded-lg bg-[#FFECE1] py-10 xl:py-16 px-4 sm:px-7.5 xl:px-10">
+          {/* <div className="relative z-1 overflow-hidden rounded-lg bg-[#FFECE1] py-10 xl:py-16 px-4 sm:px-7.5 xl:px-10">
             <Image src="/images/promo/promo-03.png" alt="promo img" className="absolute top-1/2 -translate-y-1/2 right-3 sm:right-8.5 -z-1" width={200} height={200} />
 
             <div>
@@ -58,7 +58,7 @@ const PromoBanner = () => {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
