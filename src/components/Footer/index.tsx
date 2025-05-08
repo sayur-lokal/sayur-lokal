@@ -9,6 +9,13 @@ const Footer = () => {
       <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
         {/* <!-- footer menu start --> */}
         <div className="flex flex-wrap xl:flex-nowrap gap-10 xl:gap-19 xl:justify-between pt-17.5 xl:pt-22.5 pb-10 xl:pb-15">
+
+        <div className="w-full sm:w-auto">
+            <h2 className="mb-7.5 text-custom-1 font-medium text-dark">Siapa Sayur Lokal?</h2>
+
+            <p className="leading-8"><strong>Sayur Lokal</strong> adalah platform belanja makanan sehat yang menghubungkan Anda dengan petani lokal dan produsen rumahan. Kami menghadirkan bahan segar, kemasan ramah lingkungan, dan pengiriman langsung ke rumah Anda — demi gaya hidup yang lebih praktis, sehat, dan berkelanjutan.</p>
+          </div>
+
           <div className="max-w-[330px] w-full">
             <h2 className="mb-7.5 text-custom-1 font-medium text-dark">Help & Support</h2>
 
@@ -93,7 +100,7 @@ const Footer = () => {
             </div>
             {/* <!-- Social Links end --> */}
           </div>
-
+{/* 
           <div className="w-full sm:w-auto">
             <h2 className="mb-7.5 text-custom-1 font-medium text-dark">Account</h2>
 
@@ -156,7 +163,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* <div className="w-full sm:w-auto">
             <h2 className="mb-7.5 text-custom-1 font-medium text-dark lg:text-right">Download App</h2>
