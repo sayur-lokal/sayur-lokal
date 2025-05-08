@@ -7,7 +7,7 @@ export const shopData: Product[] = [
  //staples,1
   {
     title: "Telur Ayam Fresh 1 Krat isi 30pcs",
-    reviews: [],
+    reviews: [{productId: "1", buyerId: "user2", rating: 5, createdAt: new Date().toISOString()},],
     price: 59000.0,
     discountedPrice: 57000.0,
     category: ["sembako", "protein", "harga grosir"],
@@ -57,7 +57,8 @@ export const shopData: Product[] = [
   },
   {
     title: "Ubi Ungu 1 kg",
-    reviews: [],
+    reviews: [{productId: "3", buyerId: "user1", rating: 4, createdAt: new Date().toISOString()},
+      {productId: "3", buyerId: "user2", rating: 5, createdAt: new Date().toISOString()}],
     price: 28000.0,
     discountedPrice: 26000.0,
     category: ["tanpa kategori"],

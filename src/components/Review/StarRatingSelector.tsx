@@ -1,5 +1,6 @@
 "use client"
 import StarIcons from "@/components/Icons/StarIcons";
+import { starBaseClass, starEmptyClass, starFilledClass } from "@/lib/constants/classNames";
 import { useState } from "react";
 // import { starBaseClass } from "@/lib/constants/classNames";
 
@@ -29,7 +30,12 @@ const StarRatingSelector = ({ rating, onChange }: Props) => {
                 aria-label={`Rate ${starIndex} star${starIndex > 1 ? "s" : ""}`}
                 aria-pressed={rating === starIndex}
               >
-                <StarIcons filled={isFilled} />
+                <StarIcons
+                 filled={isFilled} 
+                 className={`${starBaseClass} ${
+                  isFilled ? starFilledClass : starEmptyClass
+                }`}
+                 />
               </button>
             );
           })}

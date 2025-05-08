@@ -10,9 +10,11 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
 import Link from 'next/link';
 import Image from 'next/image';
-import ProductRating from '../Shared/InfoProps/ProductRating';
+
 import ProductTitle from '../Shared/InfoProps/ProductTitle';
 import ProductPrice from '../Shared/InfoProps/ProductPrice';
+import StarRatingDisplay from '../Review/StarRatingDisplay';
+import { calculateRating } from '@/lib/rating';
 
 const SingleListItem = ({ item }: { item: Product }) => {
   const [hasPreviews, setHasPreviews] = useState<boolean>(false);
@@ -102,7 +104,10 @@ const SingleListItem = ({ item }: { item: Product }) => {
           </div>
 
           <div className="flex items-center gap-1">
-            <ProductRating reviews={item.reviews} />
+          <StarRatingDisplay rating={calculateRating(item.reviews)} />
+          {/* <span className="text-sm text-gray-500">
+            ({item.reviews?.length || 0} reviews)
+          </span> */}
           </div>
         </div>
       </div>
