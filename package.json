@@ -15,6 +15,7 @@
     "clsx": "^2.1.1",
     "country-list-js": "^3.1.8",
     "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.508.0",
     "next": "15.2.3",
     "postcss": "8.4.29",
     "react": "19.0.0",
