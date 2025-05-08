@@ -36,13 +36,13 @@ const HeroCarousal = () => {
             </div>
 
             <h1 className="font-semibold text-dark text-xl sm:text-3xl mb-3">
-              <a href="#">Sayur Asem Meal Kit</a>
+              <a href="#">Paket Sayur Asem</a>
             </h1>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at ipsum at risus euismod lobortis in</p>
+            <p>Paket komplit sayur asem segar, siap masak dengan rasa asam segar khas rumahan.</p>
 
             <a href="#" className="inline-flex font-medium text-white text-custom-sm rounded-md bg-green-dark py-3 px-9 ease-out duration-200 hover:bg-[#1A693A] mt-10">
-              Shop Now
+              Belanja Sekarang!
             </a>
           </div>
 
@@ -65,13 +65,13 @@ const HeroCarousal = () => {
             </div>
 
             <h1 className="font-semibold text-dark text-xl sm:text-3xl mb-3">
-              <a href="#">Sayur Sop Meal Kits</a>
+              <a href="#">Paket Sayur Sop</a>
             </h1>
 
-            <p>Lorem ipsum dolor sit, consectetur elit nunc suscipit non ipsum nec suscipit.</p>
+            <p>Paket lengkap sayur segar untuk masak sayur sop praktis, sehat, dan hemat waktu.</p>
 
             <a href="#" className="inline-flex font-medium text-white text-custom-sm rounded-md bg-green-dark py-3 px-9 ease-out duration-200 hover:bg-[#1A693A] mt-10">
-              Shop Now
+              Belanja Sekarang!
             </a>
           </div>
 

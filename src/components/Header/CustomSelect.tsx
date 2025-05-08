@@ -41,11 +41,11 @@ const CustomSelect = ({ options }) => {
         {selectedOption.label}
       </div>
       <div className={`select-items ${isOpen ? "" : "select-hide"}`}>
-        {options.slice(1, -1).map((option, index) => (
+        {options.slice(1, -1).map((option: {label: string, value: string}, index: number) => (
           <div
             key={index}
             onClick={() => handleOptionClick(option)}
-            className={`select-item ${
+            className={`select-item cursor-pointer hover:underline ${
               selectedOption === option ? "same-as-selected" : ""
             }`}
           >

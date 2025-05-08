@@ -31,10 +31,10 @@ const NewArrival = () => {
                   strokeLinecap="round"
                 />
               </svg>
-              This Week’s
+              Paling baru
             </span>
             <h2 className="font-semibold text-xl xl:text-heading-5 text-dark">
-              New Arrivals
+              Minggu ini
             </h2>
           </div>
 

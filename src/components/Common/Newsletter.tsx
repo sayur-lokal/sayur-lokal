@@ -12,16 +12,16 @@ const Newsletter = () => {
 
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 px-4 sm:px-7.5 xl:pl-12.5 xl:pr-14 py-11">
             <div className="max-w-[491px] w-full">
-              <h2 className="max-w-[399px] text-white font-bold text-lg sm:text-xl xl:text-heading-4 mb-3">Don&apos;t Miss Out Latest Trends & Offers</h2>
-              <p className="text-white">Register to receive news about the latest offers & discount codes</p>
+              <h2 className="max-w-[399px] text-white font-bold text-lg sm:text-xl xl:text-heading-4 mb-3">Jangan ketinggalan promo dan info diskon </h2>
+              <p className="text-white">Berlangganan sekarang untuk dapat info promosi dan diskon terbatas!</p>
             </div>
 
             <div className="max-w-[477px] w-full">
               <form>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <input type="email" name="email" id="email" placeholder="Enter your email" className="w-full bg-gray-1 border border-gray-3 outline-none rounded-md placeholder:text-dark-4 py-3 px-5" />
+                  <input type="email" name="email" id="email" placeholder="Masukkan email / WhatsApp" className="w-full bg-gray-1 border border-gray-3 outline-none rounded-md placeholder:text-dark-4 py-3 px-5" />
                   <button type="submit" className="inline-flex justify-center py-3 px-7 text-white bg-green-dark font-medium rounded-md ease-out duration-200 hover:bg-[#1A693A]">
-                    Subscribe
+                    Berlangganan
                   </button>
                 </div>
               </form>
