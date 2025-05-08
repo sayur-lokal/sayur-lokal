@@ -11,6 +11,7 @@ import { useCartModalContext } from '@/app/context/CartSidebarModalContext';
 import Image from 'next/image';
 import CurrentUserButton from '@/components/Auth/CurrentUser';
 import Cart from './Cart';
+import CurrentLocation from '../Map/current-location';
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -162,8 +163,9 @@ const Header = () => {
                 navigationOpen && `!visible bg-white shadow-lg border border-gray-3 !h-auto max-h-[400px] overflow-y-scroll rounded-md p-5`
               }`}
             >
+                <CurrentLocation />
               {/* <!-- Main Nav Start --> */}
-              <nav>
+              {/* <nav>
                 <ul className="flex xl:items-center flex-col xl:flex-row gap-5 xl:gap-6">
                   {menuData.map((menuItem, i) =>
                     menuItem.submenu ? (
@@ -177,7 +179,7 @@ const Header = () => {
                     )
                   )}
                 </ul>
-              </nav>
+              </nav> */}
               {/* //   <!-- Main Nav End --> */}
             </div>
             {/* // <!--=== Main Nav End ===--> */}
