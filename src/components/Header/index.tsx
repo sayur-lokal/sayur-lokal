@@ -36,7 +36,6 @@ const Header = () => {
   });
 
   const options = [
-
     { label: "Semua Kategori", value: "0" },
     { label: "Sembako", value: "1" },
     { label: "Sayur", value: "2" },
