@@ -13,7 +13,7 @@ const CurrentLocation = () => {
     if (state.status == "not available" || state.status == "not found") {
         return <a className="flex items-center gap-1.5 font-medium text-custom-sm text-dark hover:text-[#D75A4A] cursor-pointer hover:underline">
             <MapPinOff className="w-4 h-4 animate-bounce" />
-            Deliver to Jakarta, Indonesia</a>
+            Antar ke Jakarta, Indonesia</a>
     }
 
     if (state.status == "error") {
@@ -24,7 +24,7 @@ const CurrentLocation = () => {
 
     return <a className="flex items-center gap-1.5 font-medium text-custom-sm text-dark hover:text-[#D75A4A] cursor-pointer hover:underline">
         <MapPin className="w-4 h-4" />
-        Deliver to {state.address}
+        Antar ke {state.address}
         </a>
 }
 
