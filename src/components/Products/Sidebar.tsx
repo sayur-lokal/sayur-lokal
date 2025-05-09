@@ -48,7 +48,7 @@ const Sidebar = ({ productSidebar, setProductSidebar, stickyMenu, disabled }: { 
                     <div className="bg-white shadow-1 rounded-lg py-4 px-5">
                         <div className="flex items-center justify-between">
                             <p>Filters:</p>
-                            <button className="text-[#6BAF92]">Clean All</button>
+                            <button className="text-[#1A693A] hover:text-[#D75A4A] disabled:text-gray-4">Clean All</button>
                         </div>
                     </div>
 

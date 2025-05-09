@@ -29,8 +29,8 @@ const ShopWithSidebar = () => {
   };
 
   const options = [
-    { label: "Terbaru di sayurlokal", value: "0" },
-    { label: "Terlaris di sayurlokal", value: "1" },
+    { label: "Terbaru di Sayur Lokal", value: "0" },
+    { label: "Terlaris di Sayur Lokal", value: "1" },
     { label: "Beli Ini Juga", value: "2" },
   ];
 

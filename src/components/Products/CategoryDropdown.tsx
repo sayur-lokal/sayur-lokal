@@ -68,7 +68,7 @@ const CategoryDropdown = ({disabled}: {disabled: boolean}) => {
                 onClick={onToggle}
                 className={`cursor-pointer flex items-center justify-between py-3 pl-6 pr-5.5 ${toggleDropdown && 'shadow-filter'}`}
             >
-                <p className="text-dark">Category</p>
+                <p className="text-dark">Kategori</p>
                 <button aria-label="button for category dropdown" className={`text-dark ease-out duration-200 ${toggleDropdown && 'rotate-180'}`} disabled={disabled}>
                     <svg className="fill-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path

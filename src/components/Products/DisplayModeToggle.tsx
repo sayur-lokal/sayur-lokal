@@ -8,9 +8,8 @@ const DisplayModeToggle = ({ displayMode, setDisplayMode, disabled }: { displayM
                 onClick={() => setDisplayMode("grid")}
                 aria-label="button for product grid tab"
                 className={`${displayMode === "grid"
-                    ? "bg-[#6BAF92] border-blue text-white"
-                    : "text-dark bg-gray-1 border-gray-3"
-                    } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-[#6BAF92] hover:border-blue hover:text-white`}
+                    ? 'border-[#1A693A] text-white ' : 'text-[#1A693A] bg-gray-1 border-gray-3'
+                    } flex items-center justify-center w-10.5 h-9 rounded-[5px] border bg-[#1A693A] ease-out duration-200 hover:bg-[#1A693A] hover:border-[#1A693A] hover:text-white`}
             >
                 <svg
                     className="fill-current"
@@ -51,9 +50,8 @@ const DisplayModeToggle = ({ displayMode, setDisplayMode, disabled }: { displayM
                 onClick={() => setDisplayMode("list")}
                 aria-label="button for product list tab"
                 className={`${displayMode === "list"
-                    ? "bg-[#6BAF92] border-blue text-white"
-                    : "text-dark bg-gray-1 border-gray-3"
-                    } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-[#6BAF92] hover:border-blue hover:text-white`}
+                    ? 'border-[#1A693A] text-white ' : 'text-[#1A693A] bg-gray-1 border-gray-3'
+                    } flex items-center justify-center w-10.5 h-9 rounded-[5px] border bg-[#1A693A] ease-out duration-200 hover:bg-[#1A693A] hover:border-[#1A693A] hover:text-white`}
             >
                 <svg
                     className="fill-current"
