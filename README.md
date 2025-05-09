@@ -104,9 +104,9 @@ docker-compose down
 
 The application will be available at [http://localhost:3000](http://localhost:3000).
 
-### Using the Docker Helper Script
+### Using the Container Helper Script
 
-For convenience, a helper script is included to simplify Docker operations:
+For convenience, a helper script is included to simplify container operations with either Docker or Podman:
 
 ```bash
 # Make the script executable (one-time setup)
@@ -115,7 +115,7 @@ chmod +x docker.sh
 # Show available commands
 ./docker.sh help
 
-# Build and start the application
+# Build and start the application (automatically uses env vars from .env file)
 ./docker.sh start
 
 # View logs
@@ -124,6 +124,12 @@ chmod +x docker.sh
 # Stop the application
 ./docker.sh stop
 ```
+
+The helper script:
+- Automatically detects if Docker is installed, with Podman as a fallback
+- Extracts and uses environment variables from your `.env` file when building the image
+- Makes it easier to include client-side environment variables like the Google Maps API key
+- Works with both Docker Compose and Podman Compose
 
 ### Environment Variables
 
@@ -145,6 +151,30 @@ docker run -p 3000:3000 \
   -e NEXT_PUBLIC_API_URL=https://api.example.com \
   sayur-lokal
 ```
+
+### Important Note About Environment Variables
+
+Next.js injects environment variables at **build time**, not runtime. For client-side environment variables (prefixed with `NEXT_PUBLIC_`), you must:
+
+1. Pass them as build arguments when building the Docker image:
+
+```bash
+docker build \
+  --build-arg NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key \
+  -t sayur-lokal .
+```
+
+2. When using docker-compose, you can set them in your .env file and they'll be passed automatically as build args:
+
+```bash
+# In your .env file
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key
+
+# Then run
+docker-compose up -d
+```
+
+This ensures that environment variables are available during both the build process and at runtime.
 
 ## Learn More
 
