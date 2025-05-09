@@ -30,10 +30,10 @@ const OrderSummary = () => {
           {cartItems.map((item, key) => (
             <div key={key} className="flex items-center justify-between py-5 border-b border-gray-3">
               <div>
-                <p className="text-dark">{item.product.title}</p>
+                <p className="text-dark">{item.title}</p>
               </div>
               <div>
-                <p className="text-dark text-right">${item.product.discountedPrice * item.quantity}</p>
+                <p className="text-dark text-right">${item.discountedPrice * item.quantity}</p>
               </div>
             </div>
           ))}

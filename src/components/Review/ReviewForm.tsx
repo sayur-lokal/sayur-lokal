@@ -51,7 +51,7 @@ export const ReviewForm = ({ productId, buyerId }: Props) => {
 
   return (
     <div className="rounded-xl bg-white shadow-1 p-4 sm:p-6">
-      <h2 className="font-medium text-2xl text-dark mb-4">Leave a Review</h2>
+      <h2 className="font-medium text-2xl text-dark mb-4">Tinggalkan Komentar</h2>
 
       <div className="mb-4">
         <StarRatingSelector rating={rating} onChange={setRating} />
@@ -59,7 +59,7 @@ export const ReviewForm = ({ productId, buyerId }: Props) => {
 
       <textarea
         className="w-full border border-gray-200 rounded-lg p-3 text-sm text-dark focus:outline-none focus:ring-2 focus:ring-primary"
-        placeholder="Write your comment (optional)"
+        placeholder="Tulis komentarmu.."
         value={comment}
         onChange={(e) => setComment(e.target.value)}
       />

@@ -1,9 +1,9 @@
 "use client";
-import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { useCallback, useRef } from "react";
 import "swiper/css/navigation";
 import "swiper/css";
-import ImageWithFallback from "./ImageWithFallback";
+import Image from "next/image";
 
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { useAppSelector } from "@/redux/store";
@@ -11,9 +11,9 @@ import { useAppSelector } from "@/redux/store";
 const PreviewSliderModal = () => {
   const { closePreviewModal, isModalPreviewOpen } = usePreviewSlider();
 
-  const data = useAppSelector((state) => state.detailprodslice.currentProduct);
+  const data = useAppSelector((state) => state.detailprodslice.value);
 
-  const sliderRef = useRef<SwiperRef>(null);
+  const sliderRef = useRef(null);
 
   const handlePrev = useCallback(() => {
     if (!sliderRef.current) return;
@@ -98,9 +98,9 @@ const PreviewSliderModal = () => {
       <Swiper ref={sliderRef} slidesPerView={1} spaceBetween={20}>
         <SwiperSlide>
           <div className="flex justify-center items-center">
-            <ImageWithFallback
-              src={data?.imgs?.previews?.[0] || "/images/placeholder_640_640.svg"}
-              alt={data?.title || "Product image"}
+            <Image
+              src={"/images/products/product-2-bg-1.png"}
+              alt={"product image"}
               width={450}
               height={450}
             />

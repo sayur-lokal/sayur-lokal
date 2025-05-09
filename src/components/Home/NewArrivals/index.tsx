@@ -31,15 +31,15 @@ const NewArrival = () => {
                   strokeLinecap="round"
                 />
               </svg>
-              Paling baru
+              This Week’s
             </span>
             <h2 className="font-semibold text-xl xl:text-heading-5 text-dark">
-              Minggu ini
+              New Arrivals
             </h2>
           </div>
 
           <Link
-            href="/products?sortBy=date&sortOrder=desc"
+            href="/shop-with-sidebar"
             className="inline-flex font-medium text-custom-sm py-2.5 px-7 rounded-md border-gray-3 border bg-gray-1 text-dark ease-out duration-200 hover:bg-[#1A693A] hover:text-white hover:border-transparent"
           >
             View All

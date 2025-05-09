@@ -4,25 +4,30 @@ import Image from "next/image";
 const featureData = [
   {
     img: "/images/icons/icon-01.svg",
-    title: "Dijamin Sampai Tujuan",
-    description: "Diantar oleh kurir lokal berpengalaman",
+    title: "Free Shipping",
+    description: "For all orders $200",
   },
   {
     img: "/images/icons/icon-02.svg",
-    title: "Ramah Lingkungan",
-    description: "Dibungkus dengan kantong ramah lingkungan",
+    title: "1 & 1 Returns",
+    description: "Cancellation after 1 day",
   },
   {
     img: "/images/icons/icon-03.svg",
-    title: "Kualitas Sehat Terjamin",
-    description: "Produk bersertifikat dan aman dikonsumsi",
+    title: "100% Secure Payments",
+    description: "Gurantee secure payments",
+  },
+  {
+    img: "/images/icons/icon-04.svg",
+    title: "24/7 Dedicated Support",
+    description: "Anywhere & anytime",
   },
 ];
 
 const HeroFeature = () => {
   return (
-    <div className="max-w-[1160px] w-full mx-auto px-4 sm:px-8 xl:px-0">
-      <div className="flex flex-wrap items-center justify-between xl:gap-10.5 mt-10">
+    <div className="max-w-[1060px] w-full mx-auto px-4 sm:px-8 xl:px-0">
+      <div className="flex flex-wrap items-center gap-7.5 xl:gap-12.5 mt-10">
         {featureData.map((item, key) => (
           <div className="flex items-center gap-4" key={key}>
             <Image src={item.img} alt="icons" width={40} height={41} />

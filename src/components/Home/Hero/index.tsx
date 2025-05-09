@@ -30,12 +30,12 @@ const Hero = () => {
                 <div className="flex items-center gap-14">
                   <div>
                     <h2 className="max-w-[153px] font-semibold text-dark text-xl mb-8">
-                      <a href="#"> Beras Premium Kualitas Super </a>
+                      <a href="#"> Beras Premium Kualitas Super! </a>
                     </h2>
 
                     <div>
                       <p className="font-medium text-dark-4 text-custom-sm mb-1.5">
-                        Diskon Awal Bulan
+                        diskon awal bulan
                       </p>
                       <span className="flex flex-col items-start justify-center gap-0">
                           <Price className="font-medium text-heading-5 text-red" price={25000} />
@@ -58,12 +58,12 @@ const Hero = () => {
                 <div className="flex items-center gap-14">
                   <div>
                     <h2 className="max-w-[153px] font-semibold text-dark text-xl mb-8">
-                      <a href="#">Cabai Rawit Hijau</a>
+                      <a href="#">Cabai Rawit Setan Hijau</a>
                     </h2>
 
                     <div>
                       <p className="font-medium text-dark-4 text-custom-sm mb-1.5">
-                        Diskon Awal Bulan
+                        diskon awal bulan
                       </p>
                       <span className="flex flex-col items-start justify-center gap-0">
                           <Price className="font-medium text-heading-5 text-red" price={12000} />
@@ -82,6 +82,8 @@ const Hero = () => {
                   </div>
                 </div>
               </div>
+
+              
             </div>
           </div>
         </div>

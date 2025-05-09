@@ -20,10 +20,9 @@ const mockReviews = [
 
 export async function GET(
   req: NextRequest,
-  context: { params: Promise<{ productId: string }> }
+  context: { params: { productId: string } }
 ) {
-  const resolvedParams = await context.params;
-  const { productId } = resolvedParams;
+  const { productId } = context.params;
 
   const reviews = mockReviews.filter(
     (r) => r.productId === parseInt(productId)

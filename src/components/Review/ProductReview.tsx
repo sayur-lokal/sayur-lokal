@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const ProductReview = ({ product }: Props) => {
-  const user = useAppSelector((state) => state.currentuser.user); // or wherever your user comes from
+  const user = useAppSelector((state) => state.currentuser.user); 
   const productId = product.id;
 
   const reviews = product.reviews || [];
@@ -16,9 +16,9 @@ export const ProductReview = ({ product }: Props) => {
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-xl font-semibold text-dark mb-4">Customer Reviews</h2>
+        <h2 className="text-xl font-semibold text-dark mb-4">Review Customer</h2>
         {reviews.length === 0 ? (
-          <p className="text-gray-600">No reviews yet.</p>
+          <p className="text-gray-600">Belum ada Review.</p>
         ) : (
           <ul className="space-y-4">
             {reviews.map((review, index) => (
@@ -35,7 +35,7 @@ export const ProductReview = ({ product }: Props) => {
       {user?.id ? (
         <ReviewForm productId={product.id} buyerId={user.id} />
       ) : (
-        <p className="text-sm text-gray-500 italic">Please log in to leave a review.</p>
+        <p className="text-sm text-gray-500 italic">Silahkan login untuk meninggalkan komentar.</p>
       )}
     </div>
   );

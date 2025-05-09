@@ -1,5 +1,5 @@
 "use client";
-import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { useCallback, useRef, useEffect } from "react";
 import categoryData from "../../Shared/DummyData/categoryData";
 import Image from "next/image";
@@ -10,7 +10,7 @@ import "swiper/css";
 import SingleItem from "./SingleItem";
 
 const Categories = () => {
-  const sliderRef = useRef<SwiperRef>(null);
+  const sliderRef = useRef(null);
 
   const handlePrev = useCallback(() => {
     if (!sliderRef.current) return;
@@ -70,10 +70,10 @@ const Categories = () => {
                     </clipPath>
                   </defs>
                 </svg>
-                Cari berdasarkan kategori
+                Categories
               </span>
               <h2 className="font-semibold text-xl xl:text-heading-5 text-dark">
-                Kategori
+                Browse by Category
               </h2>
             </div>
 

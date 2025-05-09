@@ -1,32 +1,45 @@
 import shopData from '@/components/Shared/DummyData/shopData';
+import { defaultProduct, Product } from '@/types/product';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface SearchState {
-  products: never[];
+  products: Product[] | null;
   length: number;
   recentSearches: string[];
   currentQuery: string;
+  loading: boolean;
+  error: string | null;
 }
 
 const initialState: SearchState = {
     recentSearches: [],
     currentQuery: "",
-    products: [],
-    length: 0
+    products: null,
+    length: 0,
+    loading: false,
+    error: null,
 };
 
 const MAX_RECENTS = 5;
 
-
-export const performSearch = createAsyncThunk(
+//for dummy
+export const performSearch = createAsyncThunk<Product[], string>(
     'search/performSearch',
     async (query: string) => {
       const allProducts = shopData; 
-      return allProducts.filter(p => p.title.toLowerCase().includes(query.toLowerCase()));
+      return allProducts.filter(p => 
+        p.title.toLowerCase().includes(query.toLowerCase()));
     }
   );
-  
-
+//for real BE
+// export const performSearch = createAsyncThunk<Product[], string>(
+//   "search/performSearch",
+//   async (query) => {
+//     const res = await fetch(`/api/search?query=${encodeURIComponent(query)}`);
+//     if (!res.ok) throw new Error("Search failed");
+//     return await res.json();
+//   }
+// );
   const searchSlice = createSlice({
     name: 'searchslice',
     initialState,
@@ -51,6 +64,22 @@ export const performSearch = createAsyncThunk(
     clearRecentSearches(state) {
       state.recentSearches = [];
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(performSearch.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(performSearch.fulfilled, (state, action) => {
+        state.products = action.payload;
+        state.length = action.payload.length;
+        state.loading = false;
+      })
+      .addCase(performSearch.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to search";
+      });
   },
 });
   

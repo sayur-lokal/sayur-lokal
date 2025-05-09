@@ -1,5 +1,5 @@
 "use client";
-import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { useCallback, useRef } from "react";
 import testimonialsData from "./testimonialsData";
 import Image from "next/image";
@@ -10,7 +10,7 @@ import "swiper/css";
 import SingleItem from "./SingleItem";
 
 const Testimonials = () => {
-  const sliderRef = useRef<SwiperRef>(null);
+  const sliderRef = useRef(null);
 
   const handlePrev = useCallback(() => {
     if (!sliderRef.current) return;
@@ -37,10 +37,10 @@ const Testimonials = () => {
                     width={17}
                     height={17}
                   />
-                  Ulasan
+                  Testimonials
                 </span>
                 <h2 className="font-semibold text-xl xl:text-heading-5 text-dark">
-                  Kata Mereka
+                  User Feedbacks
                 </h2>
               </div>
 

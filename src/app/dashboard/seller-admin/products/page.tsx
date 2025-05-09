@@ -11,7 +11,7 @@ interface SellerProduct extends Product {
 // Dummy products data based on sellerProductData.ts
 const dummyProducts: SellerProduct[] = [
   {
-    title: 'Telur Ayam Fresh 1 Krat isi 30 pcs',
+    title: 'Telur Ayam Fresh 1 Krat isi 30pcs',
     reviews: [],
     price: 59000.0,
     discountedPrice: 57000.0,
