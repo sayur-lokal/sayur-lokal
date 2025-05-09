@@ -27,7 +27,7 @@ const Loading = () => {
                                 </div>
                             </div>
                             <p className="flex-1 flex flex-row gap-2 w-full items-center justify-center"><LoaderCircle className="w-4 h-4 animate-spin" /> <span>loading products</span> </p>
-                            <Pagination />
+                            <Pagination currentPage={1} maxPages={1} />
                         </div>
                     </div>
                 </div>

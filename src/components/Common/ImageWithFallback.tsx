@@ -26,6 +26,7 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
       // If src is not a string, use fallback
       setError(true);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [src]);
 
   // Handle image load error

@@ -17,7 +17,7 @@ import ProductPrice from '@/components/Shared/InfoProps/ProductPrice';
 const SingleItem = ({ item }: { item: Product }) => {
   const [hasPreviews, setHasPreviews] = useState<boolean>(false);
   useEffect(() => {
-    setHasPreviews(!!(item.imgs && item.imgs.length > 0 && item.imgs[0].previews && item.imgs[0].previews.length > 0));
+    setHasPreviews(!!(item.imgs && item.imgs.previews.length > 0));
   }, [item]);
   const { openModal } = useModalContext();
   const dispatch = useDispatch<AppDispatch>();

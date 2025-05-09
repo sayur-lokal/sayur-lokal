@@ -13,7 +13,7 @@ export const SearchBox = () => {
     const dispatch = useDispatch<AppDispatch>();
     const router = useRouter();
     const currentQuery = useAppSelector((state) => state.searchslice.currentQuery);
-    const recentSearched = useAppSelector((state) => state.searchslice.recentSearched);
+    const recentSearched = useAppSelector((state) => state.searchslice.recentSearches);
   
 
     const handleSearch = (term: string) => {

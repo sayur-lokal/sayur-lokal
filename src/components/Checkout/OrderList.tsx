@@ -32,7 +32,7 @@ const OrderList = () => {
                     </div>
                 </div>
 
-                {cartItems.map((item: CartItem) => <Product key={item.id} name={item.title} price={item.price} />)}
+                {cartItems.map((item: CartItem) => <Product key={item.product.id} name={item.product.title} price={item.product.price} />)}
 
 
                 {/* <!-- product item --> */}

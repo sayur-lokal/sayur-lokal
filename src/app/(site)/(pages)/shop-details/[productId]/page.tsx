@@ -2,24 +2,19 @@ import React from "react";
 import ShopDetails from "@/components/ShopDetails";
 import { Metadata } from "next";
 
-interface Props {
-  params: { productId: string };
-}
-
 export const metadata: Metadata = {
   title: "Shop Details Page | sayurlokal",
   description: "This is Shop Details Page for sayurlokal",
   // other metadata
 };
 
-interface Props {
-  params: {
-    productId: string;
-  };
-}
-
-export default function ShopDetailsPage({ params }: Props) {
-  const { productId } = params;
+export default async function ShopDetailsPage({
+  params,
+}: {
+  params: Promise<{ productId: string }>;
+}) {
+  const resolvedParams = await params;
+  const { productId } = resolvedParams;
 
   return (
     <main>

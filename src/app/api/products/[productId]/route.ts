@@ -4,9 +4,10 @@ import { NextResponse, NextRequest } from "next/server";
 
 export async function GET(
     req: NextRequest,
-    context: { params: { productId: string } }
+    context: { params: Promise<{ productId: string }> }
   ) {
-    const { productId } = context.params;
+    const resolvedParams = await context.params;
+    const { productId } = resolvedParams;
   
     if (!productId) {
       return NextResponse.json({ error: "Missing productId" }, { status: 400 });
