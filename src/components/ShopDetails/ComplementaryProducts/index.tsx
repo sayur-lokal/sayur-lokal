@@ -19,11 +19,6 @@ interface Props {
 
 const ComplementaryProducts: React.FC<Props> = ({ currentProduct }) => {
   const complementaryItems = useComplementaryProducts(currentProduct, shopData);
-<<<<<<< HEAD
- 
-=======
-  // const recentlyViewed = useAppSelector((state) => state.recentlyviewdslice.items);
->>>>>>> e03a624 (wip/search-&-complementary)
 
   const sliderRef = useRef(null);
 
@@ -110,7 +105,7 @@ const ComplementaryProducts: React.FC<Props> = ({ currentProduct }) => {
                 <ProductItem item={item} />
               </SwiperSlide>
             ))}
-          </Swiper>
+          </Swiper>    
         </div>
       </div>
     </section>
