@@ -1,21 +1,21 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import Breadcrumb from '../Common/Breadcrumb';
-import Image from 'next/image';
-import Newsletter from '../Common/Newsletter';
-import ComplementaryProducts from './ComplementaryProducts';
-import { usePreviewSlider } from '@/app/context/PreviewSliderContext';
-import { useAppSelector, AppDispatch } from '@/redux/store';
-import { useDispatch } from 'react-redux';
-import { ProductReview } from '../Review/ProductReview';
-import ProductAttributes from '../Shared/InfoProps/ProductAttrb';
-import ProductTitle from '../Shared/InfoProps/ProductTitle';
-import ProductPrice from '../Shared/InfoProps/ProductPrice';
-import { ProductRating } from '../../lib/rating';
-// import { useParams } from "next/navigation";
-import { fetchProductById } from '@/redux/features/product-details';
-import { StarRatingDisplay } from '../Review';
-import SimilarProducts from './ComplementaryProducts/SimilarProducts';
+import React, { useEffect, useState } from "react";
+import Breadcrumb from "../Common/Breadcrumb";
+import Image from "next/image";
+import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
+import { useAppSelector, AppDispatch } from "@/redux/store";
+import { useDispatch } from "react-redux";
+import { ProductReview } from "../Review/ProductReview";
+import ProductAttributes from "../Shared/InfoProps/ProductAttrb";
+import ProductTitle from "../Shared/InfoProps/ProductTitle";
+import ProductPrice from "../Shared/InfoProps/ProductPrice";
+import { ProductRating } from "../../lib/rating";
+import { fetchProductById } from "@/redux/features/product-details";
+import { StarRatingDisplay } from "../Review";
+import { addRecentlyViewd } from "@/redux/features/recentlyViewd-slice";
+import ComplementaryProducts from "./ComplementaryProducts";
+import SimilarProducts from "./ComplementaryProducts/SimilarProducts";
+
 
 interface ShopDetailsProps {
   productId: string;
@@ -32,10 +32,11 @@ const tabs = [
 ];
 
 const ShopDetails: React.FC<ShopDetailsProps> = ({ productId }) => {
-  // const { productId } = UseParams(); // Fetch productId from the dynamic route
   const dispatch = useDispatch<AppDispatch>();
 
-  const { currentProduct, loading, error } = useAppSelector((state) => state.detailprodslice);
+  const { currentProduct, loading, error  } = useAppSelector(
+    (state) => state.detailprodslice
+  );
 
   const { openPreviewModal } = usePreviewSlider();
   const [previewImg, setPreviewImg] = useState(0);
@@ -48,6 +49,14 @@ const ShopDetails: React.FC<ShopDetailsProps> = ({ productId }) => {
     }
   }, [dispatch, productId]);
   // pass the product here when you get the real data.
+
+
+  useEffect(() => {
+    if (currentProduct) {
+      dispatch(addRecentlyViewd(currentProduct));
+    }
+  }, [dispatch, currentProduct]);
+ 
 
   const handlePreviewSlider = () => {
     openPreviewModal();
@@ -107,16 +116,16 @@ const ShopDetails: React.FC<ShopDetailsProps> = ({ productId }) => {
             {/* Right Detail Section */}
             <div className="flex-1 max-w-[539px] w-full">
               <div className="flex items-center justify-between mb-3">
-                {/* <h2 className="font-semibold text-xl sm:text-2xl xl:text-custom-3 text-dark"> */}
-                <ProductTitle title={currentProduct.title} />
-                {/* link={`/shop-details/${product.id}`} */}
-                {/* </h2> */}
+                <ProductTitle title={currentProduct.title}  />
               </div>
 
               <div className="flex items-center gap-2 mt-2">
-                <StarRatingDisplay rating={ProductRating(currentProduct.reviews)} />
+              <StarRatingDisplay rating={ProductRating(currentProduct.reviews)}/>
+           
+                <span className="text-sm text-gray-500">
+                  ({currentProduct.reviews?.length} reviews)
+                </span>
 
-                <span className="text-sm text-gray-500">({currentProduct.reviews?.length ?? 0} reviews)</span>
               </div>
               <div className="mb-4">
                 <ProductPrice price={currentProduct.price} discountedPrice={currentProduct.discountedPrice} />
