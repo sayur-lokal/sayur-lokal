@@ -1,13 +1,13 @@
 'use client';
 import React, { useState, useEffect } from "react";
-import Breadcrumb from "../Common/Breadcrumb";
 import SortSelect from "./SortSelect";
 import DisplayModeToggle from "./DisplayModeToggle";
 import Content from "./Content";
 import Pagination from "./Pagination";
 import Sidebar from "./Sidebar";
+import { QueryResult } from "@/lib/products/query";
 
-const Products = ({ products }: {products: any}) => {
+const Products = ({ products }: {products: QueryResult}) => {
     const [displayMode, setDisplayMode] = useState<"grid" | "list">("grid");
 
     const [productSidebar, setProductSidebar] = useState(false);
@@ -62,7 +62,7 @@ const Products = ({ products }: {products: any}) => {
                                     <DisplayModeToggle disabled={false} displayMode={displayMode} setDisplayMode={setDisplayMode} />
                                 </div>
                             </div>
-                            <Content displayMode={displayMode} shopData={products} />
+                            <Content displayMode={displayMode} shopData={products.products} />
                             <Pagination />
                         </div>
                     </div>
