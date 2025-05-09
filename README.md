@@ -164,3 +164,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## Join Us
 
 Join us in building a healthier, more sustainable future. Let's connect local goodness with modern convenience.
+
+
+## Live version
+
+The website is live and accessible [here](https://varied-philippe-rkspx-a8834106.koyeb.app/)
