@@ -1,5 +1,5 @@
 "use client";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { useCallback, useRef } from "react";
 import "swiper/css/navigation";
 import "swiper/css";
@@ -11,9 +11,9 @@ import { useAppSelector } from "@/redux/store";
 const PreviewSliderModal = () => {
   const { closePreviewModal, isModalPreviewOpen } = usePreviewSlider();
 
-  const data = useAppSelector((state) => state.detailprodslice.value);
+  const data = useAppSelector((state) => state.detailprodslice.currentProduct);
 
-  const sliderRef = useRef(null);
+  const sliderRef = useRef<SwiperRef>(null);
 
   const handlePrev = useCallback(() => {
     if (!sliderRef.current) return;

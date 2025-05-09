@@ -2,8 +2,12 @@ import { NextURL } from "next/dist/server/web/next-url";
 import { NextResponse, NextRequest } from "next/server";
 
 export const isJSONContent = (request: NextRequest): boolean => {
+    if (!request.headers.has("content-type")) {
+        return false;
+    }
+
   return request.headers
-    .get("content-type")
+    .get("content-type")!
     .toLowerCase()
     .includes("application/json");
 };

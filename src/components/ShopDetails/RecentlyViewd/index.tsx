@@ -5,13 +5,13 @@ import ProductItem from "@/components/Common/ProductItem";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { useCallback, useRef } from "react";
 import "swiper/css/navigation";
 import "swiper/css";
 
 const RecentlyViewdItems = () => {
-  const sliderRef = useRef(null);
+  const sliderRef = useRef<SwiperRef>(null);
 
   const handlePrev = useCallback(() => {
     if (!sliderRef.current) return;

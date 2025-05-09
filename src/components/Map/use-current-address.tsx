@@ -126,6 +126,7 @@ const UseCurrentAddress = () => {
 
     useEffect(() => {
         refresh();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return {state, reverseGeocode, refresh}
