@@ -7,7 +7,6 @@ import { addItemToCart } from '@/redux/features/cart-slice';
 import { addItemToWishlist } from '@/redux/features/wishlist-slice';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
-import Link from 'next/link';
 import Image from 'next/image';
 import { calculateRating } from '../../lib/rating';
 import ProductPrice from '../Shared/InfoProps/ProductPrice';
@@ -19,7 +18,7 @@ const SingleGridItem = ({ item }: { item: Product }) => {
 
   const [hasPreviews, setHasPreviews] = useState<boolean>(false);
   useEffect(() => {
-    setHasPreviews(!!(item.imgs && item.imgs.length > 0 && item.imgs[0].previews && item.imgs[0].previews.length > 0));
+    setHasPreviews(!!(item.imgs && item.imgs.previews && item.imgs.previews.length > 0));
   }, [item]);
 
   const dispatch = useDispatch<AppDispatch>();
@@ -105,9 +104,6 @@ const SingleGridItem = ({ item }: { item: Product }) => {
       <div className="flex items-center gap-2.5 mb-2">
         <div className="flex items-center gap-1">
           <StarRatingDisplay rating={calculateRating(item.reviews)} />
-                  {/* <span className="text-sm text-gray-500">
-                    ({item.reviews?.length || 0} reviews)
-                  </span> */}
         </div>
       </div>
       
