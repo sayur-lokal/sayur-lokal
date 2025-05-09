@@ -83,11 +83,13 @@ export const queryProducts = async(query: Query): Promise<QueryResult> => {
 
 
 const hasAtleastOne = (a1: string[], a2: string[]): boolean => {
-    for (const a of a1) {
-        if (a2.includes(a)) {
+    const lowerA1 = a1.map(a => a.toLowerCase());
+    const lowerA2 = a2.map(a => a.toLowerCase());
+    
+    for (const a of lowerA1) {
+        if (lowerA2.includes(a)) {
             return true
         }
-
     }
     return false
 }

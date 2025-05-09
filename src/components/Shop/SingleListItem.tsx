@@ -9,7 +9,7 @@ import { addItemToWishlist } from '@/redux/features/wishlist-slice';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
 import Link from 'next/link';
-import Image from 'next/image';
+import ImageWithFallback from '../Common/ImageWithFallback';
 
 import ProductTitle from '../Shared/InfoProps/ProductTitle';
 import ProductPrice from '../Shared/InfoProps/ProductPrice';
@@ -53,7 +53,12 @@ const SingleListItem = ({ item }: { item: Product }) => {
     <div className="group rounded-lg bg-white shadow-1">
       <div className="flex">
         <div className="shadow-list relative overflow-hidden flex items-center justify-center max-w-[270px] w-full sm:min-h-[270px] p-4">
-          {hasPreviews ? <Image src={item.imgs!.previews[0]} alt="" width={250} height={250} /> : null}
+          <ImageWithFallback
+            src={hasPreviews && item.imgs?.previews?.[0] ? item.imgs.previews[0] : "/images/placeholder_640_640.svg"}
+            alt={item.title || "Product image"}
+            width={640}
+            height={640}
+          />
 
           <div className="absolute left-0 bottom-0 translate-y-full w-full flex items-center justify-center gap-2.5 pb-5 ease-linear duration-200 group-hover:translate-y-0">
             <button

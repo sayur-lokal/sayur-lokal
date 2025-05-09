@@ -1,7 +1,7 @@
 
 'use client';
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import ImageWithFallback from './ImageWithFallback';
 import { Product } from '@/types/product';
 import { useModalContext } from '@/app/context/QuickViewModalContext';
 import { updateQuickView } from '@/redux/features/quickView-slice';
@@ -59,7 +59,13 @@ const ProductItem = ({ item }: { item: Product }) => {
   return (
     <div className="group">
       <div className="relative overflow-hidden flex items-center justify-center rounded-lg bg-[#F6F7FB] min-h-[270px] mb-4">
-        {hasPreviews ? <Image src={item.imgs!.previews[0]} alt="" width={250} height={250} className="aspect-square object-contain" /> : null}
+        <ImageWithFallback
+          src={hasPreviews && item.imgs?.previews?.[0] ? item.imgs.previews[0] : "/images/placeholder_640_640.svg"}
+          alt={item.title || "Product image"}
+          width={250}
+          height={250}
+          className="aspect-square object-contain"
+        />
 
         <div className="absolute left-0 bottom-0 translate-y-full w-full flex items-center justify-center gap-2.5 pb-5 ease-linear duration-200 group-hover:translate-y-0">
           <button
