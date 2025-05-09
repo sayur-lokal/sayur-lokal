@@ -21,11 +21,11 @@ export const parseProduct = (raw: any): Product => {
 const ProductImageSchema = z
   .object({
     thumbnails: z
-      .array(z.string())
+      .array(z.string().url("Invalid thumbnail URL"))
       .min(1, "At least one thumbnail URL is required")
       .describe("list of thumbnail image URLs"),
     previews: z
-      .array(z.string())
+      .array(z.string().url("Invalid preview URL"))
       .min(1, "At least one preview URL is required")
       .describe("list of preview image URLs"),
   })
@@ -43,7 +43,8 @@ export const productSchema = z
       .max(255, "Title cannot exceed 255 characters")
       .describe("title of the product"),
     reviews: z.array(reviewSchema)
-      .describe("number of reviews for the product"),
+      .describe("number of reviews for the product")
+      .optional(),
     price: z
       .number()
       .nonnegative("Price cannot be negative")
@@ -55,14 +56,20 @@ export const productSchema = z
     category: z.union([
       commaSeparatedStringArray,
       z.array(z.string())
-    ]).describe(
-      "the category list of the product"
-    ),
+    ])
+      .optional()
+      .describe("Tags for flexible categorization/labels, e.g., cocok dibeli barengan, produk serupa, promo, etc"),
     shopId: z
       .number()
       .int("Shop ID must be an integer")
       .positive("Shop ID must be positive")
       .describe("ID of the shop selling the product"),
+    stock: z
+      .number()
+      .int("Stock must be an integer")
+      .nonnegative("Stock cannot be negative")
+      .optional()
+      .describe("Available quantity of the product"),
     description: z
       .string()
       .max(1000, "Description cannot exceed 1000 characters")
@@ -83,13 +90,8 @@ export const productSchema = z
       productType: z.enum(["standard", "premium"]).optional().describe("e.g. eco-friendly/organic"),
       isEcoFriendly: z.boolean().optional(),
       isOrganic: z.boolean().optional(),
+      description: z.string().optional(),
     }).optional(),
-    // rating: z
-    // .number()
-    // .min(0, "Rating cannot be negative")
-    // .max(5, "Rating cannot exceed 5")
-    // .optional()
-    // .describe("average product rating (0-5)"),
   })
   .refine((data) => data.discountedPrice <= data.price, {
     message: "Discounted price cannot be greater than the original price",
@@ -106,6 +108,7 @@ export const defaultProduct = (): Product => ({
     category: ["0"],
     shopId: 0,
     id: "",
+    stock: 0,
     description: "",
     createdAt: "",
     imgs: {
@@ -117,11 +120,12 @@ export const defaultProduct = (): Product => ({
     isEcoFriendly: false,
     isOrganic: false,
     },
-    ingredients: [],// only for meal kits
+    ingredients: [""],// only for meal kits
     reviews: [{
       productId: "", 
       buyerId: "",   
       rating: 0,
-      createdAt: new Date().toISOString()
+      comment: "",
+      createdAt: new Date().toISOString(),
     }],
   })

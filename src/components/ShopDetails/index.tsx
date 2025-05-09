@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Breadcrumb from '../Common/Breadcrumb';
 import Image from 'next/image';
 import Newsletter from '../Common/Newsletter';
-import RecentlyViewdItems from './RecentlyViewd';
+import ComplementaryProducts from './ComplementaryProducts';
 import { usePreviewSlider } from '@/app/context/PreviewSliderContext';
 import { useAppSelector, AppDispatch } from '@/redux/store';
 import { useDispatch } from 'react-redux';
@@ -15,6 +15,7 @@ import { ProductRating } from '../../lib/rating';
 // import { useParams } from "next/navigation";
 import { fetchProductById } from '@/redux/features/product-details';
 import { StarRatingDisplay } from '../Review';
+import SimilarProducts from './ComplementaryProducts/SimilarProducts';
 
 interface ShopDetailsProps {
   productId: string;
@@ -24,6 +25,7 @@ const tabs = [
   { id: 'description', title: 'Deskripsi' },
   { id: 'attributes', title: 'Spesifikasi Produk' },
   { id: 'reviews', title: 'Ulasan' },
+
   // { id: "related", title: "Cocok Dibeli Barengan" },
   // { id: "similar", title: "Produk Serupa Lainnya" },
   // { id: "description", title: "Informasi Produk" },
@@ -114,7 +116,7 @@ const ShopDetails: React.FC<ShopDetailsProps> = ({ productId }) => {
               <div className="flex items-center gap-2 mt-2">
                 <StarRatingDisplay rating={ProductRating(currentProduct.reviews)} />
 
-                <span className="text-sm text-gray-500">({currentProduct.reviews.length} reviews)</span>
+                <span className="text-sm text-gray-500">({currentProduct.reviews?.length ?? 0} reviews)</span>
               </div>
               <div className="mb-4">
                 <ProductPrice price={currentProduct.price} discountedPrice={currentProduct.discountedPrice} />
@@ -198,7 +200,8 @@ const ShopDetails: React.FC<ShopDetailsProps> = ({ productId }) => {
             </div>
           </section>
 
-          <RecentlyViewdItems />
+          <ComplementaryProducts currentProduct={currentProduct}/>
+          <SimilarProducts currentProduct={currentProduct}/>
         </div>
       </section>
     </>

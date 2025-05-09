@@ -9,11 +9,13 @@ import currentUserReducer from "./features/currentUser-slice";
 import reviewReducer from "./features/review-slice";
 import sellerInventoryReducer from "./features/sellerInventory-slice";
 import searchReducer from "./features/search-slice";
+import recentlyViewdReducer from "./features/recentlyViewd-slice";
 
 export const store = configureStore({
   reducer: {
     searchslice: searchReducer,
     viewslice: quickViewReducer,
+    recentlyviewdslice: recentlyViewdReducer,
     cartslice: cartReducer,
     wishslice: wishlistReducer,
     detailprodslice: productDetailReducer,

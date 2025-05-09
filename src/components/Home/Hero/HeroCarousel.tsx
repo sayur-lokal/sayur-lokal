@@ -7,7 +7,6 @@ import 'swiper/css/pagination';
 import 'swiper/css';
 
 import Image from 'next/image';
-import Link from "next/link";
 
 const HeroCarousal = () => {
   return (
@@ -37,14 +36,14 @@ const HeroCarousal = () => {
             </div>
 
             <h1 className="font-semibold text-dark text-xl sm:text-3xl mb-3">
-              <a href="#">Paket Sayur Asem</a>
+              <a href="#">Sayur Asem Meal Kit</a>
             </h1>
 
-            <p>Paket komplit sayur asem segar, siap masak dengan rasa asam segar khas rumahan.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at ipsum at risus euismod lobortis in</p>
 
-            <Link href="/shop-details/21" className="inline-flex font-medium text-white text-custom-sm rounded-md bg-green-dark py-3 px-9 ease-out duration-200 hover:bg-[#1A693A] mt-10">
-              Belanja Sekarang!
-            </Link>
+            <a href="#" className="inline-flex font-medium text-white text-custom-sm rounded-md bg-green-dark py-3 px-9 ease-out duration-200 hover:bg-[#1A693A] mt-10">
+              Shop Now
+            </a>
           </div>
 
           <div>
@@ -66,14 +65,14 @@ const HeroCarousal = () => {
             </div>
 
             <h1 className="font-semibold text-dark text-xl sm:text-3xl mb-3">
-              <a href="#">Paket Sayur Sop</a>
+              <a href="#">Sayur Sop Meal Kits</a>
             </h1>
 
-            <p>Paket lengkap sayur segar untuk masak sayur sop praktis, sehat, dan hemat waktu.</p>
+            <p>Lorem ipsum dolor sit, consectetur elit nunc suscipit non ipsum nec suscipit.</p>
 
-            <Link href="/shop-details/22" className="inline-flex font-medium text-white text-custom-sm rounded-md bg-green-dark py-3 px-9 ease-out duration-200 hover:bg-[#1A693A] mt-10">
-              Belanja Sekarang!
-            </Link>
+            <a href="#" className="inline-flex font-medium text-white text-custom-sm rounded-md bg-green-dark py-3 px-9 ease-out duration-200 hover:bg-[#1A693A] mt-10">
+              Shop Now
+            </a>
           </div>
 
           <div>

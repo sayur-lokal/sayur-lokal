@@ -17,7 +17,7 @@ import ProductPrice from '@/components/Shared/InfoProps/ProductPrice';
 const SingleItem = ({ item }: { item: Product }) => {
   const [hasPreviews, setHasPreviews] = useState<boolean>(false);
   useEffect(() => {
-    setHasPreviews(!!(item.imgs && item.imgs.previews.length > 0));
+    setHasPreviews(!!(item.imgs && item.imgs.length > 0 && item.imgs[0].previews && item.imgs[0].previews.length > 0));
   }, [item]);
   const { openModal } = useModalContext();
   const dispatch = useDispatch<AppDispatch>();
@@ -53,7 +53,7 @@ const SingleItem = ({ item }: { item: Product }) => {
         <div className="text-center px-4 py-7.5">
           <div className="flex items-center justify-center gap-2.5 mb-2">
             <div className="flex items-center gap-1">
-              <StarRatingDisplay rating={calculateRating(item.reviews)} />
+              <StarRatingDisplay rating={calculateRating(item.reviews)}/>
             </div>
               <span className="text-sm text-gray-500">
                     ({item.reviews?.length || 0} reviews)

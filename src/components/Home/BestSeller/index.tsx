@@ -6,7 +6,7 @@ import shopData from "@/components/Shared/DummyData/shopData";
 
 const BestSeller = () => {
   return (
-    <section className="overflow-hidden py-20">
+    <section className="overflow-hidden">
       <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
         {/* <!-- section title --> */}
         <div className="mb-10 flex items-center justify-between">
@@ -21,7 +21,7 @@ const BestSeller = () => {
               Bulan ini
             </span>
             <h2 className="font-semibold text-xl xl:text-heading-5 text-dark">
-              Terlaris di Sayur Lokal
+              Terlaris di sayurlokal
             </h2>
           </div>
         </div>
@@ -35,7 +35,7 @@ const BestSeller = () => {
 
         <div className="text-center mt-12.5">
           <Link
-            href="/products?sortBy=sales"
+            href="/best-seller"
             className="inline-flex font-medium text-custom-sm py-3 px-7 sm:px-12.5 rounded-md border-gray-3 border bg-gray-1 text-dark ease-out duration-200 hover:bg-[#1A693A] hover:text-white hover:border-transparent"
           >
             View All

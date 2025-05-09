@@ -4,14 +4,24 @@ import shopData from "@/components/Shared/DummyData/shopData";
 import ProductItem from "@/components/Common/ProductItem";
 import Image from "next/image";
 import Link from "next/link";
-
-import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { useCallback, useRef } from "react";
 import "swiper/css/navigation";
 import "swiper/css";
+import { Product } from "@/types/product";
+import { useComplementaryProducts } from "@/hooks/useComplementaryProducts.ts";
 
-const RecentlyViewdItems = () => {
-  const sliderRef = useRef<SwiperRef>(null);
+
+
+interface Props {
+  currentProduct: Product;
+}
+
+const ComplementaryProducts: React.FC<Props> = ({ currentProduct }) => {
+  const complementaryItems = useComplementaryProducts(currentProduct, shopData);
+ 
+
+  const sliderRef = useRef(null);
 
   const handlePrev = useCallback(() => {
     if (!sliderRef.current) return;
@@ -22,6 +32,8 @@ const RecentlyViewdItems = () => {
     if (!sliderRef.current) return;
     sliderRef.current.swiper.slideNext();
   }, []);
+
+  if (!complementaryItems.length) return null;
 
   return (
     <section className="overflow-hidden pt-17.5">
@@ -37,10 +49,10 @@ const RecentlyViewdItems = () => {
                   height={17}
                   alt="icon"
                 />
-                Categories
+                Complementary
               </span>
               <h2 className="font-semibold text-xl xl:text-heading-5 text-dark">
-                Browse by Category
+                Cocok DiBeli Barengan
               </h2>
             </div>
 
@@ -89,7 +101,7 @@ const RecentlyViewdItems = () => {
             spaceBetween={20}
             className="justify-between"
           >
-            {shopData.map((item, key) => (
+            {complementaryItems.map((item, key) => (
               <SwiperSlide key={key}>
                 <ProductItem item={item} />
               </SwiperSlide>
@@ -101,4 +113,4 @@ const RecentlyViewdItems = () => {
   );
 };
 
-export default RecentlyViewdItems;
+export default ComplementaryProducts;
