@@ -1,17 +1,12 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import CustomSelect from './CustomSelect';
-import { menuData } from './menuData';
-import Dropdown from '@/components/Dropdown';
-import { useAppSelector } from '@/redux/store';
-import { useSelector } from 'react-redux';
-import { selectTotalPrice } from '@/redux/features/cart-slice';
 import { useCartModalContext } from '@/app/context/CartSidebarModalContext';
 import Image from 'next/image';
 import CurrentUserButton from '@/components/Auth/CurrentUser';
 import Cart from './Cart';
 import CurrentLocation from '../Map/current-location';
+import CategorySelector from './CategorySelector';
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -36,20 +31,7 @@ const Header = () => {
     window.addEventListener('scroll', handleStickyMenu);
   });
 
-  const options = [
-    { label: "Semua Kategori", value: "0" },
-    { label: "Sembako", value: "1" },
-    { label: "Sayur", value: "2" },
-    { label: "Bumbu Dapur", value: "3" },
-    { label: "Buah", value: "4" },
-    { label: "Paket Masak", value: "5" },
-    { label: "Tanpa Kategori", value: "6" },
-    { label: "Siap Saji", value: "7" },
-    { label: "Protein", value: "8" },
-    { label: "Sarapan", value: "9" },
-    { label: "Harga Grosir", value: "10" },
-
-  ];
+  
 
   return (
     <header className={`fixed left-0 top-0 w-full z-9999 bg-white transition-all ease-in-out duration-300 ${stickyMenu && 'shadow'}`}>
@@ -65,7 +47,7 @@ const Header = () => {
             <div className="max-w-[475px] w-full">
               <form>
                 <div className="flex items-center">
-                  <CustomSelect options={options} />
+                  <CategorySelector />
 
                   <div className="relative max-w-[333px] sm:min-w-[333px] w-full">
                     {/* <!-- divider --> */}
