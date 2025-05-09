@@ -67,7 +67,7 @@ const Footer = () => {
                       fill="#D75A4A"
                     />
                   </svg>
-                  sayurlokal@example.com
+                  hello@sayurlokal.co.id
                 </a>
               </li>
             </ul>
