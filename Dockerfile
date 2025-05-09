@@ -19,7 +19,7 @@ COPY . .
 RUN bun run build
 
 # Stage 2: Production
-FROM oven/bun:latest-slim AS runner
+FROM oven/bun:slim AS runner
 
 WORKDIR /app
 
