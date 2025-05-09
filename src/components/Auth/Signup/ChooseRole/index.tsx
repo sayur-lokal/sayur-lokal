@@ -1,22 +1,6 @@
-'use client';
-
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const RegisterRoleSelection = () => {
-  const router = useRouter();
-  const [selectedRole, setSelectedRole] = useState<string | null>(null);
-
-  const handleRoleSelect = (role: string) => {
-    setSelectedRole(role);
-  };
-
-  const handleContinue = () => {
-    if (selectedRole) {
-      router.push(`/signup/${selectedRole}`);
-    }
-  };
 
   return (
     <>
@@ -29,38 +13,25 @@ const RegisterRoleSelection = () => {
             </div>
 
             <div className="mt-8 space-y-6">
-              <div className="space-y-4">
-                <div className={`border rounded-lg p-4 cursor-pointer ${selectedRole === 'buyer' ? 'border-green-dark bg-green-light-6' : 'border-gray-4'}`} onClick={() => handleRoleSelect('buyer')}>
-                  <div className="flex items-center">
-                    <div className="ml-3">
-                      <h3 className="text-lg font-medium text-dark">Buyer</h3>
-                      <p className="text-sm text-gray-6">I want to shop and purchase products</p>
-                    </div>
-                  </div>
-                </div>
 
-                <div className={`border rounded-lg p-4 cursor-pointer ${selectedRole === 'seller' ? 'border-green-dark bg-green-light-6' : 'border-gray-4'}`} onClick={() => handleRoleSelect('seller')}>
-                  <div className="flex items-center">
-                    <div className="ml-3">
-                      <h3 className="text-lg font-medium text-dark">Seller</h3>
-                      <p className="text-sm text-gray-6">I want to create a shop and sell products</p>
-                    </div>
-                  </div>
-                </div>
+              <div className="mt-8 space-y-6">
+              <div className="space-y-4">
+                <Link href="/signup/buyer" className="group hover:bg-[#1A693A] hover:border-green-dark border py-4 px-8 flex flex-col items-start justify-center rounded-lg border-gray-4 hover:bg-gray-100 transition duration-200 ease-in-out">
+                      <h3 className="text-lg font-medium text-dark group-hover:text-white">Penjual</h3>
+                      <p className="text-sm text-gray-6 group-hover:text-gray-3">Saya ingin belanja dan mencari produk</p>
+                </Link>
+
+                <Link href="/signup/seller" className="group hover:bg-[#1A693A] hover:border-green-dark border py-4 px-8 flex flex-col items-start justify-center rounded-lg border-gray-4 hover:bg-gray-100 transition duration-200 ease-in-out">
+                      <h3 className="text-lg font-medium text-dark group-hover:text-white">Pembeli</h3>
+                      <p className="text-sm text-gray-6 group-hover:text-gray-3">Saya ingin membuka toko online dan menjual produk</p>
+                </Link>
+              </div>
               </div>
 
-              <button
-                className="w-full flex justify-center font-medium text-white bg-green-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-[#1A693A] mt-7.5 disabled:pointer-events-none disabled:opacity-50"
-                onClick={handleContinue}
-                disabled={!selectedRole}
-              >
-                Continue
-              </button>
-
               <p className="text-center mt-6">
-                Already have an account?
-                <Link href="/signin" className="text-dark ease-out duration-200 hover:text-[#D75A4A] pl-2">
-                  Sign in Now
+                Sudah punya akun?
+                <Link href="/signin" className="underline font-medium ease-out duration-200 text-[#1A693A] hover:text-[#D75A4A] pl-2">
+                  Masuk dengan akun
                 </Link>
               </p>
             </div>
