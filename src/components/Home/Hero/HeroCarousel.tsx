@@ -7,6 +7,7 @@ import 'swiper/css/pagination';
 import 'swiper/css';
 
 import Image from 'next/image';
+import Link from "next/link";
 
 const HeroCarousal = () => {
   return (
@@ -41,9 +42,9 @@ const HeroCarousal = () => {
 
             <p>Paket komplit sayur asem segar, siap masak dengan rasa asam segar khas rumahan.</p>
 
-            <a href="#" className="inline-flex font-medium text-white text-custom-sm rounded-md bg-green-dark py-3 px-9 ease-out duration-200 hover:bg-[#1A693A] mt-10">
+            <Link href="/shop-details/21" className="inline-flex font-medium text-white text-custom-sm rounded-md bg-green-dark py-3 px-9 ease-out duration-200 hover:bg-[#1A693A] mt-10">
               Belanja Sekarang!
-            </a>
+            </Link>
           </div>
 
           <div>
@@ -70,9 +71,9 @@ const HeroCarousal = () => {
 
             <p>Paket lengkap sayur segar untuk masak sayur sop praktis, sehat, dan hemat waktu.</p>
 
-            <a href="#" className="inline-flex font-medium text-white text-custom-sm rounded-md bg-green-dark py-3 px-9 ease-out duration-200 hover:bg-[#1A693A] mt-10">
+            <Link href="/shop-details/22" className="inline-flex font-medium text-white text-custom-sm rounded-md bg-green-dark py-3 px-9 ease-out duration-200 hover:bg-[#1A693A] mt-10">
               Belanja Sekarang!
-            </a>
+            </Link>
           </div>
 
           <div>
