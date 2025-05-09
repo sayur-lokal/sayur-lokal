@@ -39,6 +39,10 @@ const SearchPage = () => {
     </div>
   );
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 71f575c (wip/search-dynamic)
 
   
 export default SearchPage;

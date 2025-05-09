@@ -119,6 +119,7 @@ export const defaultProduct = (): Product => ({
     productType: "standard", // e.g. eco-friendly/organic
     isEcoFriendly: false,
     isOrganic: false,
+    description: "",
     },
     ingredients: [""],// only for meal kits
     reviews: [{

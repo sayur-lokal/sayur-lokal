@@ -13,7 +13,7 @@ import { ProductRating } from "../../lib/rating";
 import { fetchProductById } from "@/redux/features/product-details";
 import { StarRatingDisplay } from "../Review";
 import { addRecentlyViewd } from "@/redux/features/recentlyViewd-slice";
-import ComplementaryProducts from "./ComplementaryProducts";
+import ComplementaryProducts from "./ComplementaryProducts/index";
 import SimilarProducts from "./ComplementaryProducts/SimilarProducts";
 
 

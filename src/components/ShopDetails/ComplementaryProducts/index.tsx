@@ -20,6 +20,7 @@ interface Props {
 const ComplementaryProducts: React.FC<Props> = ({ currentProduct }) => {
   const complementaryItems = useComplementaryProducts(currentProduct, shopData);
 
+
   const sliderRef = useRef(null);
 
   const handlePrev = useCallback(() => {
@@ -105,7 +106,7 @@ const ComplementaryProducts: React.FC<Props> = ({ currentProduct }) => {
                 <ProductItem item={item} />
               </SwiperSlide>
             ))}
-          </Swiper>    
+            </Swiper>
         </div>
       </div>
     </section>
