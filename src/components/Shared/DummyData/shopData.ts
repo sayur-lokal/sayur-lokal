@@ -6,7 +6,7 @@ export const shopData: Product[] = [
   
  //staples,1
   {
-    title: "Telur Ayam Fresh 1 Krat isi 30pcs",
+    title: "Telur Ayam Fresh 1 Krat isi 30 pcs",
     reviews: [{productId: "1", buyerId: "user2", rating: 5, createdAt: new Date().toISOString()},],
     price: 59000.0,
     discountedPrice: 57000.0,
@@ -183,7 +183,7 @@ export const shopData: Product[] = [
     createdAt: "2023-10-26T10:00:00Z", // Placeholder createdAt
   },
   {
-    title: "Labu Siam 1pcs, 250 gr",
+    title: "Labu Siam 250 gr/pcs",
     reviews: [],
     price: 5000.0,
     discountedPrice: 3000.0,
@@ -514,7 +514,7 @@ export const shopData: Product[] = [
   },
   //meal kits,5
   {
-    title: "Paket Masak Sayur Asem Lengkap(Meal Kits)",
+    title: "Paket Masak Sayur Asem Lengkap (Meal Kits)",
     reviews: [{productId: "21", buyerId: "user1", rating: 3.5, createdAt: new Date().toISOString()},
       {productId: "21", buyerId: "user2", rating: 4.5, createdAt: new Date().toISOString()}],
     price: 30000.0,
@@ -542,7 +542,7 @@ export const shopData: Product[] = [
     createdAt: "2023-10-26T10:00:00Z", // Placeholder createdAt
   },
   {
-    title: "Paket Masak Sayur Sop Lengkap(Meal Kits)",
+    title: "Paket Masak Sayur Sop Lengkap (Meal Kits)",
     reviews: [{productId: "22", buyerId: "user6", rating: 3.5, createdAt: new Date().toISOString()}],
     price: 25000.0,
     discountedPrice: 23000.0,
