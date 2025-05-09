@@ -17,7 +17,7 @@ const ShopWithoutSidebar = () => {
     const limit = Number(searchParams.get('limit')) || 10;
 
     setQuery({ ...query, page, limit });
-  }, [searchParams]);
+  }, [query, searchParams, setQuery]);
 
   const [productStyle, setProductStyle] = useState('grid');
 
@@ -52,8 +52,8 @@ const ShopWithoutSidebar = () => {
                       onClick={() => setProductStyle('grid')}
                       aria-label="button for product grid tab"
                       className={`${
-                        productStyle === 'grid' ? 'bg-[#1A8245] border-blue text-white' : 'text-dark bg-gray-1 border-gray-3'
-                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-[#1A693A] bg-green-dark  hover:text-white`}
+                        productStyle === 'grid' ? 'border-[#1A693A] text-white ' : 'text-[#1A693A] bg-gray-1 border-gray-3'
+                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border bg-[#1A693A] ease-out duration-200 hover:bg-[#1A693A] hover:border-[#1A693A] hover:text-white`}
                     >
                       <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -87,8 +87,8 @@ const ShopWithoutSidebar = () => {
                       onClick={() => setProductStyle('list')}
                       aria-label="button for product list tab"
                       className={`${
-                        productStyle === 'list' ? 'bg-[#1A8245] border-blue text-white' : 'text-dark bg-gray-1 border-gray-3'
-                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-[#1A693A] bg-green-dark  hover:text-white`}
+                        productStyle === 'list' ? 'border-[#1A693A] text-white ' : 'text-[#1A693A] bg-gray-1 border-gray-3'
+                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border bg-[#1A693A] ease-out duration-200 hover:bg-[#1A693A] hover:border-[#1A693A] hover:text-white`}
                     >
                       <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path

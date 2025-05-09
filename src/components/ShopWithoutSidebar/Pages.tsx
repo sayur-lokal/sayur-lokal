@@ -2,6 +2,7 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import Pagination from '../ShopWithSidebar/Pagination';
 
 const PAD_COUNT = 3;
 type PagesConfiguration = {
@@ -54,7 +55,7 @@ const Pages = ({ maxPages, currentPage }: { maxPages: number; currentPage: numbe
     <div className="flex justify-center mt-15">
       <div className="bg-white shadow-1 rounded-md p-2">
         <ul className="flex items-center">
-          <li>
+          <li className="mx-1">
             <button id="paginationLeft" aria-label="button for pagination left" type="button" disabled className="flex items-center justify-center w-8 h-9 ease-out duration-200 rounded-[3px disabled:text-gray-4">
               <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -65,7 +66,7 @@ const Pages = ({ maxPages, currentPage }: { maxPages: number; currentPage: numbe
             </button>
           </li>
 
-          <Link href={createHref(1)} className={cn('flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-[#1A693A] bg-green-dark', currentPage == 1 ? 'bg-green-dark text-white' : '')}>
+          <Link href={createHref(1)} className={cn('flex mx-1 py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-[#1A693A]', currentPage == 1 ? 'bg-green-dark text-white' : '')}>
             1
           </Link>
 
@@ -79,7 +80,7 @@ const Pages = ({ maxPages, currentPage }: { maxPages: number; currentPage: numbe
 
           {pageConfig.pages.map((p) => (
             <li key={p}>
-              <Link href={createHref(p)} className={cn('flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-[#1A693A] bg-green-dark', currentPage == p ? 'bg-green-dark text-white' : '')}>
+              <Link href={createHref(p)} className={cn('flex mx-1 py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-[#1A693A]', currentPage == p ? 'bg-green-dark text-white' : '')}>
                 {p}
               </Link>
             </li>
@@ -93,25 +94,9 @@ const Pages = ({ maxPages, currentPage }: { maxPages: number; currentPage: numbe
             </>
           ) : null}
 
-          <Link href={createHref(maxPages)} className={cn('flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-[#1A693A] bg-green-dark', currentPage == maxPages ? 'bg-green-dark text-white' : '')}>
+          <Link href={createHref(maxPages)} className={cn('flex mx-1 py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-[#1A693A]', currentPage == maxPages ? 'bg-green-dark text-white' : '')}>
             {maxPages}
           </Link>
-
-          <li>
-            <button
-              id="paginationLeft"
-              aria-label="button for pagination left"
-              type="button"
-              className="flex items-center justify-center w-8 h-9 ease-out duration-200 rounded-[3px] hover:text-white hover:bg-[#1A693A] bg-green-dark disabled:text-gray-4"
-            >
-              <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M5.82197 16.1156C5.65322 16.1156 5.5126 16.0594 5.37197 15.9469C5.11885 15.6937 5.11885 15.3 5.37197 15.0469L11.2782 9L5.37197 2.98125C5.11885 2.72812 5.11885 2.33437 5.37197 2.08125C5.6251 1.82812 6.01885 1.82812 6.27197 2.08125L12.6282 8.55C12.8813 8.80312 12.8813 9.19687 12.6282 9.45L6.27197 15.9187C6.15947 16.0312 5.99072 16.1156 5.82197 16.1156Z"
-                  fill=""
-                />
-              </svg>
-            </button>
-          </li>
         </ul>
       </div>
     </div>
