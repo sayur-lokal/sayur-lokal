@@ -3,8 +3,12 @@ FROM oven/bun:latest AS builder
 
 WORKDIR /app
 
-# Set environment variables
+# Set environment variables for build stage
 ENV NEXT_TELEMETRY_DISABLED=1
+# These ARGs will be passed from docker-compose or docker build command
+ARG NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+# Make the ARGs available as environment variables during build
+ENV NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=$NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 
 # Copy package.json and lockfile
 COPY package.json bun.lockb ./
