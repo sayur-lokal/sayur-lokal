@@ -1,16 +1,25 @@
+
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useState, useEffect, useCallback } from "react";
 
-const CustomSelect = ({ options }) => {
+const categories = ["Semua Kategori", "Sembako", "Sayur", "Bumbu Dapur", "Buah", "Paket Masak", "Tanpa Kategori", "Siap Saji", "Protein", "Sarapan", "Harga Grosir"];
+
+const CategorySelector = () => {
+    const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [category, setCategory] = useState<string>(categories[0]);
 
   const toggleDropdown = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen])
 
-  const handleOptionClick = (option) => {
-    setSelectedOption(option);
+  const handleOptionClick = (selectedCategory: string) => {
+    setCategory(selectedCategory);
     toggleDropdown();
+    const searchParams = new URLSearchParams();
+    searchParams.set("category", selectedCategory);
+    const url = `products?${searchParams.toString()}`;
+    router.push(url);
   };
 
   useEffect(() => {
@@ -38,18 +47,18 @@ const CustomSelect = ({ options }) => {
         }`}
         onClick={toggleDropdown}
       >
-        {selectedOption.label}
+        {category}
       </div>
       <div className={`select-items ${isOpen ? "" : "select-hide"}`}>
-        {options.slice(1, -1).map((option: {label: string, value: string}, index: number) => (
+        {categories.slice(1, -1).map((cat: string) => (
           <div
-            key={index}
-            onClick={() => handleOptionClick(option)}
+            key={cat}
+            onClick={() => handleOptionClick(cat)}
             className={`select-item cursor-pointer hover:underline ${
-              selectedOption === option ? "same-as-selected" : ""
+              category === cat ? "same-as-selected" : ""
             }`}
           >
-            {option.label}
+            {cat}
           </div>
         ))}
       </div>
@@ -57,4 +66,4 @@ const CustomSelect = ({ options }) => {
   );
 };
 
-export default CustomSelect;
+export default CategorySelector;
