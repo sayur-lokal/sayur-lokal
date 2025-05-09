@@ -63,7 +63,7 @@ const Products = ({ products }: {products: QueryResult}) => {
                                 </div>
                             </div>
                             <Content displayMode={displayMode} shopData={products.products} />
-                            <Pagination />
+                            <Pagination currentPage={products.page} maxPages={products.totalPages} />
                         </div>
                     </div>
                 </div>
