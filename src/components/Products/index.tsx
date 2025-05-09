@@ -55,7 +55,7 @@ const Products = ({ products }: {products: QueryResult}) => {
                                         <SortSelect disabled={false} />
 
                                         <p>
-                                            Showing <span className="text-dark">9 of 50</span>{" "}
+                                            Showing <span className="text-[#D75A4A]">9 of 50</span>{" "}
                                             Products
                                         </p>
                                     </div>

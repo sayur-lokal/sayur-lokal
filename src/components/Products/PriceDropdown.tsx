@@ -35,7 +35,7 @@ const PriceDropdown = ({ disabled }: { disabled: boolean; }) => {
                 onClick={() => setToggleDropdown(!toggleDropdown)}
                 className="cursor-pointer flex items-center justify-between py-3 pl-6 pr-5.5"
             >
-                <p className="text-dark">Price</p>
+                <p className="text-dark">Harga</p>
                 <button
                     disabled={disabled}
                     onClick={() => setToggleDropdown(!toggleDropdown)}
