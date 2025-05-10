@@ -2,6 +2,7 @@ import { selectTotalPrice } from '@/redux/features/cart-slice';
 import { useAppSelector } from '@/redux/store';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Price from '../Price';
 
 const OrderSummary = () => {
   const cartItems = useAppSelector((state) => state.cartslice.items);
@@ -33,7 +34,7 @@ const OrderSummary = () => {
                 <p className="text-dark">{item.product.title}</p>
               </div>
               <div>
-                <p className="text-dark text-right">${item.product.discountedPrice * item.quantity}</p>
+                <p className="text-dark text-right"><Price price={item.product.discountedPrice * item.quantity} /></p>
               </div>
             </div>
           ))}
@@ -44,7 +45,7 @@ const OrderSummary = () => {
               <p className="font-medium text-lg text-dark">Total</p>
             </div>
             <div>
-              <p className="font-medium text-lg text-dark text-right">${totalPrice}</p>
+              <p className="font-medium text-lg text-dark text-right"><Price price={totalPrice} /></p>
             </div>
           </div>
 
