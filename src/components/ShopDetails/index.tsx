@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import Breadcrumb from '../Common/Breadcrumb';
 import Image from 'next/image';
-import Newsletter from '../Common/Newsletter';
 import RecentlyViewdItems from './RecentlyViewd';
 import { usePreviewSlider } from '@/app/context/PreviewSliderContext';
 import { useAppSelector, AppDispatch } from '@/redux/store';
@@ -12,9 +11,9 @@ import ProductAttributes from '../Shared/InfoProps/ProductAttrb';
 import ProductTitle from '../Shared/InfoProps/ProductTitle';
 import ProductPrice from '../Shared/InfoProps/ProductPrice';
 import { ProductRating } from '../../lib/rating';
-// import { useParams } from "next/navigation";
 import { fetchProductById } from '@/redux/features/product-details';
 import { StarRatingDisplay } from '../Review';
+import SimilarProducts from './SimilarProducts/index';
 
 interface ShopDetailsProps {
   productId: string;
@@ -197,8 +196,8 @@ const ShopDetails: React.FC<ShopDetailsProps> = ({ productId }) => {
               {activeTab === 'reviews' && <ProductReview product={currentProduct} />}
             </div>
           </section>
-
-          <RecentlyViewdItems />
+          <RecentlyViewdItems/>
+          <SimilarProducts currentProduct={currentProduct} />
         </div>
       </section>
     </>

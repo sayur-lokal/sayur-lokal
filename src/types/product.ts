@@ -21,11 +21,11 @@ export const parseProduct = (raw: any): Product => {
 const ProductImageSchema = z
   .object({
     thumbnails: z
-      .array(z.string())
+      .array(z.string().url("Invalid thumbnail URL"))
       .min(1, "At least one thumbnail URL is required")
       .describe("list of thumbnail image URLs"),
     previews: z
-      .array(z.string())
+      .array(z.string().url("Invalid preview URL"))
       .min(1, "At least one preview URL is required")
       .describe("list of preview image URLs"),
   })
@@ -56,7 +56,7 @@ export const productSchema = z
       commaSeparatedStringArray,
       z.array(z.string())
     ]).describe(
-      "the category list of the product"
+      "Tags for flexible categorization/labels, e.g., cocok dibeli barengan, produk serupa, promo, etc"
     ),
     shopId: z
       .number()
@@ -83,13 +83,8 @@ export const productSchema = z
       productType: z.enum(["standard", "premium"]).optional().describe("e.g. eco-friendly/organic"),
       isEcoFriendly: z.boolean().optional(),
       isOrganic: z.boolean().optional(),
+      description:z.string().optional(),
     }).optional(),
-    // rating: z
-    // .number()
-    // .min(0, "Rating cannot be negative")
-    // .max(5, "Rating cannot exceed 5")
-    // .optional()
-    // .describe("average product rating (0-5)"),
   })
   .refine((data) => data.discountedPrice <= data.price, {
     message: "Discounted price cannot be greater than the original price",
@@ -116,12 +111,14 @@ export const defaultProduct = (): Product => ({
     productType: "standard", // e.g. eco-friendly/organic
     isEcoFriendly: false,
     isOrganic: false,
+    description: "",
     },
     ingredients: [],// only for meal kits
     reviews: [{
       productId: "", 
       buyerId: "",   
       rating: 0,
+      comment: "",
       createdAt: new Date().toISOString()
     }],
   })

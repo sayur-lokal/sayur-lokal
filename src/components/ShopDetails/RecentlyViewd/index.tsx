@@ -4,7 +4,6 @@ import shopData from "@/components/Shared/DummyData/shopData";
 import ProductItem from "@/components/Common/ProductItem";
 import Image from "next/image";
 import Link from "next/link";
-
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { useCallback, useRef } from "react";
 import "swiper/css/navigation";
@@ -23,6 +22,7 @@ const RecentlyViewdItems = () => {
     sliderRef.current.swiper.slideNext();
   }, []);
 
+
   return (
     <section className="overflow-hidden pt-17.5">
       <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0 pb-15 border-b border-gray-3">
@@ -30,17 +30,17 @@ const RecentlyViewdItems = () => {
           {/* <!-- section title --> */}
           <div className="mb-10 flex items-center justify-between">
             <div>
-              <span className="flex items-center gap-2.5 font-medium text-dark mb-1.5">
+              {/* <span className="flex items-center gap-2.5 font-medium text-dark mb-1.5">
                 <Image
                   src="/images/icons/icon-05.svg"
                   width={17}
                   height={17}
                   alt="icon"
                 />
-                Categories
-              </span>
+                Similar Products
+              </span> */}
               <h2 className="font-semibold text-xl xl:text-heading-5 text-dark">
-                Browse by Category
+                Produk Serupa Lainnya
               </h2>
             </div>
 

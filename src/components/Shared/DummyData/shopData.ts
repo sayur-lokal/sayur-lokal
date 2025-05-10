@@ -7,7 +7,12 @@ export const shopData: Product[] = [
  //staples,1
   {
     title: "Telur Ayam Fresh 1 Krat isi 30 pcs",
-    reviews: [{productId: "1", buyerId: "user2", rating: 5, createdAt: new Date().toISOString()},],
+    reviews: [{
+      productId: "1",
+      buyerId: "user2", 
+      rating: 5, 
+      comment: "Telurnya segar, pengemasan sangat rapi dengan aluminium foil dan ice gel. Sampai dalam kondisi baik dan tidak ada yang pecah. Sangat puas dengan kualitasnya!",
+      createdAt: new Date().toISOString()},],
     price: 59000.0,
     discountedPrice: 57000.0,
     category: ["sembako", "protein", "harga grosir"],
@@ -23,20 +28,27 @@ export const shopData: Product[] = [
       ],
     },
     productAttrb: {
-      productType: "standard",
-      isEcoFriendly: false,
-      isOrganic: false,
+      productType: "premium",
+      isEcoFriendly: true,
+      isOrganic: true,
+      description: "Kemasan pengiriman menggunakan Aluminium Foil & Ice gel untuk menjaga kualitas produk tetap segar saat diterima oleh customer",
     },
     shopId: 1, // Placeholder shopId
     createdAt: "2023-10-26T10:00:00Z", // Placeholder createdAt
   },
   {
     title: "Topi Koki Beras Setra Ramos 5 kg",
-    reviews: [{productId: "2", buyerId: "user5", rating: 4.5, createdAt: new Date().toISOString()},],
+    reviews: [{
+      productId: "2", 
+      buyerId: "user5", 
+      rating: 4.5, 
+      comment: "Berasnya putih bersih dan pulen, cocok untuk masakan sehari-hari. Kualitas bagus, hanya sedikit butiran patah tapi tidak masalah. Tetap recommended!",
+      createdAt: new Date().toISOString()},],
     price: 76000.0,
     discountedPrice: 74000.0,
     category: ["sembako"],
     id: "2",
+    description: "Beras putih lokal yang diolah secara modern dan higienis. Bebas pestisida, pengawet, pewarna, dan bahan kimia lain.",
     imgs: {
       thumbnails: [
         "/images/products/beras_5kg_thumb_1.png",
@@ -48,21 +60,32 @@ export const shopData: Product[] = [
       ],
     },
     productAttrb: {
-      productType: "standard",
-      isEcoFriendly: false,
+      productType: "premium",
+      isEcoFriendly: true,
       isOrganic: false,
     },
     shopId: 1, // Placeholder shopId
     createdAt: "2023-10-26T10:00:00Z", // Placeholder createdAt
   },
   {
-    title: "Ubi Ungu 1 kg",
-    reviews: [{productId: "3", buyerId: "user1", rating: 4, createdAt: new Date().toISOString()},
-      {productId: "3", buyerId: "user2", rating: 5, createdAt: new Date().toISOString()}],
+    title: "Ubi Ungu Murasaki Ungu Premium 1 kg",
+    reviews: [{
+      productId: "3", 
+      buyerId: "user1", 
+      rating: 4, 
+      comment: "Ubinya manis dan segar, tapi ada beberapa yang ukurannya kecil. Cocok buat cemilan sehat!",
+      createdAt: new Date().toISOString()},
+      {
+      productId: "3", 
+      buyerId: "user2", 
+      rating: 5, 
+      comment: "Rasanya enak banget dan teksturnya lembut. Dikemas rapi dan sampai dalam kondisi bagus!"
+      },],
     price: 28000.0,
     discountedPrice: 26000.0,
     category: ["tanpa kategori"],
     id: "3",
+    description: "Dipetik oleh Mitra Petani terbaik dan dikemas secara ekslusif oleh sayurlokal",
     imgs: {
       thumbnails: [
         "/images/products/ubi_ungu_1kg_thumb_1.png",
@@ -74,9 +97,9 @@ export const shopData: Product[] = [
       ],
     },
     productAttrb: {
-      productType: "standard",
-      isEcoFriendly: false,
-      isOrganic: false,
+      productType: "premium",
+      isEcoFriendly: true,
+      isOrganic: true,
     },
     shopId: 1, // Placeholder shopId
     createdAt: "2023-10-26T10:00:00Z", // Placeholder createdAt
@@ -1825,6 +1848,57 @@ export const shopData: Product[] = [
     },
     shopId: 1,
     createdAt: "2023-10-26T10:00:00Z",
+  },
+  {
+    title: "Roti Tawar Gandum Bakery Selection",
+    reviews: [],
+    price: 18000.0,
+    discountedPrice: 16000.0,
+    category: ["sarapan", "siap saji"],
+    id: "20",
+    description: "Roti tawar gandum yang terbuat dari tepung gandum pilihan dan diproses dengan standar kualitas teknologi Jepang. Teksturnya sangat lembut dan berserat tinggi. Cocok untuk dipadukan dengan berbagai selai, isian atau kreasi hidangan lainnya.",
+    
+    productAttrb: {
+      productType: "premium",
+      isEcoFriendly: true,
+      isOrganic: true,
+    },
+    shopId: 1, // Placeholder shopId
+    createdAt: "2023-10-26T10:00:00Z", // Placeholder createdAt
+  },
+  {
+    title: "Paket Masak Sayur Asem Lengkap (Meal Kits)",
+    reviews: [{
+      productId: "21", 
+      buyerId: "user1", 
+      rating: 3.5, 
+      createdAt: new Date().toISOString()},
+      {
+        productId: "21", 
+        buyerId: "user2", 
+        rating: 4.5, 
+        createdAt: new Date().toISOString()}],
+    price: 30000.0,
+    discountedPrice: 28000.0,
+    category: ["paket masak", "siap saji"],
+    id: "21",
+    description: "Ready-to-cook ingredients for 5 portions",
+    ingredients: sayurAsemIngredients,
+    imgs: {
+      thumbnails: [
+      "/images/products/paket_masak_sayur_asem_lengkap_thumb_1.png",
+        "/images/products/paket_masak_sayur_asem_lengkap_thumb_2.png",
+      ],
+      previews: [
+      "/images/products/paket_masak_sayur_asem_lengkap_preview_1.png",
+        "/images/products/paket_masak_sayur_asem_lengkap_preview_2.png",
+      ],
+      },
+    productAttrb: {
+      productType: "standard",
+    },
+    shopId: 1,
+    createdAt: "2023-10-26T10:00:00Z", // Placeholder createdAt
   },
 ];
 
