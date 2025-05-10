@@ -102,40 +102,14 @@ const BuyerSignup = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitError('');
-
-    if (!validateForm()) {
+      setSubmitError('');
+      
+      if (!validateForm()) {
+        e.preventDefault();
       return;
     }
 
     setIsSubmitting(true);
-
-    try {
-      const formDataObj = new FormData();
-      formDataObj.append('username', formData.username);
-      formDataObj.append('name', formData.name);
-      formDataObj.append('email', formData.email);
-      formDataObj.append('password', formData.password);
-      formDataObj.append('role', 'buyer');
-
-      const response = await fetch('/api/auth/signup', {
-        method: 'POST',
-        body: formDataObj,
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Signup failed');
-      }
-
-      // Redirect ke halaman login setelah berhasil
-      router.push('/signin?registered=true');
-    } catch (error) {
-      setSubmitError(error instanceof Error ? error.message : 'Something went wrong');
-    } finally {
-      setIsSubmitting(false);
-    }
   };
 
   return (
@@ -154,7 +128,8 @@ const BuyerSignup = () => {
             </div>
 
             <div className="mt-5.5">
-              <form onSubmit={handleSubmit} noValidate>
+              <form onSubmit={handleSubmit} action="/api/auth/signup" method="POST">
+                <input type="hidden" name="role" value="buyer" />
                 <div className="mb-5">
                   <label htmlFor="username" className="block mb-2.5">
                     Username <span className="text-red">*</span>
