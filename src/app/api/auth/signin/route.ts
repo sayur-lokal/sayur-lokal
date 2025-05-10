@@ -8,7 +8,6 @@ import { ERR_USER_NOT_FOUND, ERR_PASSWORD_NOT_MATCH } from '@/lib/auth'
 
 import { mockAuth } from "@/lib/mock-users";
 import { generateAccessToken, generateRefreshToken,  ACCESS_TOKEN_EXPIRY,REFRSH_TOKEN_EXPIRY } from "@/lib/jwt";
-import { NextURL } from "next/dist/server/web/next-url";
 import { signInSchema } from "@/lib/sign-in";
 
 export async function POST(request: NextRequest): Promise<NextResponse>{
@@ -33,7 +32,7 @@ export async function POST(request: NextRequest): Promise<NextResponse>{
 
         const [accessToken, refreshToken] = await Promise.all([generateAccessToken(payload), generateRefreshToken(payload)])
 
-        const response = redirect(new NextURL("/", request.url))
+        const response = redirect(new URL("/", request.url))
         response.cookies.set({
             name: 'accessToken',
             value: accessToken,

@@ -69,49 +69,14 @@ const Signin = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitError('');
-
-    if (!validateForm()) {
+      setSubmitError('');
+      
+      if (!validateForm()) {
+        e.preventDefault();
       return;
     }
 
     setIsSubmitting(true);
-
-    try {
-      const formDataObj = new FormData();
-      formDataObj.append('email', formData.email);
-      formDataObj.append('password', formData.password);
-
-      const response = await fetch('/api/auth/signin', {
-        method: 'POST',
-        body: formDataObj,
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Login failed');
-      }
-      // Ambil data user dari response
-      const userData = await response.json();
-
-      // Simpan user ke Redux store
-      dispatch(
-        setUser({
-          email: userData.email,
-          role: userData.role,
-          username: userData.username,
-          name: userData.name,
-        })
-      );
-
-      // Redirect ke halaman utama
-      router.push('/');
-    } catch (error) {
-      setSubmitError(error instanceof Error ? error.message : 'Something went wrong');
-    } finally {
-      setIsSubmitting(false);
-    }
   };
 
   return (
@@ -125,7 +90,7 @@ const Signin = () => {
             </div>
 
             <div>
-              <form onSubmit={handleSubmit} noValidate>
+              <form onSubmit={handleSubmit} action="/api/auth/signin" method="POST">
                 <div className="mb-5">
                   <label htmlFor="email" className="block mb-2.5">
                     Email
