@@ -1,12 +1,32 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useAuth } from '@/app/context/AuthContext';
 
 const SellerSignup = () => {
+    const currentSearchParams = useSearchParams()
+
+    const [generalError, setGeneralError] = useState<string>();
+    useEffect(() => {
+        const errorCode = currentSearchParams.get('error');
+        switch (errorCode) {
+            case "ERR_NO_UID":
+                setGeneralError("you need to register a seller account first")
+                break
+            case "ERR_INTERNAL_SERVER_ERROR":
+                const errorID = currentSearchParams.get("error_id")
+                if (errorID) {
+                    setGeneralError(`failed to register new seller, see server logs for detail, error ID: ${errorID}`)
+                } else {
+                    setGeneralError("failed to register new seller, see server logs for detail")
+                }
+                
+        }
+    }, [currentSearchParams])
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -85,23 +105,13 @@ const SellerSignup = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    
     setSubmitError('');
 
     if (!validateForm()) {
+        e.preventDefault();
       return;
     }
-
-    setIsSubmitting(true);
-
-    // Simpan data ke context untuk digunakan di halaman shop
-    setSellerRegistrationData({
-      email: formData.email,
-      password: formData.password,
-    });
-
-    // Redirect ke halaman shop signup
-    router.push('/signup/seller/shop');
   };
 
   return (
@@ -115,12 +125,13 @@ const SellerSignup = () => {
                   ← Back to role selection
                 </Link>
               </div>
+              {generalError && <div className="mb-4 p-3 bg-red/10 text-red rounded-md text-sm">{generalError}</div>}
               <h2 className="font-semibold text-xl sm:text-2xl xl:text-heading-5 text-dark mb-1.5">Create Your Shop Account</h2>
               <p>Enter your detail below</p>
             </div>
 
             <div className="mt-5.5">
-              <form onSubmit={handleSubmit} noValidate>
+              <form onSubmit={handleSubmit} action="/api/auth/signup" method="POST" noValidate>
                 <h3 className="text-lg font-medium text-dark mb-4">Seller&apos;s Personal Information</h3>
 
                 <div className="mb-5">
@@ -196,6 +207,8 @@ const SellerSignup = () => {
                 </div>
 
                 {submitError && <div className="mb-4 p-3 bg-red/10 text-red rounded-md text-sm">{submitError}</div>}
+
+                <input type='hidden' value="seller" name="role"></input>
 
                 <button
                   type="submit"
