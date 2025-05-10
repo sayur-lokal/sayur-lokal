@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { okJSON, unauthorized } from "@/lib/api-utils"
 import { decodeAccessToken } from "@/lib/jwt"
-import { getMockedUser } from "@/lib/mock-users"
+import { getMockedUser, getUser } from "@/lib/mock-users"
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
     const accesToken = request.cookies.get('accessToken')?.value
@@ -19,10 +19,15 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         return unauthorized()
     }
 
-    const user = await getMockedUser(sub)
+    const user = await getUser(sub)
     if (!user) {
-        return unauthorized()
-    }
+        const mockedUser = await getMockedUser(sub)
+        if (!mockedUser) {
+            return unauthorized()
+        }
 
+        return okJSON(mockedUser)
+    }
+    
     return okJSON(user)
 }
