@@ -32,7 +32,7 @@ export async function POST(request: NextRequest): Promise<NextResponse>{
 
         const [accessToken, refreshToken] = await Promise.all([generateAccessToken(payload), generateRefreshToken(payload)])
 
-        const response = redirect(new URL("/", request.url))
+        const response = user.role == "buyer" ?  redirect(new URL("/", request.url)) : redirect(new URL(`/shop/${user.id}`, request.url))
         response.cookies.set({
             name: 'accessToken',
             value: accessToken,
