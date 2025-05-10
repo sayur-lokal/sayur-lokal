@@ -16,7 +16,7 @@ const ShopSignup = () => {
         } else {
             setUid(uid)
         }
-    }, [currentSearchParams])
+    }, [currentSearchParams, router])
 
   const [formData, setFormData] = useState({
     name: '',
