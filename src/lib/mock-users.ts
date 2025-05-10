@@ -1,6 +1,34 @@
 import { User } from "@/types/user"
 import { hashPassword, compareHash } from "./auth"
 import { ERR_USER_NOT_FOUND, ERR_PASSWORD_NOT_MATCH } from './auth'
+import { v4 as uuidv4 } from 'uuid';
+
+const users: User[] = []
+
+export const createUser = async ({name, role, email, password}: {name: string, role: "admin" | "seller" | "buyer", email: string, password: string}): Promise<User> => {
+    const hashedPassword = await hashPassword(password)
+    const user = {
+        id: uuidv4(), name, role, email, hashed_password: hashedPassword, address: "", createdAt: new Date().toISOString()
+    }
+    users.push(user)
+    return user
+}
+
+export const getUser = async(userID: string): Promise<User | null> => {
+    const index = users.findIndex(user => user.id == userID)
+    if (index == -1) {
+        return null
+    }
+    return {...users[index], hashed_password: undefined}
+}
+
+export const getUserByEmail = async(email: string): Promise<User | null> => {
+    const index = users.findIndex(user => user.email == email)
+    if (index == -1) {
+        return null
+    }
+    return {...users[index], hashed_password: undefined}
+}
 
 const createMockUser = async ({name, role, email, password}: {name: string, role: "admin" | "seller" | "buyer", email: string, password: string}): Promise<User> => {
     const hashedPassword = await hashPassword(password)
