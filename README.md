@@ -1,4 +1,4 @@
-![Sayur Lokal](brainstorm/sayur-lokal-inline.svg)
+ali![Sayur Lokal](brainstorm/sayur-lokal-inline.svg)
 
 # Sayur Lokal - Fresh. Local. Sustainable.
 
@@ -66,6 +66,116 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Docker Setup
+
+This project includes Docker configuration for easy deployment and development. The setup uses Bun as the runtime environment.
+
+### Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/) (optional, for easier development)
+
+### Building and Running with Docker
+
+Build and run the Docker image:
+
+```bash
+# Build the Docker image
+docker build -t sayur-lokal .
+
+# Run the container
+docker run -p 3000:3000 sayur-lokal
+```
+
+### Using Docker Compose
+
+For a simpler setup, you can use Docker Compose:
+
+```bash
+# Build and start the application
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop the application
+docker-compose down
+```
+
+The application will be available at [http://localhost:3000](http://localhost:3000).
+
+### Using the Container Helper Script
+
+For convenience, a helper script is included to simplify container operations with either Docker or Podman:
+
+```bash
+# Make the script executable (one-time setup)
+chmod +x docker.sh
+
+# Show available commands
+./docker.sh help
+
+# Build and start the application (automatically uses env vars from .env file)
+./docker.sh start
+
+# View logs
+./docker.sh logs
+
+# Stop the application
+./docker.sh stop
+```
+
+The helper script:
+- Automatically detects if Docker is installed, with Podman as a fallback
+- Extracts and uses environment variables from your `.env` file when building the image
+- Makes it easier to include client-side environment variables like the Google Maps API key
+- Works with both Docker Compose and Podman Compose
+
+### Environment Variables
+
+The application uses environment variables for configuration. A sample `.env.example` file is provided as a template:
+
+```bash
+# Copy the example file
+cp .env.example .env
+
+# Edit the file with your settings
+nano .env
+```
+
+When using Docker Compose, these environment variables will be automatically loaded from the `.env` file. You can also pass them directly to the Docker container:
+
+```bash
+docker run -p 3000:3000 \
+  -e NODE_ENV=production \
+  -e NEXT_PUBLIC_API_URL=https://api.example.com \
+  sayur-lokal
+```
+
+### Important Note About Environment Variables
+
+Next.js injects environment variables at **build time**, not runtime. For client-side environment variables (prefixed with `NEXT_PUBLIC_`), you must:
+
+1. Pass them as build arguments when building the Docker image:
+
+```bash
+docker build \
+  --build-arg NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key \
+  -t sayur-lokal .
+```
+
+2. When using docker-compose, you can set them in your .env file and they'll be passed automatically as build args:
+
+```bash
+# In your .env file
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key
+
+# Then run
+docker-compose up -d
+```
+
+This ensures that environment variables are available during both the build process and at runtime.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
@@ -84,3 +194,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## Join Us
 
 Join us in building a healthier, more sustainable future. Let's connect local goodness with modern convenience.
+
+
+## Live version
+
+The website is live and accessible [here](https://varied-philippe-rkspx-a8834106.koyeb.app/)

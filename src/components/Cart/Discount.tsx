@@ -22,7 +22,7 @@ const Discount = () => {
                 />
               </div>
 
-              <button type="submit" className="inline-flex font-medium text-white py-3 px-8 rounded-md ease-out duration-200 hover:bg-green-dark">
+              <button type="submit" className="inline-flex font-medium text-white py-3 px-8 rounded-md ease-out duration-200 bg-green-dark hover:bg-[#1A693A]">
                 Apply Code
               </button>
             </div>

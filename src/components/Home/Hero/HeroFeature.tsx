@@ -4,7 +4,7 @@ import Image from "next/image";
 const featureData = [
   {
     img: "/images/icons/icon-01.svg",
-    title: "Dijamin sampai tujuan",
+    title: "Dijamin Sampai Tujuan",
     description: "Diantar oleh kurir lokal berpengalaman",
   },
   {
@@ -14,8 +14,8 @@ const featureData = [
   },
   {
     img: "/images/icons/icon-03.svg",
-    title: "Dijamin sehat",
-    description: "Semua produk telah tersertifikasi",
+    title: "Kualitas Sehat Terjamin",
+    description: "Produk bersertifikat dan aman dikonsumsi",
   },
 ];
 

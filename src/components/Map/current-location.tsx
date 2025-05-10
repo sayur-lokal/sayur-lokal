@@ -19,7 +19,7 @@ const CurrentLocation = () => {
     if (state.status == "error") {
         return <a className="flex items-center gap-1.5 font-medium text-custom-sm text-dark hover:text-[#D75A4A] cursor-pointer hover:underline">
             <MapPinX className="w-4 h-4" />
-            Location service error: ${state.error}</a>
+            Location service error: {state.error}</a>
     }
 
     return <a className="flex items-center gap-1.5 font-medium text-custom-sm text-dark hover:text-[#D75A4A] cursor-pointer hover:underline">

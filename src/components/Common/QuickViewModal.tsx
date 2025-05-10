@@ -4,10 +4,10 @@ import { useModalContext } from '@/app/context/QuickViewModalContext';
 import { AppDispatch, useAppSelector } from '@/redux/store';
 import { addItemToCart } from '@/redux/features/cart-slice';
 import { useDispatch } from 'react-redux';
-import Image from 'next/image';
+import ImageWithFallback from './ImageWithFallback';
 import { usePreviewSlider } from '@/app/context/PreviewSliderContext';
 import { resetQuickView } from '@/redux/features/quickView-slice';
-import { updateproductDetails } from '@/redux/features/product-details';
+import { updateProductDetails } from '@/redux/features/product-details';
 
 
 const QuickViewModal = () => {
@@ -33,7 +33,7 @@ const QuickViewModal = () => {
   const handleAddToCart = () => {
     dispatch(
       addItemToCart({
-        ...product,
+        product: product,
         quantity,
       })
     );
@@ -63,7 +63,7 @@ const QuickViewModal = () => {
   const src = product?.imgs?.previews?.[activePreview];
 
   return (
-    <div className={`${isModalOpen ? 'z-99999' : 'hidden'} fixed top-0 left-0 overflow-y-auto no-scrollbar w-full h-screen sm:py-20 xl:py-25 2xl:py-[230px] bg-green-dark/70 sm:px-8 px-4 py-5`}>
+    <div className={`${isModalOpen ? 'z-99999' : 'hidden'} fixed top-0 left-0 overflow-y-auto no-scrollbar w-full h-screen sm:py-20 xl:py-25 2xl:py-[230px] bg-[#000000]/70 sm:px-8 px-4 py-5`}>
       <div className="flex items-center justify-center ">
         <div className="w-full max-w-[1100px] rounded-xl shadow-3 bg-white p-7.5 relative modal-content">
           <button
@@ -85,13 +85,19 @@ const QuickViewModal = () => {
             <div className="max-w-[526px] w-full">
               <div className="flex gap-5">
                 <div className="flex flex-col gap-5">
-                  {product.imgs.thumbnails?.map((img, key) => (
+                  {product.imgs?.thumbnails?.map((img, key) => (
                     <button
                       onClick={() => setActivePreview(key)}
                       key={key}
                       className={`flex items-center justify-center w-20 h-20 overflow-hidden rounded-lg bg-gray-1 ease-out duration-200 hover:border-2  ${activePreview === key && 'border-2 border-blue'}`}
                     >
-                      <Image src={img || null} alt="thumbnail" width={61} height={61} className="aspect-square" />
+                      <ImageWithFallback
+                        src={img || "/images/placeholder_640_640.svg"}
+                        alt="thumbnail"
+                        width={61}
+                        height={61}
+                        className="aspect-square"
+                      />
                     </button>
                   ))}
                 </div>
@@ -113,14 +119,19 @@ const QuickViewModal = () => {
                       </svg>
                     </button>
 
-                    {src ? <Image src={src} alt="products-details" width={400} height={400} /> : null}
+                    <ImageWithFallback
+                      src={src || "/images/placeholder_640_640.svg"}
+                      alt={product?.title || "Product details"}
+                      width={400}
+                      height={400}
+                    />
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="max-w-[445px] w-full">
-              <span className="inline-block text-custom-xs font-medium text-white py-1 px-3 bg-green mb-6.5">SALE 20% OFF</span>
+              <span className="inline-block text-custom-xs font-medium text-white py-1 px-3 bg-[#D75A4A] mb-6.5">SALE 20% OFF</span>
 
               <h3 className="font-semibold text-xl xl:text-heading-5 text-dark mb-4">{product.title}</h3>
 
@@ -201,7 +212,7 @@ const QuickViewModal = () => {
 
                   <span>
                     <span className="font-medium text-dark"> 4.7 Rating </span>
-                    <span className="text-dark-2"> (5 reviews) </span>
+                    <span className="text-dark-2"> (5 Ulasan) </span>
                   </span>
                 </div>
 
@@ -224,24 +235,24 @@ const QuickViewModal = () => {
                     </defs>
                   </svg>
 
-                  <span className="font-medium text-dark"> In Stock </span>
+                  <span className="font-medium text-dark"> Tersedia </span>
                 </div>
               </div>
 
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has.</p>
+              <p>Produk segar berkualitas tinggi yang dipilih langsung dari petani lokal. Dijamin kesegaran dan kualitasnya untuk memenuhi kebutuhan dapur Anda.</p>
 
               <div className="flex flex-wrap justify-between gap-5 mt-6 mb-7.5">
                 <div>
-                  <h4 className="font-semibold text-lg text-dark mb-3.5">Price</h4>
+                  <h4 className="font-semibold text-lg text-dark mb-3.5">Harga</h4>
 
                   <span className="flex items-center gap-2">
-                    <span className="font-semibold text-dark text-xl xl:text-heading-4">${product.discountedPrice}</span>
-                    <span className="font-medium text-dark-4 text-lg xl:text-2xl line-through">${product.price}</span>
+                    <span className="font-semibold text-dark text-xl xl:text-heading-4">Rp{product.discountedPrice}</span>
+                    <span className="font-medium text-dark-4 text-lg xl:text-2xl line-through">Rp{product.price}</span>
                   </span>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-lg text-dark mb-3.5">Quantity</h4>
+                  <h4 className="font-semibold text-lg text-dark mb-3.5">Jumlah</h4>
 
                   <div className="flex items-center gap-3">
                     <button

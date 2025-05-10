@@ -16,7 +16,7 @@ const Footer = () => {
           </div>
           
           <div className="max-w-[350px] w-full">
-            <h2 className="mb-7.5 text-custom-1 font-medium text-dark">Help & Support</h2>
+            <h2 className="mb-7.5 text-custom-1 font-medium text-dark">Bantuan & Dukungan</h2>
 
             <ul className="flex flex-col gap-3">
               <li className="flex gap-4.5">
@@ -67,7 +67,7 @@ const Footer = () => {
                       fill="#D75A4A"
                     />
                   </svg>
-                  sayurlokal@example.com
+                  hello@sayurlokal.co.id
                 </a>
               </li>
             </ul>
@@ -98,35 +98,6 @@ const Footer = () => {
               </a>
             </div>
             {/* <!-- Social Links end --> */}
-          </div>
-
-          <div className="w-full sm:w-auto">
-            <h2 className="mb-7.5 text-custom-1 font-medium text-dark lg:text-right">Join as Seller</h2>
-
-            <p className="lg:text-right text-lg mb-4">Start selling your fresh produce with us today!</p>
-
-            <div className="flex flex-col lg:items-end gap-3">
-              <a 
-                href="/signup/seller" 
-                className="inline-flex items-center justify-center gap-2 py-3 px-6 text-white rounded-md bg-green-dark ease-out duration-200 hover:bg-[#1A693A]"
-              >
-                <svg 
-                  className="fill-current" 
-                  width="24" 
-                  height="24" 
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" />
-                </svg>
-
-                <span className="font-medium">Register as Seller</span>
-              </a>
-
-              <p className="lg:text-right text-xs text-gray-500 mt-2">
-                *Terms and conditions apply
-              </p>
-            </div>
           </div>
         </div>
         

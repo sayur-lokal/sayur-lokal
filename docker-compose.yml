@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=${NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+    ports:
+      - "${PORT:-3000}:3000"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=${NODE_ENV:-production}
+      - NEXT_TELEMETRY_DISABLED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    # Add volumes for development if needed
+    # volumes:
+    #   - ./src:/app/src
+
+# Development configuration
+  # dev:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     target: builder
+  #   ports:
+  #     - "${PORT:-3000}:3000"
+  #   env_file:
+  #     - .env.local
+  #   environment:
+  #     - NODE_ENV=development
+  #     - NEXT_TELEMETRY_DISABLED=1
+  #   volumes:
+  #     - ./src:/app/src
+  #     - ./public:/app/public
+  #   command: ["bun", "run", "dev"]

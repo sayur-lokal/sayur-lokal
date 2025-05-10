@@ -4,13 +4,13 @@ import { Product } from "@/types/product";
 // Dummy seller products for dashboard view
 export const sellerProductData: Product[] = [
   {
-    title: "Telur Ayam Fresh 1 Krat isi 30pcs",
+    title: "Telur Ayam Fresh 1 Krat isi 30 pcs",
     reviews: [],
     price: 59000.0,
     discountedPrice: 57000.0,
-    categoryId: 1,
+    category: [],
     shopId: 1, //"products from Seller A"
-    id: 101,
+    id: "101",
     createdAt: "2025-04-01T08:00:00Z",
     description: "Telur ayam kampung segar, 1 krat isi 30 butir.",
     imgs: {
@@ -35,9 +35,9 @@ export const sellerProductData: Product[] = [
     reviews: [],
     price: 76000.0,
     discountedPrice: 74000.0,
-    categoryId: 1,
+    category: [],
     shopId: 2, 
-    id: 102,
+    id: "102",
     createdAt: "2025-04-01T08:00:00Z",
     description: "",
     imgs: {
@@ -62,9 +62,9 @@ export const sellerProductData: Product[] = [
     reviews: [],
     price: 28000.0,
     discountedPrice: 26000.0,
-    categoryId: 1,
+    category: [],
     shopId: 3, 
-    id: 103,
+    id: "103",
     createdAt: "2025-04-01T08:00:00Z",
     description: "",
     imgs: {
