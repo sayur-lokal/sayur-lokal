@@ -1,7 +1,8 @@
 "use client"
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { User, userSchema } from "@/types/user";
+import { LogOut } from "lucide-react";
 
 type State = {
     user: User | null
@@ -10,6 +11,45 @@ type State = {
 }
 
 const CurrentUserButton = () => {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+        const [isHovering, setIsHovering] = useState(false);
+        const dropdownRef = useRef<HTMLDivElement>(null);
+
+        useEffect(() => {
+            if (!state.user) {
+                return
+            }
+            const handleClickOutside = (event: MouseEvent) => {
+                if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                    setIsDropdownOpen(false);
+                }
+            };
+
+            document.addEventListener("mousedown", handleClickOutside);
+            return () => {
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+        }, []);
+
+        // Handle dropdown visibility based on hover state
+        useEffect(() => {
+            if (!state.user) {
+                return
+            }
+
+            let timeoutId: NodeJS.Timeout;
+            
+            if (!isHovering && isDropdownOpen) {
+                timeoutId = setTimeout(() => {
+                    setIsDropdownOpen(false);
+                }, 300);
+            }
+            
+            return () => {
+                if (timeoutId) clearTimeout(timeoutId);
+            };
+        }, [isHovering, isDropdownOpen]);
+
     const [state, setState] = useState<State>({
         user: null,
         loading: false
@@ -99,17 +139,57 @@ const CurrentUserButton = () => {
     // here's the view for authenticated state
     if (state.user) {
         return (
-            <div className="flex items-center gap-2.5">
-                {/* Placeholder for icon */}
-                <div className="w-6 h-6 bg-green-200 rounded-full"></div>
-                <div>
-                    <span className="block text-2xs text-dark-4 uppercase">
-                        {state.user.name}
-                    </span>
-                    <p className="font-medium text-custom-sm text-dark">
-                        {state.user.role}
-                    </p>
+            <div
+                className="relative"
+                ref={dropdownRef}
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+            >
+                <div
+                    className="flex items-center gap-2.5 cursor-pointer"
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    onMouseEnter={() => setIsDropdownOpen(true)}
+                >
+                    {/* Placeholder for icon */}
+                    <div className="w-6 h-6 bg-green-200 rounded-full"></div>
+                    <div>
+                        <span className="block text-2xs text-dark-4 uppercase">
+                            {state.user.name}
+                        </span>
+                        <p className="font-medium text-custom-sm text-dark">
+                            {state.user.role}
+                        </p>
+                    </div>
                 </div>
+
+                {/* Dropdown Menu */}
+                {isDropdownOpen && (
+                    <div
+                        className="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-lg z-10 py-2 border border-gray-2"
+                    >
+                        <div className="px-4 py-2 ">
+                            <p className="font-medium text-dark">{state.user.name}</p>
+                            <p className="text-sm text-gray-500">{state.user.email}</p>
+                        </div>
+                        {state.user.role === "seller" && (
+                            <Link
+                                href={`/shop/${state.user.id}`}
+                                className="block px-4 py-2 text-sm text-dark hover:bg-gray-2 hover:underline mb-4"
+                            >
+                                Dashboard
+                            </Link>
+                        )}
+                        <form action="/api/auth/signout" method="GET" className="px-4 py-2">
+                            <button
+                                type="submit"
+                                className="w-full text-center inline-flex gap-2 justify-between font-medium text-white text-custom-sm rounded-md bg-green-dark p-4 leading-none ease-out duration-200 hover:bg-[#1A693A]"
+                            >
+                                Sign Out
+                                <LogOut className="w-4 h-4" />
+                            </button>
+                        </form>
+                    </div>
+                )}
             </div>
         )
     }
