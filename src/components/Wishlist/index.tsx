@@ -3,9 +3,10 @@ import React from 'react';
 import Breadcrumb from '../Common/Breadcrumb';
 import { useAppSelector } from '@/redux/store';
 import SingleItem from './SingleItem';
+import { WishListItem } from '@/redux/features/wishlist-slice';
 
 export const Wishlist = () => {
-  const wishlistItems = useAppSelector((state) => state.wishslice.items);
+  const wishlistItems: WishListItem[] = useAppSelector((state) => state.wishslice.items);
 
   return (
     <>

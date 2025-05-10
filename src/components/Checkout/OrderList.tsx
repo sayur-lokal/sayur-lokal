@@ -10,7 +10,7 @@ const OrderList = () => {
     const cartItems: CartItem[] = useAppSelector((state) => state.cartslice.items);
     const total = useSelector(selectTotalPrice);
 
-    const shippingFee = 15;
+    const shippingFee = 15000;
     return (
         <div className="bg-white shadow-1 rounded-[10px]">
             <div className="border-b border-gray-3 py-5 px-4 sm:px-8.5">

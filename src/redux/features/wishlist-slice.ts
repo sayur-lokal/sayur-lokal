@@ -5,7 +5,7 @@ type InitialState = {
   items: WishListItem[];
 };
 
-type WishListItem = {
+export type WishListItem = {
     product: Product;
     status?: string;
     quantity: number;

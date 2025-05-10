@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { useCartModalContext } from '@/app/context/CartSidebarModalContext';
-import { removeItemFromCart, selectTotalPrice } from '@/redux/features/cart-slice';
+import { CartItem, removeItemFromCart, selectTotalPrice } from '@/redux/features/cart-slice';
 import { useAppSelector } from '@/redux/store';
 import { useSelector } from 'react-redux';
 import SingleItem from './SingleItem';
@@ -12,7 +12,7 @@ import Price from '@/components/Price';
 
 const CartSidebarModal = () => {
   const { isCartModalOpen, closeCartModal } = useCartModalContext();
-  const cartItems = useAppSelector((state) => state.cartslice.items);
+  const cartItems: CartItem[] = useAppSelector((state) => state.cartslice.items);
 
   const totalPrice = useSelector(selectTotalPrice);
 
