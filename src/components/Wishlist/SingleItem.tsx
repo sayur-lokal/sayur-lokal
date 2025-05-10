@@ -2,16 +2,16 @@ import React from 'react';
 import { AppDispatch } from '@/redux/store';
 import { useDispatch } from 'react-redux';
 
-import { removeItemFromWishlist } from '@/redux/features/wishlist-slice';
+import { removeItemFromWishlist, WishListItem } from '@/redux/features/wishlist-slice';
 import { addItemToCart } from '@/redux/features/cart-slice';
 
 import Image from 'next/image';
 
-const SingleItem = ({ item }) => {
+const SingleItem = ({ item }: {item: WishListItem}) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleRemoveFromWishlist = () => {
-    dispatch(removeItemFromWishlist(item.id));
+    dispatch(removeItemFromWishlist(item.product.id));
   };
 
   const handleAddToCart = () => {
@@ -50,12 +50,12 @@ const SingleItem = ({ item }) => {
         <div className="flex items-center justify-between gap-5">
           <div className="w-full flex items-center gap-5.5">
             <div className="flex items-center justify-center rounded-[5px] bg-gray-2 max-w-[80px] w-full h-17.5">
-              {item.imgs && item.imgs.thumbnails ? <Image src={item.imgs?.thumbnails[0]} className="aspect-square object-contain" alt="product" width={100} height={100} /> : null}
+              {item.product.imgs && item.product.imgs.thumbnails ? <Image src={item.product.imgs?.thumbnails[0]} className="aspect-square object-contain" alt="product" width={100} height={100} /> : null}
             </div>
 
             <div>
               <h3 className="text-dark ease-out duration-200 hover:text-[#D75A4A]">
-                <a href="#"> {item.title} </a>
+                <a href="#"> {item.product.title} </a>
               </h3>
             </div>
           </div>
@@ -63,7 +63,7 @@ const SingleItem = ({ item }) => {
       </div>
 
       <div className="min-w-[205px]">
-        <p className="text-dark">${item.discountedPrice}</p>
+        <p className="text-dark">${item.product.discountedPrice}</p>
       </div>
 
       <div className="min-w-[265px]">
